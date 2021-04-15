@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Twitch.js documentation</title>
+    <style>
+    	@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+
+		html {
+			height: 100%;
+		}
+
+		html, body, #app-root {
+			width: 100%;
+			display: flex;
+			flex: 1;
+			flex-direction: column;
+		}
+		
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-size: 14px;
+			background: #141414;
+			color: #b9b9b9;
+		}
+		
+		svg:not(:root).svg-inline--fa {
+  overflow: visible;
+}
+
+.svg-inline--fa {
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+.svg-inline--fa.fa-lg {
+  vertical-align: -0.225em;
+}
+.svg-inline--fa.fa-w-1 {
+  width: 0.0625em;
+}
+.svg-inline--fa.fa-w-2 {
+  width: 0.125em;
+}
+.svg-inline--fa.fa-w-3 {
+  width: 0.1875em;
+}
+.svg-inline--fa.fa-w-4 {
+  width: 0.25em;
+}
+.svg-inline--fa.fa-w-5 {
+  width: 0.3125em;
+}
+.svg-inline--fa.fa-w-6 {
+  width: 0.375em;
+}
+.svg-inline--fa.fa-w-7 {
+  width: 0.4375em;
+}
+.svg-inline--fa.fa-w-8 {
+  width: 0.5em;
+}
+.svg-inline--fa.fa-w-9 {
+  width: 0.5625em;
+}
+.svg-inline--fa.fa-w-10 {
+  width: 0.625em;
+}
+.svg-inline--fa.fa-w-11 {
+  width: 0.6875em;
+}
+.svg-inline--fa.fa-w-12 {
+  width: 0.75em;
+}
+.svg-inline--fa.fa-w-13 {
+  width: 0.8125em;
+}
+.svg-inline--fa.fa-w-14 {
+  width: 0.875em;
+}
+.svg-inline--fa.fa-w-15 {
+  width: 0.9375em;
+}
+.svg-inline--fa.fa-w-16 {
+  width: 1em;
+}
+.svg-inline--fa.fa-w-17 {
+  width: 1.0625em;
+}
+.svg-inline--fa.fa-w-18 {
+  width: 1.125em;
+}
+.svg-inline--fa.fa-w-19 {
+  width: 1.1875em;
+}
+.svg-inline--fa.fa-w-20 {
+  width: 1.25em;
+}
+.svg-inline--fa.fa-pull-left {
+  margin-right: 0.3em;
+  width: auto;
+}
+.svg-inline--fa.fa-pull-right {
+  margin-left: 0.3em;
+  width: auto;
+}
+.svg-inline--fa.fa-border {
+  height: 1.5em;
+}
+.svg-inline--fa.fa-li {
+  width: 2em;
+}
+.svg-inline--fa.fa-fw {
+  width: 1.25em;
+}
+
+.fa-layers svg.svg-inline--fa {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.fa-layers {
+  display: inline-block;
+  height: 1em;
+  position: relative;
+  text-align: center;
+  vertical-align: -0.125em;
+  width: 1em;
+}
+.fa-layers svg.svg-inline--fa {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.fa-layers-counter, .fa-layers-text {
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+}
+
+.fa-layers-text {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.fa-layers-counter {
+  background-color: #ff253a;
+  border-radius: 1em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #fff;
+  height: 1.5em;
+  line-height: 1;
+  max-width: 5em;
+  min-width: 1.5em;
+  overflow: hidden;
+  padding: 0.25em;
+  right: 0;
+  text-overflow: ellipsis;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+
+.fa-layers-bottom-right {
+  bottom: 0;
+  right: 0;
+  top: auto;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+}
+
+.fa-layers-bottom-left {
+  bottom: 0;
+  left: 0;
+  right: auto;
+  top: auto;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+}
+
+.fa-layers-top-right {
+  right: 0;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+
+.fa-layers-top-left {
+  left: 0;
+  right: auto;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+}
+
+.fa-lg {
+  font-size: 1.3333333333em;
+  line-height: 0.75em;
+  vertical-align: -0.0667em;
+}
+
+.fa-xs {
+  font-size: 0.75em;
+}
+
+.fa-sm {
+  font-size: 0.875em;
+}
+
+.fa-1x {
+  font-size: 1em;
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa-3x {
+  font-size: 3em;
+}
+
+.fa-4x {
+  font-size: 4em;
+}
+
+.fa-5x {
+  font-size: 5em;
+}
+
+.fa-6x {
+  font-size: 6em;
+}
+
+.fa-7x {
+  font-size: 7em;
+}
+
+.fa-8x {
+  font-size: 8em;
+}
+
+.fa-9x {
+  font-size: 9em;
+}
+
+.fa-10x {
+  font-size: 10em;
+}
+
+.fa-fw {
+  text-align: center;
+  width: 1.25em;
+}
+
+.fa-ul {
+  list-style-type: none;
+  margin-left: 2.5em;
+  padding-left: 0;
+}
+.fa-ul > li {
+  position: relative;
+}
+
+.fa-li {
+  left: -2em;
+  position: absolute;
+  text-align: center;
+  width: 2em;
+  line-height: inherit;
+}
+
+.fa-border {
+  border: solid 0.08em #eee;
+  border-radius: 0.1em;
+  padding: 0.2em 0.25em 0.15em;
+}
+
+.fa-pull-left {
+  float: left;
+}
+
+.fa-pull-right {
+  float: right;
+}
+
+.fa.fa-pull-left,
+.fas.fa-pull-left,
+.far.fa-pull-left,
+.fal.fa-pull-left,
+.fab.fa-pull-left {
+  margin-right: 0.3em;
+}
+.fa.fa-pull-right,
+.fas.fa-pull-right,
+.far.fa-pull-right,
+.fal.fa-pull-right,
+.fab.fa-pull-right {
+  margin-left: 0.3em;
+}
+
+.fa-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+          animation: fa-spin 2s infinite linear;
+}
+
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+          animation: fa-spin 1s infinite steps(8);
+}
+
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.fa-rotate-90 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.fa-rotate-180 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.fa-rotate-270 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+.fa-flip-horizontal {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+  -webkit-transform: scale(-1, 1);
+          transform: scale(-1, 1);
+}
+
+.fa-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  -webkit-transform: scale(1, -1);
+          transform: scale(1, -1);
+}
+
+.fa-flip-both, .fa-flip-horizontal.fa-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  -webkit-transform: scale(-1, -1);
+          transform: scale(-1, -1);
+}
+
+:root .fa-rotate-90,
+:root .fa-rotate-180,
+:root .fa-rotate-270,
+:root .fa-flip-horizontal,
+:root .fa-flip-vertical,
+:root .fa-flip-both {
+  -webkit-filter: none;
+          filter: none;
+}
+
+.fa-stack {
+  display: inline-block;
+  height: 2em;
+  position: relative;
+  width: 2.5em;
+}
+
+.fa-stack-1x,
+.fa-stack-2x {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.svg-inline--fa.fa-stack-1x {
+  height: 1em;
+  width: 1.25em;
+}
+.svg-inline--fa.fa-stack-2x {
+  height: 2em;
+  width: 2.5em;
+}
+
+.fa-inverse {
+  color: #fff;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.sr-only-focusable:active, .sr-only-focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+.svg-inline--fa .fa-primary {
+  fill: var(--fa-primary-color, currentColor);
+  opacity: 1;
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa .fa-secondary {
+  fill: var(--fa-secondary-color, currentColor);
+  opacity: 0.4;
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-primary {
+  opacity: 0.4;
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-secondary {
+  opacity: 1;
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa mask .fa-primary,
+.svg-inline--fa mask .fa-secondary {
+  fill: black;
+}
+
+.fad.fa-inverse {
+  color: #fff;
+}
+
+	</style>
+    <style id="server-side-styles">.jss8 {
+  min-height: 100%;
+  border-right: 1px solid #444;
+}
+.jss11 {
+  color: #b9b9b9;
+  display: block;
+}
+.jss11:not(:first-child) {
+  margin-top: 16px;
+}
+.jss12 {
+  height: 1em;
+  margin: 0;
+  padding: 4px 8px 4px 12px;
+  font-size: 1.1em;
+  font-weight: bold;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+.jss13 > a {
+  padding-left: 20px;
+}
+.jss9 {
+  color: #b9b9b9;
+  height: 1em;
+  display: block;
+  padding: 8px;
+  overflow: hidden;
+  transition: .3s background-color ease-in-out, .3s border-left-color ease-in-out;
+  border-left: .25em solid transparent;
+  line-height: 1em;
+  text-overflow: ellipsis;
+  text-decoration: none;
+}
+.jss9:hover {
+  background-color: #333333;
+}
+.jss10 {
+  border-color: #647d0f;
+  background-color: #242424;
+}
+.jss10:hover {
+  border-left-color: #88ab14;
+}
+.jss14 {
+  color: #b9b9b9;
+  padding: 16px;
+  position: relative;
+  border-bottom: 1px solid #444;
+  background-color: #242424;
+}
+.jss14 h1 {
+  margin: 0;
+  display: inline;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+.jss14 p {
+  margin: 0;
+}
+.jss17 {
+  padding: 16px;
+}
+.jss17 h2 {
+  margin: 0;
+}
+.jss16 {
+  color: #949494;
+  font-weight: bold;
+  text-decoration: none;
+}
+.jss32 {
+  border: 1px solid #444;
+  margin: 16px;
+  padding: 16px;
+}
+.jss32 h3, .jss32 h4 {
+  margin: 0;
+}
+.jss45 {
+  color: #949494;
+  font-weight: bold;
+  text-decoration: none;
+}
+.jss43 {
+  border: 1px solid #444;
+  margin: 8px 0;
+}
+.jss44 {
+  padding: 8px;
+  background-color: #242424;
+}
+.jss15 {
+  color: #647d0f;
+  transition: color .3s ease-in-out;
+  margin-left: 1em;
+}
+.jss15:hover {
+  color: #88ab14;
+}
+.jss33 {
+  float: right;
+}
+.jss34 {
+  margin-left: .5em;
+}
+.jss35 {
+  color: #647d0f;
+  transition: color .3s ease-in-out;
+  margin-left: 1em;
+}
+.jss35:hover {
+  color: #88ab14;
+}
+.jss41 {
+  margin: 0 0 .5em;
+  display: inline-block;
+  font-family: Monaco, Menlo, "Lucida Console", monospace;
+}
+.jss26 {
+  color: #141414;
+  display: inline-block;
+  padding: 2px 5px;
+  font-size: 12px;
+  margin-left: 1em;
+  border-radius: 5px;
+  text-decoration: none;
+  background-color: #b9b9b9;
+}
+.jss27 {
+  padding: 1px 3px;
+  font-size: 10px;
+  margin-left: .5em;
+}
+.jss28 {
+  cursor: default;
+}
+.jss42 {
+  cursor: pointer;
+}
+.jss37 {
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+}
+.jss36:hover .jss37 {
+  opacity: 1;
+}
+.jss38 {
+  background-color: #cccc70;
+}
+.jss39 {
+  margin: 1em 0 0;
+  font-weight: bold;
+}
+.jss40 {
+  font-family: Monaco, Menlo, "Lucida Console", monospace;
+  font-weight: normal;
+}
+.jss30 {
+  display: inline-block;
+}
+.jss31 {
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+}
+.jss29:hover .jss31 {
+  opacity: 1;
+}
+.jss22 {
+  list-style-type: none;
+}
+.jss23 {
+  color: #949494;
+  font-size: 12px;
+  text-decoration: none;
+}
+.jss24 {
+  background-color: #cccc70;
+}
+.jss25 {
+  background-color: #cc7070;
+}
+.jss18 {
+  border: 1px solid #444;
+  margin: 16px;
+  display: flex;
+  padding: 16px;
+}
+.jss19 {
+  min-width: 300px;
+}
+.jss20 {
+  margin: 0;
+  margin-bottom: 8px;
+}
+.jss21 {
+  margin: 0;
+  padding-left: 16px;
+}
+.jss5 {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.jss6 {
+  width: 250px;
+}
+.jss7 {
+  flex: 1;
+}
+.jss1 {
+  display: flex;
+  border-bottom: 1px solid #444;
+}
+.jss2 {
+  color: #b9b9b9;
+  cursor: pointer;
+  padding: 8px;
+  transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
+  border-right: 1px solid #444;
+  border-bottom: 3px solid transparent;
+  text-decoration: none;
+}
+.jss2:hover {
+  background-color: #333333;
+}
+.jss3 {
+  background-color: #242424;
+  border-bottom-color: #647d0f;
+}
+.jss3:hover {
+  border-bottom-color: #88ab14;
+}
+.jss4 {
+  flex: 1;
+}</style>
+</head>
+<body>
+<div id="app-root"><div class="jss1"><a class="jss2" href="/api/">api</a><a class="jss2" href="/auth/">auth</a><a class="jss2" href="/auth-tmi/">auth-tmi</a><a class="jss2" href="/chat/">chat</a><a class="jss2" href="/easy-bot/">easy-bot</a><a aria-current="page" class="jss2 jss3" href="/eventsub/">eventsub</a><a class="jss2" href="/pubsub/">pubsub</a><a class="jss2" href="/webhooks/">webhooks</a><div class="jss4"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss5"><div class="jss8 jss6"><a class="jss9" href="/eventsub/">Welcome</a><div class="jss11"><h2 class="jss12">Basic usage</h2><div class="jss13"><a class="jss9" title="Getting started" href="/eventsub/docs/basic-usage/getting-started.html">Getting started</a><a class="jss9" title="Listening to events" href="/eventsub/docs/basic-usage/listening-to-events.html">Listening to events</a></div></div><div class="jss11"><h2 class="jss12">Special hosting</h2><div class="jss13"><a class="jss9" title="Serving through a reverse proxy" href="/eventsub/docs/special-hosting/reverse-proxy.html">Serving through a reverse proxy</a><a class="jss9" title="Testing locally using ngrok" href="/eventsub/docs/special-hosting/ngrok.html">Testing locally using ngrok</a></div></div><div class="jss11"><h2 class="jss12">Classes</h2><div class="jss13"><a class="jss9" title="ConnectionAdapter" href="/eventsub/reference/classes/ConnectionAdapter.html">ConnectionAdapter</a><a class="jss9" title="DirectConnectionAdapter" href="/eventsub/reference/classes/DirectConnectionAdapter.html">DirectConnectionAdapter</a><a class="jss9" title="EnvPortAdapter" href="/eventsub/reference/classes/EnvPortAdapter.html">EnvPortAdapter</a><a class="jss9" title="EventSubChannelBanEvent" href="/eventsub/reference/classes/EventSubChannelBanEvent.html">EventSubChannelBanEvent</a><a class="jss9" title="EventSubChannelCheerEvent" href="/eventsub/reference/classes/EventSubChannelCheerEvent.html">EventSubChannelCheerEvent</a><a class="jss9" title="EventSubChannelFollowEvent" href="/eventsub/reference/classes/EventSubChannelFollowEvent.html">EventSubChannelFollowEvent</a><a class="jss9" title="EventSubChannelHypeTrainBeginEvent" href="/eventsub/reference/classes/EventSubChannelHypeTrainBeginEvent.html">EventSubChannelHypeTrainBeginEvent</a><a class="jss9" title="EventSubChannelHypeTrainEndEvent" href="/eventsub/reference/classes/EventSubChannelHypeTrainEndEvent.html">EventSubChannelHypeTrainEndEvent</a><a class="jss9" title="EventSubChannelHypeTrainProgressEvent" href="/eventsub/reference/classes/EventSubChannelHypeTrainProgressEvent.html">EventSubChannelHypeTrainProgressEvent</a><a class="jss9" title="EventSubChannelRaidEvent" href="/eventsub/reference/classes/EventSubChannelRaidEvent.html">EventSubChannelRaidEvent</a><a class="jss9" title="EventSubChannelRedemptionAddEvent" href="/eventsub/reference/classes/EventSubChannelRedemptionAddEvent.html">EventSubChannelRedemptionAddEvent</a><a class="jss9" title="EventSubChannelRedemptionUpdateEvent" href="/eventsub/reference/classes/EventSubChannelRedemptionUpdateEvent.html">EventSubChannelRedemptionUpdateEvent</a><a class="jss9" title="EventSubChannelRewardEvent" href="/eventsub/reference/classes/EventSubChannelRewardEvent.html">EventSubChannelRewardEvent</a><a class="jss9" title="EventSubChannelSubscriptionEvent" href="/eventsub/reference/classes/EventSubChannelSubscriptionEvent.html">EventSubChannelSubscriptionEvent</a><a class="jss9" title="EventSubChannelUnbanEvent" href="/eventsub/reference/classes/EventSubChannelUnbanEvent.html">EventSubChannelUnbanEvent</a><a class="jss9" title="EventSubChannelUpdateEvent" href="/eventsub/reference/classes/EventSubChannelUpdateEvent.html">EventSubChannelUpdateEvent</a><a class="jss9" title="EventSubListener" href="/eventsub/reference/classes/EventSubListener.html">EventSubListener</a><a aria-current="page" class="jss9 jss10" title="EventSubStreamOfflineEvent" href="/eventsub/reference/classes/EventSubStreamOfflineEvent.html">EventSubStreamOfflineEvent</a><a class="jss9" title="EventSubStreamOnlineEvent" href="/eventsub/reference/classes/EventSubStreamOnlineEvent.html">EventSubStreamOnlineEvent</a><a class="jss9" title="EventSubSubscription" href="/eventsub/reference/classes/EventSubSubscription.html">EventSubSubscription</a><a class="jss9" title="EventSubUserAuthorizationRevokeEvent" href="/eventsub/reference/classes/EventSubUserAuthorizationRevokeEvent.html">EventSubUserAuthorizationRevokeEvent</a><a class="jss9" title="EventSubUserUpdateEvent" href="/eventsub/reference/classes/EventSubUserUpdateEvent.html">EventSubUserUpdateEvent</a><a class="jss9" title="MiddlewareAdapter" href="/eventsub/reference/classes/MiddlewareAdapter.html">MiddlewareAdapter</a><a class="jss9" title="ReverseProxyAdapter" href="/eventsub/reference/classes/ReverseProxyAdapter.html">ReverseProxyAdapter</a></div></div><div class="jss11"><h2 class="jss12">Interfaces</h2><div class="jss13"><a class="jss9" title="ConnectCompatibleApp" href="/eventsub/reference/interfaces/ConnectCompatibleApp.html">ConnectCompatibleApp</a><a class="jss9" title="DirectConnectionAdapterConfig" href="/eventsub/reference/interfaces/DirectConnectionAdapterConfig.html">DirectConnectionAdapterConfig</a><a class="jss9" title="EnvPortAdapterConfig" href="/eventsub/reference/interfaces/EnvPortAdapterConfig.html">EnvPortAdapterConfig</a><a class="jss9" title="EventSubConfig" href="/eventsub/reference/interfaces/EventSubConfig.html">EventSubConfig</a><a class="jss9" title="EventSubListenerCertificateConfig" href="/eventsub/reference/interfaces/EventSubListenerCertificateConfig.html">EventSubListenerCertificateConfig</a><a class="jss9" title="MiddlewareAdapterConfig" href="/eventsub/reference/interfaces/MiddlewareAdapterConfig.html">MiddlewareAdapterConfig</a><a class="jss9" title="ReverseProxyAdapterConfig" href="/eventsub/reference/interfaces/ReverseProxyAdapterConfig.html">ReverseProxyAdapterConfig</a></div></div></div><div class="jss7"><main><div class="jss14"><h1>EventSubStreamOfflineEvent</h1><a class="jss15" href="https://github.com/twurple/twurple/blob/main/packages/eventsub/src/Events/EventSubStreamOfflineEvent.ts#L16" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-w-20 fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"></path></svg></a><p>An EventSub event representing a stream going offline.</p></div><div class="jss17"><h2>Overview</h2><div class="jss18"><div class="jss19"><h3 class="jss20">Properties</h3><ul class="jss21"><li class="jss22"><a class="jss23" href="/eventsub/reference/classes/EventSubStreamOfflineEvent.html#broadcasterDisplayName">broadcasterDisplayName</a></li><li class="jss22"><a class="jss23" href="/eventsub/reference/classes/EventSubStreamOfflineEvent.html#broadcasterId">broadcasterId</a></li><li class="jss22"><a class="jss23" href="/eventsub/reference/classes/EventSubStreamOfflineEvent.html#broadcasterName">broadcasterName</a></li></ul></div><div class="jss19"><h3 class="jss20">Methods</h3><ul class="jss21"><li class="jss22"><a class="jss23" href="/eventsub/reference/classes/EventSubStreamOfflineEvent.html#getBroadcaster">getBroadcaster</a><span title="async" class="jss26 jss28 jss27 jss24">a</span></li></ul></div></div><h2>Properties</h2><div id="broadcasterDisplayName" class="jss32 jss29"><div class="jss33 jss31"><a class="jss15 jss34" href="https://github.com/twurple/twurple/blob/main/packages/eventsub/src/Events/EventSubStreamOfflineEvent.ts#L43" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-w-20 fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"></path></svg></a><a class="jss34 jss35" title="Direct link to this symbol" href="/eventsub/reference/classes/EventSubStreamOfflineEvent.html#broadcasterDisplayName"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-w-16 fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg></a></div><h3 class="jss30">broadcasterDisplayName</h3><h4>Type<!-- -->: <!-- -->string</h4><p>The display name of the broadcaster.</p></div><div id="broadcasterId" class="jss32 jss29"><div class="jss33 jss31"><a class="jss15 jss34" href="https://github.com/twurple/twurple/blob/main/packages/eventsub/src/Events/EventSubStreamOfflineEvent.ts#L29" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-w-20 fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"></path></svg></a><a class="jss34 jss35" title="Direct link to this symbol" href="/eventsub/reference/classes/EventSubStreamOfflineEvent.html#broadcasterId"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-w-16 fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg></a></div><h3 class="jss30">broadcasterId</h3><h4>Type<!-- -->: <!-- -->string</h4><p>The ID of the broadcaster.</p></div><div id="broadcasterName" class="jss32 jss29"><div class="jss33 jss31"><a class="jss15 jss34" href="https://github.com/twurple/twurple/blob/main/packages/eventsub/src/Events/EventSubStreamOfflineEvent.ts#L36" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-w-20 fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"></path></svg></a><a class="jss34 jss35" title="Direct link to this symbol" href="/eventsub/reference/classes/EventSubStreamOfflineEvent.html#broadcasterName"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-w-16 fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg></a></div><h3 class="jss30">broadcasterName</h3><h4>Type<!-- -->: <!-- -->string</h4><p>The name of the broadcaster.</p></div><h2>Methods</h2><div id="getBroadcaster" class="jss32 jss36"><div class="jss33 jss37"><a class="jss15 jss34" href="https://github.com/twurple/twurple/blob/main/packages/eventsub/src/Events/EventSubStreamOfflineEvent.ts#L50" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-w-20 fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"></path></svg></a><a class="jss34 jss35" title="Direct link to this symbol" href="/eventsub/reference/classes/EventSubStreamOfflineEvent.html#getBroadcaster"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-w-16 fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg></a></div><h3 class="jss41">getBroadcaster<!-- -->(<!-- -->)</h3><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/await" title="This method actually returns a Promise object, but the use of await is recommended for easier use. Please click on the badge for further information." class="jss26 jss42 jss38">async</a><p>Retrieves more information about the broadcaster.</p><div class="jss39">Return type:<!-- --> <span class="jss40"><a class="jss45" href="/api/reference/classes/HelixUser.html">HelixUser</a></span></div></div></div></main></div></div></div>
+<script src="/pe.js"></script>
+</body>
+</html>
