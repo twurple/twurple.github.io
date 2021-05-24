@@ -620,7 +620,7 @@
 .jss32 h3, .jss32 h4 {
   margin: 0;
 }
-.jss32 :last-child {
+.jss32 > :last-child {
   margin-bottom: 0;
 }
 .jss43 {
@@ -648,11 +648,11 @@
   border: 1px solid #444;
   padding: 8px;
   position: relative;
-  max-width: 400px;
   min-width: 250px;
   background: #242424;
   margin-top: 5px;
   text-align: left;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   border-radius: 3px;
 }
 .jss46::before, .jss46::after {
@@ -677,8 +677,14 @@
   word-wrap: break-word;
   white-space: pre-wrap;
 }
+.jss46 > :first-child {
+  margin-top: 0;
+}
+.jss46 > :last-child {
+  margin-bottom: 0;
+}
 .jss47 {
-  white-space: nowrap;
+  font-family: Monaco, Menlo, "Lucida Console", monospace;
 }
 .jss48 {
   color: #949494;

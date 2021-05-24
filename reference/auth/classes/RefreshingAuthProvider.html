@@ -635,7 +635,7 @@
 .jss42 h3, .jss42 h4 {
   margin: 0;
 }
-.jss42 :last-child {
+.jss42 > :last-child {
   margin-bottom: 0;
 }
 .jss57 {
@@ -663,11 +663,11 @@
   border: 1px solid #444;
   padding: 8px;
   position: relative;
-  max-width: 400px;
   min-width: 250px;
   background: #242424;
   margin-top: 5px;
   text-align: left;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   border-radius: 3px;
 }
 .jss60::before, .jss60::after {
@@ -692,8 +692,14 @@
   word-wrap: break-word;
   white-space: pre-wrap;
 }
+.jss60 > :first-child {
+  margin-top: 0;
+}
+.jss60 > :last-child {
+  margin-bottom: 0;
+}
 .jss61 {
-  white-space: nowrap;
+  font-family: Monaco, Menlo, "Lucida Console", monospace;
 }
 .jss53 {
   color: #949494;
