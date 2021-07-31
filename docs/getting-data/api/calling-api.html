@@ -23,6 +23,7 @@
 			padding: 0;
 			font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 			font-size: 14px;
+			line-height: 1.6em;
 			background: #141414;
 			color: #b9b9b9;
 		}
@@ -491,6 +492,7 @@
   margin: 0 8px;
   padding: 8px;
   transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
+  line-height: 1.3em;
   user-select: none;
   border-bottom: 3px solid transparent;
   text-decoration: none;
@@ -591,26 +593,47 @@
 .jss15:hover {
   border-left-color: #88ab14;
 }
-.jss21 {
-  color: #949494;
-  font-weight: bold;
-  text-decoration: none;
+.jss21 table {
+  border-collapse: collapse;
+}
+.jss21 th, .jss21 td {
+  border: 1px solid #444;
+  padding: 8px;
+}
+.jss21 li {
+  margin: 16px 0;
+}
+.jss21 li::marker {
+  color: #647d0f;
 }
 .jss22 {
+  color: inherit;
+  transition: border-color .3s ease-in-out;
+  font-weight: bold;
+  border-bottom: 1.5px solid #647d0f;
+  text-decoration: none;
+}
+.jss22:hover {
+  border-bottom-color: #88ab14;
+}
+.jss23 {
   display: flow-root;
   padding: 0 1em;
   border-left: 4px solid #ab9120;
   margin-bottom: 1em;
   background-color: #242424;
 }
-.jss23 {
+.jss24 {
   font-size: 1em;
 }
 .jss20 {
   padding: 16px;
 }
 .jss20 h2 {
-  margin: 0;
+  margin: 24px 0 16px;
+}
+.jss20 h2:first-child {
+  margin-top: 0;
 }
 .jss19 {
   color: #b9b9b9;
@@ -640,25 +663,67 @@
 }</style>
 </head>
 <body>
-<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/api/">api</a><a aria-current="page" class="jss2 jss3" href="/docs/chat/">chat</a><a class="jss2" href="/docs/pubsub/">pubsub</a><a class="jss2" href="/docs/eventsub/">eventsub</a><a class="jss2" href="/docs/auth/">auth</a><a class="jss2" href="/docs/auth-tmi/">auth-tmi</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><a class="jss14" href="/docs/chat/">Twurple - Chat Client</a><div class="jss16"><h2 class="jss17">Basic usage</h2><div class="jss18"><a title="Getting started" class="jss14" href="/docs/chat/basic-usage/getting-started.html">Getting started</a><a title="Connecting to Chat" class="jss14" href="/docs/chat/basic-usage/connecting-to-chat.html">Connecting to Chat</a><a title="Listening to events" aria-current="page" class="jss14 jss15" href="/docs/chat/basic-usage/listening-to-events.html">Listening to events</a></div></div><div class="jss16"><h2 class="jss17">Examples</h2><div class="jss18"><a title="Basic bot" class="jss14" href="/docs/chat/examples/basic-bot.html">Basic bot</a><a title="Preventing sub gift spam" class="jss14" href="/docs/chat/examples/sub-gift-spam.html">Preventing sub gift spam</a></div></div></div><div class="jss12"><div class="jss19"><h1>Listening to events</h1></div><div class="jss20"><p>After you established a connection to the Twitch chat server and joined at least one channel, you can listen to events:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre"><span style="color:#cb7832">const</span><span> followAgeListener = chatClient.onMessage(</span><span style="color:#cb7832">async</span><span> (channel: </span><span style="color:#e0c46c">string</span><span>, </span><span class="hljs-attr">user</span><span>: </span><span style="color:#e0c46c">string</span><span>, </span><span class="hljs-attr">message</span><span>: </span><span style="color:#e0c46c">string</span><span>, </span><span class="hljs-attr">msg</span><span>: TwitchPrivateMessage) =&gt; {
-</span><span>	</span><span style="color:#cb7832">if</span><span> (message === </span><span style="color:#6a8759">&#x27;!followage&#x27;</span><span>) {
-</span><span>		</span><span style="color:#cb7832">const</span><span> follow = </span><span style="color:#cb7832">await</span><span> apiClient.users.getFollowFromUserToBroadcaster(msg.userInfo.userId, msg.channelId);
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a aria-current="page" class="jss2 jss3" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><a class="jss14" href="/docs/getting-data/">Data overview</a><div class="jss16"><h2 class="jss17">API</h2><div class="jss18"><a title="Calling the Twitch API" aria-current="page" class="jss14 jss15" href="/docs/getting-data/api/calling-api.html">Calling the Twitch API</a></div></div><div class="jss16"><h2 class="jss17">Chat</h2><div class="jss18"><a title="Connecting to Chat" class="jss14" href="/docs/getting-data/chat/connecting-to-chat.html">Connecting to Chat</a><a title="Listening to chat events" class="jss14" href="/docs/getting-data/chat/listening-to-events.html">Listening to chat events</a></div></div><div class="jss16"><h2 class="jss17">PubSub</h2><div class="jss18"><a title="Listening to PubSub topics" class="jss14" href="/docs/getting-data/pubsub/listening-to-topics.html">Listening to PubSub topics</a></div></div><div class="jss16"><h2 class="jss17">EventSub</h2><div class="jss18"><a title="Setting up an EventSub listener" class="jss14" href="/docs/getting-data/eventsub/listener-setup.html">Setting up an EventSub listener</a><a title="Serving through a reverse proxy" class="jss14" href="/docs/getting-data/eventsub/reverse-proxy.html">Serving through a reverse proxy</a><a title="Testing locally using ngrok" class="jss14" href="/docs/getting-data/eventsub/ngrok.html">Testing locally using ngrok</a></div></div></div><div class="jss12"><div class="jss19"><h1>Calling the Twitch API</h1></div><div class="jss20"><div class="jss21"><div class="jss23"><h3 class="jss24">Authentication</h3><p>This section assumes that you have prepared <a class="jss22" href="/docs/auth/">authentication</a>.</p></div>
+<p>Creating an API client is fairly straightforward, you just need to pass your authentication provider:</p>
+<pre><div data-dynamic-component="CodeBlock" data-component-props="{&quot;lang&quot;:&quot;ts&quot;,&quot;langMeta&quot;:&quot;twoslash&quot;,&quot;text&quot;:&quot;// @module: esnext\n// @target: ES2017\n// @lib: es2015,dom\nimport { ApiClient } from &#x27;@twurple/api&#x27;;\nimport type { AuthProvider } from &#x27;@twurple/auth&#x27;;\n\ndeclare const authProvider: AuthProvider;\n// ---cut---\nconst apiClient = new ApiClient({ authProvider });&quot;}"><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre"><span style="color:#cb7832">const</span><span> apiClient = </span><span style="color:#cb7832">new</span><span> ApiClient({ authProvider });</span></code></pre></div></pre>
+<p>On the <a class="jss22" href="/reference/api/classes/ApiClient.html">ApiClient</a> instance, the API methods are namespaced into the different resources like <code>users</code> and <code>streams</code>.</p>
+<p>All API methods are <code>async</code> and thus can be <code>await</code>ed. Here&#x27;s a quick example:</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre"><span style="color:#cb7832">async</span><span> </span><span class="hljs-function" style="color:#cb7832">function</span><span class="hljs-function"> </span><span class="hljs-function hljs-title">isStreamLive</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">userName: </span><span class="hljs-function" style="color:#e0c46c">string</span><span class="hljs-function">) </span><span>{
+</span><span>	</span><span style="color:#cb7832">const</span><span> user = </span><span style="color:#cb7832">await</span><span> apiClient.users.getUserByName(userName);
+</span><span>	</span><span style="color:#cb7832">if</span><span> (!user) {
+</span><span>		</span><span style="color:#cb7832">return</span><span> </span><span style="color:#6896ba">false</span><span>;
+</span>	}
+<span>	</span><span style="color:#cb7832">return</span><span> </span><span style="color:#cb7832">await</span><span> apiClient.streams.getStreamByUserId(user.id) !== </span><span style="color:#6896ba">null</span><span>;
+</span>}
+</code></pre></pre>
+<p>We make extensive use of convenience methods that fetch related resources, so this can also be written a bit easier:</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre"><span style="color:#cb7832">async</span><span> </span><span class="hljs-function" style="color:#cb7832">function</span><span class="hljs-function"> </span><span class="hljs-function hljs-title">isStreamLive</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">userName: </span><span class="hljs-function" style="color:#e0c46c">string</span><span class="hljs-function">) </span><span>{
+</span><span>	</span><span style="color:#cb7832">const</span><span> user = </span><span style="color:#cb7832">await</span><span> apiClient.users.getUserByName(userName);
+</span><span>	</span><span style="color:#cb7832">if</span><span> (!user) {
+</span><span>		</span><span style="color:#cb7832">return</span><span> </span><span style="color:#6896ba">false</span><span>;
+</span>	}
+<span>	</span><span style="color:#cb7832">return</span><span> </span><span style="color:#cb7832">await</span><span> user.getStream() !== </span><span style="color:#6896ba">null</span><span>;
+</span>}
+</code></pre></pre>
+<p>In Helix, some resources are paginated using a cursor. To faciliate easy pagination, there are special methods suffixed with <code>Paginated</code> that wrap the result in a <a class="jss22" href="/reference/api/classes/HelixPaginatedRequest.html">HelixPaginatedRequest</a> object. There are multiple ways to use this object to get your results.</p>
+<ul>
+<li>Using <code>getNext()</code>:</li>
+</ul>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre"><span style="color:#cb7832">async</span><span> </span><span class="hljs-function" style="color:#cb7832">function</span><span class="hljs-function"> </span><span class="hljs-function hljs-title">getAllClipsForBroadcaster</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">userId: </span><span class="hljs-function" style="color:#e0c46c">string</span><span class="hljs-function">) </span><span>{
+</span><span>	</span><span style="color:#cb7832">const</span><span> request = apiClient.clips.getClipsForBroadcasterPaginated(userId);
+</span><span>	</span><span style="color:#cb7832">let</span><span> page: HelixClip[];
+</span><span>	</span><span style="color:#cb7832">const</span><span> result: HelixClip[] = [];
 </span>
-<span>		</span><span style="color:#cb7832">if</span><span> (follow) {
-</span><span>			</span><span style="color:#cb7832">const</span><span> currentTimestamp = </span><span style="color:#e0c46c">Date</span><span>.now();
-</span><span>			</span><span style="color:#cb7832">const</span><span> followStartTimestamp = follow.followDate.getTime();
-</span><span>			chatClient.say(channel, </span><span style="color:#6a8759">`@</span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759"> You have been following for </span><span style="color:#e0c46c">${secondsToDuration((currentTimestamp - followStartTimestamp) / </span><span style="color:#6896ba">1000</span><span style="color:#e0c46c">)}</span><span style="color:#6a8759">!`</span><span>);
-</span><span>		} </span><span style="color:#cb7832">else</span><span> {
-</span><span>			chatClient.say(channel, </span><span style="color:#6a8759">`@</span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759"> You are not following!`</span><span>);
+<span>	</span><span style="color:#cb7832">while</span><span> ((page = </span><span style="color:#cb7832">await</span><span> request.getNext()).length) {
+</span>		result.push(...page);
+<!-- -->	}
+<!-- -->
+<span>	</span><span style="color:#cb7832">return</span><span> result;
+</span>}
+</code></pre></pre>
+<ul>
+<li>Using <code>getAll()</code>:</li>
+</ul>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre"><span style="color:#cb7832">async</span><span> </span><span class="hljs-function" style="color:#cb7832">function</span><span class="hljs-function"> </span><span class="hljs-function hljs-title">getAllClipsForBroadcaster</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">userId: </span><span class="hljs-function" style="color:#e0c46c">string</span><span class="hljs-function">) </span><span>{
+</span><span>	</span><span style="color:#cb7832">const</span><span> request = apiClient.clips.getClipsForBroadcasterPaginated(userId);
+</span>
+<span>	</span><span style="color:#cb7832">return</span><span> request.getAll();
+</span>}
+</code></pre></pre>
+<ul>
+<li>Using a <a class="jss22" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of"><code>for await ... of</code></a> loop:</li>
+</ul>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre"><span style="color:#cb7832">async</span><span> </span><span class="hljs-function" style="color:#cb7832">function</span><span class="hljs-function"> </span><span class="hljs-function hljs-title">findClipFromBroadcasterWithTitle</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">userId: </span><span class="hljs-function" style="color:#e0c46c">string</span><span class="hljs-function" style="color:#b9b9b9">, searchTerm: </span><span class="hljs-function" style="color:#e0c46c">string</span><span class="hljs-function">) </span><span>{
+</span><span>	</span><span style="color:#cb7832">for</span><span> </span><span style="color:#cb7832">await</span><span> (</span><span style="color:#cb7832">const</span><span> clip </span><span style="color:#cb7832">of</span><span> apiClient.clips.getClipsForBroadcasterPaginated(userId)) {
+</span><span>		</span><span style="color:#cb7832">if</span><span> (clip.title.includes(searchTerm)) {
+</span><span>			</span><span style="color:#cb7832">return</span><span> clip;
 </span>		}
 <!-- -->	}
-<!-- -->});
 <!-- -->
-<span></span><span style="color:#7f7f7f">// later, when you don&#x27;t need this command anymore:</span><span>
-</span>chatClient.removeListener(followAgeListener);
+<span>	</span><span style="color:#cb7832">return</span><span> </span><span style="color:#6896ba">null</span><span>;
+</span>}
 </code></pre></pre>
-<p>A list of all chat events can be found in the <a class="jss21" href="/reference/chat/classes/ChatClient.html">ChatClient</a> documentation.</p></div></div></div></div>
+<p><strong>WARNING:</strong> Uncontrolled use of the paginator may lead to quick exhaustion of your rate limit with big, unfiltered result sets. Please use filters and exit your loops as soon as you have enough data.</p></div></div></div></div></div>
 <script src="/pe.js"></script>
 </body>
 </html>

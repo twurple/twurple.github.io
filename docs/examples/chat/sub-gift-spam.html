@@ -23,6 +23,7 @@
 			padding: 0;
 			font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 			font-size: 14px;
+			line-height: 1.6em;
 			background: #141414;
 			color: #b9b9b9;
 		}
@@ -491,6 +492,7 @@
   margin: 0 8px;
   padding: 8px;
   transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
+  line-height: 1.3em;
   user-select: none;
   border-bottom: 3px solid transparent;
   text-decoration: none;
@@ -591,26 +593,47 @@
 .jss15:hover {
   border-left-color: #88ab14;
 }
-.jss21 {
-  color: #949494;
-  font-weight: bold;
-  text-decoration: none;
+.jss21 table {
+  border-collapse: collapse;
+}
+.jss21 th, .jss21 td {
+  border: 1px solid #444;
+  padding: 8px;
+}
+.jss21 li {
+  margin: 16px 0;
+}
+.jss21 li::marker {
+  color: #647d0f;
 }
 .jss22 {
+  color: inherit;
+  transition: border-color .3s ease-in-out;
+  font-weight: bold;
+  border-bottom: 1.5px solid #647d0f;
+  text-decoration: none;
+}
+.jss22:hover {
+  border-bottom-color: #88ab14;
+}
+.jss23 {
   display: flow-root;
   padding: 0 1em;
   border-left: 4px solid #ab9120;
   margin-bottom: 1em;
   background-color: #242424;
 }
-.jss23 {
+.jss24 {
   font-size: 1em;
 }
 .jss20 {
   padding: 16px;
 }
 .jss20 h2 {
-  margin: 0;
+  margin: 24px 0 16px;
+}
+.jss20 h2:first-child {
+  margin-top: 0;
 }
 .jss19 {
   color: #b9b9b9;
@@ -640,15 +663,30 @@
 }</style>
 </head>
 <body>
-<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/api/">api</a><a aria-current="page" class="jss2 jss3" href="/docs/chat/">chat</a><a class="jss2" href="/docs/pubsub/">pubsub</a><a class="jss2" href="/docs/eventsub/">eventsub</a><a class="jss2" href="/docs/auth/">auth</a><a class="jss2" href="/docs/auth-tmi/">auth-tmi</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><a class="jss14" href="/docs/chat/">Twurple - Chat Client</a><div class="jss16"><h2 class="jss17">Basic usage</h2><div class="jss18"><a title="Getting started" class="jss14" href="/docs/chat/basic-usage/getting-started.html">Getting started</a><a title="Connecting to Chat" aria-current="page" class="jss14 jss15" href="/docs/chat/basic-usage/connecting-to-chat.html">Connecting to Chat</a><a title="Listening to events" class="jss14" href="/docs/chat/basic-usage/listening-to-events.html">Listening to events</a></div></div><div class="jss16"><h2 class="jss17">Examples</h2><div class="jss18"><a title="Basic bot" class="jss14" href="/docs/chat/examples/basic-bot.html">Basic bot</a><a title="Preventing sub gift spam" class="jss14" href="/docs/chat/examples/sub-gift-spam.html">Preventing sub gift spam</a></div></div></div><div class="jss12"><div class="jss19"><h1>Connecting to Chat</h1></div><div class="jss20"><p>First, you have to create an auth provider instance, as outlined in <a class="jss21" href="/docs/api/basic-usage/creating-instance.html">the Twurple API client documentation</a>.</p>
-<p>Then, using that instance, you create a new <a class="jss21" href="/reference/chat/classes/ChatClient.html">ChatClient</a> instance, listen to events and connect it to the Twitch Chat server.</p>
-<p>Channel names are case insensitive and can start with a <code>#</code> or not. The name will be converted to the correct format internally.</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre"><span style="color:#cb7832">import</span><span> { ChatClient } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/chat&#x27;</span><span>;
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a aria-current="page" class="jss2 jss3" href="/docs/examples/">Examples</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><a class="jss14" href="/docs/examples/">Examples</a><div class="jss16"><h2 class="jss17">Chat</h2><div class="jss18"><a title="Basic bot" class="jss14" href="/docs/examples/chat/basic-bot.html">Basic bot</a><a title="Preventing sub gift spam" aria-current="page" class="jss14 jss15" href="/docs/examples/chat/sub-gift-spam.html">Preventing sub gift spam</a></div></div></div><div class="jss12"><div class="jss19"><h1>Preventing sub gift spam</h1></div><div class="jss20"><div class="jss21"><p>When someone gifts a batch of subscriptions to a channel, this sends one <code>onCommunitySub</code> event
+followed by one <code>onSubGift</code> event for each subscription that was gifted.</p>
+<p>If you&#x27;re writing an alert system or you&#x27;re replying to each gift in chat,
+this can quickly lead to spam and rate limit violations.</p>
+<p>Here&#x27;s a helpful snippet that can help with this:</p>
+<pre><div data-dynamic-component="CodeBlock" data-component-props="{&quot;lang&quot;:&quot;ts&quot;,&quot;langMeta&quot;:&quot;twoslash&quot;,&quot;text&quot;:&quot;// @module: esnext\n// @target: esnext\n// @lib: es2015\nimport { ChatClient } from &#x27;@twurple/chat&#x27;;\ndeclare const chatClient: ChatClient;\n// ---cut---\n// undefined is a possible key because of anonymous gifts\nconst giftCounts = new Map&lt;string | undefined, number&gt;();\n\nchatClient.onCommunitySub((channel, user, subInfo) =&gt; {\n  const previousGiftCount = giftCounts.get(user) ?? 0;\n  giftCounts.set(user, previousGiftCount + subInfo.count);\n  chatClient.say(channel, `Thanks ${user} for gifting ${subInfo.count} subs to the community!`);\n});\n\nchatClient.onSubGift((channel, recipient, subInfo) =&gt; {\n  const user = subInfo.gifter;\n  const previousGiftCount = giftCounts.get(user) ?? 0;\n  if (previousGiftCount &gt; 0) {\n    giftCounts.set(user, previousGiftCount - 1);\n  } else {\n    chatClient.say(channel, `Thanks ${user} for gifting a sub to ${recipient}!`);\n  }\n});&quot;}"><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre"><span style="color:#7f7f7f">// undefined is a possible key because of anonymous gifts</span><span>
+</span><span></span><span style="color:#cb7832">const</span><span> giftCounts = </span><span style="color:#cb7832">new</span><span> </span><span style="color:#e0c46c">Map</span><span>&lt;</span><span style="color:#e0c46c">string</span><span> | </span><span style="color:#6896ba">undefined</span><span>, </span><span style="color:#e0c46c">number</span><span>&gt;();
 </span>
-<span></span><span style="color:#cb7832">const</span><span> chatClient = </span><span style="color:#cb7832">new</span><span> ChatClient(authProvider, { </span><span class="hljs-attr">channels</span><span>: [</span><span style="color:#6a8759">&#x27;lidlrini&#x27;</span><span>] });
-</span><span></span><span style="color:#7f7f7f">// listen to more events...</span><span>
-</span><span></span><span style="color:#cb7832">await</span><span> chatClient.connect();</span></code></pre></pre>
-<p><strong>Please note</strong> that you should use <code>onRegister</code> to do things after the registration with the chat server finishes. This documentation previously recommended using the method <code>waitForRegistration</code> which is fine at first but will not rejoin channels (or redo whatever else you do after connecting) when a reconnect occurs.</p></div></div></div></div>
+<span>chatClient.onCommunitySub(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user, subInfo</span><span class="hljs-function">) =&gt;</span><span> {
+</span><span>  </span><span style="color:#cb7832">const</span><span> previousGiftCount = giftCounts.get(user) ?? </span><span style="color:#6896ba">0</span><span>;
+</span>  giftCounts.set(user, previousGiftCount + subInfo.count);
+<span>  chatClient.say(channel, </span><span style="color:#6a8759">`Thanks </span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759"> for gifting </span><span style="color:#e0c46c">${subInfo.count}</span><span style="color:#6a8759"> subs to the community!`</span><span>);
+</span>});
+<!-- -->
+<span>chatClient.onSubGift(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, recipient, subInfo</span><span class="hljs-function">) =&gt;</span><span> {
+</span><span>  </span><span style="color:#cb7832">const</span><span> user = subInfo.gifter;
+</span><span>  </span><span style="color:#cb7832">const</span><span> previousGiftCount = giftCounts.get(user) ?? </span><span style="color:#6896ba">0</span><span>;
+</span><span>  </span><span style="color:#cb7832">if</span><span> (previousGiftCount &gt; </span><span style="color:#6896ba">0</span><span>) {
+</span><span>    giftCounts.set(user, previousGiftCount - </span><span style="color:#6896ba">1</span><span>);
+</span><span>  } </span><span style="color:#cb7832">else</span><span> {
+</span><span>    chatClient.say(channel, </span><span style="color:#6a8759">`Thanks </span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759"> for gifting a sub to </span><span style="color:#e0c46c">${recipient}</span><span style="color:#6a8759">!`</span><span>);
+</span>  }
+<!-- -->});
+</code></pre></div></pre></div></div></div></div></div>
 <script src="/pe.js"></script>
 </body>
 </html>

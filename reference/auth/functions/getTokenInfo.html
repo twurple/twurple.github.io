@@ -23,6 +23,7 @@
 			padding: 0;
 			font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 			font-size: 14px;
+			line-height: 1.6em;
 			background: #141414;
 			color: #b9b9b9;
 		}
@@ -491,6 +492,7 @@
   margin: 0 8px;
   padding: 8px;
   transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
+  line-height: 1.3em;
   user-select: none;
   border-bottom: 3px solid transparent;
   text-decoration: none;
@@ -591,26 +593,47 @@
 .jss18:hover {
   border-left-color: #88ab14;
 }
-.jss29 {
-  color: #949494;
-  font-weight: bold;
-  text-decoration: none;
+.jss29 table {
+  border-collapse: collapse;
+}
+.jss29 th, .jss29 td {
+  border: 1px solid #444;
+  padding: 8px;
+}
+.jss29 li {
+  margin: 16px 0;
+}
+.jss29 li::marker {
+  color: #647d0f;
 }
 .jss30 {
+  color: inherit;
+  transition: border-color .3s ease-in-out;
+  font-weight: bold;
+  border-bottom: 1.5px solid #647d0f;
+  text-decoration: none;
+}
+.jss30:hover {
+  border-bottom-color: #88ab14;
+}
+.jss31 {
   display: flow-root;
   padding: 0 1em;
   border-left: 4px solid #ab9120;
   margin-bottom: 1em;
   background-color: #242424;
 }
-.jss31 {
+.jss32 {
   font-size: 1em;
 }
 .jss21 {
   padding: 16px;
 }
 .jss21 h2 {
-  margin: 0;
+  margin: 24px 0 16px;
+}
+.jss21 h2:first-child {
+  margin-top: 0;
 }
 .jss19 {
   color: #b9b9b9;
@@ -641,29 +664,29 @@
 .jss22:target {
   background-color: #242424;
 }
-.jss38 {
+.jss39 {
   color: #949494;
   font-weight: bold;
   text-decoration: none;
 }
-.jss34 {
+.jss35 {
   padding: 8px;
   text-align: center;
 }
-.jss34 p {
+.jss35 p {
   margin: 0;
 }
-.jss34 p + p {
+.jss35 p + p {
   margin-top: 8px;
 }
-.jss35 {
+.jss36 {
   width: 1em;
 }
-.jss32 {
+.jss33 {
   border: 1px solid #444;
   margin: 8px 0;
 }
-.jss33 {
+.jss34 {
   padding: 8px;
   background-color: #242424;
 }
@@ -675,11 +698,11 @@
 .jss20:hover {
   color: #88ab14;
 }
-.jss36 {
+.jss37 {
   margin: 1em 0 0;
   font-weight: bold;
 }
-.jss37 {
+.jss38 {
   font-family: Monaco, Menlo, "Lucida Console", monospace;
   font-weight: normal;
 }
@@ -688,6 +711,7 @@
   display: inline-block;
   padding: 2px 5px;
   font-size: 12px;
+  line-height: normal;
   margin-left: 1em;
   border-radius: 5px;
   text-decoration: none;
@@ -723,8 +747,8 @@
 }</style>
 </head>
 <body>
-<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/api/">api</a><a class="jss2" href="/docs/chat/">chat</a><a class="jss2" href="/docs/pubsub/">pubsub</a><a class="jss2" href="/docs/eventsub/">eventsub</a><a class="jss2" href="/docs/auth/">auth</a><a class="jss2" href="/docs/auth-tmi/">auth-tmi</a><div class="jss5"><div class="jss2 jss3">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a aria-current="page" class="jss2 jss7 jss8" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><div class="jss14"><h2 class="jss15">Classes</h2><div class="jss16"><a title="ClientCredentialsAuthProvider" class="jss17" href="/reference/auth/classes/ClientCredentialsAuthProvider.html">ClientCredentialsAuthProvider</a><a title="InvalidTokenError" class="jss17" href="/reference/auth/classes/InvalidTokenError.html">InvalidTokenError</a><a title="InvalidTokenTypeError" class="jss17" href="/reference/auth/classes/InvalidTokenTypeError.html">InvalidTokenTypeError</a><a title="RefreshingAuthProvider" class="jss17" href="/reference/auth/classes/RefreshingAuthProvider.html">RefreshingAuthProvider</a><a title="StaticAuthProvider" class="jss17" href="/reference/auth/classes/StaticAuthProvider.html">StaticAuthProvider</a><a title="TokenInfo" class="jss17" href="/reference/auth/classes/TokenInfo.html">TokenInfo</a></div></div><div class="jss14"><h2 class="jss15">Functions</h2><div class="jss16"><a title="accessTokenIsExpired" class="jss17" href="/reference/auth/functions/accessTokenIsExpired.html">accessTokenIsExpired</a><a title="exchangeCode" class="jss17" href="/reference/auth/functions/exchangeCode.html">exchangeCode</a><a title="getAppToken" class="jss17" href="/reference/auth/functions/getAppToken.html">getAppToken</a><a title="getExpiryDateOfAccessToken" class="jss17" href="/reference/auth/functions/getExpiryDateOfAccessToken.html">getExpiryDateOfAccessToken</a><a title="getTokenInfo" aria-current="page" class="jss17 jss18" href="/reference/auth/functions/getTokenInfo.html">getTokenInfo</a><a title="refreshUserToken" class="jss17" href="/reference/auth/functions/refreshUserToken.html">refreshUserToken</a><a title="revokeToken" class="jss17" href="/reference/auth/functions/revokeToken.html">revokeToken</a></div></div><div class="jss14"><h2 class="jss15">Interfaces</h2><div class="jss16"><a title="AccessToken" class="jss17" href="/reference/auth/interfaces/AccessToken.html">AccessToken</a><a title="AuthProvider" class="jss17" href="/reference/auth/interfaces/AuthProvider.html">AuthProvider</a><a title="RefreshConfig" class="jss17" href="/reference/auth/interfaces/RefreshConfig.html">RefreshConfig</a><a title="TokenInfoData" class="jss17" href="/reference/auth/interfaces/TokenInfoData.html">TokenInfoData</a></div></div></div><div class="jss12"><main><div class="jss19"><h1>getTokenInfo</h1><a class="jss20" href="https://github.com/twurple/twurple/blob/main/packages/auth/src/helpers.ts#L135" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-w-20 fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"></path></svg></a></div><div class="jss21"><h2>Definition</h2><div class="jss22"><h3 class="jss25">getTokenInfo<!-- -->(<!-- -->accessToken<!-- -->, <!-- -->clientId<!-- -->)</h3><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/await" title="This method actually returns a Promise object, but the use of await is recommended for easier use. Please click on the badge for further information." class="jss26 jss28 jss24">async</a><p>Retrieves information about an access token.</p><table class="jss32"><thead><tr><th class="jss33">Parameter</th><th class="jss33">Type</th><th class="jss33">Required</th><th class="jss33">Default</th><th class="jss33">Description</th></tr></thead><tbody><tr><td class="jss34">accessToken</td><td class="jss34">string</td><td class="jss34"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check" class="svg-inline--fa fa-check fa-w-16 jss35" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg></td><td class="jss34"><em>none</em></td><td class="jss34"><p>The access token to get the information of.</p>
-<p>You need to obtain one using one of the <a class="jss29" href="https://dev.twitch.tv/docs/authentication/getting-tokens-oauth/">Twitch OAuth flows</a>.</p></td></tr><tr><td class="jss34">clientId</td><td class="jss34">string</td><td class="jss34"></td><td class="jss34"><em>none</em></td><td class="jss34"><p>The client ID of your application.</p></td></tr></tbody></table><div class="jss36">Return type:<!-- --> <span class="jss37"><a class="jss38" href="/reference/auth/classes/TokenInfo.html">TokenInfo</a></span></div></div></div></main></div></div></div>
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><div class="jss5"><div class="jss2 jss3">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a aria-current="page" class="jss2 jss7 jss8" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><div class="jss14"><h2 class="jss15">Classes</h2><div class="jss16"><a title="ClientCredentialsAuthProvider" class="jss17" href="/reference/auth/classes/ClientCredentialsAuthProvider.html">ClientCredentialsAuthProvider</a><a title="InvalidTokenError" class="jss17" href="/reference/auth/classes/InvalidTokenError.html">InvalidTokenError</a><a title="InvalidTokenTypeError" class="jss17" href="/reference/auth/classes/InvalidTokenTypeError.html">InvalidTokenTypeError</a><a title="RefreshingAuthProvider" class="jss17" href="/reference/auth/classes/RefreshingAuthProvider.html">RefreshingAuthProvider</a><a title="StaticAuthProvider" class="jss17" href="/reference/auth/classes/StaticAuthProvider.html">StaticAuthProvider</a><a title="TokenInfo" class="jss17" href="/reference/auth/classes/TokenInfo.html">TokenInfo</a></div></div><div class="jss14"><h2 class="jss15">Functions</h2><div class="jss16"><a title="accessTokenIsExpired" class="jss17" href="/reference/auth/functions/accessTokenIsExpired.html">accessTokenIsExpired</a><a title="exchangeCode" class="jss17" href="/reference/auth/functions/exchangeCode.html">exchangeCode</a><a title="getAppToken" class="jss17" href="/reference/auth/functions/getAppToken.html">getAppToken</a><a title="getExpiryDateOfAccessToken" class="jss17" href="/reference/auth/functions/getExpiryDateOfAccessToken.html">getExpiryDateOfAccessToken</a><a title="getTokenInfo" aria-current="page" class="jss17 jss18" href="/reference/auth/functions/getTokenInfo.html">getTokenInfo</a><a title="refreshUserToken" class="jss17" href="/reference/auth/functions/refreshUserToken.html">refreshUserToken</a><a title="revokeToken" class="jss17" href="/reference/auth/functions/revokeToken.html">revokeToken</a></div></div><div class="jss14"><h2 class="jss15">Interfaces</h2><div class="jss16"><a title="AccessToken" class="jss17" href="/reference/auth/interfaces/AccessToken.html">AccessToken</a><a title="AuthProvider" class="jss17" href="/reference/auth/interfaces/AuthProvider.html">AuthProvider</a><a title="RefreshConfig" class="jss17" href="/reference/auth/interfaces/RefreshConfig.html">RefreshConfig</a><a title="TokenInfoData" class="jss17" href="/reference/auth/interfaces/TokenInfoData.html">TokenInfoData</a></div></div></div><div class="jss12"><main><div class="jss19"><h1>getTokenInfo</h1><a class="jss20" href="https://github.com/twurple/twurple/blob/main/packages/auth/src/helpers.ts#L135" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-w-20 fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"></path></svg></a></div><div class="jss21"><h2>Definition</h2><div class="jss22"><h3 class="jss25">getTokenInfo<!-- -->(<!-- -->accessToken<!-- -->, <!-- -->clientId<!-- -->)</h3><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/await" title="This method actually returns a Promise object, but the use of await is recommended for easier use. Please click on the badge for further information." class="jss26 jss28 jss24">async</a><div class="jss29"><p>Retrieves information about an access token.</p></div><table class="jss33"><thead><tr><th class="jss34">Parameter</th><th class="jss34">Type</th><th class="jss34">Required</th><th class="jss34">Default</th><th class="jss34">Description</th></tr></thead><tbody><tr><td class="jss35">accessToken</td><td class="jss35">string</td><td class="jss35"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check" class="svg-inline--fa fa-check fa-w-16 jss36" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg></td><td class="jss35"><em>none</em></td><td class="jss35"><div class="jss29"><p>The access token to get the information of.</p>
+<p>You need to obtain one using one of the <a class="jss30" href="https://dev.twitch.tv/docs/authentication/getting-tokens-oauth/">Twitch OAuth flows</a>.</p></div></td></tr><tr><td class="jss35">clientId</td><td class="jss35">string</td><td class="jss35"></td><td class="jss35"><em>none</em></td><td class="jss35"><div class="jss29"><p>The client ID of your application.</p></div></td></tr></tbody></table><div class="jss37">Return type:<!-- --> <span class="jss38"><a class="jss39" href="/reference/auth/classes/TokenInfo.html">TokenInfo</a></span></div></div></div></main></div></div></div>
 <script src="/pe.js"></script>
 </body>
 </html>

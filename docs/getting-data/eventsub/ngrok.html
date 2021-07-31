@@ -23,6 +23,7 @@
 			padding: 0;
 			font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 			font-size: 14px;
+			line-height: 1.6em;
 			background: #141414;
 			color: #b9b9b9;
 		}
@@ -491,6 +492,7 @@
   margin: 0 8px;
   padding: 8px;
   transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
+  line-height: 1.3em;
   user-select: none;
   border-bottom: 3px solid transparent;
   text-decoration: none;
@@ -591,26 +593,47 @@
 .jss15:hover {
   border-left-color: #88ab14;
 }
-.jss21 {
-  color: #949494;
-  font-weight: bold;
-  text-decoration: none;
+.jss21 table {
+  border-collapse: collapse;
+}
+.jss21 th, .jss21 td {
+  border: 1px solid #444;
+  padding: 8px;
+}
+.jss21 li {
+  margin: 16px 0;
+}
+.jss21 li::marker {
+  color: #647d0f;
 }
 .jss22 {
+  color: inherit;
+  transition: border-color .3s ease-in-out;
+  font-weight: bold;
+  border-bottom: 1.5px solid #647d0f;
+  text-decoration: none;
+}
+.jss22:hover {
+  border-bottom-color: #88ab14;
+}
+.jss23 {
   display: flow-root;
   padding: 0 1em;
   border-left: 4px solid #ab9120;
   margin-bottom: 1em;
   background-color: #242424;
 }
-.jss23 {
+.jss24 {
   font-size: 1em;
 }
 .jss20 {
   padding: 16px;
 }
 .jss20 h2 {
-  margin: 0;
+  margin: 24px 0 16px;
+}
+.jss20 h2:first-child {
+  margin-top: 0;
 }
 .jss19 {
   color: #b9b9b9;
@@ -640,10 +663,10 @@
 }</style>
 </head>
 <body>
-<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/api/">api</a><a class="jss2" href="/docs/chat/">chat</a><a class="jss2" href="/docs/pubsub/">pubsub</a><a aria-current="page" class="jss2 jss3" href="/docs/eventsub/">eventsub</a><a class="jss2" href="/docs/auth/">auth</a><a class="jss2" href="/docs/auth-tmi/">auth-tmi</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><a class="jss14" href="/docs/eventsub/">Twurple - EventSub Listener</a><div class="jss16"><h2 class="jss17">Basic usage</h2><div class="jss18"><a title="Getting started" class="jss14" href="/docs/eventsub/basic-usage/getting-started.html">Getting started</a><a title="Listening to events" class="jss14" href="/docs/eventsub/basic-usage/listening-to-events.html">Listening to events</a></div></div><div class="jss16"><h2 class="jss17">Special hosting</h2><div class="jss18"><a title="Serving through a reverse proxy" class="jss14" href="/docs/eventsub/special-hosting/reverse-proxy.html">Serving through a reverse proxy</a><a title="Testing locally using ngrok" aria-current="page" class="jss14 jss15" href="/docs/eventsub/special-hosting/ngrok.html">Testing locally using ngrok</a></div></div></div><div class="jss12"><div class="jss19"><h1>Testing locally using ngrok</h1></div><div class="jss20"><p><code>ngrok</code> is helpful for local testing when you don&#x27;t want to expose your machine to traffic from outside directly.<br/>
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a aria-current="page" class="jss2 jss3" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><a class="jss14" href="/docs/getting-data/">Data overview</a><div class="jss16"><h2 class="jss17">API</h2><div class="jss18"><a title="Calling the Twitch API" class="jss14" href="/docs/getting-data/api/calling-api.html">Calling the Twitch API</a></div></div><div class="jss16"><h2 class="jss17">Chat</h2><div class="jss18"><a title="Connecting to Chat" class="jss14" href="/docs/getting-data/chat/connecting-to-chat.html">Connecting to Chat</a><a title="Listening to chat events" class="jss14" href="/docs/getting-data/chat/listening-to-events.html">Listening to chat events</a></div></div><div class="jss16"><h2 class="jss17">PubSub</h2><div class="jss18"><a title="Listening to PubSub topics" class="jss14" href="/docs/getting-data/pubsub/listening-to-topics.html">Listening to PubSub topics</a></div></div><div class="jss16"><h2 class="jss17">EventSub</h2><div class="jss18"><a title="Setting up an EventSub listener" class="jss14" href="/docs/getting-data/eventsub/listener-setup.html">Setting up an EventSub listener</a><a title="Serving through a reverse proxy" class="jss14" href="/docs/getting-data/eventsub/reverse-proxy.html">Serving through a reverse proxy</a><a title="Testing locally using ngrok" aria-current="page" class="jss14 jss15" href="/docs/getting-data/eventsub/ngrok.html">Testing locally using ngrok</a></div></div></div><div class="jss12"><div class="jss19"><h1>Testing locally using ngrok</h1></div><div class="jss20"><div class="jss21"><p><code>ngrok</code> is helpful for local testing when you don&#x27;t want to expose your machine to traffic from outside directly.<br/>
 <!-- -->It also offers SSL, which is required by EventSub, thus making your development setup easier.</p>
 <h2>1. Installing ngrok and an adapter for it</h2>
-<p>Download and install ngrok from their <a class="jss21" href="https://ngrok.com/download">download page</a>.</p>
+<p>Download and install ngrok from their <a class="jss22" href="https://ngrok.com/download">download page</a>.</p>
 <p>Then, add the specialized apater for it to your packages:</p>
 <pre><code>yarn add @twurple/eventsub-ngrok
 </code></pre>
@@ -654,7 +677,7 @@
 <p>Listening to events using ngrok is easy since the ngrok adapter benefits from the ability to set itself up completely on its own:</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre"><span style="color:#cb7832">const</span><span> listener = </span><span style="color:#cb7832">new</span><span> EventSubListener(client, </span><span style="color:#cb7832">new</span><span> NgrokAdapter(), </span><span style="color:#6a8759">&#x27;thisShouldBeARandomlyGeneratedFixedString&#x27;</span><span>);</span></code></pre></pre>
 <h2>3. Listening to events</h2>
-<p>Now you can continue to follow the <a class="jss21" href="/docs/eventsub/basic-usage/listening-to-events.html">basic listening help</a>.</p></div></div></div></div>
+<p>Now you can continue to follow the <a class="jss22" href="/docs/eventsub/basic-usage/listening-to-events.html">basic listening help</a>.</p></div></div></div></div></div>
 <script src="/pe.js"></script>
 </body>
 </html>

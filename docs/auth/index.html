@@ -23,6 +23,7 @@
 			padding: 0;
 			font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 			font-size: 14px;
+			line-height: 1.6em;
 			background: #141414;
 			color: #b9b9b9;
 		}
@@ -491,6 +492,7 @@
   margin: 0 8px;
   padding: 8px;
   transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
+  line-height: 1.3em;
   user-select: none;
   border-bottom: 3px solid transparent;
   text-decoration: none;
@@ -591,26 +593,47 @@
 .jss15:hover {
   border-left-color: #88ab14;
 }
-.jss21 {
-  color: #949494;
-  font-weight: bold;
-  text-decoration: none;
+.jss21 table {
+  border-collapse: collapse;
+}
+.jss21 th, .jss21 td {
+  border: 1px solid #444;
+  padding: 8px;
+}
+.jss21 li {
+  margin: 16px 0;
+}
+.jss21 li::marker {
+  color: #647d0f;
 }
 .jss22 {
+  color: inherit;
+  transition: border-color .3s ease-in-out;
+  font-weight: bold;
+  border-bottom: 1.5px solid #647d0f;
+  text-decoration: none;
+}
+.jss22:hover {
+  border-bottom-color: #88ab14;
+}
+.jss23 {
   display: flow-root;
   padding: 0 1em;
   border-left: 4px solid #ab9120;
   margin-bottom: 1em;
   background-color: #242424;
 }
-.jss23 {
+.jss24 {
   font-size: 1em;
 }
 .jss20 {
   padding: 16px;
 }
 .jss20 h2 {
-  margin: 0;
+  margin: 24px 0 16px;
+}
+.jss20 h2:first-child {
+  margin-top: 0;
 }
 .jss19 {
   color: #b9b9b9;
@@ -640,27 +663,18 @@
 }</style>
 </head>
 <body>
-<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/api/">api</a><a class="jss2" href="/docs/chat/">chat</a><a class="jss2" href="/docs/pubsub/">pubsub</a><a class="jss2" href="/docs/eventsub/">eventsub</a><a aria-current="page" class="jss2 jss3" href="/docs/auth/">auth</a><a class="jss2" href="/docs/auth-tmi/">auth-tmi</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><a aria-current="page" class="jss14 jss15" href="/docs/auth/">Twurple - Authentication Manager</a><div class="jss16"><h2 class="jss17">Providers</h2><div class="jss18"><a title="Using a fixed token" class="jss14" href="/docs/auth/providers/static.html">Using a fixed token</a><a title="Auto-refreshing tokens" class="jss14" href="/docs/auth/providers/refreshing.html">Auto-refreshing tokens</a><a title="Using app tokens" class="jss14" href="/docs/auth/providers/client-credentials.html">Using app tokens</a><a title="For Electron apps" class="jss14" href="/docs/auth/providers/electron.html">For Electron apps</a></div></div></div><div class="jss12"><div class="jss19"><h1>Twurple - Authentication Manager</h1></div><div class="jss20"><p>Welcome to the documentation of the Authentication module of Twurple, a library for NodeJS and the browser that aims to provide an easy interface
-to all of Twitch&#x27;s programmatically available features.</p>
-<p>Please feel free to browse the menu on the left to get started with the library and to check out all the different available classes.</p>
-<h2>Installation</h2>
-<p>To add Twitch authentication to your project, just execute:</p>
-<pre><code>yarn add @twurple/auth
-</code></pre>
-<p>or using npm:</p>
-<pre><code>npm install @twurple/auth
-</code></pre>
-<h2>Setting up authentication</h2>
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a aria-current="page" class="jss2 jss3" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><a aria-current="page" class="jss14 jss15" href="/docs/auth/">Authentication</a><div class="jss16"><h2 class="jss17">Providers</h2><div class="jss18"><a title="Using a fixed token" class="jss14" href="/docs/auth/providers/static.html">Using a fixed token</a><a title="Auto-refreshing tokens" class="jss14" href="/docs/auth/providers/refreshing.html">Auto-refreshing tokens</a><a title="Using app tokens" class="jss14" href="/docs/auth/providers/client-credentials.html">Using app tokens</a><a title="For Electron apps" class="jss14" href="/docs/auth/providers/electron.html">For Electron apps</a></div></div></div><div class="jss12"><div class="jss19"><h1>Authentication</h1></div><div class="jss20"><div class="jss21"><p>To use any part of the Twitch developer ecosystem, you first need to authenticate.</p>
+<p>Twurple uses a concept named <strong>Authentication Providers</strong> to provide different kinds of tokens to the other parts of the application.</p>
+<h2>Providers</h2>
 <p>You can choose between different ways to authenticate:</p>
 <ul>
-<li>To only ever use a single token determined at instantiation time, check out <a class="jss21" href="/docs/auth/providers/static.html">Using a fixed token</a>.</li>
-<li>If you want to run something more long-term, you may be interested in <a class="jss21" href="/docs/auth/providers/refreshing.html">auto-refreshing tokens</a>.</li>
-<li>If you run an application that doesn&#x27;t need user-specific data, you can use <a class="jss21" href="/docs/auth/providers/client-credentials.html">app tokens</a>.</li>
-<li>If you are building an Electron app, you can use our premade <a class="jss21" href="/docs/auth/providers/electron.html">Electron auth provider</a>.</li>
-<li>If you have special requirements, you can write your own provider by following the <a class="jss21" href="/reference/auth/interfaces/AuthProvider.html">AuthProvider</a> interface.</li>
-</ul>
-<h2>If you&#x27;re getting stuck...</h2>
-<p>You can join the <a class="jss21" href="https://discord.gg/b9ZqMfz">Discord Server</a> for support.</p></div></div></div></div>
+<li>To only ever use a single token determined at instantiation time, check out <a class="jss22" href="/docs/auth/providers/static.html">Using a fixed token</a>.<br/>
+<!-- -->(This is mostly useful for quick prototyping and <strong>not suitable for production apps</strong>.)</li>
+<li>If you want to run something more long-term, you may be interested in <a class="jss22" href="/docs/auth/providers/refreshing.html">auto-refreshing tokens</a>.</li>
+<li>If you run an application that doesn&#x27;t need user-specific data (or for <strong>EventSub</strong>), you can use <a class="jss22" href="/docs/auth/providers/client-credentials.html">app tokens</a>.</li>
+<li>If you are building an Electron app, you can use our premade <a class="jss22" href="/docs/auth/providers/electron.html">Electron auth provider</a>.</li>
+<li>If you have special requirements, you can write your own provider by following the <a class="jss22" href="/reference/auth/interfaces/AuthProvider.html">AuthProvider</a> interface.</li>
+</ul></div></div></div></div></div>
 <script src="/pe.js"></script>
 </body>
 </html>

@@ -23,6 +23,7 @@
 			padding: 0;
 			font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 			font-size: 14px;
+			line-height: 1.6em;
 			background: #141414;
 			color: #b9b9b9;
 		}
@@ -491,6 +492,7 @@
   margin: 0 8px;
   padding: 8px;
   transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
+  line-height: 1.3em;
   user-select: none;
   border-bottom: 3px solid transparent;
   text-decoration: none;
@@ -591,26 +593,47 @@
 .jss15:hover {
   border-left-color: #88ab14;
 }
-.jss21 {
-  color: #949494;
-  font-weight: bold;
-  text-decoration: none;
+.jss21 table {
+  border-collapse: collapse;
+}
+.jss21 th, .jss21 td {
+  border: 1px solid #444;
+  padding: 8px;
+}
+.jss21 li {
+  margin: 16px 0;
+}
+.jss21 li::marker {
+  color: #647d0f;
 }
 .jss22 {
+  color: inherit;
+  transition: border-color .3s ease-in-out;
+  font-weight: bold;
+  border-bottom: 1.5px solid #647d0f;
+  text-decoration: none;
+}
+.jss22:hover {
+  border-bottom-color: #88ab14;
+}
+.jss23 {
   display: flow-root;
   padding: 0 1em;
   border-left: 4px solid #ab9120;
   margin-bottom: 1em;
   background-color: #242424;
 }
-.jss23 {
+.jss24 {
   font-size: 1em;
 }
 .jss20 {
   padding: 16px;
 }
 .jss20 h2 {
-  margin: 0;
+  margin: 24px 0 16px;
+}
+.jss20 h2:first-child {
+  margin-top: 0;
 }
 .jss19 {
   color: #b9b9b9;
@@ -640,11 +663,11 @@
 }</style>
 </head>
 <body>
-<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/api/">api</a><a aria-current="page" class="jss2 jss3" href="/docs/chat/">chat</a><a class="jss2" href="/docs/pubsub/">pubsub</a><a class="jss2" href="/docs/eventsub/">eventsub</a><a class="jss2" href="/docs/auth/">auth</a><a class="jss2" href="/docs/auth-tmi/">auth-tmi</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><a class="jss14" href="/docs/chat/">Twurple - Chat Client</a><div class="jss16"><h2 class="jss17">Basic usage</h2><div class="jss18"><a title="Getting started" class="jss14" href="/docs/chat/basic-usage/getting-started.html">Getting started</a><a title="Connecting to Chat" class="jss14" href="/docs/chat/basic-usage/connecting-to-chat.html">Connecting to Chat</a><a title="Listening to events" class="jss14" href="/docs/chat/basic-usage/listening-to-events.html">Listening to events</a></div></div><div class="jss16"><h2 class="jss17">Examples</h2><div class="jss18"><a title="Basic bot" aria-current="page" class="jss14 jss15" href="/docs/chat/examples/basic-bot.html">Basic bot</a><a title="Preventing sub gift spam" class="jss14" href="/docs/chat/examples/sub-gift-spam.html">Preventing sub gift spam</a></div></div></div><div class="jss12"><div class="jss19"><h1>Basic bot</h1></div><div class="jss20"><p>In this example, you learn how to set up a basic bot that reacts to a few commands, and also automatically thanks everyone that subscribes, resubscribes or gifts a subscription.</p>
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a aria-current="page" class="jss2 jss3" href="/docs/examples/">Examples</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><a class="jss14" href="/docs/examples/">Examples</a><div class="jss16"><h2 class="jss17">Chat</h2><div class="jss18"><a title="Basic bot" aria-current="page" class="jss14 jss15" href="/docs/examples/chat/basic-bot.html">Basic bot</a><a title="Preventing sub gift spam" class="jss14" href="/docs/examples/chat/sub-gift-spam.html">Preventing sub gift spam</a></div></div></div><div class="jss12"><div class="jss19"><h1>Basic bot</h1></div><div class="jss20"><div class="jss21"><p>In this example, you learn how to set up a basic bot that reacts to a few commands, and also automatically thanks everyone that subscribes, resubscribes or gifts a subscription.</p>
 <p>We will achieve authorization by fetching an initial access token from Twitch and then refreshing that token using the refreh token provided by the same request.</p>
 <p>If you already have an authentication flow up and running with an <code>AuthProvider</code> instance, you find all you need in step 4 and 5.</p>
 <h2>1. Create a Twitch application</h2>
-<p>Go to your <a class="jss21" href="https://dev.twitch.tv/console/apps">Twitch developer console</a> and create a new application. If you don&#x27;t know what a Redirect URI is, use <code>http://localhost</code>. Write down Client ID and Client Secret somewhere - you&#x27;re gonna need them!</p>
+<p>Go to your <a class="jss22" href="https://dev.twitch.tv/console/apps">Twitch developer console</a> and create a new application. If you don&#x27;t know what a Redirect URI is, use <code>http://localhost</code>. Write down Client ID and Client Secret somewhere - you&#x27;re gonna need them!</p>
 <h2>2. Obtain an access token from Twitch</h2>
 <p>Visit this site, with the CLIENT_ID and REDIRECT_URI placeholders replaced with your client ID and redirect URI, respectively:</p>
 <pre><code>https://id.twitch.tv/oauth2/authorize?client_id=CLIENT_ID
@@ -653,7 +676,7 @@
 	&amp;scope=chat:read+chat:edit
 </code></pre>
 <p>Log in with the account you want to use for your bot and confirm the access to Twitch. You should get redirected to your redirect URI with a query parameter named <code>code</code>.</p>
-<p>Using a tool like <a class="jss21" href="https://insomnia.rest/">Insomnia</a> or <a class="jss21" href="https://www.getpostman.com/">Postman</a>, make a <code>POST</code> request to this URL, again, with all placeholders replaced:</p>
+<p>Using a tool like <a class="jss22" href="https://insomnia.rest/">Insomnia</a> or <a class="jss22" href="https://www.getpostman.com/">Postman</a>, make a <code>POST</code> request to this URL, again, with all placeholders replaced:</p>
 <pre><code>https://id.twitch.tv/oauth2/token?client_id=CLIENT_ID
     &amp;client_secret=CLIENT_SECRET
     &amp;code=CODE_FROM_LAST_REQUEST
@@ -674,7 +697,7 @@
 <p>Now you can finally start writing code! First, import all the classes you&#x27;re gonna need from <code>@twurple/auth</code> and <code>@twurple/chat</code>.</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre"><span style="color:#cb7832">import</span><span> { StaticAuthProvider } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/auth&#x27;</span><span>;
 </span><span></span><span style="color:#cb7832">import</span><span> { ChatClient } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/chat&#x27;</span><span>;</span></code></pre></pre>
-<p>Now, as long as <a class="jss21" href="https://github.com/tc39/proposal-top-level-await">top-level await</a> has not landed in popular runtimes, you need to work around that by placing your main routine inside an async function and running it.</p>
+<p>Now, as long as <a class="jss22" href="https://github.com/tc39/proposal-top-level-await">top-level await</a> has not landed in popular runtimes, you need to work around that by placing your main routine inside an async function and running it.</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre"><span style="color:#cb7832">async</span><span> </span><span class="hljs-function" style="color:#cb7832">function</span><span class="hljs-function"> </span><span class="hljs-function hljs-title">main</span><span class="hljs-function">(</span><span class="hljs-function">) </span><span>{
 </span><span>	</span><span style="color:#7f7f7f">// code goes here</span><span>
 </span>}
@@ -768,7 +791,7 @@ The given channels will automatically be joined after connecting.</p>
 <h2>8. ???</h2>
 <p>We&#x27;re done! Your bot should now connect to chat and react to a few basic commands as well as subs, resubs and gift subs. It is able to recover gracefully when crashing.</p>
 <h2>9. Profit!</h2>
-<p>Now you can implement a more elaborated command system, add more events to react to, and much more! All events are documented in the <a class="jss21" href="/reference/chat/classes/ChatClient.html">ChatClient</a> class. And don&#x27;t forget to have fun!</p>
+<p>Now you can implement a more elaborated command system, add more events to react to, and much more! All events are documented in the <a class="jss22" href="/reference/chat/classes/ChatClient.html">ChatClient</a> class. And don&#x27;t forget to have fun!</p>
 <p>For reference, here&#x27;s the full code that <em>should</em> be the result of everything we just did:</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre"><span style="color:#cb7832">import</span><span> { RefreshingAuthProvider } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/auth&#x27;</span><span>;
 </span><span></span><span style="color:#cb7832">import</span><span> { ChatClient } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/chat&#x27;</span><span>;
@@ -811,7 +834,7 @@ The given channels will automatically be joined after connecting.</p>
 <!-- -->}
 <!-- -->
 <!-- -->main();
-</code></pre></pre></div></div></div></div>
+</code></pre></pre></div></div></div></div></div>
 <script src="/pe.js"></script>
 </body>
 </html>

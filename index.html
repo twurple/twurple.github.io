@@ -23,6 +23,7 @@
 			padding: 0;
 			font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 			font-size: 14px;
+			line-height: 1.6em;
 			background: #141414;
 			color: #b9b9b9;
 		}
@@ -491,6 +492,7 @@
   margin: 0 8px;
   padding: 8px;
   transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
+  line-height: 1.3em;
   user-select: none;
   border-bottom: 3px solid transparent;
   text-decoration: none;
@@ -548,26 +550,47 @@
 .jss9 {
   flex: 1;
 }
-.jss15 {
-  color: #949494;
-  font-weight: bold;
-  text-decoration: none;
+.jss15 table {
+  border-collapse: collapse;
+}
+.jss15 th, .jss15 td {
+  border: 1px solid #444;
+  padding: 8px;
+}
+.jss15 li {
+  margin: 16px 0;
+}
+.jss15 li::marker {
+  color: #647d0f;
 }
 .jss16 {
+  color: inherit;
+  transition: border-color .3s ease-in-out;
+  font-weight: bold;
+  border-bottom: 1.5px solid #647d0f;
+  text-decoration: none;
+}
+.jss16:hover {
+  border-bottom-color: #88ab14;
+}
+.jss17 {
   display: flow-root;
   padding: 0 1em;
   border-left: 4px solid #ab9120;
   margin-bottom: 1em;
   background-color: #242424;
 }
-.jss17 {
+.jss18 {
   font-size: 1em;
 }
 .jss14 {
   padding: 16px;
 }
 .jss14 h2 {
-  margin: 0;
+  margin: 24px 0 16px;
+}
+.jss14 h2:first-child {
+  margin-top: 0;
 }
 .jss13 {
   color: #b9b9b9;
@@ -597,13 +620,8 @@
 }</style>
 </head>
 <body>
-<div id="app-root"><div class="jss1"><a aria-current="page" class="jss2 jss4 jss3" href="/">Twurple</a><a class="jss2" href="/docs/api/">api</a><a class="jss2" href="/docs/chat/">chat</a><a class="jss2" href="/docs/pubsub/">pubsub</a><a class="jss2" href="/docs/eventsub/">eventsub</a><a class="jss2" href="/docs/auth/">auth</a><a class="jss2" href="/docs/auth-tmi/">auth-tmi</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss12"><div class="jss13"><h1>Welcome</h1></div><div class="jss14"><h1>⚠ WARNING</h1>
-<p>This is a future version still in development. For a stable version, check out <a class="jss15" href="https://github.com/twurple/twurple/tree/versions/4.5">the <code>versions/4.5</code> branch</a>.</p>
-<h1>Twurple</h1>
-<!-- -->&lt;!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section --&gt;<!-- -->
-<p><a class="jss15" href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-25-orange.svg?style=flat-square" alt="All Contributors"/></a></p>
-<!-- -->&lt;!-- ALL-CONTRIBUTORS-BADGE:END --&gt;<!-- -->
-<p>A set of libraries that aims to cover all of the existing Twitch APIs.</p>
+<div id="app-root"><div class="jss1"><a aria-current="page" class="jss2 jss4 jss3" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss12"><div class="jss13"><h1>Welcome</h1></div><div class="jss14"><div class="jss15"><div class="jss17"><h3 class="jss18">Warning</h3><p>This is a future version still in development. For a stable version, check out <a class="jss16" href="https://github.com/twurple/twurple/tree/versions/4.5">the <code>versions/4.5</code> branch</a>.</p></div>
+<p>Twurple is a set of libraries that aims to cover all of the existing Twitch APIs.</p>
 <ul>
 <li>Query the Helix API</li>
 <li>Build a chat bot</li>
@@ -611,69 +629,17 @@
 <li>Do all this without caring about the expiry of your access tokens - <strong>we can refresh them automatically</strong></li>
 </ul>
 <h2>Installation</h2>
-<p>To add Twurple to your project, just execute:</p>
-<pre><code>yarn add @twurple/auth
-</code></pre>
-<p>or using npm:</p>
-<pre><code>npm install @twurple/auth
-</code></pre>
-<h2>Documentation</h2>
-<p>A good place to start with this library is the <a class="jss15" href="https://twurple.js.org">documentation</a>
-which also includes a complete reference of all classes and interfaces, as well as changes and deprecations between major versions.</p>
-<h2>Additional packages</h2>
-<p>The mentioned <code>@twurple/auth</code> package only provides authentication functionality. All the other things are located in separate packages:</p>
-<ul>
-<li><a class="jss15" href="https://npmjs.com/package/@twurple/api">@twurple/api</a> - make calls to the Helix API</li>
-<li><a class="jss15" href="https://npmjs.com/package/@twurple/chat">@twurple/chat</a> - connect to and interact with Twitch Chat</li>
-<li><a class="jss15" href="https://npmjs.com/package/@twurple/pubsub">@twurple/pubsub</a> - listen to events using the Twitch PubSub interface</li>
-<li><a class="jss15" href="https://npmjs.com/package/@twurple/eventsub">@twurple/eventsub</a> - listen to events using EventSub</li>
-</ul>
-<h2>If you&#x27;re getting stuck...</h2>
-<p>You can join the <a class="jss15" href="https://discord.gg/b9ZqMfz">Discord server</a> for support.</p>
-<h2>Contributors ✨</h2>
-<p>Thanks goes to these wonderful people (<a class="jss15" href="https://allcontributors.org/docs/en/emoji-key">emoji key</a>):</p>
-<!-- -->&lt;!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section --&gt;<!-- -->
-<!-- -->&lt;!-- prettier-ignore-start --&gt;<!-- -->
-<!-- -->&lt;!-- markdownlint-disable --&gt;<!-- -->
-<!-- -->&lt;table&gt;
-  &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://github.com/d-fischer&quot;&gt;&lt;img src=&quot;https://avatars3.githubusercontent.com/u/5854687?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Daniel Fischer&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=d-fischer&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt; &lt;a href=&quot;https://github.com/twurple/twurple/commits?author=d-fischer&quot; title=&quot;Documentation&quot;&gt;📖&lt;/a&gt; &lt;a href=&quot;#example-d-fischer&quot; title=&quot;Examples&quot;&gt;💡&lt;/a&gt; &lt;a href=&quot;#infra-d-fischer&quot; title=&quot;Infrastructure (Hosting, Build-Tools, etc)&quot;&gt;🚇&lt;/a&gt; &lt;a href=&quot;#maintenance-d-fischer&quot; title=&quot;Maintenance&quot;&gt;🚧&lt;/a&gt; &lt;a href=&quot;https://github.com/twurple/twurple/pulls?q=is%3Apr+reviewed-by%3Ad-fischer&quot; title=&quot;Reviewed Pull Requests&quot;&gt;👀&lt;/a&gt; &lt;a href=&quot;#tool-d-fischer&quot; title=&quot;Tools&quot;&gt;🔧&lt;/a&gt;&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://humanoids.be&quot;&gt;&lt;img src=&quot;https://avatars0.githubusercontent.com/u/640949?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Martin Giger&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=freaktechnik&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt; &lt;a href=&quot;#question-freaktechnik&quot; title=&quot;Answering Questions&quot;&gt;💬&lt;/a&gt;&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://github.com/JakubKohout&quot;&gt;&lt;img src=&quot;https://avatars0.githubusercontent.com/u/339965?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Jakub Kohout&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=JakubKohout&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt;&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://github.com/lafiosca&quot;&gt;&lt;img src=&quot;https://avatars2.githubusercontent.com/u/9442662?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Joe Lafiosca&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=lafiosca&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt;&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://gu3.st&quot;&gt;&lt;img src=&quot;https://avatars2.githubusercontent.com/u/375232?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Dustin Dawes&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=gu3st&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt;&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;http://abb.ink&quot;&gt;&lt;img src=&quot;https://avatars3.githubusercontent.com/u/2461972?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Jasper Abbink&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=jabbink&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt;&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://github.com/lclc98&quot;&gt;&lt;img src=&quot;https://avatars2.githubusercontent.com/u/1905336?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;lclc98&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=lclc98&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;http://dfdx.us&quot;&gt;&lt;img src=&quot;https://avatars0.githubusercontent.com/u/3087358?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Haley Hitch&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=dfoverdx&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt;&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://streamcord.io/&quot;&gt;&lt;img src=&quot;https://avatars3.githubusercontent.com/u/19719195?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Akira&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=devakira&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt;&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://twitter.com/Robinlemonz&quot;&gt;&lt;img src=&quot;https://avatars2.githubusercontent.com/u/12851394?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Lewis Gibson&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=Robinlemon&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt;&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;http://ashuvidz.com&quot;&gt;&lt;img src=&quot;https://avatars3.githubusercontent.com/u/4967868?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;VyrtualSynthese&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=vyrtualsynthese&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt;&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://github.com/Spidy88&quot;&gt;&lt;img src=&quot;https://avatars1.githubusercontent.com/u/1076168?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Nick Ferraro&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=Spidy88&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt;&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://alca.tv&quot;&gt;&lt;img src=&quot;https://avatars2.githubusercontent.com/u/7132646?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Jacob Foster&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;#question-AlcaDesign&quot; title=&quot;Answering Questions&quot;&gt;💬&lt;/a&gt; &lt;a href=&quot;https://github.com/twurple/twurple/commits?author=AlcaDesign&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt;&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;http://blerp.com&quot;&gt;&lt;img src=&quot;https://avatars2.githubusercontent.com/u/10217999?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Aaron Kc Hsu&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=aaronkchsu&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://github.com/talk2MeGooseman&quot;&gt;&lt;img src=&quot;https://avatars3.githubusercontent.com/u/1203718?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Erik Guzman&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=talk2MeGooseman&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt;&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;http://trezy.com&quot;&gt;&lt;img src=&quot;https://avatars2.githubusercontent.com/u/442980?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Trezy&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=trezy&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt;&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://github.com/travtarr&quot;&gt;&lt;img src=&quot;https://avatars3.githubusercontent.com/u/7989582?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Travis Tarr&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=travtarr&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt;&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;http://multitwitch.co&quot;&gt;&lt;img src=&quot;https://avatars3.githubusercontent.com/u/11161511?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Grégoire Joncour&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=gregoire78&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt;&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://github.com/maciej-trebacz&quot;&gt;&lt;img src=&quot;https://avatars3.githubusercontent.com/u/1614514?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Maciej Trębacz&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=maciej-trebacz&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt;&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://github.com/Technikkeller&quot;&gt;&lt;img src=&quot;https://avatars1.githubusercontent.com/u/29926093?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Justus Fluegel&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=Technikkeller&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt;&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://github.com/daniel0611&quot;&gt;&lt;img src=&quot;https://avatars0.githubusercontent.com/u/30466471?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Daniel Huber&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=daniel0611&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://adamcrowder.net&quot;&gt;&lt;img src=&quot;https://avatars1.githubusercontent.com/u/11189778?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Adam&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=cheeseandcereal&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt;&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://crutchcorn.dev&quot;&gt;&lt;img src=&quot;https://avatars0.githubusercontent.com/u/9100169?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Corbin Crutchley&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=crutchcorn&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt;&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://hirst.xyz&quot;&gt;&lt;img src=&quot;https://avatars3.githubusercontent.com/u/45145746?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Sam Hirst&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=Naeviant&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt;&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://gitlab.com/cactys&quot;&gt;&lt;img src=&quot;https://avatars.githubusercontent.com/u/5056880?v=4?s=100&quot; width=&quot;100px;&quot; alt=&quot;&quot;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Cλctysman&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://github.com/twurple/twurple/commits?author=cactysman&quot; title=&quot;Code&quot;&gt;💻&lt;/a&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/table&gt;<!-- -->
-<!-- -->&lt;!-- markdownlint-restore --&gt;<!-- -->
-<!-- -->&lt;!-- prettier-ignore-end --&gt;<!-- -->
-<!-- -->&lt;!-- ALL-CONTRIBUTORS-LIST:END --&gt;<!-- -->
-<p>This project follows the <a class="jss15" href="https://github.com/all-contributors/all-contributors">all-contributors</a> specification. Contributions of any kind welcome!</p></div></div></div></div>
+<p>Twurple consists of multiple packages that mostly communicate with a single system on Twitch&#x27;s side.</p>
+<p>All these system packages rely on a single package that manages authentication tokens, <code>@twurple/auth</code>.<br/>
+<!-- -->All peer dependencies between the different packages are shown here:</p>
+<table><thead><tr><th>Package</th><th>Peer dependencies</th></tr></thead><tbody><tr><td><code>@twurple/api</code></td><td><code>@twurple/auth</code></td></tr><tr><td><code>@twurple/chat</code></td><td><code>@twurple/auth</code></td></tr><tr><td><code>@twurple/eventsub</code></td><td><code>@twurple/auth</code>, <code>@twurple/api</code></td></tr><tr><td><code>@twurple/pubsub</code></td><td><code>@twurple/auth</code></td></tr></tbody></table>
+<p>For example, to use EventSub, execute one of:</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-bash" style="white-space:pre"><span>yarn add @twurple/auth @twurple/chat @twurple/eventsub
+</span><span></span><span style="color:#7f7f7f"># or</span><span>
+</span>npm install @twurple/auth @twurple/chat @twurple/eventsub
+</code></pre></pre>
+<h2>I got stuck/have more questions! Where do I get help?</h2>
+<p>You can join the <a class="jss16" href="https://discord.gg/b9ZqMfz">Twitch API Libraries Discord Server</a> and ask in <code>#twitch-js-twurple</code> for support.</p></div></div></div></div></div>
 <script src="/pe.js"></script>
 </body>
 </html>
