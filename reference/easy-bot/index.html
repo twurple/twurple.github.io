@@ -593,6 +593,74 @@
 .jss18:hover {
   border-left-color: #88ab14;
 }
+.jss24 table {
+  border-collapse: collapse;
+}
+.jss24 th, .jss24 td {
+  border: 1px solid #444;
+  padding: 8px;
+}
+.jss24 li {
+  margin: 16px 0;
+}
+.jss24 li::marker {
+  color: #647d0f;
+}
+.jss25 {
+  color: inherit;
+  transition: border-color .3s ease-in-out;
+  font-weight: bold;
+  border-bottom: 1.5px solid #647d0f;
+  text-decoration: none;
+}
+.jss25:hover {
+  border-bottom-color: #88ab14;
+}
+.jss26 {
+  display: flow-root;
+  padding: 0 1em;
+  border-left: 4px solid #ab9120;
+  margin-bottom: 1em;
+  background-color: #242424;
+}
+.jss27 {
+  font-size: 1em;
+}
+.jss23 {
+  padding: 16px;
+}
+.jss23 h2 {
+  margin: 24px 0 16px;
+}
+.jss23 h2:first-child {
+  margin-top: 0;
+}
+.jss22 {
+  color: #b9b9b9;
+  padding: 16px;
+  position: relative;
+  background-color: #242424;
+}
+.jss22 h1 {
+  margin: 0;
+  display: inline;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+.jss22 p {
+  margin: 0;
+}
+.jss19 {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+.jss20 {
+  width: 250px;
+}
+.jss21 {
+  flex: 1;
+}
 .jss10 {
   flex: 1;
   width: 100%;
@@ -607,7 +675,29 @@
 }</style>
 </head>
 <body>
-<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><div class="jss5"><div class="jss2 jss3">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a aria-current="page" class="jss2 jss7 jss8" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><div class="jss14"><h2 class="jss15">Classes</h2><div class="jss16"><a title="Bot" class="jss17" href="/reference/easy-bot/classes/Bot.html">Bot</a><a title="BotCommand" class="jss17" href="/reference/easy-bot/classes/BotCommand.html">BotCommand</a><a title="BotCommandContext" class="jss17" href="/reference/easy-bot/classes/BotCommandContext.html">BotCommandContext</a></div></div><div class="jss14"><h2 class="jss15">Functions</h2><div class="jss16"><a title="createBotCommand" class="jss17" href="/reference/easy-bot/functions/createBotCommand.html">createBotCommand</a></div></div><div class="jss14"><h2 class="jss15">Interfaces</h2><div class="jss16"><a title="BotCommandMatch" class="jss17" href="/reference/easy-bot/interfaces/BotCommandMatch.html">BotCommandMatch</a><a title="BotConfig" class="jss17" href="/reference/easy-bot/interfaces/BotConfig.html">BotConfig</a></div></div></div><div class="jss12"><main></main></div></div></div>
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><div class="jss5"><div class="jss2 jss3">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a aria-current="page" class="jss2 jss7 jss8" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><div class="jss14"><h2 class="jss15">Classes</h2><div class="jss16"><a title="Bot" class="jss17" href="/reference/easy-bot/classes/Bot.html">Bot</a><a title="BotCommand" class="jss17" href="/reference/easy-bot/classes/BotCommand.html">BotCommand</a><a title="BotCommandContext" class="jss17" href="/reference/easy-bot/classes/BotCommandContext.html">BotCommandContext</a></div></div><div class="jss14"><h2 class="jss15">Functions</h2><div class="jss16"><a title="createBotCommand" class="jss17" href="/reference/easy-bot/functions/createBotCommand.html">createBotCommand</a></div></div><div class="jss14"><h2 class="jss15">Interfaces</h2><div class="jss16"><a title="BotCommandMatch" class="jss17" href="/reference/easy-bot/interfaces/BotCommandMatch.html">BotCommandMatch</a><a title="BotConfig" class="jss17" href="/reference/easy-bot/interfaces/BotConfig.html">BotConfig</a></div></div></div><div class="jss12"><main><div class="jss19"><div class="jss21"><div class="jss22"><h1>@twurple/easy-bot</h1></div><div class="jss23"><div class="jss24"><h1>⚠ WARNING</h1>
+<p>This is a future version still in development. For a stable version, check out <a class="jss25" href="https://www.npmjs.com/package/easy-twitch-bot">the <code>easy-twitch-bot</code> package</a>.</p>
+<h1>Twurple - Bot framework</h1>
+<p>A simplified framework to get a chat bot running easily.</p>
+<h2>Installation</h2>
+<pre><code>yarn add @twurple/easy-bot
+</code></pre>
+<p>or using npm:</p>
+<pre><code>npm install @twurple/easy-bot
+</code></pre>
+<h2>Example</h2>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre-wrap"><span><span style="color:#cb7832">import</span><span> { Bot, createBotCommand } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/easy-bot&#x27;</span><span>;
+</span></span><span>Bot.create({
+</span><span><span>    </span><span class="hljs-attr">auth</span><span>: </span><span style="color:#6a8759">&#x27;YOURTOKENHERE&#x27;</span><span>,
+</span></span><span><span>    </span><span class="hljs-attr">channel</span><span>: </span><span style="color:#6a8759">&#x27;satisfiedpear&#x27;</span><span>,
+</span></span><span><span>    </span><span class="hljs-attr">commands</span><span>: [
+</span></span><span><span>        createBotCommand(</span><span style="color:#6a8759">&#x27;dice&#x27;</span><span>, </span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">params, { user, say }</span><span class="hljs-function">) =&gt;</span><span> {
+</span></span><span><span>            </span><span style="color:#cb7832">const</span><span> diceRoll = </span><span style="color:#e0c46c">Math</span><span>.floor(</span><span style="color:#e0c46c">Math</span><span>.random() * </span><span style="color:#6896ba">6</span><span>) + </span><span style="color:#6896ba">1</span><span>;
+</span></span><span><span>            say(</span><span style="color:#6a8759">`@</span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759"> rolled a </span><span style="color:#e0c46c">${diceRoll}</span><span style="color:#6a8759">`</span><span>);
+</span></span><span>        })
+</span><span>    ]
+</span><span>});
+</span></code></pre></pre></div></div></div></div></main></div></div></div>
 <script src="/pe.js"></script>
 </body>
 </html>

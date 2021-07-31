@@ -668,14 +668,14 @@
 <p>There are multiple options available to configure your listener.</p>
 <h2>Configuration using an environment variable</h2>
 <p>Some hosting providers (e.g. Heroku) offer an environment variable (usually named <code>PORT</code>) you have to listen on.</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre"><span style="color:#cb7832">const</span><span> listener = </span><span style="color:#cb7832">new</span><span> EventSubListener(client, </span><span style="color:#cb7832">new</span><span> EnvPortAdapter({
-</span><span>	</span><span class="hljs-attr">hostName</span><span>: </span><span style="color:#6a8759">&#x27;example.herokuapp.com&#x27;</span><span>
-</span><span>}), </span><span style="color:#6a8759">&#x27;thisShouldBeARandomlyGeneratedFixedString&#x27;</span><span>);</span></code></pre></pre>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> listener = </span><span style="color:#cb7832">new</span><span> EventSubListener(client, </span><span style="color:#cb7832">new</span><span> EnvPortAdapter({
+</span></span><span><span>	</span><span class="hljs-attr">hostName</span><span>: </span><span style="color:#6a8759">&#x27;example.herokuapp.com&#x27;</span><span>
+</span></span><span><span>}), </span><span style="color:#6a8759">&#x27;thisShouldBeARandomlyGeneratedFixedString&#x27;</span><span>);</span></span></code></pre></pre>
 <h2>Manual configuration</h2>
 <p>If you don&#x27;t use an environment variable, you need to set up the listener port manually. Be sure to have it match your reverse proxy&#x27;s configuration.</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre"><span style="color:#cb7832">const</span><span> listener = </span><span style="color:#cb7832">new</span><span> EventSubListener(client, </span><span style="color:#cb7832">new</span><span> ReverseProxyAdapter({
-</span><span>    </span><span class="hljs-attr">hostName</span><span>: </span><span style="color:#6a8759">&#x27;example.com&#x27;</span><span>, </span><span style="color:#7f7f7f">// The host name the server is available from</span><span>
-</span><span>}), </span><span style="color:#6a8759">&#x27;thisShouldBeARandomlyGeneratedFixedString&#x27;</span><span>);</span></code></pre></pre>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> listener = </span><span style="color:#cb7832">new</span><span> EventSubListener(client, </span><span style="color:#cb7832">new</span><span> ReverseProxyAdapter({
+</span></span><span><span>    </span><span class="hljs-attr">hostName</span><span>: </span><span style="color:#6a8759">&#x27;example.com&#x27;</span><span>, </span><span style="color:#7f7f7f">// The host name the server is available from</span><span>
+</span></span><span><span>}), </span><span style="color:#6a8759">&#x27;thisShouldBeARandomlyGeneratedFixedString&#x27;</span><span>);</span></span></code></pre></pre>
 <p>Twitch requires that the reverse proxy is running with SSL on the default port 443.</p>
 <p>A full list of configuration options is available on the <a class="jss22" href="/reference/eventsub/classes/ReverseProxyAdapter.html">ReverseProxyAdapter</a> reference page.</p>
 <h2>Listening to events</h2>

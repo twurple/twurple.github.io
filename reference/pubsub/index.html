@@ -593,6 +593,74 @@
 .jss18:hover {
   border-left-color: #88ab14;
 }
+.jss24 table {
+  border-collapse: collapse;
+}
+.jss24 th, .jss24 td {
+  border: 1px solid #444;
+  padding: 8px;
+}
+.jss24 li {
+  margin: 16px 0;
+}
+.jss24 li::marker {
+  color: #647d0f;
+}
+.jss25 {
+  color: inherit;
+  transition: border-color .3s ease-in-out;
+  font-weight: bold;
+  border-bottom: 1.5px solid #647d0f;
+  text-decoration: none;
+}
+.jss25:hover {
+  border-bottom-color: #88ab14;
+}
+.jss26 {
+  display: flow-root;
+  padding: 0 1em;
+  border-left: 4px solid #ab9120;
+  margin-bottom: 1em;
+  background-color: #242424;
+}
+.jss27 {
+  font-size: 1em;
+}
+.jss23 {
+  padding: 16px;
+}
+.jss23 h2 {
+  margin: 24px 0 16px;
+}
+.jss23 h2:first-child {
+  margin-top: 0;
+}
+.jss22 {
+  color: #b9b9b9;
+  padding: 16px;
+  position: relative;
+  background-color: #242424;
+}
+.jss22 h1 {
+  margin: 0;
+  display: inline;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+.jss22 p {
+  margin: 0;
+}
+.jss19 {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+.jss20 {
+  width: 250px;
+}
+.jss21 {
+  flex: 1;
+}
 .jss10 {
   flex: 1;
   width: 100%;
@@ -607,7 +675,21 @@
 }</style>
 </head>
 <body>
-<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><div class="jss5"><div class="jss2 jss3">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a aria-current="page" class="jss2 jss7 jss8" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><div class="jss14"><h2 class="jss15">Classes</h2><div class="jss16"><a title="BasicPubSubClient" class="jss17" href="/reference/pubsub/classes/BasicPubSubClient.html">BasicPubSubClient</a><a title="PubSubAutoModQueueMessage" class="jss17" href="/reference/pubsub/classes/PubSubAutoModQueueMessage.html">PubSubAutoModQueueMessage</a><a title="PubSubBitsBadgeUnlockMessage" class="jss17" href="/reference/pubsub/classes/PubSubBitsBadgeUnlockMessage.html">PubSubBitsBadgeUnlockMessage</a><a title="PubSubBitsMessage" class="jss17" href="/reference/pubsub/classes/PubSubBitsMessage.html">PubSubBitsMessage</a><a title="PubSubChatModActionMessage" class="jss17" href="/reference/pubsub/classes/PubSubChatModActionMessage.html">PubSubChatModActionMessage</a><a title="PubSubClient" class="jss17" href="/reference/pubsub/classes/PubSubClient.html">PubSubClient</a><a title="PubSubCustomMessage" class="jss17" href="/reference/pubsub/classes/PubSubCustomMessage.html">PubSubCustomMessage</a><a title="PubSubListener" class="jss17" href="/reference/pubsub/classes/PubSubListener.html">PubSubListener</a><a title="PubSubRedemptionMessage" class="jss17" href="/reference/pubsub/classes/PubSubRedemptionMessage.html">PubSubRedemptionMessage</a><a title="PubSubSubscriptionMessage" class="jss17" href="/reference/pubsub/classes/PubSubSubscriptionMessage.html">PubSubSubscriptionMessage</a><a title="PubSubUserModerationNotificationMessage" class="jss17" href="/reference/pubsub/classes/PubSubUserModerationNotificationMessage.html">PubSubUserModerationNotificationMessage</a><a title="PubSubWhisperMessage" class="jss17" href="/reference/pubsub/classes/PubSubWhisperMessage.html">PubSubWhisperMessage</a><a title="SingleUserPubSubClient" class="jss17" href="/reference/pubsub/classes/SingleUserPubSubClient.html">SingleUserPubSubClient</a></div></div><div class="jss14"><h2 class="jss15">Interfaces</h2><div class="jss16"><a title="BasicPubSubClientOptions" class="jss17" href="/reference/pubsub/interfaces/BasicPubSubClientOptions.html">BasicPubSubClientOptions</a><a title="SingleUserPubSubClientOptions" class="jss17" href="/reference/pubsub/interfaces/SingleUserPubSubClientOptions.html">SingleUserPubSubClientOptions</a></div></div></div><div class="jss12"><main></main></div></div></div>
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><div class="jss5"><div class="jss2 jss3">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a aria-current="page" class="jss2 jss7 jss8" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><div class="jss14"><h2 class="jss15">Classes</h2><div class="jss16"><a title="BasicPubSubClient" class="jss17" href="/reference/pubsub/classes/BasicPubSubClient.html">BasicPubSubClient</a><a title="PubSubAutoModQueueMessage" class="jss17" href="/reference/pubsub/classes/PubSubAutoModQueueMessage.html">PubSubAutoModQueueMessage</a><a title="PubSubBitsBadgeUnlockMessage" class="jss17" href="/reference/pubsub/classes/PubSubBitsBadgeUnlockMessage.html">PubSubBitsBadgeUnlockMessage</a><a title="PubSubBitsMessage" class="jss17" href="/reference/pubsub/classes/PubSubBitsMessage.html">PubSubBitsMessage</a><a title="PubSubChatModActionMessage" class="jss17" href="/reference/pubsub/classes/PubSubChatModActionMessage.html">PubSubChatModActionMessage</a><a title="PubSubClient" class="jss17" href="/reference/pubsub/classes/PubSubClient.html">PubSubClient</a><a title="PubSubCustomMessage" class="jss17" href="/reference/pubsub/classes/PubSubCustomMessage.html">PubSubCustomMessage</a><a title="PubSubListener" class="jss17" href="/reference/pubsub/classes/PubSubListener.html">PubSubListener</a><a title="PubSubRedemptionMessage" class="jss17" href="/reference/pubsub/classes/PubSubRedemptionMessage.html">PubSubRedemptionMessage</a><a title="PubSubSubscriptionMessage" class="jss17" href="/reference/pubsub/classes/PubSubSubscriptionMessage.html">PubSubSubscriptionMessage</a><a title="PubSubUserModerationNotificationMessage" class="jss17" href="/reference/pubsub/classes/PubSubUserModerationNotificationMessage.html">PubSubUserModerationNotificationMessage</a><a title="PubSubWhisperMessage" class="jss17" href="/reference/pubsub/classes/PubSubWhisperMessage.html">PubSubWhisperMessage</a><a title="SingleUserPubSubClient" class="jss17" href="/reference/pubsub/classes/SingleUserPubSubClient.html">SingleUserPubSubClient</a></div></div><div class="jss14"><h2 class="jss15">Interfaces</h2><div class="jss16"><a title="BasicPubSubClientOptions" class="jss17" href="/reference/pubsub/interfaces/BasicPubSubClientOptions.html">BasicPubSubClientOptions</a><a title="SingleUserPubSubClientOptions" class="jss17" href="/reference/pubsub/interfaces/SingleUserPubSubClientOptions.html">SingleUserPubSubClientOptions</a></div></div></div><div class="jss12"><main><div class="jss19"><div class="jss21"><div class="jss22"><h1>@twurple/pubsub</h1></div><div class="jss23"><div class="jss24"><h1>⚠ WARNING</h1>
+<p>This is a future version still in development. For a stable version, check out <a class="jss25" href="https://www.npmjs.com/package/twitch-pubsub-client">the <code>twitch-pubsub-client</code> package</a>.</p>
+<h1>Twurple - PubSub Client</h1>
+<p>Listen to events using the Twitch PubSub interface.</p>
+<h2>Installation</h2>
+<pre><code>yarn add @twurple/auth @twurple/pubsub-client
+</code></pre>
+<p>or using npm:</p>
+<pre><code>npm install @twurple/auth @twurple/pubsub-client
+</code></pre>
+<h2>Documentation</h2>
+<p>A good place to start with this library is the <a class="jss25" href="https://twurple.js.org">documentation</a>
+which also includes a complete reference of all classes and interfaces, as well as changes and deprecations between major versions.</p>
+<h2>If you&#x27;re getting stuck...</h2>
+<p>You can join the <a class="jss25" href="https://discord.gg/b9ZqMfz">Discord server</a> for support.</p></div></div></div></div></main></div></div></div>
 <script src="/pe.js"></script>
 </body>
 </html>

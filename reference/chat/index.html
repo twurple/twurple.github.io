@@ -593,6 +593,74 @@
 .jss18:hover {
   border-left-color: #88ab14;
 }
+.jss24 table {
+  border-collapse: collapse;
+}
+.jss24 th, .jss24 td {
+  border: 1px solid #444;
+  padding: 8px;
+}
+.jss24 li {
+  margin: 16px 0;
+}
+.jss24 li::marker {
+  color: #647d0f;
+}
+.jss25 {
+  color: inherit;
+  transition: border-color .3s ease-in-out;
+  font-weight: bold;
+  border-bottom: 1.5px solid #647d0f;
+  text-decoration: none;
+}
+.jss25:hover {
+  border-bottom-color: #88ab14;
+}
+.jss26 {
+  display: flow-root;
+  padding: 0 1em;
+  border-left: 4px solid #ab9120;
+  margin-bottom: 1em;
+  background-color: #242424;
+}
+.jss27 {
+  font-size: 1em;
+}
+.jss23 {
+  padding: 16px;
+}
+.jss23 h2 {
+  margin: 24px 0 16px;
+}
+.jss23 h2:first-child {
+  margin-top: 0;
+}
+.jss22 {
+  color: #b9b9b9;
+  padding: 16px;
+  position: relative;
+  background-color: #242424;
+}
+.jss22 h1 {
+  margin: 0;
+  display: inline;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+.jss22 p {
+  margin: 0;
+}
+.jss19 {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+.jss20 {
+  width: 250px;
+}
+.jss21 {
+  flex: 1;
+}
 .jss10 {
   flex: 1;
   width: 100%;
@@ -607,7 +675,21 @@
 }</style>
 </head>
 <body>
-<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><div class="jss5"><div class="jss2 jss3">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a aria-current="page" class="jss2 jss7 jss8" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><div class="jss14"><h2 class="jss15">Classes</h2><div class="jss16"><a title="ChatClient" class="jss17" href="/reference/chat/classes/ChatClient.html">ChatClient</a><a title="ChatUser" class="jss17" href="/reference/chat/classes/ChatUser.html">ChatUser</a><a title="TwitchPrivateMessage" class="jss17" href="/reference/chat/classes/TwitchPrivateMessage.html">TwitchPrivateMessage</a><a title="UserNotice" class="jss17" href="/reference/chat/classes/UserNotice.html">UserNotice</a></div></div><div class="jss14"><h2 class="jss15">Functions</h2><div class="jss16"><a title="parseTwitchMessage" class="jss17" href="/reference/chat/functions/parseTwitchMessage.html">parseTwitchMessage</a></div></div><div class="jss14"><h2 class="jss15">Interfaces</h2><div class="jss16"><a title="ChatBitsBadgeUpgradeInfo" class="jss17" href="/reference/chat/interfaces/ChatBitsBadgeUpgradeInfo.html">ChatBitsBadgeUpgradeInfo</a><a title="ChatClientOptions" class="jss17" href="/reference/chat/interfaces/ChatClientOptions.html">ChatClientOptions</a><a title="ChatCommunityPayForwardInfo" class="jss17" href="/reference/chat/interfaces/ChatCommunityPayForwardInfo.html">ChatCommunityPayForwardInfo</a><a title="ChatCommunitySubInfo" class="jss17" href="/reference/chat/interfaces/ChatCommunitySubInfo.html">ChatCommunitySubInfo</a><a title="ChatPrimeCommunityGiftInfo" class="jss17" href="/reference/chat/interfaces/ChatPrimeCommunityGiftInfo.html">ChatPrimeCommunityGiftInfo</a><a title="ChatRaidInfo" class="jss17" href="/reference/chat/interfaces/ChatRaidInfo.html">ChatRaidInfo</a><a title="ChatRewardGiftInfo" class="jss17" href="/reference/chat/interfaces/ChatRewardGiftInfo.html">ChatRewardGiftInfo</a><a title="ChatRitualInfo" class="jss17" href="/reference/chat/interfaces/ChatRitualInfo.html">ChatRitualInfo</a><a title="ChatSayMessageAttributes" class="jss17" href="/reference/chat/interfaces/ChatSayMessageAttributes.html">ChatSayMessageAttributes</a><a title="ChatStandardPayForwardInfo" class="jss17" href="/reference/chat/interfaces/ChatStandardPayForwardInfo.html">ChatStandardPayForwardInfo</a><a title="ChatSubExtendInfo" class="jss17" href="/reference/chat/interfaces/ChatSubExtendInfo.html">ChatSubExtendInfo</a><a title="ChatSubGiftInfo" class="jss17" href="/reference/chat/interfaces/ChatSubGiftInfo.html">ChatSubGiftInfo</a><a title="ChatSubGiftUpgradeInfo" class="jss17" href="/reference/chat/interfaces/ChatSubGiftUpgradeInfo.html">ChatSubGiftUpgradeInfo</a><a title="ChatSubInfo" class="jss17" href="/reference/chat/interfaces/ChatSubInfo.html">ChatSubInfo</a><a title="ChatSubUpgradeInfo" class="jss17" href="/reference/chat/interfaces/ChatSubUpgradeInfo.html">ChatSubUpgradeInfo</a></div></div></div><div class="jss12"><main></main></div></div></div>
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><div class="jss5"><div class="jss2 jss3">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a aria-current="page" class="jss2 jss7 jss8" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><div class="jss14"><h2 class="jss15">Classes</h2><div class="jss16"><a title="ChatClient" class="jss17" href="/reference/chat/classes/ChatClient.html">ChatClient</a><a title="ChatUser" class="jss17" href="/reference/chat/classes/ChatUser.html">ChatUser</a><a title="TwitchPrivateMessage" class="jss17" href="/reference/chat/classes/TwitchPrivateMessage.html">TwitchPrivateMessage</a><a title="UserNotice" class="jss17" href="/reference/chat/classes/UserNotice.html">UserNotice</a></div></div><div class="jss14"><h2 class="jss15">Functions</h2><div class="jss16"><a title="parseTwitchMessage" class="jss17" href="/reference/chat/functions/parseTwitchMessage.html">parseTwitchMessage</a></div></div><div class="jss14"><h2 class="jss15">Interfaces</h2><div class="jss16"><a title="ChatBitsBadgeUpgradeInfo" class="jss17" href="/reference/chat/interfaces/ChatBitsBadgeUpgradeInfo.html">ChatBitsBadgeUpgradeInfo</a><a title="ChatClientOptions" class="jss17" href="/reference/chat/interfaces/ChatClientOptions.html">ChatClientOptions</a><a title="ChatCommunityPayForwardInfo" class="jss17" href="/reference/chat/interfaces/ChatCommunityPayForwardInfo.html">ChatCommunityPayForwardInfo</a><a title="ChatCommunitySubInfo" class="jss17" href="/reference/chat/interfaces/ChatCommunitySubInfo.html">ChatCommunitySubInfo</a><a title="ChatPrimeCommunityGiftInfo" class="jss17" href="/reference/chat/interfaces/ChatPrimeCommunityGiftInfo.html">ChatPrimeCommunityGiftInfo</a><a title="ChatRaidInfo" class="jss17" href="/reference/chat/interfaces/ChatRaidInfo.html">ChatRaidInfo</a><a title="ChatRewardGiftInfo" class="jss17" href="/reference/chat/interfaces/ChatRewardGiftInfo.html">ChatRewardGiftInfo</a><a title="ChatRitualInfo" class="jss17" href="/reference/chat/interfaces/ChatRitualInfo.html">ChatRitualInfo</a><a title="ChatSayMessageAttributes" class="jss17" href="/reference/chat/interfaces/ChatSayMessageAttributes.html">ChatSayMessageAttributes</a><a title="ChatStandardPayForwardInfo" class="jss17" href="/reference/chat/interfaces/ChatStandardPayForwardInfo.html">ChatStandardPayForwardInfo</a><a title="ChatSubExtendInfo" class="jss17" href="/reference/chat/interfaces/ChatSubExtendInfo.html">ChatSubExtendInfo</a><a title="ChatSubGiftInfo" class="jss17" href="/reference/chat/interfaces/ChatSubGiftInfo.html">ChatSubGiftInfo</a><a title="ChatSubGiftUpgradeInfo" class="jss17" href="/reference/chat/interfaces/ChatSubGiftUpgradeInfo.html">ChatSubGiftUpgradeInfo</a><a title="ChatSubInfo" class="jss17" href="/reference/chat/interfaces/ChatSubInfo.html">ChatSubInfo</a><a title="ChatSubUpgradeInfo" class="jss17" href="/reference/chat/interfaces/ChatSubUpgradeInfo.html">ChatSubUpgradeInfo</a></div></div></div><div class="jss12"><main><div class="jss19"><div class="jss21"><div class="jss22"><h1>@twurple/chat</h1></div><div class="jss23"><div class="jss24"><h1>⚠ WARNING</h1>
+<p>This is a future version still in development. For a stable version, check out <a class="jss25" href="https://www.npmjs.com/package/twitch-chat-client">the <code>twitch-chat-client</code> package</a>.</p>
+<h1>Twurple - Chat Client</h1>
+<p>Interact with the Twitch Messaging Interface (aka Twitch chat).</p>
+<h2>Installation</h2>
+<pre><code>yarn add @twurple/auth @twurple/chat
+</code></pre>
+<p>or using npm:</p>
+<pre><code>npm install @twurple/auth @twurple/chat
+</code></pre>
+<h2>Documentation</h2>
+<p>A good place to start with this library is the <a class="jss25" href="https://twurple.js.org">documentation</a>
+which also includes a complete reference of all classes and interfaces, as well as changes and deprecations between major versions.</p>
+<h2>If you&#x27;re getting stuck...</h2>
+<p>You can join the <a class="jss25" href="https://discord.gg/b9ZqMfz">Discord server</a> for support.</p></div></div></div></div></main></div></div></div>
 <script src="/pe.js"></script>
 </body>
 </html>

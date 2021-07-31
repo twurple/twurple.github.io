@@ -593,6 +593,74 @@
 .jss18:hover {
   border-left-color: #88ab14;
 }
+.jss24 table {
+  border-collapse: collapse;
+}
+.jss24 th, .jss24 td {
+  border: 1px solid #444;
+  padding: 8px;
+}
+.jss24 li {
+  margin: 16px 0;
+}
+.jss24 li::marker {
+  color: #647d0f;
+}
+.jss25 {
+  color: inherit;
+  transition: border-color .3s ease-in-out;
+  font-weight: bold;
+  border-bottom: 1.5px solid #647d0f;
+  text-decoration: none;
+}
+.jss25:hover {
+  border-bottom-color: #88ab14;
+}
+.jss26 {
+  display: flow-root;
+  padding: 0 1em;
+  border-left: 4px solid #ab9120;
+  margin-bottom: 1em;
+  background-color: #242424;
+}
+.jss27 {
+  font-size: 1em;
+}
+.jss23 {
+  padding: 16px;
+}
+.jss23 h2 {
+  margin: 24px 0 16px;
+}
+.jss23 h2:first-child {
+  margin-top: 0;
+}
+.jss22 {
+  color: #b9b9b9;
+  padding: 16px;
+  position: relative;
+  background-color: #242424;
+}
+.jss22 h1 {
+  margin: 0;
+  display: inline;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+.jss22 p {
+  margin: 0;
+}
+.jss19 {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+.jss20 {
+  width: 250px;
+}
+.jss21 {
+  flex: 1;
+}
 .jss10 {
   flex: 1;
   width: 100%;
@@ -607,7 +675,21 @@
 }</style>
 </head>
 <body>
-<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><div class="jss5"><div class="jss2 jss3">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a aria-current="page" class="jss2 jss7 jss8" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><div class="jss14"><h2 class="jss15">Classes</h2><div class="jss16"><a title="ChatEmote" class="jss17" href="/reference/common/classes/ChatEmote.html">ChatEmote</a><a title="ChatEmoteWithSet" class="jss17" href="/reference/common/classes/ChatEmoteWithSet.html">ChatEmoteWithSet</a><a title="HellFreezesOverError" class="jss17" href="/reference/common/classes/HellFreezesOverError.html">HellFreezesOverError</a></div></div><div class="jss14"><h2 class="jss15">Functions</h2><div class="jss16"><a title="extractUserId" class="jss17" href="/reference/common/functions/extractUserId.html">extractUserId</a><a title="extractUserName" class="jss17" href="/reference/common/functions/extractUserName.html">extractUserName</a><a title="getRawData" class="jss17" href="/reference/common/functions/getRawData.html">getRawData</a></div></div><div class="jss14"><h2 class="jss15">Interfaces</h2><div class="jss16"><a title="CheermoteDisplayInfo" class="jss17" href="/reference/common/interfaces/CheermoteDisplayInfo.html">CheermoteDisplayInfo</a><a title="CheermoteFormat" class="jss17" href="/reference/common/interfaces/CheermoteFormat.html">CheermoteFormat</a><a title="MessageCheermote" class="jss17" href="/reference/common/interfaces/MessageCheermote.html">MessageCheermote</a><a title="ParsedMessageCheerPart" class="jss17" href="/reference/common/interfaces/ParsedMessageCheerPart.html">ParsedMessageCheerPart</a><a title="ParsedMessageEmotePart" class="jss17" href="/reference/common/interfaces/ParsedMessageEmotePart.html">ParsedMessageEmotePart</a><a title="ParsedMessageTextPart" class="jss17" href="/reference/common/interfaces/ParsedMessageTextPart.html">ParsedMessageTextPart</a><a title="UserIdResolvableType" class="jss17" href="/reference/common/interfaces/UserIdResolvableType.html">UserIdResolvableType</a><a title="UserNameResolveableType" class="jss17" href="/reference/common/interfaces/UserNameResolveableType.html">UserNameResolveableType</a></div></div></div><div class="jss12"><main></main></div></div></div>
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><div class="jss5"><div class="jss2 jss3">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a aria-current="page" class="jss2 jss7 jss8" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><div class="jss14"><h2 class="jss15">Classes</h2><div class="jss16"><a title="ChatEmote" class="jss17" href="/reference/common/classes/ChatEmote.html">ChatEmote</a><a title="ChatEmoteWithSet" class="jss17" href="/reference/common/classes/ChatEmoteWithSet.html">ChatEmoteWithSet</a><a title="HellFreezesOverError" class="jss17" href="/reference/common/classes/HellFreezesOverError.html">HellFreezesOverError</a></div></div><div class="jss14"><h2 class="jss15">Functions</h2><div class="jss16"><a title="extractUserId" class="jss17" href="/reference/common/functions/extractUserId.html">extractUserId</a><a title="extractUserName" class="jss17" href="/reference/common/functions/extractUserName.html">extractUserName</a><a title="getRawData" class="jss17" href="/reference/common/functions/getRawData.html">getRawData</a></div></div><div class="jss14"><h2 class="jss15">Interfaces</h2><div class="jss16"><a title="CheermoteDisplayInfo" class="jss17" href="/reference/common/interfaces/CheermoteDisplayInfo.html">CheermoteDisplayInfo</a><a title="CheermoteFormat" class="jss17" href="/reference/common/interfaces/CheermoteFormat.html">CheermoteFormat</a><a title="MessageCheermote" class="jss17" href="/reference/common/interfaces/MessageCheermote.html">MessageCheermote</a><a title="ParsedMessageCheerPart" class="jss17" href="/reference/common/interfaces/ParsedMessageCheerPart.html">ParsedMessageCheerPart</a><a title="ParsedMessageEmotePart" class="jss17" href="/reference/common/interfaces/ParsedMessageEmotePart.html">ParsedMessageEmotePart</a><a title="ParsedMessageTextPart" class="jss17" href="/reference/common/interfaces/ParsedMessageTextPart.html">ParsedMessageTextPart</a><a title="UserIdResolvableType" class="jss17" href="/reference/common/interfaces/UserIdResolvableType.html">UserIdResolvableType</a><a title="UserNameResolveableType" class="jss17" href="/reference/common/interfaces/UserNameResolveableType.html">UserNameResolveableType</a></div></div></div><div class="jss12"><main><div class="jss19"><div class="jss21"><div class="jss22"><h1>@twurple/common</h1></div><div class="jss23"><div class="jss24"><h1>⚠ WARNING</h1>
+<p>This is a future version still in development. For a stable version, check out <a class="jss25" href="https://www.npmjs.com/package/@twurple/common">the <code>@twurple/common</code> package</a>.</p>
+<h1>Twurple - Authentication</h1>
+<p>Authenticate with Twitch and stop caring about refreshing tokens.</p>
+<h2>Installation</h2>
+<pre><code>yarn add @twurple/auth
+</code></pre>
+<p>or using npm:</p>
+<pre><code>npm install @twurple/auth
+</code></pre>
+<h2>Documentation</h2>
+<p>A good place to start with this library is the <a class="jss25" href="https://twurple.js.org">documentation</a>
+which also includes a complete reference of all classes and interfaces, as well as changes and deprecations between major versions.</p>
+<h2>If you&#x27;re getting stuck...</h2>
+<p>You can join the <a class="jss25" href="https://discord.gg/b9ZqMfz">Discord server</a> for support.</p></div></div></div></div></main></div></div></div>
 <script src="/pe.js"></script>
 </body>
 </html>
