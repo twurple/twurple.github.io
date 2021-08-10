@@ -550,6 +550,46 @@
 .jss9 {
   flex: 1;
 }
+.jss19 {
+  position: relative;
+}
+.jss20 {
+  top: 8px;
+  right: 8px;
+  border: 1px solid #444;
+  display: flex;
+  opacity: 0;
+  position: absolute;
+  transition: opacity .5s ease-in-out;
+  pointer-events: none;
+}
+.jss19:hover .jss20 {
+  opacity: 1;
+  pointer-events: auto;
+}
+.jss21 {
+  display: none;
+}
+.jss22 {
+  cursor: pointer;
+  padding: 8px;
+  transition: background-color .3s ease-in-out;
+  border-left: 1px solid #444;
+}
+.jss22:first-of-type {
+  border-left: 0 none;
+}
+input:checked + .jss22 {
+  background: #444;
+}
+.jss23 {
+  display: block;
+  background-color: rgba(9, 180, 50, 0.25);
+}
+.jss24 {
+  display: block;
+  background-color: rgba(255, 106, 105, 0.25);
+}
 .jss15 table {
   border-collapse: collapse;
 }
@@ -620,7 +660,7 @@
 }</style>
 </head>
 <body>
-<div id="app-root"><div class="jss1"><a aria-current="page" class="jss2 jss4 jss3" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss12"><div class="jss13"><h1>Welcome</h1></div><div class="jss14"><div class="jss15"><div class="jss17"><h3 class="jss18">Warning</h3><p>This is a future version still in development. For a stable version, check out <a class="jss16" href="https://github.com/twurple/twurple/tree/versions/4.6">the <code>versions/4.6</code> branch</a>.</p></div>
+<div id="app-root"><div class="jss1"><a aria-current="page" class="jss2 jss4 jss3" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><a class="jss2" href="/docs/migration/">Migration</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss12"><div class="jss13"><h1>Welcome</h1></div><div class="jss14"><div class="jss15"><div class="jss17"><h3 class="jss18">Warning</h3><p>This is a future version still in development. For a stable version, check out <a class="jss16" href="https://github.com/twurple/twurple/tree/versions/4.6">the <code>versions/4.6</code> branch</a>.</p></div>
 <p>Twurple is a set of libraries that aims to cover all of the existing Twitch APIs.</p>
 <ul>
 <li>Query the Helix API</li>

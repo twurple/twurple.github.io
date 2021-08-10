@@ -593,6 +593,46 @@
 .jss18:hover {
   border-left-color: #88ab14;
 }
+.jss28 {
+  position: relative;
+}
+.jss29 {
+  top: 8px;
+  right: 8px;
+  border: 1px solid #444;
+  display: flex;
+  opacity: 0;
+  position: absolute;
+  transition: opacity .5s ease-in-out;
+  pointer-events: none;
+}
+.jss28:hover .jss29 {
+  opacity: 1;
+  pointer-events: auto;
+}
+.jss30 {
+  display: none;
+}
+.jss31 {
+  cursor: pointer;
+  padding: 8px;
+  transition: background-color .3s ease-in-out;
+  border-left: 1px solid #444;
+}
+.jss31:first-of-type {
+  border-left: 0 none;
+}
+input:checked + .jss31 {
+  background: #444;
+}
+.jss32 {
+  display: block;
+  background-color: rgba(9, 180, 50, 0.25);
+}
+.jss33 {
+  display: block;
+  background-color: rgba(255, 106, 105, 0.25);
+}
 .jss24 table {
   border-collapse: collapse;
 }
@@ -675,7 +715,7 @@
 }</style>
 </head>
 <body>
-<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><div class="jss5"><div class="jss2 jss3">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a aria-current="page" class="jss2 jss7 jss8" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><div class="jss14"><h2 class="jss15">Interfaces</h2><div class="jss16"><a title="Options" class="jss17" href="/reference/auth-tmi/interfaces/Options.html">Options</a></div></div></div><div class="jss12"><main><div class="jss19"><div class="jss21"><div class="jss22"><h1>@twurple/auth-tmi</h1></div><div class="jss23"><div class="jss24"><h1>⚠ WARNING</h1>
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><a class="jss2" href="/docs/migration/">Migration</a><div class="jss5"><div class="jss2 jss3">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a aria-current="page" class="jss2 jss7 jss8" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><div class="jss14"><h2 class="jss15">Interfaces</h2><div class="jss16"><a title="Options" class="jss17" href="/reference/auth-tmi/interfaces/Options.html">Options</a></div></div></div><div class="jss12"><main><div class="jss19"><div class="jss21"><div class="jss22"><h1>@twurple/auth-tmi</h1></div><div class="jss23"><div class="jss24"><h1>⚠ WARNING</h1>
 <p>This is a future version still in development. For a stable version, check out <a class="jss25" href="https://www.npmjs.com/package/twitch-auth-tmi">the <code>twitch-auth-tmi</code> package</a>.</p>
 <h1>Twurple - Authentication for TMI.js</h1>
 <p>Use tmi.js with the added benefits of <code>@twurple/auth</code>&#x27;s automatic token handling.</p>

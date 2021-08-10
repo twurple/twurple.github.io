@@ -593,6 +593,46 @@
 .jss15:hover {
   border-left-color: #88ab14;
 }
+.jss25 {
+  position: relative;
+}
+.jss26 {
+  top: 8px;
+  right: 8px;
+  border: 1px solid #444;
+  display: flex;
+  opacity: 0;
+  position: absolute;
+  transition: opacity .5s ease-in-out;
+  pointer-events: none;
+}
+.jss25:hover .jss26 {
+  opacity: 1;
+  pointer-events: auto;
+}
+.jss27 {
+  display: none;
+}
+.jss28 {
+  cursor: pointer;
+  padding: 8px;
+  transition: background-color .3s ease-in-out;
+  border-left: 1px solid #444;
+}
+.jss28:first-of-type {
+  border-left: 0 none;
+}
+input:checked + .jss28 {
+  background: #444;
+}
+.jss29 {
+  display: block;
+  background-color: rgba(9, 180, 50, 0.25);
+}
+.jss30 {
+  display: block;
+  background-color: rgba(255, 106, 105, 0.25);
+}
 .jss21 table {
   border-collapse: collapse;
 }
@@ -663,7 +703,7 @@
 }</style>
 </head>
 <body>
-<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a aria-current="page" class="jss2 jss3" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><a class="jss14" href="/docs/getting-data/">Data overview</a><div class="jss16"><h2 class="jss17">API</h2><div class="jss18"><a title="Calling the Twitch API" class="jss14" href="/docs/getting-data/api/calling-api.html">Calling the Twitch API</a></div></div><div class="jss16"><h2 class="jss17">Chat</h2><div class="jss18"><a title="Connecting to Chat" class="jss14" href="/docs/getting-data/chat/connecting-to-chat.html">Connecting to Chat</a><a title="Listening to chat events" class="jss14" href="/docs/getting-data/chat/listening-to-events.html">Listening to chat events</a></div></div><div class="jss16"><h2 class="jss17">PubSub</h2><div class="jss18"><a title="Listening to PubSub topics" class="jss14" href="/docs/getting-data/pubsub/listening-to-topics.html">Listening to PubSub topics</a></div></div><div class="jss16"><h2 class="jss17">EventSub</h2><div class="jss18"><a title="Setting up an EventSub listener" aria-current="page" class="jss14 jss15" href="/docs/getting-data/eventsub/listener-setup.html">Setting up an EventSub listener</a><a title="Serving through a reverse proxy" class="jss14" href="/docs/getting-data/eventsub/reverse-proxy.html">Serving through a reverse proxy</a><a title="Testing locally using ngrok" class="jss14" href="/docs/getting-data/eventsub/ngrok.html">Testing locally using ngrok</a></div></div></div><div class="jss12"><div class="jss19"><h1>Setting up an EventSub listener</h1></div><div class="jss20"><div class="jss21"><div class="jss23"><h3 class="jss24">Authentication</h3><p>This section assumes that you have prepared <a class="jss22" href="/docs/auth/">authentication</a> with an <strong>app token</strong>,
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a aria-current="page" class="jss2 jss3" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><a class="jss2" href="/docs/migration/">Migration</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><a class="jss14" href="/docs/getting-data/">Data overview</a><div class="jss16"><h2 class="jss17">API</h2><div class="jss18"><a title="Calling the Twitch API" class="jss14" href="/docs/getting-data/api/calling-api.html">Calling the Twitch API</a></div></div><div class="jss16"><h2 class="jss17">Chat</h2><div class="jss18"><a title="Connecting to Chat" class="jss14" href="/docs/getting-data/chat/connecting-to-chat.html">Connecting to Chat</a><a title="Listening to chat events" class="jss14" href="/docs/getting-data/chat/listening-to-events.html">Listening to chat events</a></div></div><div class="jss16"><h2 class="jss17">PubSub</h2><div class="jss18"><a title="Listening to PubSub topics" class="jss14" href="/docs/getting-data/pubsub/listening-to-topics.html">Listening to PubSub topics</a></div></div><div class="jss16"><h2 class="jss17">EventSub</h2><div class="jss18"><a title="Setting up an EventSub listener" aria-current="page" class="jss14 jss15" href="/docs/getting-data/eventsub/listener-setup.html">Setting up an EventSub listener</a><a title="Serving through a reverse proxy" class="jss14" href="/docs/getting-data/eventsub/reverse-proxy.html">Serving through a reverse proxy</a><a title="Testing locally using ngrok" class="jss14" href="/docs/getting-data/eventsub/ngrok.html">Testing locally using ngrok</a></div></div></div><div class="jss12"><div class="jss19"><h1>Setting up an EventSub listener</h1></div><div class="jss20"><div class="jss21"><div class="jss23"><h3 class="jss24">Authentication</h3><p>This section assumes that you have prepared <a class="jss22" href="/docs/auth/">authentication</a> with an <strong>app token</strong>,
 for example using the <a class="jss22" href="/reference/auth/classes/ClientCredentialsAuthProvider.html">ClientCredentialsAuthProvider</a>.</p></div>
 <p>A prerequisite of EventSub is a working <a class="jss22" href="/reference/api/classes/ApiClient.html">ApiClient</a> instance.
 With that, you can create an <a class="jss22" href="/reference/eventsub/classes/EventSubListener.html">EventSubListener</a> instance,
@@ -673,7 +713,7 @@ which (in a basic setup without a reverse proxy) requires a trusted SSL certific
 so subscriptions can be safely resumed without interruption.</p>
 <p>At last, you call the <code>.listen()</code> method on the listener,
 which will start the listener in order to receive events from Twitch.</p>
-<pre><div data-dynamic-component="CodeBlock" data-component-props="{&quot;lang&quot;:&quot;ts&quot;,&quot;langMeta&quot;:&quot;twoslash&quot;,&quot;text&quot;:&quot;// @module: esnext\n// @target: ES2017\nimport { ClientCredentialsAuthProvider } from &#x27;@twurple/auth&#x27;;\nimport { ApiClient } from &#x27;@twurple/api&#x27;;\nimport { DirectConnectionAdapter, EventSubListener } from &#x27;@twurple/eventsub&#x27;;\n\nconst clientId = &#x27;YOUR_CLIENT_ID&#x27;;\nconst clientSecret = &#x27;YOUR_CLIENT_SECRET&#x27;;\n\nconst authProvider = new ClientCredentialsAuthProvider(clientId, clientSecret);\nconst apiClient = new ApiClient({ authProvider });\n\nconst adapter = new DirectConnectionAdapter({\n\thostName: &#x27;example.com&#x27;,\n\tsslCert: {\n\t\tkey: &#x27;aaaaaaaaaaaaaaa&#x27;,\n\t\tcert: &#x27;bbbbbbbbbbbbbbb&#x27;\n\t}\n});\nconst secret = &#x27;thisShouldBeARandomlyGeneratedFixedString&#x27;;\nconst listener = new EventSubListener({ apiClient, adapter, secret });\nawait listener.listen();&quot;}"><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">import</span><span> { ClientCredentialsAuthProvider } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/auth&#x27;</span><span>;
+<pre><div data-dynamic-component="CodeBlock" data-component-props="{&quot;lang&quot;:&quot;ts&quot;,&quot;langMeta&quot;:[&quot;twoslash&quot;],&quot;text&quot;:&quot;// @module: esnext\n// @target: ES2017\nimport { ClientCredentialsAuthProvider } from &#x27;@twurple/auth&#x27;;\nimport { ApiClient } from &#x27;@twurple/api&#x27;;\nimport { DirectConnectionAdapter, EventSubListener } from &#x27;@twurple/eventsub&#x27;;\n\nconst clientId = &#x27;YOUR_CLIENT_ID&#x27;;\nconst clientSecret = &#x27;YOUR_CLIENT_SECRET&#x27;;\n\nconst authProvider = new ClientCredentialsAuthProvider(clientId, clientSecret);\nconst apiClient = new ApiClient({ authProvider });\n\nconst adapter = new DirectConnectionAdapter({\n\thostName: &#x27;example.com&#x27;,\n\tsslCert: {\n\t\tkey: &#x27;aaaaaaaaaaaaaaa&#x27;,\n\t\tcert: &#x27;bbbbbbbbbbbbbbb&#x27;\n\t}\n});\nconst secret = &#x27;thisShouldBeARandomlyGeneratedFixedString&#x27;;\nconst listener = new EventSubListener({ apiClient, adapter, secret });\nawait listener.listen();&quot;}"><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">import</span><span> { ClientCredentialsAuthProvider } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/auth&#x27;</span><span>;
 </span></span><span><span></span><span style="color:#cb7832">import</span><span> { ApiClient } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/api&#x27;</span><span>;
 </span></span><span><span></span><span style="color:#cb7832">import</span><span> { DirectConnectionAdapter, EventSubListener } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/eventsub&#x27;</span><span>;
 </span></span><span>
@@ -698,7 +738,7 @@ If you are testing locally, you may need to forward the port to your development
 <!-- -->A very helpful tool for that is <a class="jss22" href="/docs/getting-data/eventsub/ngrok.html">ngrok</a> -
 this even spares you from creating your own certificate in development!</p>
 <p>When your listener is set up, you can subscribe to all supported events using this listener:</p>
-<pre><div data-dynamic-component="CodeBlock" data-component-props="{&quot;lang&quot;:&quot;ts&quot;,&quot;langMeta&quot;:&quot;twoslash&quot;,&quot;text&quot;:&quot;// @module: esnext\n// @target: ES2017\n// @lib: es2015,dom\nimport { EventSubListener } from &#x27;@twurple/eventsub&#x27;;\ndeclare const listener: EventSubListener;\n// ---cut---\nconst userId = &#x27;YOUR_USER_ID&#x27;;\n\nconst onlineSubscription = await listener.subscribeToStreamOnlineEvents(userId, e =&gt; {\n\tconsole.log(`${e.broadcasterDisplayName} just went live!`);\n});\n\nconst offlineSubscription = await listener.subscribeToStreamOfflineEvents(userId, e =&gt; {\n\tconsole.log(`${e.broadcasterDisplayName} just went offline`);\n});&quot;}"><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> userId = </span><span style="color:#6a8759">&#x27;YOUR_USER_ID&#x27;</span><span>;
+<pre><div data-dynamic-component="CodeBlock" data-component-props="{&quot;lang&quot;:&quot;ts&quot;,&quot;langMeta&quot;:[&quot;twoslash&quot;],&quot;text&quot;:&quot;// @module: esnext\n// @target: ES2017\n// @lib: es2015,dom\nimport { EventSubListener } from &#x27;@twurple/eventsub&#x27;;\ndeclare const listener: EventSubListener;\n// ---cut---\nconst userId = &#x27;YOUR_USER_ID&#x27;;\n\nconst onlineSubscription = await listener.subscribeToStreamOnlineEvents(userId, e =&gt; {\n\tconsole.log(`${e.broadcasterDisplayName} just went live!`);\n});\n\nconst offlineSubscription = await listener.subscribeToStreamOfflineEvents(userId, e =&gt; {\n\tconsole.log(`${e.broadcasterDisplayName} just went offline`);\n});&quot;}"><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> userId = </span><span style="color:#6a8759">&#x27;YOUR_USER_ID&#x27;</span><span>;
 </span></span><span>
 </span><span><span></span><span style="color:#cb7832">const</span><span> onlineSubscription = </span><span style="color:#cb7832">await</span><span> listener.subscribeToStreamOnlineEvents(userId, </span><span class="hljs-function" style="color:#b9b9b9">e</span><span class="hljs-function"> =&gt;</span><span> {
 </span></span><span><span>	</span><span style="color:#e0c46c">console</span><span>.log(</span><span style="color:#6a8759">`</span><span style="color:#e0c46c">${e.broadcasterDisplayName}</span><span style="color:#6a8759"> just went live!`</span><span>);

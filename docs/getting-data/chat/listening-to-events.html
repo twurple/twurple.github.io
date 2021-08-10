@@ -593,6 +593,46 @@
 .jss15:hover {
   border-left-color: #88ab14;
 }
+.jss25 {
+  position: relative;
+}
+.jss26 {
+  top: 8px;
+  right: 8px;
+  border: 1px solid #444;
+  display: flex;
+  opacity: 0;
+  position: absolute;
+  transition: opacity .5s ease-in-out;
+  pointer-events: none;
+}
+.jss25:hover .jss26 {
+  opacity: 1;
+  pointer-events: auto;
+}
+.jss27 {
+  display: none;
+}
+.jss28 {
+  cursor: pointer;
+  padding: 8px;
+  transition: background-color .3s ease-in-out;
+  border-left: 1px solid #444;
+}
+.jss28:first-of-type {
+  border-left: 0 none;
+}
+input:checked + .jss28 {
+  background: #444;
+}
+.jss29 {
+  display: block;
+  background-color: rgba(9, 180, 50, 0.25);
+}
+.jss30 {
+  display: block;
+  background-color: rgba(255, 106, 105, 0.25);
+}
 .jss21 table {
   border-collapse: collapse;
 }
@@ -663,8 +703,8 @@
 }</style>
 </head>
 <body>
-<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a aria-current="page" class="jss2 jss3" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><a class="jss14" href="/docs/getting-data/">Data overview</a><div class="jss16"><h2 class="jss17">API</h2><div class="jss18"><a title="Calling the Twitch API" class="jss14" href="/docs/getting-data/api/calling-api.html">Calling the Twitch API</a></div></div><div class="jss16"><h2 class="jss17">Chat</h2><div class="jss18"><a title="Connecting to Chat" class="jss14" href="/docs/getting-data/chat/connecting-to-chat.html">Connecting to Chat</a><a title="Listening to chat events" aria-current="page" class="jss14 jss15" href="/docs/getting-data/chat/listening-to-events.html">Listening to chat events</a></div></div><div class="jss16"><h2 class="jss17">PubSub</h2><div class="jss18"><a title="Listening to PubSub topics" class="jss14" href="/docs/getting-data/pubsub/listening-to-topics.html">Listening to PubSub topics</a></div></div><div class="jss16"><h2 class="jss17">EventSub</h2><div class="jss18"><a title="Setting up an EventSub listener" class="jss14" href="/docs/getting-data/eventsub/listener-setup.html">Setting up an EventSub listener</a><a title="Serving through a reverse proxy" class="jss14" href="/docs/getting-data/eventsub/reverse-proxy.html">Serving through a reverse proxy</a><a title="Testing locally using ngrok" class="jss14" href="/docs/getting-data/eventsub/ngrok.html">Testing locally using ngrok</a></div></div></div><div class="jss12"><div class="jss19"><h1>Listening to chat events</h1></div><div class="jss20"><div class="jss21"><p>After you established a connection to the Twitch chat server, you can listen to events:</p>
-<pre><div data-dynamic-component="CodeBlock" data-component-props="{&quot;lang&quot;:&quot;ts&quot;,&quot;langMeta&quot;:&quot;twoslash&quot;,&quot;text&quot;:&quot;// @target: ES2017\n// @lib: es2015,dom\nimport type { ApiClient } from &#x27;@twurple/api&#x27;;\nimport type { ChatClient, PrivateMessage } from &#x27;@twurple/chat&#x27;;\ndeclare const apiClient: ApiClient;\ndeclare const chatClient: ChatClient;\ndeclare function secondsToDuration(secs: number): string;\ndeclare module &#x27;@twurple/chat&#x27; {\n\texport class ChatClient {\n\t\tremoveListener(listener: any): void; // required because inheritance from other packages doesn&#x27;t properly work right now\n\t}\n}\n// ---cut---\nconst followAgeListener = chatClient.onMessage(async (channel: string, user: string, message: string, msg: PrivateMessage) =&gt; {\n\tif (message === &#x27;!followage&#x27;) {\n\t\tconst follow = await apiClient.users.getFollowFromUserToBroadcaster(msg.userInfo.userId, msg.channelId!);\n\n\t\tif (follow) {\n\t\t\tconst currentTimestamp = Date.now();\n\t\t\tconst followStartTimestamp = follow.followDate.getTime();\n\t\t\tchatClient.say(channel, `@${user} You have been following for ${secondsToDuration((currentTimestamp - followStartTimestamp) / 1000)}!`);\n\t\t} else {\n\t\t\tchatClient.say(channel, `@${user} You are not following!`);\n\t\t}\n\t}\n});\n\n// later, when you don&#x27;t need this command anymore:\nchatClient.removeListener(followAgeListener);&quot;}"><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> followAgeListener = chatClient.onMessage(</span><span style="color:#cb7832">async</span><span> (channel: </span><span style="color:#e0c46c">string</span><span>, </span><span class="hljs-attr">user</span><span>: </span><span style="color:#e0c46c">string</span><span>, </span><span class="hljs-attr">message</span><span>: </span><span style="color:#e0c46c">string</span><span>, </span><span class="hljs-attr">msg</span><span>: PrivateMessage) =&gt; {
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a aria-current="page" class="jss2 jss3" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><a class="jss2" href="/docs/migration/">Migration</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><a class="jss14" href="/docs/getting-data/">Data overview</a><div class="jss16"><h2 class="jss17">API</h2><div class="jss18"><a title="Calling the Twitch API" class="jss14" href="/docs/getting-data/api/calling-api.html">Calling the Twitch API</a></div></div><div class="jss16"><h2 class="jss17">Chat</h2><div class="jss18"><a title="Connecting to Chat" class="jss14" href="/docs/getting-data/chat/connecting-to-chat.html">Connecting to Chat</a><a title="Listening to chat events" aria-current="page" class="jss14 jss15" href="/docs/getting-data/chat/listening-to-events.html">Listening to chat events</a></div></div><div class="jss16"><h2 class="jss17">PubSub</h2><div class="jss18"><a title="Listening to PubSub topics" class="jss14" href="/docs/getting-data/pubsub/listening-to-topics.html">Listening to PubSub topics</a></div></div><div class="jss16"><h2 class="jss17">EventSub</h2><div class="jss18"><a title="Setting up an EventSub listener" class="jss14" href="/docs/getting-data/eventsub/listener-setup.html">Setting up an EventSub listener</a><a title="Serving through a reverse proxy" class="jss14" href="/docs/getting-data/eventsub/reverse-proxy.html">Serving through a reverse proxy</a><a title="Testing locally using ngrok" class="jss14" href="/docs/getting-data/eventsub/ngrok.html">Testing locally using ngrok</a></div></div></div><div class="jss12"><div class="jss19"><h1>Listening to chat events</h1></div><div class="jss20"><div class="jss21"><p>After you established a connection to the Twitch chat server, you can listen to events:</p>
+<pre><div data-dynamic-component="CodeBlock" data-component-props="{&quot;lang&quot;:&quot;ts&quot;,&quot;langMeta&quot;:[&quot;twoslash&quot;],&quot;text&quot;:&quot;// @target: ES2017\n// @lib: es2015,dom\nimport type { ApiClient } from &#x27;@twurple/api&#x27;;\nimport type { ChatClient, PrivateMessage } from &#x27;@twurple/chat&#x27;;\ndeclare const apiClient: ApiClient;\ndeclare const chatClient: ChatClient;\ndeclare function secondsToDuration(secs: number): string;\ndeclare module &#x27;@twurple/chat&#x27; {\n\texport class ChatClient {\n\t\tremoveListener(listener: any): void; // required because inheritance from other packages doesn&#x27;t properly work right now\n\t}\n}\n// ---cut---\nconst followAgeListener = chatClient.onMessage(async (channel: string, user: string, message: string, msg: PrivateMessage) =&gt; {\n\tif (message === &#x27;!followage&#x27;) {\n\t\tconst follow = await apiClient.users.getFollowFromUserToBroadcaster(msg.userInfo.userId, msg.channelId!);\n\n\t\tif (follow) {\n\t\t\tconst currentTimestamp = Date.now();\n\t\t\tconst followStartTimestamp = follow.followDate.getTime();\n\t\t\tchatClient.say(channel, `@${user} You have been following for ${secondsToDuration((currentTimestamp - followStartTimestamp) / 1000)}!`);\n\t\t} else {\n\t\t\tchatClient.say(channel, `@${user} You are not following!`);\n\t\t}\n\t}\n});\n\n// later, when you don&#x27;t need this command anymore:\nchatClient.removeListener(followAgeListener);&quot;}"><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> followAgeListener = chatClient.onMessage(</span><span style="color:#cb7832">async</span><span> (channel: </span><span style="color:#e0c46c">string</span><span>, </span><span class="hljs-attr">user</span><span>: </span><span style="color:#e0c46c">string</span><span>, </span><span class="hljs-attr">message</span><span>: </span><span style="color:#e0c46c">string</span><span>, </span><span class="hljs-attr">msg</span><span>: PrivateMessage) =&gt; {
 </span></span><span><span>	</span><span style="color:#cb7832">if</span><span> (message === </span><span style="color:#6a8759">&#x27;!followage&#x27;</span><span>) {
 </span></span><span><span>		</span><span style="color:#cb7832">const</span><span> follow = </span><span style="color:#cb7832">await</span><span> apiClient.users.getFollowFromUserToBroadcaster(msg.userInfo.userId, msg.channelId!);
 </span></span><span>

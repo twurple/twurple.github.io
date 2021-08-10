@@ -593,6 +593,46 @@
 .jss15:hover {
   border-left-color: #88ab14;
 }
+.jss25 {
+  position: relative;
+}
+.jss26 {
+  top: 8px;
+  right: 8px;
+  border: 1px solid #444;
+  display: flex;
+  opacity: 0;
+  position: absolute;
+  transition: opacity .5s ease-in-out;
+  pointer-events: none;
+}
+.jss25:hover .jss26 {
+  opacity: 1;
+  pointer-events: auto;
+}
+.jss27 {
+  display: none;
+}
+.jss28 {
+  cursor: pointer;
+  padding: 8px;
+  transition: background-color .3s ease-in-out;
+  border-left: 1px solid #444;
+}
+.jss28:first-of-type {
+  border-left: 0 none;
+}
+input:checked + .jss28 {
+  background: #444;
+}
+.jss29 {
+  display: block;
+  background-color: rgba(9, 180, 50, 0.25);
+}
+.jss30 {
+  display: block;
+  background-color: rgba(255, 106, 105, 0.25);
+}
 .jss21 table {
   border-collapse: collapse;
 }
@@ -663,7 +703,7 @@
 }</style>
 </head>
 <body>
-<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a aria-current="page" class="jss2 jss3" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><a class="jss14" href="/docs/auth/">Authentication</a><div class="jss16"><h2 class="jss17">Providers</h2><div class="jss18"><a title="Using a fixed token" class="jss14" href="/docs/auth/providers/static.html">Using a fixed token</a><a title="Auto-refreshing tokens" aria-current="page" class="jss14 jss15" href="/docs/auth/providers/refreshing.html">Auto-refreshing tokens</a><a title="Using app tokens" class="jss14" href="/docs/auth/providers/client-credentials.html">Using app tokens</a><a title="For Electron apps" class="jss14" href="/docs/auth/providers/electron.html">For Electron apps</a></div></div></div><div class="jss12"><div class="jss19"><h1>Auto-refreshing tokens</h1></div><div class="jss20"><div class="jss21"><p>For auto refreshing to work reliably, you need to persist your current access/refresh token pair and the token expiry
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a aria-current="page" class="jss2 jss3" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><a class="jss2" href="/docs/migration/">Migration</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><a class="jss14" href="/docs/auth/">Authentication</a><div class="jss16"><h2 class="jss17">Providers</h2><div class="jss18"><a title="Using a fixed token" class="jss14" href="/docs/auth/providers/static.html">Using a fixed token</a><a title="Auto-refreshing tokens" aria-current="page" class="jss14 jss15" href="/docs/auth/providers/refreshing.html">Auto-refreshing tokens</a><a title="Using app tokens" class="jss14" href="/docs/auth/providers/client-credentials.html">Using app tokens</a><a title="For Electron apps" class="jss14" href="/docs/auth/providers/electron.html">For Electron apps</a></div></div></div><div class="jss12"><div class="jss19"><h1>Auto-refreshing tokens</h1></div><div class="jss20"><div class="jss21"><p>For auto refreshing to work reliably, you need to persist your current access/refresh token pair and the token expiry
 timestamp in some way.</p>
 <p>This example uses files to make it easily understandable, but you should probably use a database or similar,
 especially if you need to fetch data for more than one user.</p>
@@ -677,7 +717,7 @@ especially if you need to fetch data for more than one user.</p>
 </span></code></pre></pre>
 <p>Note that the expiry values are set to 0, which forces the application to make a refresh call the first time you start it.
 This is done to prevent having to calculate the initial expiry timestamp manually.</p>
-<pre><div data-dynamic-component="CodeBlock" data-component-props="{&quot;lang&quot;:&quot;ts&quot;,&quot;langMeta&quot;:&quot;twoslash&quot;,&quot;text&quot;:&quot;// @module: esnext\n// @target: ES2017\n// @lib: es5\n// silence TS complaining about fs not existing - TODO: might want to import node types somehow\n// @errors: 2307\n// ---cut---\nimport { RefreshingAuthProvider } from &#x27;@twurple/auth&#x27;;\nimport { promises as fs } from &#x27;fs&#x27;;\n\nconst clientId = &#x27;YOUR_CLIENT_ID&#x27;;\nconst clientSecret = &#x27;YOUR_CLIENT_SECRET&#x27;;\nconst tokenData = JSON.parse(await fs.readFile(&#x27;./tokens.json&#x27;, &#x27;UTF-8&#x27;));\nconst authProvider = new RefreshingAuthProvider(\n\t{\n\t\tclientId,\n\t\tclientSecret,\n\t\tonRefresh: async newTokenData =&gt; await fs.writeFile(&#x27;./tokens.json&#x27;, JSON.stringify(newTokenData, null, 4), &#x27;UTF-8&#x27;)\n\t},\n\ttokenData\n);&quot;}"><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">import</span><span> { RefreshingAuthProvider } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/auth&#x27;</span><span>;
+<pre><div data-dynamic-component="CodeBlock" data-component-props="{&quot;lang&quot;:&quot;ts&quot;,&quot;langMeta&quot;:[&quot;twoslash&quot;],&quot;text&quot;:&quot;// @module: esnext\n// @target: ES2017\n// @lib: es5\n// silence TS complaining about fs not existing - TODO: might want to import node types somehow\n// @errors: 2307\n// ---cut---\nimport { RefreshingAuthProvider } from &#x27;@twurple/auth&#x27;;\nimport { promises as fs } from &#x27;fs&#x27;;\n\nconst clientId = &#x27;YOUR_CLIENT_ID&#x27;;\nconst clientSecret = &#x27;YOUR_CLIENT_SECRET&#x27;;\nconst tokenData = JSON.parse(await fs.readFile(&#x27;./tokens.json&#x27;, &#x27;UTF-8&#x27;));\nconst authProvider = new RefreshingAuthProvider(\n\t{\n\t\tclientId,\n\t\tclientSecret,\n\t\tonRefresh: async newTokenData =&gt; await fs.writeFile(&#x27;./tokens.json&#x27;, JSON.stringify(newTokenData, null, 4), &#x27;UTF-8&#x27;)\n\t},\n\ttokenData\n);&quot;}"><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">import</span><span> { RefreshingAuthProvider } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/auth&#x27;</span><span>;
 </span></span><span><span></span><span style="color:#cb7832">import</span><span> { promises </span><span style="color:#cb7832">as</span><span> fs } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;fs&#x27;</span><span>;
 </span></span><span>
 </span><span><span></span><span style="color:#cb7832">const</span><span> clientId = </span><span style="color:#6a8759">&#x27;YOUR_CLIENT_ID&#x27;</span><span>;
