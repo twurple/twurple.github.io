@@ -670,8 +670,8 @@ input:checked + .jss22 {
 Please migrate to the respective Helix counterparts.</p>
 <h2>(Deprecation) Remove usage of the <code>.helix</code> namespace</h2>
 <p>The namespace <code>.helix</code> has been deprecated. All the Helix sub-namespaces now live directly on the <a class="jss16" href="/reference/api/classes/ApiClient.html">ApiClient</a>.</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss24"><span style="color:#cb7832">const</span><span> me = api.helix.users.getMe();
-</span></span><span class="jss23"><span></span><span style="color:#cb7832">const</span><span> me = api.users.getMe();</span></span></code></pre></pre>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss24"><span style="color:#cb7832">const</span><span> me = </span><span style="color:#cb7832">await</span><span> api.helix.users.getMe();
+</span></span><span class="jss23"><span></span><span style="color:#cb7832">const</span><span> me = </span><span style="color:#cb7832">await</span><span> api.users.getMe();</span></span></code></pre></pre>
 <h2>Switch from WebHooks to EventSub</h2>
 <p>The legacy WebHooks product was deprecated by Twitch and is going to be removed on September 16th.</p>
 <p>The <code>@twurple/eventsub</code> package is very similar in usage to the old <code>twitch-webhooks</code> package.
@@ -720,11 +720,11 @@ You should call them on the provider directly, or use the free-standing helper f
 Both the providers and the helpers are now exported from the <code>@twurple/auth</code> package.</p>
 <p>Examples for the most common use cases:</p>
 <h3>Static token (for quick testing)</h3>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss24"><span style="color:#cb7832">const</span><span> api = ApiClient.withCredentials(clientId, accessToken);
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss24"><span style="color:#cb7832">const</span><span> api = </span><span style="color:#cb7832">await</span><span> ApiClient.withCredentials(clientId, accessToken);
 </span></span><span class="jss23"><span></span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> StaticAuthProvider(clientId, accessToken);
 </span></span><span class="jss23"><span></span><span style="color:#cb7832">const</span><span> api = </span><span style="color:#cb7832">new</span><span> ApiClient({ authProvider });</span></span></code></pre></pre>
 <h3>Refreshing token (for continuous access to user data)</h3>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss24"><span style="color:#cb7832">const</span><span> api = ApiClient.withCredentials(clientId, accessToken, </span><span style="color:#6896ba">undefined</span><span>, {
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss24"><span style="color:#cb7832">const</span><span> api = </span><span style="color:#cb7832">await</span><span> ApiClient.withCredentials(clientId, accessToken, </span><span style="color:#6896ba">undefined</span><span>, {
 </span></span><span class="jss24">	refreshToken,
 </span><span class="jss24">	clientSecret,
 </span><span class="jss24"><span>	</span><span class="hljs-attr">onRefresh</span><span>: </span><span class="hljs-function" style="color:#b9b9b9">newTokenData</span><span class="hljs-function"> =&gt;</span><span> { </span><span style="color:#7f7f7f">/* refresh callback */</span><span> }
@@ -750,9 +750,8 @@ Instead, pass the auth provider to the constructor directly.</p>
 </span></span><span class="jss23"><span></span><span style="color:#cb7832">const</span><span> chat = </span><span style="color:#cb7832">new</span><span> ChatClient({ authProvider });</span></span></code></pre></pre>
 <p>Also, the different PubSub classes now take auth providers instead of API clients.</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss24"><span style="color:#cb7832">const</span><span> api = </span><span style="color:#cb7832">new</span><span> ApiClient({ authProvider });
-</span></span><span class="jss24">pubsub.registerUserListener(api);
-</span><span class="jss23">pubsub.registerUserListener(authProvider);
-</span></code></pre></pre>
+</span></span><span class="jss24"><span></span><span style="color:#cb7832">await</span><span> pubsub.registerUserListener(api);
+</span></span><span class="jss23"><span></span><span style="color:#cb7832">await</span><span> pubsub.registerUserListener(authProvider);</span></span></code></pre></pre>
 <h2>Pass cheermote formatting options directly to the respective methods</h2>
 <p>It was previously possible to add defaults for displaying cheermotes to the <a class="jss16" href="/reference/api/classes/ApiClient.html">ApiClient</a>.
 These defaults were removed - now you have to pass all display options to <a class="jss16" href="/reference/api/classes/HelixCheermoteList.html#getCheermoteDisplayInfo">HelixCheermoteList#getCheermoteDisplayInfo</a>.</p>
@@ -777,8 +776,8 @@ to raise them appropriately to your bot status.</p>
 <p>From now on, <code>callApi</code> returns <code>unknown</code> by default, rather than <code>any</code>. This may lead to a lot of compiler errors.</p>
 <p>Please specify your return types properly in order to fix them.</p>
 <p>Alternatively, you may silence the errors (hopefully temporarily!) by passing <code>any</code> as type parameter explicitly.</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss24"><span style="color:#cb7832">const</span><span> data = api.callApi({ </span><span class="hljs-attr">url</span><span>: </span><span style="color:#6a8759">&#x27;users&#x27;</span><span> });
-</span></span><span class="jss23"><span></span><span style="color:#cb7832">const</span><span> data = api.callApi&lt;</span><span style="color:#e0c46c">any</span><span>&gt;({ </span><span class="hljs-attr">url</span><span>: </span><span style="color:#6a8759">&#x27;users&#x27;</span><span> });</span></span></code></pre></pre>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss24"><span style="color:#cb7832">const</span><span> data = </span><span style="color:#cb7832">await</span><span> api.callApi({ </span><span class="hljs-attr">url</span><span>: </span><span style="color:#6a8759">&#x27;users&#x27;</span><span> });
+</span></span><span class="jss23"><span></span><span style="color:#cb7832">const</span><span> data = </span><span style="color:#cb7832">await</span><span> api.callApi&lt;</span><span style="color:#e0c46c">any</span><span>&gt;({ </span><span class="hljs-attr">url</span><span>: </span><span style="color:#6a8759">&#x27;users&#x27;</span><span> });</span></span></code></pre></pre>
 <h2>Update your own <a class="jss16" href="/reference/auth/interfaces/AuthProvider.html">AuthProvider</a> implementation</h2>
 <p>If you built your own auth provider, its interface now <em>requires</em> setting the <code>tokenType</code> property
 to one of the strings <code>user</code> or <code>app</code> depending on which type of OAuth token it yields.
