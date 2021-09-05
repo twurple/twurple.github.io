@@ -665,6 +665,13 @@ input:checked + .jss22 {
 <h2>Install and import new packages</h2>
 <p>The packages were moved to a new NPM scope named <code>@twurple</code>. Here&#x27;s the old and new packages for comparison:</p>
 <table><thead><tr><th>Old</th><th>New</th></tr></thead><tbody><tr><td><code>easy-twitch-bot</code></td><td><code>@twurple/easy-bot</code></td></tr><tr><td><code>twitch</code></td><td><code>@twurple/api</code></td></tr><tr><td><code>twitch-api-call</code></td><td><code>@twurple/api-call</code></td></tr><tr><td><code>twitch-auth</code></td><td><code>@twurple/auth</code></td></tr><tr><td><code>twitch-auth-tmi</code></td><td><code>@twurple/auth-tmi</code></td></tr><tr><td><code>twitch-chat-client</code></td><td><code>@twurple/chat</code></td></tr><tr><td><code>twitch-common</code></td><td><code>@twurple/common</code></td></tr><tr><td><code>twitch-electron-auth-provider</code></td><td><code>@twurple/auth-electron</code></td></tr><tr><td><code>twitch-eventsub</code></td><td><code>@twurple/eventsub</code></td></tr><tr><td><code>twitch-eventsub-ngrok</code></td><td><code>@twurple/eventsub-ngrok</code></td></tr><tr><td><code>twitch-pubsub-client</code></td><td><code>@twurple/pubsub</code></td></tr><tr><td><code>twitch-webhooks</code></td><td><em>removed</em></td></tr><tr><td><code>twitch-webhooks-ngrok</code></td><td><em>removed</em></td></tr></tbody></table>
+<h2>Switch from Kraken to Helix</h2>
+<p>The namespace <code>.kraken</code> was completely removed from the <a class="jss16" href="/reference/api/classes/ApiClient.html">ApiClient</a>.
+Please migrate to the respective Helix counterparts.</p>
+<h2>(Deprecation) Remove usage of the <code>.helix</code> namespace</h2>
+<p>The namespace <code>.helix</code> has been deprecated. All the Helix sub-namespaces now live directly on the <a class="jss16" href="/reference/api/classes/ApiClient.html">ApiClient</a>.</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss24"><span style="color:#cb7832">const</span><span> me = api.helix.users.getMe();
+</span></span><span class="jss23"><span></span><span style="color:#cb7832">const</span><span> me = api.users.getMe();</span></span></code></pre></pre>
 <h2>Switch from WebHooks to EventSub</h2>
 <p>The legacy WebHooks product was deprecated by Twitch and is going to be removed on September 16th.</p>
 <p>The <code>@twurple/eventsub</code> package is very similar in usage to the old <code>twitch-webhooks</code> package.
@@ -679,7 +686,103 @@ and it&#x27;s time to replace them now, as they&#x27;re being removed.</p>
 </span></span><span class="jss24"><span></span><span style="color:#cb7832">import</span><span> PubSubClient </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;twitch-pubsub-client&#x27;</span><span>;
 </span></span><span class="jss23"><span></span><span style="color:#cb7832">import</span><span> { ApiClient } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/api&#x27;</span><span>;
 </span></span><span class="jss23"><span></span><span style="color:#cb7832">import</span><span> { ChatClient } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/chat&#x27;</span><span>;
-</span></span><span class="jss23"><span></span><span style="color:#cb7832">import</span><span> { PubSubClient } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/pubsub&#x27;</span><span>;</span></span></code></pre></pre></div></div></div></div></div>
+</span></span><span class="jss23"><span></span><span style="color:#cb7832">import</span><span> { PubSubClient } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/pubsub&#x27;</span><span>;</span></span></code></pre></pre>
+<h2>Fix camel case capitalization</h2>
+<p>During the 4.x series, a few classes, interfaces, enums and properties that were named with improper camel case
+have been renamed, and the old counterparts were deprecated. Please check your usage of the following properties:</p>
+<ul>
+<li><a class="jss16" href="/reference/api/classes/HelixExtensionTransaction.html#productSku">HelixExtensionTransaction#productSku</a> - formerly <code>productSKU</code></li>
+<li><a class="jss16" href="/reference/api/classes/ApiClient.html#callApi">ApiClient#callApi</a> - formerly <code>callAPI</code></li>
+<li><a class="jss16" href="/reference/chat/classes/ChatClient.html#addVip">ChatClient#addVip</a> - formerly <code>addVIP</code></li>
+<li><a class="jss16" href="/reference/chat/classes/ChatClient.html#removeVip">ChatClient#removeVip</a> - formerly <code>removeVIP</code></li>
+<li><a class="jss16" href="/reference/chat/classes/ChatClient.html#getVips">ChatClient#getVips</a> - formerly <code>getVIPs</code></li>
+<li><a class="jss16" href="/reference/auth-electron/interfaces/TwitchClientCredentials.html#redirectUri">TwitchClientCredentials#redirectUri</a> - formerly <code>redirectURI</code></li>
+</ul>
+<h2>Use the new logger configuration</h2>
+<p>Previously, a few classes exposed a <code>logLevel</code> parameter that allowed you to set the log level directly.</p>
+<p>Now, this parameter was replaced with a <code>logger</code> parameter everywhere that exposes the full logger configuration.</p>
+<p>To facilitate this with your usual level of granularity, please change your code as such:</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> chat = </span><span style="color:#cb7832">new</span><span> ChatClient({
+</span></span><span class="jss24"><span>	</span><span class="hljs-attr">logLevel</span><span>: </span><span style="color:#6a8759">&#x27;debug&#x27;</span><span>,
+</span></span><span class="jss23"><span>	</span><span class="hljs-attr">logger</span><span>: {
+</span></span><span class="jss23"><span>		</span><span class="hljs-attr">minLevel</span><span>: </span><span style="color:#6a8759">&#x27;debug&#x27;</span><span>
+</span></span><span class="jss23">	}
+</span><span>});
+</span></code></pre></pre>
+<div class="jss17"><h3 class="jss18">Easier logger configuration</h3><p>You probably want to check out the new global logging configuration via environment variables.
+(TODO link this to new page)</p><p>In most cases, it&#x27;s much easier to set up.</p></div>
+<h2>Use <code>AuthProvider</code>s directly</h2>
+<p>Previously, <a class="jss16" href="/reference/api/classes/ApiClient.html">ApiClient</a> exposed a few helper methods to instantiate it with an <a class="jss16" href="/reference/auth/interfaces/AuthProvider.html">AuthProvider</a> created internally.</p>
+<p>In order to decouble these components from each other, these helpers were removed.
+Instead, you should now instantiate the providers by yourself.</p>
+<p>Additionally, some token related helpers on the <a class="jss16" href="/reference/api/classes/ApiClient.html">ApiClient</a> have been removed.
+You should call them on the provider directly, or use the free-standing helper functions.
+Both the providers and the helpers are now exported from the <code>@twurple/auth</code> package.</p>
+<p>Examples for the most common use cases:</p>
+<h3>Static token (for quick testing)</h3>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss24"><span style="color:#cb7832">const</span><span> api = ApiClient.withCredentials(clientId, accessToken);
+</span></span><span class="jss23"><span></span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> StaticAuthProvider(clientId, accessToken);
+</span></span><span class="jss23"><span></span><span style="color:#cb7832">const</span><span> api = </span><span style="color:#cb7832">new</span><span> ApiClient({ authProvider });</span></span></code></pre></pre>
+<h3>Refreshing token (for continuous access to user data)</h3>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss24"><span style="color:#cb7832">const</span><span> api = ApiClient.withCredentials(clientId, accessToken, </span><span style="color:#6896ba">undefined</span><span>, {
+</span></span><span class="jss24">	refreshToken,
+</span><span class="jss24">	clientSecret,
+</span><span class="jss24"><span>	</span><span class="hljs-attr">onRefresh</span><span>: </span><span class="hljs-function" style="color:#b9b9b9">newTokenData</span><span class="hljs-function"> =&gt;</span><span> { </span><span style="color:#7f7f7f">/* refresh callback */</span><span> }
+</span></span><span class="jss24">});
+</span><span class="jss23"><span></span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> RefreshingAuthProvider(
+</span></span><span class="jss23">	{
+</span><span class="jss23">		clientId,
+</span><span class="jss23">		clientSecret,
+</span><span class="jss23"><span>		</span><span class="hljs-attr">onRefresh</span><span>: </span><span style="color:#cb7832">async</span><span> newTokenData =&gt; { </span><span style="color:#7f7f7f">/* refresh callback, ATTENTION: new data format */</span><span> }
+</span></span><span class="jss23">	},
+</span><span class="jss23">	tokenData
+</span><span class="jss23">);
+</span><span class="jss23"><span></span><span style="color:#cb7832">const</span><span> api = </span><span style="color:#cb7832">new</span><span> ApiClient({ authProvider });</span></span></code></pre></pre>
+<h3>App access token (for server-to-server requests without scopes)</h3>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss24"><span style="color:#cb7832">const</span><span> api = ApiClient.withClientCredentials(clientId, clientSecret);
+</span></span><span class="jss23"><span></span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> ClientCredentialsAuthProvider(clientId, clientSecret);
+</span></span><span class="jss23"><span></span><span style="color:#cb7832">const</span><span> api = </span><span style="color:#cb7832">new</span><span> ApiClient({ authProvider });</span></span></code></pre></pre>
+<h2>Replace API clients with auth providers and remove usage of helpers in other packages</h2>
+<p>Similarly to the above, the helper <code>ChatClient.forTwitchClient</code> has been removed.
+Instead, pass the auth provider to the constructor directly.</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss24"><span style="color:#cb7832">const</span><span> api = </span><span style="color:#cb7832">new</span><span> ApiClient({ authProvider });
+</span></span><span class="jss24"><span></span><span style="color:#cb7832">const</span><span> chat = ChatClient.forTwitchClient(api);
+</span></span><span class="jss23"><span></span><span style="color:#cb7832">const</span><span> chat = </span><span style="color:#cb7832">new</span><span> ChatClient({ authProvider });</span></span></code></pre></pre>
+<p>Also, the different PubSub classes now take auth providers instead of API clients.</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss24"><span style="color:#cb7832">const</span><span> api = </span><span style="color:#cb7832">new</span><span> ApiClient({ authProvider });
+</span></span><span class="jss24">pubsub.registerUserListener(api);
+</span><span class="jss23">pubsub.registerUserListener(authProvider);
+</span></code></pre></pre>
+<h2>Pass cheermote formatting options directly to the respective methods</h2>
+<p>It was previously possible to add defaults for displaying cheermotes to the <a class="jss16" href="/reference/api/classes/ApiClient.html">ApiClient</a>.
+These defaults were removed - now you have to pass all display options to <a class="jss16" href="/reference/api/classes/HelixCheermoteList.html#getCheermoteDisplayInfo">HelixCheermoteList#getCheermoteDisplayInfo</a>.</p>
+<h2>Remove use of the <code>preAuth</code> and <code>initialScopes</code> properties in <a class="jss16" href="/reference/api/interfaces/ApiConfig.html">ApiConfig</a></h2>
+<p>The properties <code>preAuth</code> and <code>initialScopes</code> were dangerous,
+as they left a dangling promise when constructing an <a class="jss16" href="/reference/api/classes/ApiClient.html">ApiClient</a>.</p>
+<p>They were replaced by the safer method <a class="jss16" href="/reference/api/classes/ApiClient.html#requestScopes">ApiClient#requestScopes</a>,
+which you can call (and more importanly, <code>await</code>) by yourself.</p>
+<h2><a class="jss16" href="/reference/auth-electron/classes/ElectronAuthProvider.html">ElectronAuthProvider</a> now requires at least Electron 9</h2>
+<p>Electron versions below 9 are way past their support time by now. Please update to a supported version.</p>
+<h2>Check your bot type in the <a class="jss16" href="/reference/chat/classes/ChatClient.html">ChatClient</a> instantiation</h2>
+<p><a class="jss16" href="/reference/chat/classes/ChatClient.html">ChatClient</a> now applies rate limiting by default.
+If your bot is a know or verified bot, it may now use way lower rate limits than it could theoretically use.</p>
+<p>Please investigate the properties <a class="jss16" href="/reference/chat/interfaces/ChatClientOptions.html#botLevel">ChatClientOptions#botLevel</a> and <a class="jss16" href="/reference/chat/interfaces/ChatClientOptions.html#isAlwaysMod">ChatClientOptions#isAlwaysMod</a>
+to raise them appropriately to your bot status.</p>
+<h2>Remove our typos</h2>
+<p>See, we all make mistakes sometimes. But we fixed them and we ask you to fix them too (otherwise your code will break).</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">declare</span><span> </span><span style="color:#cb7832">const</span><span> reward: HelixCustomReward;
+</span></span><span class="jss24"><span></span><span style="color:#e0c46c">console</span><span>.log(reward.propmt);
+</span></span><span class="jss23"><span></span><span style="color:#e0c46c">console</span><span>.log(reward.prompt);</span></span></code></pre></pre>
+<h2>[TypeScript] Check your <code>callApi</code> calls</h2>
+<p>From now on, <code>callApi</code> returns <code>unknown</code> by default, rather than <code>any</code>. This may lead to a lot of compiler errors.</p>
+<p>Please specify your return types properly in order to fix them.</p>
+<p>Alternatively, you may silence the errors (hopefully temporarily!) by passing <code>any</code> as type parameter explicitly.</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss24"><span style="color:#cb7832">const</span><span> data = api.callApi({ </span><span class="hljs-attr">url</span><span>: </span><span style="color:#6a8759">&#x27;users&#x27;</span><span> });
+</span></span><span class="jss23"><span></span><span style="color:#cb7832">const</span><span> data = api.callApi&lt;</span><span style="color:#e0c46c">any</span><span>&gt;({ </span><span class="hljs-attr">url</span><span>: </span><span style="color:#6a8759">&#x27;users&#x27;</span><span> });</span></span></code></pre></pre>
+<h2>Update your own <a class="jss16" href="/reference/auth/interfaces/AuthProvider.html">AuthProvider</a> implementation</h2>
+<p>If you built your own auth provider, its interface now <em>requires</em> setting the <code>tokenType</code> property
+to one of the strings <code>user</code> or <code>app</code> depending on which type of OAuth token it yields.
+You probably want this to be <code>user</code>.</p></div></div></div></div></div>
 <script src="/pe.js"></script>
 </body>
 </html>
