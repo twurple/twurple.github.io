@@ -554,12 +554,12 @@
   min-height: 100%;
   border-right: 1px solid #444;
 }
-.jss14 {
+.jss16 {
   color: #b9b9b9;
   display: block;
   padding: 8px 0;
 }
-.jss15 {
+.jss17 {
   height: 1em;
   margin: 0;
   padding: 4px 8px 4px 12px;
@@ -568,10 +568,10 @@
   line-height: 1em;
   text-transform: uppercase;
 }
-.jss16 > a {
+.jss18 > a {
   padding-left: 20px;
 }
-.jss17 {
+.jss14 {
   color: #b9b9b9;
   height: 1em;
   display: block;
@@ -583,87 +583,115 @@
   text-overflow: ellipsis;
   text-decoration: none;
 }
-.jss17:hover {
+.jss14:hover {
   background-color: #333333;
 }
-.jss18 {
+.jss15 {
   border-color: #647d0f;
   background-color: #242424;
 }
-.jss18:hover {
+.jss15:hover {
   border-left-color: #88ab14;
 }
-.jss24 table {
+.jss25 {
+  position: relative;
+}
+.jss26 {
+  top: 8px;
+  right: 8px;
+  border: 1px solid #444;
+  display: flex;
+  opacity: 0;
+  position: absolute;
+  transition: opacity .5s ease-in-out;
+  pointer-events: none;
+}
+.jss25:hover .jss26 {
+  opacity: 1;
+  pointer-events: auto;
+}
+.jss27 {
+  display: none;
+}
+.jss28 {
+  cursor: pointer;
+  padding: 8px;
+  transition: background-color .3s ease-in-out;
+  border-left: 1px solid #444;
+}
+.jss28:first-of-type {
+  border-left: 0 none;
+}
+input:checked + .jss28 {
+  background: #444;
+}
+.jss29 {
+  display: block;
+  background-color: rgba(9, 180, 50, 0.25);
+}
+.jss30 {
+  display: block;
+  background-color: rgba(255, 106, 105, 0.25);
+}
+.jss21 table {
   border-collapse: collapse;
 }
-.jss24 th, .jss24 td {
+.jss21 th, .jss21 td {
   border: 1px solid #444;
   padding: 8px;
 }
-.jss24 li {
+.jss21 li {
   margin: 16px 0;
 }
-.jss24 li::marker {
+.jss21 li::marker {
   color: #647d0f;
 }
-.jss25 {
+.jss22 {
   color: inherit;
   transition: border-color .3s ease-in-out;
   font-weight: bold;
   border-bottom: 1.5px solid #647d0f;
   text-decoration: none;
 }
-.jss25:hover {
+.jss22:hover {
   border-bottom-color: #88ab14;
 }
-.jss26 {
+.jss23 {
   display: flow-root;
   padding: 0 1em;
   border-left: 4px solid #ab9120;
   margin-bottom: 1em;
   background-color: #242424;
 }
-.jss27 {
+.jss24 {
   font-size: 1em;
 }
-.jss23 {
+.jss20 {
   padding: 16px;
 }
-.jss23 h2 {
+.jss20 h2 {
   margin: 24px 0 16px;
 }
-.jss23 h2:first-child {
+.jss20 h2:first-child {
   margin-top: 0;
 }
-.jss22 {
+.jss19 {
   color: #b9b9b9;
   padding: 16px;
   position: relative;
   background-color: #242424;
 }
-.jss22 h1 {
+.jss19 h1 {
   margin: 0;
   display: inline;
   font-size: 1.5em;
   font-weight: normal;
 }
-.jss22 p {
+.jss19 p {
   margin: 0;
-}
-.jss19 {
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-}
-.jss20 {
-  width: 250px;
-}
-.jss21 {
-  flex: 1;
 }
 .jss10 {
   flex: 1;
-  width: 100%;
   display: flex;
   flex-direction: row;
 }
@@ -675,22 +703,33 @@
 }</style>
 </head>
 <body>
-<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><a class="jss2" href="/docs/migration/">Migration</a><div class="jss5"><div class="jss2 jss3">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a aria-current="page" class="jss2 jss7 jss8" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><div class="jss14"><h2 class="jss15">Classes</h2><div class="jss16"><a title="ChatClient" class="jss17" href="/reference/chat/classes/ChatClient.html">ChatClient</a><a title="ChatUser" class="jss17" href="/reference/chat/classes/ChatUser.html">ChatUser</a><a title="TwitchPrivateMessage" class="jss17" href="/reference/chat/classes/TwitchPrivateMessage.html">TwitchPrivateMessage</a><a title="UserNotice" class="jss17" href="/reference/chat/classes/UserNotice.html">UserNotice</a></div></div><div class="jss14"><h2 class="jss15">Functions</h2><div class="jss16"><a title="parseTwitchMessage" class="jss17" href="/reference/chat/functions/parseTwitchMessage.html">parseTwitchMessage</a></div></div><div class="jss14"><h2 class="jss15">Interfaces</h2><div class="jss16"><a title="ChatBitsBadgeUpgradeInfo" class="jss17" href="/reference/chat/interfaces/ChatBitsBadgeUpgradeInfo.html">ChatBitsBadgeUpgradeInfo</a><a title="ChatClientOptions" class="jss17" href="/reference/chat/interfaces/ChatClientOptions.html">ChatClientOptions</a><a title="ChatCommunityPayForwardInfo" class="jss17" href="/reference/chat/interfaces/ChatCommunityPayForwardInfo.html">ChatCommunityPayForwardInfo</a><a title="ChatCommunitySubInfo" class="jss17" href="/reference/chat/interfaces/ChatCommunitySubInfo.html">ChatCommunitySubInfo</a><a title="ChatPrimeCommunityGiftInfo" class="jss17" href="/reference/chat/interfaces/ChatPrimeCommunityGiftInfo.html">ChatPrimeCommunityGiftInfo</a><a title="ChatRaidInfo" class="jss17" href="/reference/chat/interfaces/ChatRaidInfo.html">ChatRaidInfo</a><a title="ChatRewardGiftInfo" class="jss17" href="/reference/chat/interfaces/ChatRewardGiftInfo.html">ChatRewardGiftInfo</a><a title="ChatRitualInfo" class="jss17" href="/reference/chat/interfaces/ChatRitualInfo.html">ChatRitualInfo</a><a title="ChatSayMessageAttributes" class="jss17" href="/reference/chat/interfaces/ChatSayMessageAttributes.html">ChatSayMessageAttributes</a><a title="ChatStandardPayForwardInfo" class="jss17" href="/reference/chat/interfaces/ChatStandardPayForwardInfo.html">ChatStandardPayForwardInfo</a><a title="ChatSubExtendInfo" class="jss17" href="/reference/chat/interfaces/ChatSubExtendInfo.html">ChatSubExtendInfo</a><a title="ChatSubGiftInfo" class="jss17" href="/reference/chat/interfaces/ChatSubGiftInfo.html">ChatSubGiftInfo</a><a title="ChatSubGiftUpgradeInfo" class="jss17" href="/reference/chat/interfaces/ChatSubGiftUpgradeInfo.html">ChatSubGiftUpgradeInfo</a><a title="ChatSubInfo" class="jss17" href="/reference/chat/interfaces/ChatSubInfo.html">ChatSubInfo</a><a title="ChatSubUpgradeInfo" class="jss17" href="/reference/chat/interfaces/ChatSubUpgradeInfo.html">ChatSubUpgradeInfo</a></div></div></div><div class="jss12"><main><div class="jss19"><div class="jss21"><div class="jss22"><h1>@twurple/chat</h1></div><div class="jss23"><div class="jss24"><h1>Twurple - Chat Client</h1>
-<p><a class="jss25" href="https://github.com/twurple/twurple/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GitHub license"/></a>
-<a class="jss25" href="https://www.npmjs.com/package/@twurple/chat"><img src="https://img.shields.io/npm/v/@twurple/chat.svg?style=flat" alt="npm version"/></a>
-<img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome"/></p>
-<p>Interact with the Twitch Messaging Interface (aka Twitch chat).</p>
-<h2>Installation</h2>
-<pre><code>yarn add @twurple/auth @twurple/chat
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a aria-current="page" class="jss2 jss3" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><a class="jss2" href="/docs/migration/">Migration</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><a class="jss14" href="/docs/getting-data/">Data overview</a><div class="jss16"><h2 class="jss17">API</h2><div class="jss18"><a title="Calling the Twitch API" class="jss14" href="/docs/getting-data/api/calling-api.html">Calling the Twitch API</a></div></div><div class="jss16"><h2 class="jss17">Chat</h2><div class="jss18"><a title="Connecting to Chat" class="jss14" href="/docs/getting-data/chat/connecting-to-chat.html">Connecting to Chat</a><a title="Listening to chat events" class="jss14" href="/docs/getting-data/chat/listening-to-events.html">Listening to chat events</a></div></div><div class="jss16"><h2 class="jss17">PubSub</h2><div class="jss18"><a title="Listening to PubSub topics" class="jss14" href="/docs/getting-data/pubsub/listening-to-topics.html">Listening to PubSub topics</a></div></div><div class="jss16"><h2 class="jss17">EventSub</h2><div class="jss18"><a title="Setting up an EventSub listener" class="jss14" href="/docs/getting-data/eventsub/listener-setup.html">Setting up an EventSub listener</a><a title="Serving through a reverse proxy" class="jss14" href="/docs/getting-data/eventsub/reverse-proxy.html">Serving through a reverse proxy</a><a title="Testing locally using ngrok" class="jss14" href="/docs/getting-data/eventsub/ngrok.html">Testing locally using ngrok</a></div></div><div class="jss16"><h2 class="jss17">Logging</h2><div class="jss18"><a title="Log level configuration" aria-current="page" class="jss14 jss15" href="/docs/getting-data/logging/configuration.html">Log level configuration</a><a title="Custom logger" class="jss14" href="/docs/getting-data/logging/custom.html">Custom logger</a></div></div></div><div class="jss12"><div class="jss19"><h1>Log level configuration</h1></div><div class="jss20"><div class="jss21"><p>There are multiple ways of configuring the log level of the logger included in the various Twurple packages.
+Which one you should use depends entirely on your desired level of configuration granularity.</p>
+<h2>Configuration using environment variable</h2>
+<p>The logger used by Twurple supports configuration using an environment variable called <code>LOGGING</code>.</p>
+<p>Loggers are separated into namespaces separated with colons.</p>
+<p>Using these namespaces, you can set different log levels for different types of logs.</p>
+<p>It&#x27;s probably easiest to show this by example:</p>
+<pre><code>LOGGING=&quot;default=error;twurple=debug;twurple:api:rate-limiter=critical&quot;
 </code></pre>
-<p>or using npm:</p>
-<pre><code>npm install @twurple/auth @twurple/chat
-</code></pre>
-<h2>Documentation</h2>
-<p>A good place to start with this library is the <a class="jss25" href="https://twurple.js.org">documentation</a>
-which also includes a complete reference of all classes and interfaces, as well as changes and deprecations between major versions.</p>
-<h2>If you&#x27;re getting stuck...</h2>
-<p>You can join the <a class="jss25" href="https://discord.gg/b9ZqMfz">Twitch API Libraries Discord Server</a> and ask in <code>#twurple</code> for support.</p></div></div></div></div></main></div></div></div>
+<p>This tells the logger the following things:</p>
+<ul>
+<li>By default, only errors should be shown. (If you leave this out, the default is <code>warning</code>.)</li>
+<li>For Twurple packages, show detailed debug messages.</li>
+<li>For the API rate limiter, only show critical messages</li>
+</ul>
+<p>(overrides the parent namespace setting and thus doesn&#x27;t show debug messages).</p>
+<h2>Configuration using the classes&#x27; constructors</h2>
+<p>All classes that log messages have support for a <code>logger</code> option in the constructor,
+in which you can also set a minimum log level to display:</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> api = </span><span style="color:#cb7832">new</span><span> ApiClient({
+</span></span><span><span>	</span><span style="color:#7f7f7f">// ...</span><span>
+</span></span><span><span>	</span><span class="hljs-attr">logger</span><span>: {
+</span></span><span><span>		</span><span class="hljs-attr">minLevel</span><span>: </span><span style="color:#6a8759">&#x27;debug&#x27;</span><span>
+</span></span><span>	}
+</span><span>});
+</span></code></pre></pre>
+<p>This setting always takes precedence over the environment variable settings.</p></div></div></div></div></div>
 <script src="/pe.js"></script>
 </body>
 </html>
