@@ -1,4 +1,7 @@
 {
-  "versions": [],
-  "rootUrl": ""
+  "versions": [
+    "5.0"
+  ],
+  "rootUrl": "",
+  "defaultVersion": "5.0"
 }
