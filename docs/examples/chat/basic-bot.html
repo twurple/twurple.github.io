@@ -748,11 +748,11 @@ input:checked + .jss28 {
 <p>Now, we can construct a <code>StaticAuthProvider</code> instance using a static auth provider:</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> clientId = </span><span style="color:#6a8759">&#x27;uo6dggojyb8d6soh92zknwmi5ej1q2&#x27;</span><span>;
 </span></span><span><span></span><span style="color:#cb7832">const</span><span> accessToken = </span><span style="color:#6a8759">&#x27;0123456789abcdefghijABCDEFGHIJ&#x27;</span><span>;
-</span></span><span><span></span><span style="color:#cb7832">const</span><span> auth = </span><span style="color:#cb7832">new</span><span> StaticAuthProvider(clientId, accessToken);</span></span></code></pre></pre>
+</span></span><span><span></span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> StaticAuthProvider(clientId, accessToken);</span></span></code></pre></pre>
 <h2>4. Connect to chat</h2>
 <p>Using the <code>AuthProvider</code> instance we just created, we can easily create a <code>ChatClient</code> instance and connect to the chat server.
 The given channels will automatically be joined after connecting.</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> chatClient = </span><span style="color:#cb7832">new</span><span> ChatClient(auth, { </span><span class="hljs-attr">channels</span><span>: [</span><span style="color:#6a8759">&#x27;satisfiedpear&#x27;</span><span>] });
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> chatClient = </span><span style="color:#cb7832">new</span><span> ChatClient({ authProvider, </span><span class="hljs-attr">channels</span><span>: [</span><span style="color:#6a8759">&#x27;satisfiedpear&#x27;</span><span>] });
 </span></span><span><span></span><span style="color:#cb7832">await</span><span> chatClient.connect();</span></span></code></pre></pre>
 <p>Now you can run your code and see your bot sitting in your channel. But we want it to do something!</p>
 <h2>5. Listen and react to events</h2>
@@ -790,7 +790,7 @@ The given channels will automatically be joined after connecting.</p>
 </span><span><span></span><span style="color:#cb7832">const</span><span> clientSecret = </span><span style="color:#6a8759">&#x27;nyo51xcdrerl8z9m56w9w6wg&#x27;</span><span>;
 </span></span><span><span></span><span style="color:#cb7832">const</span><span> refreshToken = </span><span style="color:#6a8759">&#x27;eyJfaWQmNzMtNGCJ9%6VFV5LNrZFUj8oU231/3Aj&#x27;</span><span>;
 </span></span><span>
-</span><span><span></span><span style="color:#cb7832">const</span><span> auth = </span><span style="color:#cb7832">new</span><span> RefreshingAuthProvider(
+</span><span><span></span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> RefreshingAuthProvider(
 </span></span><span>	{
 </span><span>		clientId,
 </span><span>		clientSecret
@@ -819,7 +819,7 @@ The given channels will automatically be joined after connecting.</p>
 </span></span><span>
 </span><span><span></span><span style="color:#7f7f7f">// inside the async function again</span><span>
 </span></span><span><span></span><span style="color:#cb7832">const</span><span> tokenData = </span><span style="color:#e0c46c">JSON</span><span>.parse(</span><span style="color:#cb7832">await</span><span> fs.readFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>));
-</span></span><span><span></span><span style="color:#cb7832">const</span><span> auth = </span><span style="color:#cb7832">new</span><span> RefreshingAuthProvider(
+</span></span><span><span></span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> RefreshingAuthProvider(
 </span></span><span>	{
 </span><span>		clientId,
 </span><span>		clientSecret,
@@ -841,7 +841,7 @@ The given channels will automatically be joined after connecting.</p>
 </span></span><span><span>	</span><span style="color:#cb7832">const</span><span> clientId = </span><span style="color:#6a8759">&#x27;uo6dggojyb8d6soh92zknwmi5ej1q2&#x27;</span><span>;
 </span></span><span><span>	</span><span style="color:#cb7832">const</span><span> clientSecret = </span><span style="color:#6a8759">&#x27;nyo51xcdrerl8z9m56w9w6wg&#x27;</span><span>;
 </span></span><span><span>	</span><span style="color:#cb7832">const</span><span> tokenData = </span><span style="color:#e0c46c">JSON</span><span>.parse(</span><span style="color:#cb7832">await</span><span> fs.readFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>, </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>));
-</span></span><span><span>	</span><span style="color:#cb7832">const</span><span> auth = </span><span style="color:#cb7832">new</span><span> RefreshingAuthProvider(
+</span></span><span><span>	</span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> RefreshingAuthProvider(
 </span></span><span>		{
 </span><span>			clientId,
 </span><span>			clientSecret,
@@ -850,7 +850,7 @@ The given channels will automatically be joined after connecting.</p>
 </span><span>		tokenData
 </span><span>	);
 </span><span>
-</span><span><span>	</span><span style="color:#cb7832">const</span><span> chatClient = </span><span style="color:#cb7832">new</span><span> ChatClient(auth, { </span><span class="hljs-attr">channels</span><span>: [</span><span style="color:#6a8759">&#x27;satisfiedpear&#x27;</span><span>] });
+</span><span><span>	</span><span style="color:#cb7832">const</span><span> chatClient = </span><span style="color:#cb7832">new</span><span> ChatClient({ authProvider, </span><span class="hljs-attr">channels</span><span>: [</span><span style="color:#6a8759">&#x27;satisfiedpear&#x27;</span><span>] });
 </span></span><span><span>	</span><span style="color:#cb7832">await</span><span> chatClient.connect();
 </span></span><span>
 </span><span><span>	chatClient.onMessage(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user, message</span><span class="hljs-function">) =&gt;</span><span> {
