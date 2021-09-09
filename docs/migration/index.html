@@ -746,7 +746,7 @@ which doesn&#x27;t need to wrap another provider anymore. Its parameters are div
 <li>The static data, i.e. app credentials and refresh callback</li>
 <li>The initial token data, which is just an <a class="jss16" href="/reference/auth/interfaces/AccessToken.html">AccessToken</a> object</li>
 </ul>
-<p>The mentioned <a class="jss16" href="/reference/auth/interfaces/AccessToken.html">AccessToken</a> was changed from a class to a fully serializable interfaces. This has two implications:</p>
+<p>The mentioned <a class="jss16" href="/reference/auth/interfaces/AccessToken.html">AccessToken</a> was changed from a class to a fully serializable interface. This has two implications:</p>
 <ul>
 <li>On the downside, it loses a few convenience getters like <code>.isExpired</code> - use the free-standing functions like <a class="jss16" href="/reference/auth/functions/accessTokenIsExpired.html">accessTokenIsExpired</a> instead.</li>
 <li>On the upside, you can now just write the data to a file/database/etc. and read it back from there without any manual conversion shenanigans.</li>
@@ -780,7 +780,7 @@ which doesn&#x27;t need to wrap another provider anymore. Its parameters are div
 </span></code></pre></pre>
 <h2>Use <code>AuthProvider</code>s directly</h2>
 <p>Previously, <a class="jss16" href="/reference/api/classes/ApiClient.html">ApiClient</a> exposed a few helper methods to instantiate it with an <a class="jss16" href="/reference/auth/interfaces/AuthProvider.html">AuthProvider</a> created internally.</p>
-<p>In order to decouble these components from each other, these helpers were removed.
+<p>In order to decouple these components from each other, these helpers were removed.
 Instead, you should now instantiate the providers by yourself.</p>
 <p>Additionally, some token related helpers on the <a class="jss16" href="/reference/api/classes/ApiClient.html">ApiClient</a> have been removed.
 You should call them on the provider directly, or use the free-standing helper functions.
@@ -833,7 +833,7 @@ which you can call (and more importanly, <code>await</code>) by yourself.</p>
 <p>Electron versions below 9 are way past their support time by now. Please update to a supported version.</p>
 <h2>Check your bot type in the <a class="jss16" href="/reference/chat/classes/ChatClient.html">ChatClient</a> instantiation</h2>
 <p><a class="jss16" href="/reference/chat/classes/ChatClient.html">ChatClient</a> now applies rate limiting by default.
-If your bot is a know or verified bot, it may now use way lower rate limits than it could theoretically use.</p>
+If your bot is a known or verified bot, it may now use way lower rate limits than it could theoretically use.</p>
 <p>Please investigate the properties <a class="jss16" href="/reference/chat/interfaces/ChatClientOptions.html#botLevel">ChatClientOptions#botLevel</a> and <a class="jss16" href="/reference/chat/interfaces/ChatClientOptions.html#isAlwaysMod">ChatClientOptions#isAlwaysMod</a>
 to raise them appropriately to your bot status.</p>
 <h2>Remove our typos</h2>
@@ -870,7 +870,7 @@ so remove it from your code - it probably didn&#x27;t work anyway.</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss24"><span style="color:#cb7832">const</span><span> me = </span><span style="color:#cb7832">await</span><span> api.helix.users.getMe();
 </span></span><span class="jss23"><span></span><span style="color:#cb7832">const</span><span> me = </span><span style="color:#cb7832">await</span><span> api.users.getMe();</span></span></code></pre></pre>
 <h2>[Deprecation] Use the Helix Chat namespaces instead of the Badges namespace</h2>
-<p>The Badges namespace is a basically-inofficial part of the Twitch API.
+<p>The Badges namespace is a basically-unofficial part of the Twitch API.
 Since the Helix Chat namespace contains the same functionality, you should use it instead.</p></div></div></div></div></div>
 <script src="/pe.js"></script>
 </body>
