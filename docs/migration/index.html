@@ -736,7 +736,7 @@ have been renamed, and the old counterparts were deprecated. Please check your u
 </span></span><span class="jss23">	}
 </span><span>});
 </span></code></pre></pre>
-<div class="jss17"><h3 class="jss18">Easier logger configuration</h3><p>You probably want to check out the new global <a class="jss16" href="/docs/getting-data/logging/levels.html">logging configuration</a> via environment variables.</p><p>In most cases, it&#x27;s much easier to set up.</p></div>
+<div class="jss17"><h3 class="jss18">Easier logger configuration</h3><p>You probably want to check out the new global <a class="jss16" href="/docs/getting-data/logging/configuration.html">logging configuration</a> via environment variables.</p><p>In most cases, it&#x27;s much easier to set up.</p></div>
 <h2>Replace <code>RefreshableAuthProvider</code> with <a class="jss16" href="/reference/auth/classes/RefreshingAuthProvider.html">RefreshingAuthProvider</a> &amp; make use of the new fully serializable <a class="jss16" href="/reference/auth/interfaces/AccessToken.html">AccessToken</a> interface</h2>
 <p>The old <code>RefreshableAuthProvider</code> was clunky to use. It was initially intended to make it easy to add refreshing
 to any existing <a class="jss16" href="/reference/auth/interfaces/AuthProvider.html">AuthProvider</a> implementation, but that benefit never went past the basic <a class="jss16" href="/reference/auth/classes/StaticAuthProvider.html">StaticAuthProvider</a> wrapping.</p>
@@ -836,6 +836,10 @@ which you can call (and more importanly, <code>await</code>) by yourself.</p>
 If your bot is a known or verified bot, it may now use way lower rate limits than it could theoretically use.</p>
 <p>Please investigate the properties <a class="jss16" href="/reference/chat/interfaces/ChatClientOptions.html#botLevel">ChatClientOptions#botLevel</a> and <a class="jss16" href="/reference/chat/interfaces/ChatClientOptions.html#isAlwaysMod">ChatClientOptions#isAlwaysMod</a>
 to raise them appropriately to your bot status.</p>
+<h2>Rename <a class="jss16" href="/reference/pubsub/classes/PubSubRedemptionMessage.html">PubSubRedemptionMessage</a>&#x27;s <code>rewardName</code> property</h2>
+<p>The property <code>rewardName</code> was renamed to <code>rewardTitle</code>
+to be consistent with the API and EventSub versions of the same data.
+Please update your code accordingly.</p>
 <h2>Remove our typos</h2>
 <p>See, we all make mistakes sometimes. But we fixed them and we ask you to fix them too (otherwise your code will break).</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">declare</span><span> </span><span style="color:#cb7832">const</span><span> reward: HelixCustomReward;
