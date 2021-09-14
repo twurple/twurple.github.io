@@ -823,7 +823,9 @@ but was integrated into the options object.</p>
 </span></span><span class="jss23"><span></span><span style="color:#cb7832">await</span><span> pubsub.registerUserListener(authProvider);</span></span></code></pre></pre>
 <h2>Pass cheermote formatting options directly to the respective methods</h2>
 <p>It was previously possible to add defaults for displaying cheermotes to the <a class="jss16" href="/reference/api/classes/ApiClient.html">ApiClient</a>.
-These defaults were removed - now you have to pass all display options to <a class="jss16" href="/reference/api/classes/HelixCheermoteList.html#getCheermoteDisplayInfo">HelixCheermoteList#getCheermoteDisplayInfo</a>.</p>
+These defaults were removed - now you have to pass all display options
+to <a class="jss16" href="/reference/api/classes/HelixCheermoteList.html#getCheermoteDisplayInfo">HelixCheermoteList#getCheermoteDisplayInfo</a> and <a class="jss16" href="/reference/api/classes/HelixCheermoteList.html#parseMessage">HelixCheermoteList#parseMessage</a>
+as well as <a class="jss16" href="/reference/chat/classes/TwitchPrivateMessage.html#parseEmotesAndBits">TwitchPrivateMessage#parseEmotesAndBits</a>.</p>
 <h2>Remove use of the <code>preAuth</code> and <code>initialScopes</code> properties in <a class="jss16" href="/reference/api/interfaces/ApiConfig.html">ApiConfig</a></h2>
 <p>The properties <code>preAuth</code> and <code>initialScopes</code> were dangerous,
 as they left a dangling promise when constructing an <a class="jss16" href="/reference/api/classes/ApiClient.html">ApiClient</a>.</p>
