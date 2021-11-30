@@ -818,7 +818,7 @@ The given channels will automatically be joined after connecting.</p>
 </span></span><span><span></span><span style="color:#cb7832">import</span><span> { promises </span><span style="color:#cb7832">as</span><span> fs } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;fs&#x27;</span><span>;
 </span></span><span>
 </span><span><span></span><span style="color:#7f7f7f">// inside the async function again</span><span>
-</span></span><span><span></span><span style="color:#cb7832">const</span><span> tokenData = </span><span style="color:#e0c46c">JSON</span><span>.parse(</span><span style="color:#cb7832">await</span><span> fs.readFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>));
+</span></span><span><span></span><span style="color:#cb7832">const</span><span> tokenData = </span><span style="color:#e0c46c">JSON</span><span>.parse(</span><span style="color:#cb7832">await</span><span> fs.readFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>, </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>));
 </span></span><span><span></span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> RefreshingAuthProvider(
 </span></span><span>	{
 </span><span>		clientId,
