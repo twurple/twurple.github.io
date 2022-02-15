@@ -482,10 +482,256 @@
 }
 
 	</style>
-    
+    <style id="server-side-styles">.jss13 {
+  min-height: 100%;
+  border-right: 1px solid #444;
+}
+.jss16 {
+  color: #b9b9b9;
+  display: block;
+  padding: 8px 0;
+}
+.jss17 {
+  height: 1em;
+  margin: 0;
+  padding: 4px 8px 4px 12px;
+  font-size: 1.1em;
+  font-weight: bold;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+.jss18 > a {
+  padding-left: 20px;
+}
+.jss14 {
+  color: #b9b9b9;
+  height: 1em;
+  display: block;
+  padding: 8px;
+  overflow: hidden;
+  transition: .3s background-color ease-in-out, .3s border-left-color ease-in-out;
+  border-left: .25em solid transparent;
+  line-height: 1em;
+  text-overflow: ellipsis;
+  text-decoration: none;
+}
+.jss14:hover {
+  background-color: #333333;
+}
+.jss15 {
+  border-color: #647d0f;
+  background-color: #242424;
+}
+.jss15:hover {
+  border-left-color: #88ab14;
+}
+.jss25 {
+  position: relative;
+}
+.jss26 {
+  top: 8px;
+  right: 8px;
+  border: 1px solid #444;
+  display: flex;
+  opacity: 0;
+  position: absolute;
+  transition: opacity .5s ease-in-out;
+  pointer-events: none;
+}
+.jss25:hover .jss26 {
+  opacity: 1;
+  pointer-events: auto;
+}
+.jss27 {
+  display: none;
+}
+.jss28 {
+  cursor: pointer;
+  padding: 8px;
+  transition: background-color .3s ease-in-out;
+  border-left: 1px solid #444;
+}
+.jss28:first-of-type {
+  border-left: 0 none;
+}
+input:checked + .jss28 {
+  background: #444;
+}
+.jss29 {
+  display: block;
+  background-color: rgba(9, 180, 50, 0.25);
+}
+.jss30 {
+  display: block;
+  background-color: rgba(255, 106, 105, 0.25);
+}
+.jss21 table {
+  border-collapse: collapse;
+}
+.jss21 th, .jss21 td {
+  border: 1px solid #444;
+  padding: 8px;
+}
+.jss21 li {
+  margin: 16px 0;
+}
+.jss21 li::marker {
+  color: #647d0f;
+}
+.jss22 {
+  color: inherit;
+  transition: border-color .3s ease-in-out;
+  font-weight: bold;
+  border-bottom: 1.5px solid #647d0f;
+  text-decoration: none;
+}
+.jss22:hover {
+  border-bottom-color: #88ab14;
+}
+.jss23 {
+  display: flow-root;
+  padding: 0 1em;
+  border-left: 4px solid #ab9120;
+  margin-bottom: 1em;
+  background-color: #242424;
+}
+.jss24 {
+  font-size: 1em;
+}
+.jss20 {
+  padding: 16px;
+}
+.jss20 h2 {
+  margin: 24px 0 16px;
+}
+.jss20 h2:first-child {
+  margin-top: 0;
+}
+.jss19 {
+  color: #b9b9b9;
+  padding: 16px;
+  position: relative;
+  background-color: #242424;
+}
+.jss19 h1 {
+  margin: 0;
+  display: inline;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+.jss19 p {
+  margin: 0;
+}
+.jss10 {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+.jss11 {
+  width: 250px;
+}
+.jss12 {
+  flex: 1;
+}
+.jss1 {
+  display: flex;
+  border-bottom: 1px solid #444;
+}
+.jss2 {
+  color: #b9b9b9;
+  cursor: pointer;
+  margin: 0 8px;
+  padding: 8px;
+  transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
+  line-height: 1.3em;
+  user-select: none;
+  border-bottom: 3px solid transparent;
+  text-decoration: none;
+}
+.jss2:hover {
+  background-color: #333333;
+}
+.jss3 {
+  background-color: #242424;
+  border-bottom-color: #647d0f;
+}
+.jss3:hover {
+  border-bottom-color: #88ab14;
+}
+.jss4 {
+  font-weight: bold;
+  margin-left: 0;
+}
+.jss5 {
+  margin: 0 8px;
+  position: relative;
+}
+.jss5 > .jss2 {
+  margin: 0;
+}
+.jss5:hover .jss6 {
+  display: block;
+}
+.jss6 {
+  top: 100%;
+  left: 0;
+  border: 1px solid #444;
+  display: none;
+  z-index: 4;
+  position: absolute;
+  background-color: #141414;
+}
+.jss7 {
+  margin: 0;
+  display: block;
+  border-left: 3px solid transparent;
+  border-right: 0 none;
+  border-bottom: 0 none;
+}
+.jss7:first-child {
+  border-top: 0 none;
+}
+.jss8 {
+  background-color: #242424;
+  border-left-color: #647d0f;
+}
+.jss8:hover {
+  border-left-color: #88ab14;
+}
+.jss9 {
+  flex: 1;
+}</style>
 </head>
 <body>
-<div id="app-root"></div>
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/versions/main/">Twurple</a><a class="jss2" href="/versions/main/docs/auth/">Authentication</a><a class="jss2" href="/versions/main/docs/getting-data/">Getting data</a><a class="jss2" href="/versions/main/docs/examples/">Examples</a><a class="jss2" href="/versions/main/docs/faq/">FAQ</a><a class="jss2" href="/versions/main/docs/migration/">Migration</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/versions/main/reference/api/">api</a><a class="jss2 jss7" href="/versions/main/reference/api-call/">api-call</a><a class="jss2 jss7" href="/versions/main/reference/auth/">auth</a><a class="jss2 jss7" href="/versions/main/reference/auth-ext/">auth-ext</a><a class="jss2 jss7" href="/versions/main/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/versions/main/reference/chat/">chat</a><a class="jss2 jss7" href="/versions/main/reference/common/">common</a><a class="jss2 jss7" href="/versions/main/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/versions/main/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/versions/main/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><a class="jss14" href="/versions/main/docs/auth/">Authentication</a><div class="jss16"><h2 class="jss17">Providers</h2><div class="jss18"><a title="Using a fixed token" class="jss14" href="/versions/main/docs/auth/providers/static.html">Using a fixed token</a><a title="Auto-refreshing tokens" aria-current="page" class="jss14 jss15" href="/versions/main/docs/auth/providers/refreshing.html">Auto-refreshing tokens</a><a title="Using app tokens" class="jss14" href="/versions/main/docs/auth/providers/client-credentials.html">Using app tokens</a><a title="For Electron apps" class="jss14" href="/versions/main/docs/auth/providers/electron.html">For Electron apps</a></div></div></div><div class="jss12"><div class="jss19"><h1>Auto-refreshing tokens</h1></div><div class="jss20"><div class="jss21"><p>For auto refreshing to work reliably, you need to persist your current access/refresh token pair and the token expiry
+timestamp in some way.</p>
+<p>This example uses files to make it easily understandable, but you should probably use a database or similar,
+especially if you need to fetch data for more than one user.</p>
+<p>It also assumes that you pre-populated this file (in this example named <code>tokens.json</code>) with some data:</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-json" style="white-space:pre-wrap"><span><span>{
+</span></span><span><span>	</span><span class="hljs-attr">&quot;accessToken&quot;</span><span>: </span><span style="color:#6a8759">&quot;INITIAL_ACCESS_TOKEN&quot;</span><span>,
+</span></span><span><span>	</span><span class="hljs-attr">&quot;refreshToken&quot;</span><span>: </span><span style="color:#6a8759">&quot;INITIAL_REFRESH_TOKEN&quot;</span><span>,
+</span></span><span><span>	</span><span class="hljs-attr">&quot;expiresIn&quot;</span><span>: </span><span style="color:#6896ba">0</span><span>,
+</span></span><span><span>	</span><span class="hljs-attr">&quot;obtainmentTimestamp&quot;</span><span>: </span><span style="color:#6896ba">0</span><span>
+</span></span><span>}
+</span></code></pre></pre>
+<p>Note that the expiry values are set to 0, which forces the application to make a refresh call the first time you start it.
+This is done to prevent having to calculate the initial expiry timestamp manually.</p>
+<pre><div data-dynamic-component="CodeBlock" data-component-props="{&quot;lang&quot;:&quot;ts&quot;,&quot;langMeta&quot;:[&quot;twoslash&quot;],&quot;text&quot;:&quot;// @module: esnext\n// @target: ES2017\n// @lib: es5\n// silence TS complaining about fs not existing - TODO: might want to import node types somehow\n// @errors: 2307\n// ---cut---\nimport { RefreshingAuthProvider } from &#x27;@twurple/auth&#x27;;\nimport { promises as fs } from &#x27;fs&#x27;;\n\nconst clientId = &#x27;YOUR_CLIENT_ID&#x27;;\nconst clientSecret = &#x27;YOUR_CLIENT_SECRET&#x27;;\nconst tokenData = JSON.parse(await fs.readFile(&#x27;./tokens.json&#x27;, &#x27;UTF-8&#x27;));\nconst authProvider = new RefreshingAuthProvider(\n\t{\n\t\tclientId,\n\t\tclientSecret,\n\t\tonRefresh: async newTokenData =&gt; await fs.writeFile(&#x27;./tokens.json&#x27;, JSON.stringify(newTokenData, null, 4), &#x27;UTF-8&#x27;)\n\t},\n\ttokenData\n);&quot;}"><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">import</span><span> { RefreshingAuthProvider } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/auth&#x27;</span><span>;
+</span></span><span><span></span><span style="color:#cb7832">import</span><span> { promises </span><span style="color:#cb7832">as</span><span> fs } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;fs&#x27;</span><span>;
+</span></span><span>
+</span><span><span></span><span style="color:#cb7832">const</span><span> clientId = </span><span style="color:#6a8759">&#x27;YOUR_CLIENT_ID&#x27;</span><span>;
+</span></span><span><span></span><span style="color:#cb7832">const</span><span> clientSecret = </span><span style="color:#6a8759">&#x27;YOUR_CLIENT_SECRET&#x27;</span><span>;
+</span></span><span><span></span><span style="color:#cb7832">const</span><span> tokenData = </span><span style="color:#e0c46c">JSON</span><span>.parse(</span><span style="color:#cb7832">await</span><span> fs.readFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>, </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>));
+</span></span><span><span></span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> RefreshingAuthProvider(
+</span></span><span>	{
+</span><span>		clientId,
+</span><span>		clientSecret,
+</span><span><span>		</span><span class="hljs-attr">onRefresh</span><span>: </span><span style="color:#cb7832">async</span><span> newTokenData =&gt; </span><span style="color:#cb7832">await</span><span> fs.writeFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>, </span><span style="color:#e0c46c">JSON</span><span>.stringify(newTokenData, </span><span style="color:#6896ba">null</span><span>, </span><span style="color:#6896ba">4</span><span>), </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>)
+</span></span><span>	},
+</span><span>	tokenData
+</span><span>);
+</span></code></pre></div></pre></div></div></div></div></div>
 <script src="/versions/main/pe.js"></script>
 </body>
 </html>

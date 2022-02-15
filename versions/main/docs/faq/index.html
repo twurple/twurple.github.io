@@ -482,10 +482,256 @@
 }
 
 	</style>
-    
+    <style id="server-side-styles">.jss19 {
+  position: relative;
+}
+.jss20 {
+  top: 8px;
+  right: 8px;
+  border: 1px solid #444;
+  display: flex;
+  opacity: 0;
+  position: absolute;
+  transition: opacity .5s ease-in-out;
+  pointer-events: none;
+}
+.jss19:hover .jss20 {
+  opacity: 1;
+  pointer-events: auto;
+}
+.jss21 {
+  display: none;
+}
+.jss22 {
+  cursor: pointer;
+  padding: 8px;
+  transition: background-color .3s ease-in-out;
+  border-left: 1px solid #444;
+}
+.jss22:first-of-type {
+  border-left: 0 none;
+}
+input:checked + .jss22 {
+  background: #444;
+}
+.jss23 {
+  display: block;
+  background-color: rgba(9, 180, 50, 0.25);
+}
+.jss24 {
+  display: block;
+  background-color: rgba(255, 106, 105, 0.25);
+}
+.jss15 table {
+  border-collapse: collapse;
+}
+.jss15 th, .jss15 td {
+  border: 1px solid #444;
+  padding: 8px;
+}
+.jss15 li {
+  margin: 16px 0;
+}
+.jss15 li::marker {
+  color: #647d0f;
+}
+.jss16 {
+  color: inherit;
+  transition: border-color .3s ease-in-out;
+  font-weight: bold;
+  border-bottom: 1.5px solid #647d0f;
+  text-decoration: none;
+}
+.jss16:hover {
+  border-bottom-color: #88ab14;
+}
+.jss17 {
+  display: flow-root;
+  padding: 0 1em;
+  border-left: 4px solid #ab9120;
+  margin-bottom: 1em;
+  background-color: #242424;
+}
+.jss18 {
+  font-size: 1em;
+}
+.jss14 {
+  padding: 16px;
+}
+.jss14 h2 {
+  margin: 24px 0 16px;
+}
+.jss14 h2:first-child {
+  margin-top: 0;
+}
+.jss13 {
+  color: #b9b9b9;
+  padding: 16px;
+  position: relative;
+  background-color: #242424;
+}
+.jss13 h1 {
+  margin: 0;
+  display: inline;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+.jss13 p {
+  margin: 0;
+}
+.jss10 {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+.jss11 {
+  width: 250px;
+}
+.jss12 {
+  flex: 1;
+}
+.jss1 {
+  display: flex;
+  border-bottom: 1px solid #444;
+}
+.jss2 {
+  color: #b9b9b9;
+  cursor: pointer;
+  margin: 0 8px;
+  padding: 8px;
+  transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
+  line-height: 1.3em;
+  user-select: none;
+  border-bottom: 3px solid transparent;
+  text-decoration: none;
+}
+.jss2:hover {
+  background-color: #333333;
+}
+.jss3 {
+  background-color: #242424;
+  border-bottom-color: #647d0f;
+}
+.jss3:hover {
+  border-bottom-color: #88ab14;
+}
+.jss4 {
+  font-weight: bold;
+  margin-left: 0;
+}
+.jss5 {
+  margin: 0 8px;
+  position: relative;
+}
+.jss5 > .jss2 {
+  margin: 0;
+}
+.jss5:hover .jss6 {
+  display: block;
+}
+.jss6 {
+  top: 100%;
+  left: 0;
+  border: 1px solid #444;
+  display: none;
+  z-index: 4;
+  position: absolute;
+  background-color: #141414;
+}
+.jss7 {
+  margin: 0;
+  display: block;
+  border-left: 3px solid transparent;
+  border-right: 0 none;
+  border-bottom: 0 none;
+}
+.jss7:first-child {
+  border-top: 0 none;
+}
+.jss8 {
+  background-color: #242424;
+  border-left-color: #647d0f;
+}
+.jss8:hover {
+  border-left-color: #88ab14;
+}
+.jss9 {
+  flex: 1;
+}</style>
 </head>
 <body>
-<div id="app-root"></div>
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/versions/main/">Twurple</a><a class="jss2" href="/versions/main/docs/auth/">Authentication</a><a class="jss2" href="/versions/main/docs/getting-data/">Getting data</a><a class="jss2" href="/versions/main/docs/examples/">Examples</a><a aria-current="page" class="jss2 jss3" href="/versions/main/docs/faq/">FAQ</a><a class="jss2" href="/versions/main/docs/migration/">Migration</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/versions/main/reference/api/">api</a><a class="jss2 jss7" href="/versions/main/reference/api-call/">api-call</a><a class="jss2 jss7" href="/versions/main/reference/auth/">auth</a><a class="jss2 jss7" href="/versions/main/reference/auth-ext/">auth-ext</a><a class="jss2 jss7" href="/versions/main/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/versions/main/reference/chat/">chat</a><a class="jss2 jss7" href="/versions/main/reference/common/">common</a><a class="jss2 jss7" href="/versions/main/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/versions/main/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/versions/main/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss12"><div class="jss13"><h1>Frequently asked questions (FAQ)</h1></div><div class="jss14"><div class="jss15"><h2>I&#x27;m trying to make my bot say something / join channels right after connecting, but awaiting the <code>connect()</code> Promise / listening to the <code>onConnect</code> event doesn&#x27;t work.</h2>
+<p>Twitch uses the IRC protocol as foundation for its chat. In this protocol, after connection,
+you must tell the server your name and (optionally) authenticate before you can send messages to channels.
+The IRC specification calls this process &quot;registration&quot;.</p>
+<p>The base library we use for the <code>ChatClient</code> is an IRC library that has terminology very close to the IRC specification.
+This means that <code>onConnect</code> will happen before the registration step,
+which in turn means that you can&#x27;t join channels or send messages yet in a listener for that event.</p>
+<p>Similarly, awaiting the Promise returned by <code>connect()</code> also has this problem of being too early,
+and has the additional downside that your code will only run when the client connects for the first time,
+and does not re-run when you reconnect due to connection instability.</p>
+<p>Instead, you should use the <code>onRegister</code> event to send messages.</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span>chatClient.onRegister(</span><span class="hljs-function">() =&gt;</span><span> {
+</span></span><span><span>	chatClient.say(</span><span style="color:#6a8759">&#x27;someone&#x27;</span><span>, </span><span style="color:#6a8759">&#x27;Hello, I\&#x27;m now connected!&#x27;</span><span>);
+</span></span><span>})
+</span></code></pre></pre>
+<p>For joining channels, the <code>channels</code> option exists in the constructor of the <code>ChatClient</code> class.
+You can even pass an async function to it to dynamically access a possibly changing set of channels:</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> chatClient = </span><span style="color:#cb7832">new</span><span> ChatClient({
+</span></span><span>	authProvider,
+</span><span><span>	</span><span class="hljs-attr">channels</span><span>: </span><span style="color:#cb7832">async</span><span> () =&gt; </span><span style="color:#cb7832">await</span><span> someDatabase.select(</span><span style="color:#6a8759">&#x27;twitchUsername&#x27;</span><span>).from(</span><span style="color:#6a8759">&#x27;users&#x27;</span><span>).fetchAll().map(</span><span class="hljs-function" style="color:#b9b9b9">u</span><span class="hljs-function"> =&gt;</span><span> u.twitchUsername)
+</span></span><span>})
+</span></code></pre></pre>
+<h2>Why does <code>EventSubMiddleware</code> show the error &quot;The request body was already consumed by something else&quot;, and how do I fix it?</h2>
+<p>This happens because you&#x27;re using conflicting middleware that parses the body, such as:</p>
+<ul>
+<li><code>body-parser</code></li>
+<li><code>express.json()</code></li>
+<li><code>express.raw()</code></li>
+</ul>
+<p>Many popular express tutorials (in fact, even the official documentation of <code>express</code>!)
+tell you to apply these body parsers for all requests, like so:</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-js" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> express = </span><span style="color:#e0c46c">require</span><span>(</span><span style="color:#6a8759">&#x27;express&#x27;</span><span>);
+</span></span><span>
+</span><span><span></span><span style="color:#cb7832">const</span><span> app = express();
+</span></span><span><span>app.use(express.json()); </span><span style="color:#7f7f7f">// don&#x27;t do this!</span><span>
+</span></span><span>
+</span><span><span>app.get(</span><span style="color:#6a8759">&#x27;/&#x27;</span><span>, </span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">req, res</span><span class="hljs-function">) =&gt;</span><span> res.send(</span><span style="color:#6a8759">&#x27;Hello World&#x27;</span><span>));
+</span></span><span><span>app.post(</span><span style="color:#6a8759">&#x27;/echo-prop&#x27;</span><span>, </span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">req, res</span><span class="hljs-function">) =&gt;</span><span> res.send(req.body.prop));
+</span></span><span>
+</span><span><span>app.listen(</span><span style="color:#6896ba">3000</span><span>);</span></span></code></pre></pre>
+<p>This code applies the JSON parser middleware for all requests.
+That means that you have a JSON-parsed object in <code>req.body</code> at all times.<br/>
+<!-- -->Sadly, it also means that we can&#x27;t read the raw body from the request anymore,
+since it is already consumed by that middleware.</p>
+<p>You might ask: &quot;Why can&#x27;t you just use <code>req.body</code> if it already exists in a parsed form?&quot;<br/>
+<!-- -->The answer to this is that we need access to the raw body in order to match its signature.<br/>
+<!-- -->In order to verify that the request really came from Twitch,
+they sign the request using the secret that was passed at subscription time.<br/>
+<!-- -->If we re-encode the JSON payload in <code>req.body</code> rather than using the raw data,
+the result might be slightly mismatched in formatting, which breaks the signature.</p>
+<p>The proper way to use body parser middleware is to apply them where you actually expect JSON <em>input</em>
+(as opposed to returning JSON):</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-js" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> express = </span><span style="color:#e0c46c">require</span><span>(</span><span style="color:#6a8759">&#x27;express&#x27;</span><span>);
+</span></span><span>
+</span><span><span></span><span style="color:#cb7832">const</span><span> app = express();
+</span></span><span>
+</span><span><span>app.get(</span><span style="color:#6a8759">&#x27;/&#x27;</span><span>, </span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">req, res</span><span class="hljs-function">) =&gt;</span><span> res.send(</span><span style="color:#6a8759">&#x27;Hello World&#x27;</span><span>));
+</span></span><span><span>app.post(</span><span style="color:#6a8759">&#x27;/echo-prop&#x27;</span><span>, express.json(), </span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">req, res</span><span class="hljs-function">) =&gt;</span><span> res.send(req.body.prop));
+</span></span><span>
+</span><span><span>app.listen(</span><span style="color:#6896ba">3000</span><span>);</span></span></code></pre></pre>
+<h2>My <code>EventSubListener</code> or <code>EventSubMiddleware</code> starts up correctly, but it never tells me about successful subscriptions, why?</h2>
+<p>This can have different reasons:</p>
+<ul>
+<li>If you run a reverse proxy in front of the listener, make sure it forwards the requests properly.
+The listener expects the <code>pathPrefix</code> to be stripped from the received URL.<br/>
+<!-- -->Consult your reverse proxy&#x27;s logs and <a class="jss16" href="/versions/main/docs/getting-data/logging/configuration.html">set up logging for the listener</a> as well.</li>
+<li>Make sure your SSL is set up properly.
+In particular, you need to make sure you&#x27;re using a trusted certificate (self-signed won&#x27;t work)
+and that you&#x27;re passing the full certificate chain.<br/>
+<!-- -->A good way to test your SSL setup is <a class="jss16" href="https://www.ssllabs.com/ssltest">the Qualys SSL Labs test</a>.
+It will make sure you find all trust and chain issues.</li>
+</ul></div></div></div></div></div>
 <script src="/versions/main/pe.js"></script>
 </body>
 </html>

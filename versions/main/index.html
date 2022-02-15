@@ -482,10 +482,203 @@
 }
 
 	</style>
-    
+    <style id="server-side-styles">.jss19 {
+  position: relative;
+}
+.jss20 {
+  top: 8px;
+  right: 8px;
+  border: 1px solid #444;
+  display: flex;
+  opacity: 0;
+  position: absolute;
+  transition: opacity .5s ease-in-out;
+  pointer-events: none;
+}
+.jss19:hover .jss20 {
+  opacity: 1;
+  pointer-events: auto;
+}
+.jss21 {
+  display: none;
+}
+.jss22 {
+  cursor: pointer;
+  padding: 8px;
+  transition: background-color .3s ease-in-out;
+  border-left: 1px solid #444;
+}
+.jss22:first-of-type {
+  border-left: 0 none;
+}
+input:checked + .jss22 {
+  background: #444;
+}
+.jss23 {
+  display: block;
+  background-color: rgba(9, 180, 50, 0.25);
+}
+.jss24 {
+  display: block;
+  background-color: rgba(255, 106, 105, 0.25);
+}
+.jss15 table {
+  border-collapse: collapse;
+}
+.jss15 th, .jss15 td {
+  border: 1px solid #444;
+  padding: 8px;
+}
+.jss15 li {
+  margin: 16px 0;
+}
+.jss15 li::marker {
+  color: #647d0f;
+}
+.jss16 {
+  color: inherit;
+  transition: border-color .3s ease-in-out;
+  font-weight: bold;
+  border-bottom: 1.5px solid #647d0f;
+  text-decoration: none;
+}
+.jss16:hover {
+  border-bottom-color: #88ab14;
+}
+.jss17 {
+  display: flow-root;
+  padding: 0 1em;
+  border-left: 4px solid #ab9120;
+  margin-bottom: 1em;
+  background-color: #242424;
+}
+.jss18 {
+  font-size: 1em;
+}
+.jss14 {
+  padding: 16px;
+}
+.jss14 h2 {
+  margin: 24px 0 16px;
+}
+.jss14 h2:first-child {
+  margin-top: 0;
+}
+.jss13 {
+  color: #b9b9b9;
+  padding: 16px;
+  position: relative;
+  background-color: #242424;
+}
+.jss13 h1 {
+  margin: 0;
+  display: inline;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+.jss13 p {
+  margin: 0;
+}
+.jss10 {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+.jss11 {
+  width: 250px;
+}
+.jss12 {
+  flex: 1;
+}
+.jss1 {
+  display: flex;
+  border-bottom: 1px solid #444;
+}
+.jss2 {
+  color: #b9b9b9;
+  cursor: pointer;
+  margin: 0 8px;
+  padding: 8px;
+  transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
+  line-height: 1.3em;
+  user-select: none;
+  border-bottom: 3px solid transparent;
+  text-decoration: none;
+}
+.jss2:hover {
+  background-color: #333333;
+}
+.jss3 {
+  background-color: #242424;
+  border-bottom-color: #647d0f;
+}
+.jss3:hover {
+  border-bottom-color: #88ab14;
+}
+.jss4 {
+  font-weight: bold;
+  margin-left: 0;
+}
+.jss5 {
+  margin: 0 8px;
+  position: relative;
+}
+.jss5 > .jss2 {
+  margin: 0;
+}
+.jss5:hover .jss6 {
+  display: block;
+}
+.jss6 {
+  top: 100%;
+  left: 0;
+  border: 1px solid #444;
+  display: none;
+  z-index: 4;
+  position: absolute;
+  background-color: #141414;
+}
+.jss7 {
+  margin: 0;
+  display: block;
+  border-left: 3px solid transparent;
+  border-right: 0 none;
+  border-bottom: 0 none;
+}
+.jss7:first-child {
+  border-top: 0 none;
+}
+.jss8 {
+  background-color: #242424;
+  border-left-color: #647d0f;
+}
+.jss8:hover {
+  border-left-color: #88ab14;
+}
+.jss9 {
+  flex: 1;
+}</style>
 </head>
 <body>
-<div id="app-root"></div>
+<div id="app-root"><div class="jss1"><a aria-current="page" class="jss2 jss4 jss3" href="/versions/main/">Twurple</a><a class="jss2" href="/versions/main/docs/auth/">Authentication</a><a class="jss2" href="/versions/main/docs/getting-data/">Getting data</a><a class="jss2" href="/versions/main/docs/examples/">Examples</a><a class="jss2" href="/versions/main/docs/faq/">FAQ</a><a class="jss2" href="/versions/main/docs/migration/">Migration</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/versions/main/reference/api/">api</a><a class="jss2 jss7" href="/versions/main/reference/api-call/">api-call</a><a class="jss2 jss7" href="/versions/main/reference/auth/">auth</a><a class="jss2 jss7" href="/versions/main/reference/auth-ext/">auth-ext</a><a class="jss2 jss7" href="/versions/main/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/versions/main/reference/chat/">chat</a><a class="jss2 jss7" href="/versions/main/reference/common/">common</a><a class="jss2 jss7" href="/versions/main/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/versions/main/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/versions/main/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss12"><div class="jss13"><h1>Welcome</h1></div><div class="jss14"><div class="jss15"><p>Twurple is a set of libraries that aims to cover all of the existing Twitch APIs.</p>
+<ul>
+<li>Query the Helix API</li>
+<li>Build a chat bot</li>
+<li>React to custom redemptions, subscriptions, follows and much more using PubSub and EventSub</li>
+<li>Do all this without caring about the expiry of your access tokens - <strong>we can refresh them automatically</strong></li>
+</ul>
+<h2>Installation</h2>
+<p>Twurple consists of multiple packages that mostly communicate with a single system on Twitch&#x27;s side.</p>
+<p>All these system packages rely on a single package that manages authentication tokens, <code>@twurple/auth</code>.<br/>
+<!-- -->All peer dependencies between the different packages are shown here:</p>
+<table><thead><tr><th>Package</th><th>Peer dependencies</th></tr></thead><tbody><tr><td><code>@twurple/api</code></td><td><code>@twurple/auth</code></td></tr><tr><td><code>@twurple/chat</code></td><td><code>@twurple/auth</code></td></tr><tr><td><code>@twurple/eventsub</code></td><td><code>@twurple/auth</code>, <code>@twurple/api</code></td></tr><tr><td><code>@twurple/pubsub</code></td><td><code>@twurple/auth</code></td></tr></tbody></table>
+<p>For example, to use EventSub, execute one of:</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-bash" style="white-space:pre-wrap"><span><span>yarn add @twurple/auth @twurple/api @twurple/eventsub
+</span></span><span><span></span><span style="color:#7f7f7f"># or</span><span>
+</span></span><span>npm install @twurple/auth @twurple/api @twurple/eventsub
+</span></code></pre></pre>
+<h2>I got stuck/have more questions! Where do I get help?</h2>
+<p>You can join the <a class="jss16" href="https://discord.gg/b9ZqMfz">Twitch API Libraries Discord Server</a> and ask in <code>#twurple</code> for support.</p></div></div></div></div></div>
 <script src="/versions/main/pe.js"></script>
 </body>
 </html>

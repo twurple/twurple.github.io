@@ -482,10 +482,267 @@
 }
 
 	</style>
-    
+    <style id="server-side-styles">.jss13 {
+  min-height: 100%;
+  border-right: 1px solid #444;
+}
+.jss16 {
+  color: #b9b9b9;
+  display: block;
+  padding: 8px 0;
+}
+.jss17 {
+  height: 1em;
+  margin: 0;
+  padding: 4px 8px 4px 12px;
+  font-size: 1.1em;
+  font-weight: bold;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+.jss18 > a {
+  padding-left: 20px;
+}
+.jss14 {
+  color: #b9b9b9;
+  height: 1em;
+  display: block;
+  padding: 8px;
+  overflow: hidden;
+  transition: .3s background-color ease-in-out, .3s border-left-color ease-in-out;
+  border-left: .25em solid transparent;
+  line-height: 1em;
+  text-overflow: ellipsis;
+  text-decoration: none;
+}
+.jss14:hover {
+  background-color: #333333;
+}
+.jss15 {
+  border-color: #647d0f;
+  background-color: #242424;
+}
+.jss15:hover {
+  border-left-color: #88ab14;
+}
+.jss25 {
+  position: relative;
+}
+.jss26 {
+  top: 8px;
+  right: 8px;
+  border: 1px solid #444;
+  display: flex;
+  opacity: 0;
+  position: absolute;
+  transition: opacity .5s ease-in-out;
+  pointer-events: none;
+}
+.jss25:hover .jss26 {
+  opacity: 1;
+  pointer-events: auto;
+}
+.jss27 {
+  display: none;
+}
+.jss28 {
+  cursor: pointer;
+  padding: 8px;
+  transition: background-color .3s ease-in-out;
+  border-left: 1px solid #444;
+}
+.jss28:first-of-type {
+  border-left: 0 none;
+}
+input:checked + .jss28 {
+  background: #444;
+}
+.jss29 {
+  display: block;
+  background-color: rgba(9, 180, 50, 0.25);
+}
+.jss30 {
+  display: block;
+  background-color: rgba(255, 106, 105, 0.25);
+}
+.jss21 table {
+  border-collapse: collapse;
+}
+.jss21 th, .jss21 td {
+  border: 1px solid #444;
+  padding: 8px;
+}
+.jss21 li {
+  margin: 16px 0;
+}
+.jss21 li::marker {
+  color: #647d0f;
+}
+.jss22 {
+  color: inherit;
+  transition: border-color .3s ease-in-out;
+  font-weight: bold;
+  border-bottom: 1.5px solid #647d0f;
+  text-decoration: none;
+}
+.jss22:hover {
+  border-bottom-color: #88ab14;
+}
+.jss23 {
+  display: flow-root;
+  padding: 0 1em;
+  border-left: 4px solid #ab9120;
+  margin-bottom: 1em;
+  background-color: #242424;
+}
+.jss24 {
+  font-size: 1em;
+}
+.jss20 {
+  padding: 16px;
+}
+.jss20 h2 {
+  margin: 24px 0 16px;
+}
+.jss20 h2:first-child {
+  margin-top: 0;
+}
+.jss19 {
+  color: #b9b9b9;
+  padding: 16px;
+  position: relative;
+  background-color: #242424;
+}
+.jss19 h1 {
+  margin: 0;
+  display: inline;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+.jss19 p {
+  margin: 0;
+}
+.jss10 {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+.jss11 {
+  width: 250px;
+}
+.jss12 {
+  flex: 1;
+}
+.jss1 {
+  display: flex;
+  border-bottom: 1px solid #444;
+}
+.jss2 {
+  color: #b9b9b9;
+  cursor: pointer;
+  margin: 0 8px;
+  padding: 8px;
+  transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
+  line-height: 1.3em;
+  user-select: none;
+  border-bottom: 3px solid transparent;
+  text-decoration: none;
+}
+.jss2:hover {
+  background-color: #333333;
+}
+.jss3 {
+  background-color: #242424;
+  border-bottom-color: #647d0f;
+}
+.jss3:hover {
+  border-bottom-color: #88ab14;
+}
+.jss4 {
+  font-weight: bold;
+  margin-left: 0;
+}
+.jss5 {
+  margin: 0 8px;
+  position: relative;
+}
+.jss5 > .jss2 {
+  margin: 0;
+}
+.jss5:hover .jss6 {
+  display: block;
+}
+.jss6 {
+  top: 100%;
+  left: 0;
+  border: 1px solid #444;
+  display: none;
+  z-index: 4;
+  position: absolute;
+  background-color: #141414;
+}
+.jss7 {
+  margin: 0;
+  display: block;
+  border-left: 3px solid transparent;
+  border-right: 0 none;
+  border-bottom: 0 none;
+}
+.jss7:first-child {
+  border-top: 0 none;
+}
+.jss8 {
+  background-color: #242424;
+  border-left-color: #647d0f;
+}
+.jss8:hover {
+  border-left-color: #88ab14;
+}
+.jss9 {
+  flex: 1;
+}</style>
 </head>
 <body>
-<div id="app-root"></div>
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/versions/main/">Twurple</a><a class="jss2" href="/versions/main/docs/auth/">Authentication</a><a class="jss2" href="/versions/main/docs/getting-data/">Getting data</a><a class="jss2" href="/versions/main/docs/examples/">Examples</a><a class="jss2" href="/versions/main/docs/faq/">FAQ</a><a class="jss2" href="/versions/main/docs/migration/">Migration</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/versions/main/reference/api/">api</a><a class="jss2 jss7" href="/versions/main/reference/api-call/">api-call</a><a class="jss2 jss7" href="/versions/main/reference/auth/">auth</a><a class="jss2 jss7" href="/versions/main/reference/auth-ext/">auth-ext</a><a class="jss2 jss7" href="/versions/main/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/versions/main/reference/chat/">chat</a><a class="jss2 jss7" href="/versions/main/reference/common/">common</a><a class="jss2 jss7" href="/versions/main/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/versions/main/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/versions/main/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><a class="jss14" href="/versions/main/docs/getting-data/">Data overview</a><div class="jss16"><h2 class="jss17">API</h2><div class="jss18"><a title="Calling the Twitch API" class="jss14" href="/versions/main/docs/getting-data/api/calling-api.html">Calling the Twitch API</a></div></div><div class="jss16"><h2 class="jss17">Chat</h2><div class="jss18"><a title="Connecting to Chat" class="jss14" href="/versions/main/docs/getting-data/chat/connecting-to-chat.html">Connecting to Chat</a><a title="Listening to chat events" class="jss14" href="/versions/main/docs/getting-data/chat/listening-to-events.html">Listening to chat events</a></div></div><div class="jss16"><h2 class="jss17">PubSub</h2><div class="jss18"><a title="Listening to PubSub topics" class="jss14" href="/versions/main/docs/getting-data/pubsub/listening-to-topics.html">Listening to PubSub topics</a></div></div><div class="jss16"><h2 class="jss17">EventSub</h2><div class="jss18"><a title="Setting up an EventSub listener" class="jss14" href="/versions/main/docs/getting-data/eventsub/listener-setup.html">Setting up an EventSub listener</a><a title="Serving through a reverse proxy" class="jss14" href="/versions/main/docs/getting-data/eventsub/reverse-proxy.html">Serving through a reverse proxy</a><a title="Testing locally using ngrok" class="jss14" href="/versions/main/docs/getting-data/eventsub/ngrok.html">Testing locally using ngrok</a><a title="Using with an Express app" class="jss14" href="/versions/main/docs/getting-data/eventsub/express.html">Using with an Express app</a></div></div><div class="jss16"><h2 class="jss17">Logging</h2><div class="jss18"><a title="Log level configuration" class="jss14" href="/versions/main/docs/getting-data/logging/configuration.html">Log level configuration</a><a title="Custom logger" aria-current="page" class="jss14 jss15" href="/versions/main/docs/getting-data/logging/custom.html">Custom logger</a></div></div></div><div class="jss12"><div class="jss19"><h1>Custom logger</h1></div><div class="jss20"><div class="jss21"><p>It is possible to facilitate your own logger (like sending it to a central logging facility such as DataDog)
+by adding a small wrapper around it and passing it to the <code>custom</code> property of the <code>logger</code> option.</p>
+<div class="jss23"><h3 class="jss24">Log levels</h3><p>Please note that even if you use these custom loggers, the minimum log levels from the <code>LOGGING</code> environment variable
+and the <code>minLevel</code> property are still applied, although,
+as opposed to the default logger, the default level of <code>warning</code> does <em>not</em> apply here.</p></div>
+<h2>Simple - function form</h2>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> chat = </span><span style="color:#cb7832">new</span><span> ChatClient({
+</span></span><span><span>	</span><span style="color:#7f7f7f">// ...</span><span>
+</span></span><span><span>	</span><span class="hljs-attr">logger</span><span>: {
+</span></span><span><span>		</span><span class="hljs-attr">custom</span><span>: </span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">level, message</span><span class="hljs-function">) =&gt;</span><span> {
+</span></span><span><span>			</span><span style="color:#7f7f7f">// ... send to whatever ...</span><span>
+</span></span><span>		}
+</span><span>	}
+</span><span>})
+</span></code></pre></pre>
+<p>The <code>level</code> parameter is a member of the <a class="jss22" href="https://github.com/d-fischer/logger/blob/b021ee7ed84499a4d090c351487bda16c1dd617e/src/LogLevel.ts#L3-L10"><code>LogLevel</code> enum</a>
+which you should import from the <a class="jss22" href="https://www.npmjs.com/package/@d-fischer/logger"><code>@d-fischer/logger</code> package</a>
+to transform it back into a string rather than reversing the level manually with a <code>switch</code> or multiple <code>if</code> statements.</p>
+<h2>Advanced - object form</h2>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> chat = </span><span style="color:#cb7832">new</span><span> ChatClient({
+</span></span><span><span>	</span><span style="color:#7f7f7f">// ...</span><span>
+</span></span><span><span>	</span><span class="hljs-attr">logger</span><span>: {
+</span></span><span><span>		</span><span class="hljs-attr">custom</span><span>: {
+</span></span><span><span>			</span><span class="hljs-attr">log</span><span>: </span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">level, message</span><span class="hljs-function">) =&gt;</span><span> {
+</span></span><span><span>				</span><span style="color:#7f7f7f">// ... send to whatever ...</span><span>
+</span></span><span>			},
+</span><span><span>			</span><span class="hljs-attr">error</span><span>: </span><span class="hljs-function" style="color:#b9b9b9">message</span><span class="hljs-function"> =&gt;</span><span> {
+</span></span><span><span>				</span><span style="color:#7f7f7f">// ... send to something else ...</span><span>
+</span></span><span>			},
+</span><span><span>			</span><span style="color:#7f7f7f">// ... more level specific handling ...</span><span>
+</span></span><span>		}
+</span><span>	}
+</span><span>})
+</span></code></pre></pre>
+<p>In the object form, you have to supply a generic function named <code>log</code> which is similar to the function form above.</p>
+<p>But additionally, you can implement different functions that act differently for specific log levels.
+The log messages covered by these methods will <em>not</em> go through the <code>log</code> function.</p>
+<p>The names of the overridable level logger methods are: <code>crit</code>, <code>error</code>, <code>warn</code>, <code>info</code>, <code>debug</code>, <code>trace</code>.
+Please note that you don&#x27;t have to override <em>all</em> of them -
+log messages without a specific override will go to the <code>log</code> function instead.</p></div></div></div></div></div>
 <script src="/versions/main/pe.js"></script>
 </body>
 </html>
