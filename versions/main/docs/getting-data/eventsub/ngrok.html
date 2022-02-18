@@ -715,7 +715,10 @@ input:checked + .jss28 {
 </code></pre>
 <h2>2. Setting up the listener</h2>
 <p>Listening to events using ngrok is easy since the ngrok adapter benefits from the ability to set itself up completely on its own:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> listener = </span><span style="color:#cb7832">new</span><span> EventSubListener({
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#7f7f7f">// This is necessary to prevent conflict errors resulting from ngrok assigning a new host name every time</span><span>
+</span></span><span><span></span><span style="color:#cb7832">await</span><span> apiClient.eventSub.deleteAllSubscriptions();
+</span></span><span>
+</span><span><span></span><span style="color:#cb7832">const</span><span> listener = </span><span style="color:#cb7832">new</span><span> EventSubListener({
 </span></span><span>	apiClient,
 </span><span><span>	</span><span class="hljs-attr">adapter</span><span>: </span><span style="color:#cb7832">new</span><span> NgrokAdapter(),
 </span></span><span><span>	</span><span class="hljs-attr">secret</span><span>: </span><span style="color:#6a8759">&#x27;thisShouldBeARandomlyGeneratedFixedString&#x27;</span><span>
