@@ -28,96 +28,58 @@
 			color: #b9b9b9;
 		}
 		
-		svg:not(:root).svg-inline--fa {
+		:root, :host {
+  --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Solid";
+  --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Regular";
+  --fa-font-light: normal 300 1em/1 "Font Awesome 6 Light";
+  --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Thin";
+  --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
+  --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+}
+
+svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
   overflow: visible;
+  box-sizing: content-box;
 }
 
 .svg-inline--fa {
-  display: inline-block;
-  font-size: inherit;
+  display: var(--fa-display, inline-block);
   height: 1em;
   overflow: visible;
   vertical-align: -0.125em;
 }
+.svg-inline--fa.fa-2xs {
+  vertical-align: 0.1em;
+}
+.svg-inline--fa.fa-xs {
+  vertical-align: 0em;
+}
+.svg-inline--fa.fa-sm {
+  vertical-align: -0.0714285705em;
+}
 .svg-inline--fa.fa-lg {
-  vertical-align: -0.225em;
+  vertical-align: -0.2em;
 }
-.svg-inline--fa.fa-w-1 {
-  width: 0.0625em;
+.svg-inline--fa.fa-xl {
+  vertical-align: -0.25em;
 }
-.svg-inline--fa.fa-w-2 {
-  width: 0.125em;
-}
-.svg-inline--fa.fa-w-3 {
-  width: 0.1875em;
-}
-.svg-inline--fa.fa-w-4 {
-  width: 0.25em;
-}
-.svg-inline--fa.fa-w-5 {
-  width: 0.3125em;
-}
-.svg-inline--fa.fa-w-6 {
-  width: 0.375em;
-}
-.svg-inline--fa.fa-w-7 {
-  width: 0.4375em;
-}
-.svg-inline--fa.fa-w-8 {
-  width: 0.5em;
-}
-.svg-inline--fa.fa-w-9 {
-  width: 0.5625em;
-}
-.svg-inline--fa.fa-w-10 {
-  width: 0.625em;
-}
-.svg-inline--fa.fa-w-11 {
-  width: 0.6875em;
-}
-.svg-inline--fa.fa-w-12 {
-  width: 0.75em;
-}
-.svg-inline--fa.fa-w-13 {
-  width: 0.8125em;
-}
-.svg-inline--fa.fa-w-14 {
-  width: 0.875em;
-}
-.svg-inline--fa.fa-w-15 {
-  width: 0.9375em;
-}
-.svg-inline--fa.fa-w-16 {
-  width: 1em;
-}
-.svg-inline--fa.fa-w-17 {
-  width: 1.0625em;
-}
-.svg-inline--fa.fa-w-18 {
-  width: 1.125em;
-}
-.svg-inline--fa.fa-w-19 {
-  width: 1.1875em;
-}
-.svg-inline--fa.fa-w-20 {
-  width: 1.25em;
+.svg-inline--fa.fa-2xl {
+  vertical-align: -0.3125em;
 }
 .svg-inline--fa.fa-pull-left {
-  margin-right: 0.3em;
+  margin-right: var(--fa-pull-margin, 0.3em);
   width: auto;
 }
 .svg-inline--fa.fa-pull-right {
-  margin-left: 0.3em;
+  margin-left: var(--fa-pull-margin, 0.3em);
   width: auto;
 }
-.svg-inline--fa.fa-border {
-  height: 1.5em;
-}
 .svg-inline--fa.fa-li {
-  width: 2em;
+  width: var(--fa-li-width, 2em);
+  top: 0.25em;
 }
 .svg-inline--fa.fa-fw {
-  width: 1.25em;
+  width: var(--fa-fw-width, 1.25em);
 }
 
 .fa-layers svg.svg-inline--fa {
@@ -127,6 +89,12 @@
   position: absolute;
   right: 0;
   top: 0;
+}
+
+.fa-layers-counter, .fa-layers-text {
+  display: inline-block;
+  position: absolute;
+  text-align: center;
 }
 
 .fa-layers {
@@ -142,12 +110,6 @@
           transform-origin: center center;
 }
 
-.fa-layers-counter, .fa-layers-text {
-  display: inline-block;
-  position: absolute;
-  text-align: center;
-}
-
 .fa-layers-text {
   left: 50%;
   top: 50%;
@@ -158,78 +120,62 @@
 }
 
 .fa-layers-counter {
-  background-color: #ff253a;
-  border-radius: 1em;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  color: #fff;
-  height: 1.5em;
-  line-height: 1;
-  max-width: 5em;
-  min-width: 1.5em;
+  background-color: var(--fa-counter-background-color, #ff253a);
+  border-radius: var(--fa-counter-border-radius, 1em);
+  box-sizing: border-box;
+  color: var(--fa-inverse, #fff);
+  line-height: var(--fa-counter-line-height, 1);
+  max-width: var(--fa-counter-max-width, 5em);
+  min-width: var(--fa-counter-min-width, 1.5em);
   overflow: hidden;
-  padding: 0.25em;
-  right: 0;
+  padding: var(--fa-counter-padding, 0.25em 0.5em);
+  right: var(--fa-right, 0);
   text-overflow: ellipsis;
-  top: 0;
-  -webkit-transform: scale(0.25);
-          transform: scale(0.25);
+  top: var(--fa-top, 0);
+  -webkit-transform: scale(var(--fa-counter-scale, 0.25));
+          transform: scale(var(--fa-counter-scale, 0.25));
   -webkit-transform-origin: top right;
           transform-origin: top right;
 }
 
 .fa-layers-bottom-right {
-  bottom: 0;
-  right: 0;
+  bottom: var(--fa-bottom, 0);
+  right: var(--fa-right, 0);
   top: auto;
-  -webkit-transform: scale(0.25);
-          transform: scale(0.25);
+  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+          transform: scale(var(--fa-layers-scale, 0.25));
   -webkit-transform-origin: bottom right;
           transform-origin: bottom right;
 }
 
 .fa-layers-bottom-left {
-  bottom: 0;
-  left: 0;
+  bottom: var(--fa-bottom, 0);
+  left: var(--fa-left, 0);
   right: auto;
   top: auto;
-  -webkit-transform: scale(0.25);
-          transform: scale(0.25);
+  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+          transform: scale(var(--fa-layers-scale, 0.25));
   -webkit-transform-origin: bottom left;
           transform-origin: bottom left;
 }
 
 .fa-layers-top-right {
-  right: 0;
-  top: 0;
-  -webkit-transform: scale(0.25);
-          transform: scale(0.25);
+  top: var(--fa-top, 0);
+  right: var(--fa-right, 0);
+  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+          transform: scale(var(--fa-layers-scale, 0.25));
   -webkit-transform-origin: top right;
           transform-origin: top right;
 }
 
 .fa-layers-top-left {
-  left: 0;
+  left: var(--fa-left, 0);
   right: auto;
-  top: 0;
-  -webkit-transform: scale(0.25);
-          transform: scale(0.25);
+  top: var(--fa-top, 0);
+  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+          transform: scale(var(--fa-layers-scale, 0.25));
   -webkit-transform-origin: top left;
           transform-origin: top left;
-}
-
-.fa-lg {
-  font-size: 1.3333333333em;
-  line-height: 0.75em;
-  vertical-align: -0.0667em;
-}
-
-.fa-xs {
-  font-size: 0.75em;
-}
-
-.fa-sm {
-  font-size: 0.875em;
 }
 
 .fa-1x {
@@ -272,6 +218,42 @@
   font-size: 10em;
 }
 
+.fa-2xs {
+  font-size: 0.625em;
+  line-height: 0.1em;
+  vertical-align: 0.225em;
+}
+
+.fa-xs {
+  font-size: 0.75em;
+  line-height: 0.0833333337em;
+  vertical-align: 0.125em;
+}
+
+.fa-sm {
+  font-size: 0.875em;
+  line-height: 0.0714285718em;
+  vertical-align: 0.0535714295em;
+}
+
+.fa-lg {
+  font-size: 1.25em;
+  line-height: 0.05em;
+  vertical-align: -0.075em;
+}
+
+.fa-xl {
+  font-size: 1.5em;
+  line-height: 0.0416666682em;
+  vertical-align: -0.125em;
+}
+
+.fa-2xl {
+  font-size: 2em;
+  line-height: 0.03125em;
+  vertical-align: -0.1875em;
+}
+
 .fa-fw {
   text-align: center;
   width: 1.25em;
@@ -279,7 +261,7 @@
 
 .fa-ul {
   list-style-type: none;
-  margin-left: 2.5em;
+  margin-left: var(--fa-li-margin, 2.5em);
   padding-left: 0;
 }
 .fa-ul > li {
@@ -287,52 +269,376 @@
 }
 
 .fa-li {
-  left: -2em;
+  left: calc(var(--fa-li-width, 2em) * -1);
   position: absolute;
   text-align: center;
-  width: 2em;
+  width: var(--fa-li-width, 2em);
   line-height: inherit;
 }
 
 .fa-border {
-  border: solid 0.08em #eee;
-  border-radius: 0.1em;
-  padding: 0.2em 0.25em 0.15em;
+  border-color: var(--fa-border-color, #eee);
+  border-radius: var(--fa-border-radius, 0.1em);
+  border-style: var(--fa-border-style, solid);
+  border-width: var(--fa-border-width, 0.08em);
+  padding: var(--fa-border-padding, 0.2em 0.25em 0.15em);
 }
 
 .fa-pull-left {
   float: left;
+  margin-right: var(--fa-pull-margin, 0.3em);
 }
 
 .fa-pull-right {
   float: right;
+  margin-left: var(--fa-pull-margin, 0.3em);
 }
 
-.fa.fa-pull-left,
-.fas.fa-pull-left,
-.far.fa-pull-left,
-.fal.fa-pull-left,
-.fab.fa-pull-left {
-  margin-right: 0.3em;
+.fa-beat {
+  -webkit-animation-name: fa-beat;
+          animation-name: fa-beat;
+  -webkit-animation-delay: var(--fa-animation-delay, 0);
+          animation-delay: var(--fa-animation-delay, 0);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, ease-in-out);
+          animation-timing-function: var(--fa-animation-timing, ease-in-out);
 }
-.fa.fa-pull-right,
-.fas.fa-pull-right,
-.far.fa-pull-right,
-.fal.fa-pull-right,
-.fab.fa-pull-right {
-  margin-left: 0.3em;
+
+.fa-bounce {
+  -webkit-animation-name: fa-bounce;
+          animation-name: fa-bounce;
+  -webkit-animation-delay: var(--fa-animation-delay, 0);
+          animation-delay: var(--fa-animation-delay, 0);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+          animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+}
+
+.fa-fade {
+  -webkit-animation-name: fa-fade;
+          animation-name: fa-fade;
+  -webkit-animation-delay: var(--fa-animation-delay, 0);
+          animation-delay: var(--fa-animation-delay, 0);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+          animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+}
+
+.fa-beat-fade {
+  -webkit-animation-name: fa-beat-fade;
+          animation-name: fa-beat-fade;
+  -webkit-animation-delay: var(--fa-animation-delay, 0);
+          animation-delay: var(--fa-animation-delay, 0);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+          animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+}
+
+.fa-flip {
+  -webkit-animation-name: fa-flip;
+          animation-name: fa-flip;
+  -webkit-animation-delay: var(--fa-animation-delay, 0);
+          animation-delay: var(--fa-animation-delay, 0);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, ease-in-out);
+          animation-timing-function: var(--fa-animation-timing, ease-in-out);
+}
+
+.fa-shake {
+  -webkit-animation-name: fa-shake;
+          animation-name: fa-shake;
+  -webkit-animation-delay: var(--fa-animation-delay, 0);
+          animation-delay: var(--fa-animation-delay, 0);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, linear);
+          animation-timing-function: var(--fa-animation-timing, linear);
 }
 
 .fa-spin {
-  -webkit-animation: fa-spin 2s infinite linear;
-          animation: fa-spin 2s infinite linear;
+  -webkit-animation-name: fa-spin;
+          animation-name: fa-spin;
+  -webkit-animation-delay: var(--fa-animation-delay, 0);
+          animation-delay: var(--fa-animation-delay, 0);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 2s);
+          animation-duration: var(--fa-animation-duration, 2s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, linear);
+          animation-timing-function: var(--fa-animation-timing, linear);
 }
 
-.fa-pulse {
-  -webkit-animation: fa-spin 1s infinite steps(8);
-          animation: fa-spin 1s infinite steps(8);
+.fa-spin-reverse {
+  --fa-animation-direction: reverse;
 }
 
+.fa-pulse,
+.fa-spin-pulse {
+  -webkit-animation-name: fa-spin;
+          animation-name: fa-spin;
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, steps(8));
+          animation-timing-function: var(--fa-animation-timing, steps(8));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fa-beat,
+.fa-bounce,
+.fa-fade,
+.fa-beat-fade,
+.fa-flip,
+.fa-pulse,
+.fa-shake,
+.fa-spin,
+.fa-spin-pulse {
+    -webkit-animation-delay: -1ms;
+            animation-delay: -1ms;
+    -webkit-animation-duration: 1ms;
+            animation-duration: 1ms;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    transition-delay: 0s;
+    transition-duration: 0s;
+  }
+}
+@-webkit-keyframes fa-beat {
+  0%, 90% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  45% {
+    -webkit-transform: scale(var(--fa-beat-scale, 1.25));
+            transform: scale(var(--fa-beat-scale, 1.25));
+  }
+}
+@keyframes fa-beat {
+  0%, 90% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  45% {
+    -webkit-transform: scale(var(--fa-beat-scale, 1.25));
+            transform: scale(var(--fa-beat-scale, 1.25));
+  }
+}
+@-webkit-keyframes fa-bounce {
+  0% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    -webkit-transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+            transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+  }
+  30% {
+    -webkit-transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+            transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+  }
+  50% {
+    -webkit-transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+            transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+  }
+  57% {
+    -webkit-transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+            transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+  }
+  64% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+}
+@keyframes fa-bounce {
+  0% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    -webkit-transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+            transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+  }
+  30% {
+    -webkit-transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+            transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+  }
+  50% {
+    -webkit-transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+            transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+  }
+  57% {
+    -webkit-transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+            transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+  }
+  64% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+}
+@-webkit-keyframes fa-fade {
+  50% {
+    opacity: var(--fa-fade-opacity, 0.4);
+  }
+}
+@keyframes fa-fade {
+  50% {
+    opacity: var(--fa-fade-opacity, 0.4);
+  }
+}
+@-webkit-keyframes fa-beat-fade {
+  0%, 100% {
+    opacity: var(--fa-beat-fade-opacity, 0.4);
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(var(--fa-beat-fade-scale, 1.125));
+            transform: scale(var(--fa-beat-fade-scale, 1.125));
+  }
+}
+@keyframes fa-beat-fade {
+  0%, 100% {
+    opacity: var(--fa-beat-fade-opacity, 0.4);
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(var(--fa-beat-fade-scale, 1.125));
+            transform: scale(var(--fa-beat-fade-scale, 1.125));
+  }
+}
+@-webkit-keyframes fa-flip {
+  50% {
+    -webkit-transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+            transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+  }
+}
+@keyframes fa-flip {
+  50% {
+    -webkit-transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+            transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+  }
+}
+@-webkit-keyframes fa-shake {
+  0% {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+  }
+  4% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  8%, 24% {
+    -webkit-transform: rotate(-18deg);
+            transform: rotate(-18deg);
+  }
+  12%, 28% {
+    -webkit-transform: rotate(18deg);
+            transform: rotate(18deg);
+  }
+  16% {
+    -webkit-transform: rotate(-22deg);
+            transform: rotate(-22deg);
+  }
+  20% {
+    -webkit-transform: rotate(22deg);
+            transform: rotate(22deg);
+  }
+  32% {
+    -webkit-transform: rotate(-12deg);
+            transform: rotate(-12deg);
+  }
+  36% {
+    -webkit-transform: rotate(12deg);
+            transform: rotate(12deg);
+  }
+  40%, 100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+@keyframes fa-shake {
+  0% {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+  }
+  4% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  8%, 24% {
+    -webkit-transform: rotate(-18deg);
+            transform: rotate(-18deg);
+  }
+  12%, 28% {
+    -webkit-transform: rotate(18deg);
+            transform: rotate(18deg);
+  }
+  16% {
+    -webkit-transform: rotate(-22deg);
+            transform: rotate(-22deg);
+  }
+  20% {
+    -webkit-transform: rotate(22deg);
+            transform: rotate(22deg);
+  }
+  32% {
+    -webkit-transform: rotate(-12deg);
+            transform: rotate(-12deg);
+  }
+  36% {
+    -webkit-transform: rotate(12deg);
+            transform: rotate(12deg);
+  }
+  40%, 100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
 @-webkit-keyframes fa-spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -343,7 +649,6 @@
             transform: rotate(360deg);
   }
 }
-
 @keyframes fa-spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -355,53 +660,44 @@
   }
 }
 .fa-rotate-90 {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
 
 .fa-rotate-180 {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
 
 .fa-rotate-270 {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
   -webkit-transform: rotate(270deg);
           transform: rotate(270deg);
 }
 
 .fa-flip-horizontal {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
   -webkit-transform: scale(-1, 1);
           transform: scale(-1, 1);
 }
 
 .fa-flip-vertical {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
   -webkit-transform: scale(1, -1);
           transform: scale(1, -1);
 }
 
-.fa-flip-both, .fa-flip-horizontal.fa-flip-vertical {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+.fa-flip-both,
+.fa-flip-horizontal.fa-flip-vertical {
   -webkit-transform: scale(-1, -1);
           transform: scale(-1, -1);
 }
 
-:root .fa-rotate-90,
-:root .fa-rotate-180,
-:root .fa-rotate-270,
-:root .fa-flip-horizontal,
-:root .fa-flip-vertical,
-:root .fa-flip-both {
-  -webkit-filter: none;
-          filter: none;
+.fa-rotate-by {
+  -webkit-transform: rotate(var(--fa-rotate-angle, none));
+          transform: rotate(var(--fa-rotate-angle, none));
 }
 
 .fa-stack {
   display: inline-block;
+  vertical-align: middle;
   height: 2em;
   position: relative;
   width: 2.5em;
@@ -415,6 +711,7 @@
   position: absolute;
   right: 0;
   top: 0;
+  z-index: var(--fa-stack-z-index, auto);
 }
 
 .svg-inline--fa.fa-stack-1x {
@@ -427,48 +724,50 @@
 }
 
 .fa-inverse {
-  color: #fff;
+  color: var(--fa-inverse, #fff);
 }
 
-.sr-only {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
+.sr-only,
+.fa-sr-only {
   position: absolute;
   width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
-.sr-only-focusable:active, .sr-only-focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto;
+.sr-only-focusable:not(:focus),
+.fa-sr-only-focusable:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 .svg-inline--fa .fa-primary {
   fill: var(--fa-primary-color, currentColor);
-  opacity: 1;
   opacity: var(--fa-primary-opacity, 1);
 }
 
 .svg-inline--fa .fa-secondary {
   fill: var(--fa-secondary-color, currentColor);
-  opacity: 0.4;
   opacity: var(--fa-secondary-opacity, 0.4);
 }
 
 .svg-inline--fa.fa-swap-opacity .fa-primary {
-  opacity: 0.4;
   opacity: var(--fa-secondary-opacity, 0.4);
 }
 
 .svg-inline--fa.fa-swap-opacity .fa-secondary {
-  opacity: 1;
   opacity: var(--fa-primary-opacity, 1);
 }
 
@@ -477,8 +776,9 @@
   fill: black;
 }
 
-.fad.fa-inverse {
-  color: #fff;
+.fad.fa-inverse,
+.fa-duotone.fa-inverse {
+  color: var(--fa-inverse, #fff);
 }
 
 	</style>
@@ -629,8 +929,8 @@ input:checked + .jss41 {
 .jss2 {
   color: #b9b9b9;
   cursor: pointer;
-  margin: 0 8px;
-  padding: 8px;
+  margin: 0;
+  padding: 8px 16px;
   transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
   line-height: 1.3em;
   user-select: none;
@@ -674,6 +974,7 @@ input:checked + .jss41 {
   margin: 0;
   display: block;
   border-left: 3px solid transparent;
+  white-space: nowrap;
   border-right: 0 none;
   border-bottom: 0 none;
 }
@@ -923,12 +1224,12 @@ input:checked + .jss41 {
 }</style>
 </head>
 <body>
-<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/versions/main/">Twurple</a><a class="jss2" href="/versions/main/docs/auth/">Authentication</a><a class="jss2" href="/versions/main/docs/getting-data/">Getting data</a><a class="jss2" href="/versions/main/docs/examples/">Examples</a><a class="jss2" href="/versions/main/docs/faq/">FAQ</a><a class="jss2" href="/versions/main/docs/migration/">Migration</a><div class="jss5"><div class="jss2 jss3">Reference</div><div class="jss6"><a class="jss2 jss7" href="/versions/main/reference/api/">api</a><a class="jss2 jss7" href="/versions/main/reference/api-call/">api-call</a><a class="jss2 jss7" href="/versions/main/reference/auth/">auth</a><a class="jss2 jss7" href="/versions/main/reference/auth-ext/">auth-ext</a><a class="jss2 jss7" href="/versions/main/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/versions/main/reference/chat/">chat</a><a class="jss2 jss7" href="/versions/main/reference/common/">common</a><a class="jss2 jss7" href="/versions/main/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/versions/main/reference/ebs-helper/">ebs-helper</a><a class="jss2 jss7" href="/versions/main/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/versions/main/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><div class="jss14"><h2 class="jss15">Classes</h2><div class="jss16"><a title="ApiClient" class="jss17" href="/versions/main/reference/api/classes/ApiClient.html">ApiClient</a><a title="BadgesApi" class="jss17" href="/versions/main/reference/api/classes/BadgesApi.html">BadgesApi</a><a title="ChatBadgeList" class="jss17" href="/versions/main/reference/api/classes/ChatBadgeList.html">ChatBadgeList</a><a title="ChatBadgeSet" class="jss17" href="/versions/main/reference/api/classes/ChatBadgeSet.html">ChatBadgeSet</a><a title="ChatBadgeVersion" class="jss17" href="/versions/main/reference/api/classes/ChatBadgeVersion.html">ChatBadgeVersion</a><a title="ChattersList" class="jss17" href="/versions/main/reference/api/classes/ChattersList.html">ChattersList</a><a title="ConfigError" class="jss17" href="/versions/main/reference/api/classes/ConfigError.html">ConfigError</a><a title="HelixApiGroup" class="jss17" href="/versions/main/reference/api/classes/HelixApiGroup.html">HelixApiGroup</a><a title="HelixBan" class="jss17" href="/versions/main/reference/api/classes/HelixBan.html">HelixBan</a><a title="HelixBanEvent" class="jss17" href="/versions/main/reference/api/classes/HelixBanEvent.html">HelixBanEvent</a><a title="HelixBitsApi" aria-current="page" class="jss17 jss18" href="/versions/main/reference/api/classes/HelixBitsApi.html">HelixBitsApi</a><a title="HelixBitsLeaderboard" class="jss17" href="/versions/main/reference/api/classes/HelixBitsLeaderboard.html">HelixBitsLeaderboard</a><a title="HelixBitsLeaderboardEntry" class="jss17" href="/versions/main/reference/api/classes/HelixBitsLeaderboardEntry.html">HelixBitsLeaderboardEntry</a><a title="HelixChannel" class="jss17" href="/versions/main/reference/api/classes/HelixChannel.html">HelixChannel</a><a title="HelixChannelApi" class="jss17" href="/versions/main/reference/api/classes/HelixChannelApi.html">HelixChannelApi</a><a title="HelixChannelEditor" class="jss17" href="/versions/main/reference/api/classes/HelixChannelEditor.html">HelixChannelEditor</a><a title="HelixChannelEmote" class="jss17" href="/versions/main/reference/api/classes/HelixChannelEmote.html">HelixChannelEmote</a><a title="HelixChannelPointsApi" class="jss17" href="/versions/main/reference/api/classes/HelixChannelPointsApi.html">HelixChannelPointsApi</a><a title="HelixChannelReference" class="jss17" href="/versions/main/reference/api/classes/HelixChannelReference.html">HelixChannelReference</a><a title="HelixChannelSearchResult" class="jss17" href="/versions/main/reference/api/classes/HelixChannelSearchResult.html">HelixChannelSearchResult</a><a title="HelixChatApi" class="jss17" href="/versions/main/reference/api/classes/HelixChatApi.html">HelixChatApi</a><a title="HelixChatBadgeSet" class="jss17" href="/versions/main/reference/api/classes/HelixChatBadgeSet.html">HelixChatBadgeSet</a><a title="HelixChatBadgeVersion" class="jss17" href="/versions/main/reference/api/classes/HelixChatBadgeVersion.html">HelixChatBadgeVersion</a><a title="HelixCheermoteList" class="jss17" href="/versions/main/reference/api/classes/HelixCheermoteList.html">HelixCheermoteList</a><a title="HelixClip" class="jss17" href="/versions/main/reference/api/classes/HelixClip.html">HelixClip</a><a title="HelixClipApi" class="jss17" href="/versions/main/reference/api/classes/HelixClipApi.html">HelixClipApi</a><a title="HelixCustomReward" class="jss17" href="/versions/main/reference/api/classes/HelixCustomReward.html">HelixCustomReward</a><a title="HelixCustomRewardRedemption" class="jss17" href="/versions/main/reference/api/classes/HelixCustomRewardRedemption.html">HelixCustomRewardRedemption</a><a title="HelixEmote" class="jss17" href="/versions/main/reference/api/classes/HelixEmote.html">HelixEmote</a><a title="HelixEmoteFromSet" class="jss17" href="/versions/main/reference/api/classes/HelixEmoteFromSet.html">HelixEmoteFromSet</a><a title="HelixEventSubApi" class="jss17" href="/versions/main/reference/api/classes/HelixEventSubApi.html">HelixEventSubApi</a><a title="HelixEventSubSubscription" class="jss17" href="/versions/main/reference/api/classes/HelixEventSubSubscription.html">HelixEventSubSubscription</a><a title="HelixExtensionBitsProduct" class="jss17" href="/versions/main/reference/api/classes/HelixExtensionBitsProduct.html">HelixExtensionBitsProduct</a><a title="HelixExtensionsApi" class="jss17" href="/versions/main/reference/api/classes/HelixExtensionsApi.html">HelixExtensionsApi</a><a title="HelixExtensionTransaction" class="jss17" href="/versions/main/reference/api/classes/HelixExtensionTransaction.html">HelixExtensionTransaction</a><a title="HelixFollow" class="jss17" href="/versions/main/reference/api/classes/HelixFollow.html">HelixFollow</a><a title="HelixGame" class="jss17" href="/versions/main/reference/api/classes/HelixGame.html">HelixGame</a><a title="HelixGameApi" class="jss17" href="/versions/main/reference/api/classes/HelixGameApi.html">HelixGameApi</a><a title="HelixGoal" class="jss17" href="/versions/main/reference/api/classes/HelixGoal.html">HelixGoal</a><a title="HelixGoalApi" class="jss17" href="/versions/main/reference/api/classes/HelixGoalApi.html">HelixGoalApi</a><a title="HelixHypeTrainApi" class="jss17" href="/versions/main/reference/api/classes/HelixHypeTrainApi.html">HelixHypeTrainApi</a><a title="HelixHypeTrainContribution" class="jss17" href="/versions/main/reference/api/classes/HelixHypeTrainContribution.html">HelixHypeTrainContribution</a><a title="HelixHypeTrainEvent" class="jss17" href="/versions/main/reference/api/classes/HelixHypeTrainEvent.html">HelixHypeTrainEvent</a><a title="HelixInstalledExtension" class="jss17" href="/versions/main/reference/api/classes/HelixInstalledExtension.html">HelixInstalledExtension</a><a title="HelixInstalledExtensionList" class="jss17" href="/versions/main/reference/api/classes/HelixInstalledExtensionList.html">HelixInstalledExtensionList</a><a title="HelixModerationApi" class="jss17" href="/versions/main/reference/api/classes/HelixModerationApi.html">HelixModerationApi</a><a title="HelixModerator" class="jss17" href="/versions/main/reference/api/classes/HelixModerator.html">HelixModerator</a><a title="HelixModeratorEvent" class="jss17" href="/versions/main/reference/api/classes/HelixModeratorEvent.html">HelixModeratorEvent</a><a title="HelixPaginatedRequest" class="jss17" href="/versions/main/reference/api/classes/HelixPaginatedRequest.html">HelixPaginatedRequest</a><a title="HelixPaginatedRequestWithTotal" class="jss17" href="/versions/main/reference/api/classes/HelixPaginatedRequestWithTotal.html">HelixPaginatedRequestWithTotal</a><a title="HelixPaginatedScheduleSegmentRequest" class="jss17" href="/versions/main/reference/api/classes/HelixPaginatedScheduleSegmentRequest.html">HelixPaginatedScheduleSegmentRequest</a><a title="HelixPoll" class="jss17" href="/versions/main/reference/api/classes/HelixPoll.html">HelixPoll</a><a title="HelixPollApi" class="jss17" href="/versions/main/reference/api/classes/HelixPollApi.html">HelixPollApi</a><a title="HelixPollChoice" class="jss17" href="/versions/main/reference/api/classes/HelixPollChoice.html">HelixPollChoice</a><a title="HelixPrediction" class="jss17" href="/versions/main/reference/api/classes/HelixPrediction.html">HelixPrediction</a><a title="HelixPredictionApi" class="jss17" href="/versions/main/reference/api/classes/HelixPredictionApi.html">HelixPredictionApi</a><a title="HelixPredictionOutcome" class="jss17" href="/versions/main/reference/api/classes/HelixPredictionOutcome.html">HelixPredictionOutcome</a><a title="HelixPredictor" class="jss17" href="/versions/main/reference/api/classes/HelixPredictor.html">HelixPredictor</a><a title="HelixPrivilegedUser" class="jss17" href="/versions/main/reference/api/classes/HelixPrivilegedUser.html">HelixPrivilegedUser</a><a title="HelixSchedule" class="jss17" href="/versions/main/reference/api/classes/HelixSchedule.html">HelixSchedule</a><a title="HelixScheduleApi" class="jss17" href="/versions/main/reference/api/classes/HelixScheduleApi.html">HelixScheduleApi</a><a title="HelixScheduleSegment" class="jss17" href="/versions/main/reference/api/classes/HelixScheduleSegment.html">HelixScheduleSegment</a><a title="HelixSearchApi" class="jss17" href="/versions/main/reference/api/classes/HelixSearchApi.html">HelixSearchApi</a><a title="HelixStream" class="jss17" href="/versions/main/reference/api/classes/HelixStream.html">HelixStream</a><a title="HelixStreamApi" class="jss17" href="/versions/main/reference/api/classes/HelixStreamApi.html">HelixStreamApi</a><a title="HelixStreamMarker" class="jss17" href="/versions/main/reference/api/classes/HelixStreamMarker.html">HelixStreamMarker</a><a title="HelixStreamMarkerWithVideo" class="jss17" href="/versions/main/reference/api/classes/HelixStreamMarkerWithVideo.html">HelixStreamMarkerWithVideo</a><a title="HelixSubscription" class="jss17" href="/versions/main/reference/api/classes/HelixSubscription.html">HelixSubscription</a><a title="HelixSubscriptionApi" class="jss17" href="/versions/main/reference/api/classes/HelixSubscriptionApi.html">HelixSubscriptionApi</a><a title="HelixSubscriptionEvent" class="jss17" href="/versions/main/reference/api/classes/HelixSubscriptionEvent.html">HelixSubscriptionEvent</a><a title="HelixTag" class="jss17" href="/versions/main/reference/api/classes/HelixTag.html">HelixTag</a><a title="HelixTagApi" class="jss17" href="/versions/main/reference/api/classes/HelixTagApi.html">HelixTagApi</a><a title="HelixTeam" class="jss17" href="/versions/main/reference/api/classes/HelixTeam.html">HelixTeam</a><a title="HelixTeamApi" class="jss17" href="/versions/main/reference/api/classes/HelixTeamApi.html">HelixTeamApi</a><a title="HelixTeamWithUsers" class="jss17" href="/versions/main/reference/api/classes/HelixTeamWithUsers.html">HelixTeamWithUsers</a><a title="HelixUser" class="jss17" href="/versions/main/reference/api/classes/HelixUser.html">HelixUser</a><a title="HelixUserApi" class="jss17" href="/versions/main/reference/api/classes/HelixUserApi.html">HelixUserApi</a><a title="HelixUserBlock" class="jss17" href="/versions/main/reference/api/classes/HelixUserBlock.html">HelixUserBlock</a><a title="HelixUserExtension" class="jss17" href="/versions/main/reference/api/classes/HelixUserExtension.html">HelixUserExtension</a><a title="HelixUserRelation" class="jss17" href="/versions/main/reference/api/classes/HelixUserRelation.html">HelixUserRelation</a><a title="HelixUserSubscription" class="jss17" href="/versions/main/reference/api/classes/HelixUserSubscription.html">HelixUserSubscription</a><a title="HelixVideo" class="jss17" href="/versions/main/reference/api/classes/HelixVideo.html">HelixVideo</a><a title="HelixVideoApi" class="jss17" href="/versions/main/reference/api/classes/HelixVideoApi.html">HelixVideoApi</a><a title="NoSubscriptionProgramError" class="jss17" href="/versions/main/reference/api/classes/NoSubscriptionProgramError.html">NoSubscriptionProgramError</a><a title="StreamNotLiveError" class="jss17" href="/versions/main/reference/api/classes/StreamNotLiveError.html">StreamNotLiveError</a><a title="UnsupportedApi" class="jss17" href="/versions/main/reference/api/classes/UnsupportedApi.html">UnsupportedApi</a></div></div><div class="jss14"><h2 class="jss15">Interfaces</h2><div class="jss16"><a title="ApiConfig" class="jss17" href="/versions/main/reference/api/interfaces/ApiConfig.html">ApiConfig</a><a title="HelixBanFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixBanFilter.html">HelixBanFilter</a><a title="HelixBitsLeaderboardQuery" class="jss17" href="/versions/main/reference/api/interfaces/HelixBitsLeaderboardQuery.html">HelixBitsLeaderboardQuery</a><a title="HelixChannelSearchFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixChannelSearchFilter.html">HelixChannelSearchFilter</a><a title="HelixChannelUpdate" class="jss17" href="/versions/main/reference/api/interfaces/HelixChannelUpdate.html">HelixChannelUpdate</a><a title="HelixClipCreateParams" class="jss17" href="/versions/main/reference/api/interfaces/HelixClipCreateParams.html">HelixClipCreateParams</a><a title="HelixClipFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixClipFilter.html">HelixClipFilter</a><a title="HelixCreateCustomRewardData" class="jss17" href="/versions/main/reference/api/interfaces/HelixCreateCustomRewardData.html">HelixCreateCustomRewardData</a><a title="HelixCreatePollData" class="jss17" href="/versions/main/reference/api/interfaces/HelixCreatePollData.html">HelixCreatePollData</a><a title="HelixCreatePredictionData" class="jss17" href="/versions/main/reference/api/interfaces/HelixCreatePredictionData.html">HelixCreatePredictionData</a><a title="HelixCreateScheduleSegmentData" class="jss17" href="/versions/main/reference/api/interfaces/HelixCreateScheduleSegmentData.html">HelixCreateScheduleSegmentData</a><a title="HelixCustomRewardRedemptionFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixCustomRewardRedemptionFilter.html">HelixCustomRewardRedemptionFilter</a><a title="HelixEventSubWebHookTransportOptions" class="jss17" href="/versions/main/reference/api/interfaces/HelixEventSubWebHookTransportOptions.html">HelixEventSubWebHookTransportOptions</a><a title="HelixExtensionBitsProductUpdatePayload" class="jss17" href="/versions/main/reference/api/interfaces/HelixExtensionBitsProductUpdatePayload.html">HelixExtensionBitsProductUpdatePayload</a><a title="HelixExtensionTransactionsFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixExtensionTransactionsFilter.html">HelixExtensionTransactionsFilter</a><a title="HelixExtensionTransactionsPaginatedFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixExtensionTransactionsPaginatedFilter.html">HelixExtensionTransactionsPaginatedFilter</a><a title="HelixFollowFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixFollowFilter.html">HelixFollowFilter</a><a title="HelixForwardPagination" class="jss17" href="/versions/main/reference/api/interfaces/HelixForwardPagination.html">HelixForwardPagination</a><a title="HelixModeratorFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixModeratorFilter.html">HelixModeratorFilter</a><a title="HelixPaginatedChannelSearchFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixPaginatedChannelSearchFilter.html">HelixPaginatedChannelSearchFilter</a><a title="HelixPaginatedClipFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixPaginatedClipFilter.html">HelixPaginatedClipFilter</a><a title="HelixPaginatedCustomRewardRedemptionFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixPaginatedCustomRewardRedemptionFilter.html">HelixPaginatedCustomRewardRedemptionFilter</a><a title="HelixPaginatedFollowFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixPaginatedFollowFilter.html">HelixPaginatedFollowFilter</a><a title="HelixPaginatedResult" class="jss17" href="/versions/main/reference/api/interfaces/HelixPaginatedResult.html">HelixPaginatedResult</a><a title="HelixPaginatedResultWithTotal" class="jss17" href="/versions/main/reference/api/interfaces/HelixPaginatedResultWithTotal.html">HelixPaginatedResultWithTotal</a><a title="HelixPaginatedScheduleFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixPaginatedScheduleFilter.html">HelixPaginatedScheduleFilter</a><a title="HelixPaginatedStreamFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixPaginatedStreamFilter.html">HelixPaginatedStreamFilter</a><a title="HelixPaginatedVideoFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixPaginatedVideoFilter.html">HelixPaginatedVideoFilter</a><a title="HelixPagination" class="jss17" href="/versions/main/reference/api/interfaces/HelixPagination.html">HelixPagination</a><a title="HelixScheduleFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixScheduleFilter.html">HelixScheduleFilter</a><a title="HelixScheduleSettingsUpdate" class="jss17" href="/versions/main/reference/api/interfaces/HelixScheduleSettingsUpdate.html">HelixScheduleSettingsUpdate</a><a title="HelixStreamFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixStreamFilter.html">HelixStreamFilter</a><a title="HelixUpdateCustomRewardData" class="jss17" href="/versions/main/reference/api/interfaces/HelixUpdateCustomRewardData.html">HelixUpdateCustomRewardData</a><a title="HelixUpdateScheduleSegmentData" class="jss17" href="/versions/main/reference/api/interfaces/HelixUpdateScheduleSegmentData.html">HelixUpdateScheduleSegmentData</a><a title="HelixUserBlockAdditionalInfo" class="jss17" href="/versions/main/reference/api/interfaces/HelixUserBlockAdditionalInfo.html">HelixUserBlockAdditionalInfo</a><a title="HelixUserExtensionUpdatePayload" class="jss17" href="/versions/main/reference/api/interfaces/HelixUserExtensionUpdatePayload.html">HelixUserExtensionUpdatePayload</a><a title="HelixUserExtensionUpdatePayloadActiveSlot" class="jss17" href="/versions/main/reference/api/interfaces/HelixUserExtensionUpdatePayloadActiveSlot.html">HelixUserExtensionUpdatePayloadActiveSlot</a><a title="HelixUserExtensionUpdatePayloadInactiveSlot" class="jss17" href="/versions/main/reference/api/interfaces/HelixUserExtensionUpdatePayloadInactiveSlot.html">HelixUserExtensionUpdatePayloadInactiveSlot</a><a title="HelixUserUpdate" class="jss17" href="/versions/main/reference/api/interfaces/HelixUserUpdate.html">HelixUserUpdate</a><a title="HelixVideoFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixVideoFilter.html">HelixVideoFilter</a></div></div></div><div class="jss12"><main><div class="jss19"><h1>HelixBitsApi</h1><a class="jss20" href="https://github.com/twurple/twurple/blob/main/packages/api/src/api/helix/bits/HelixBitsApi.ts#L56" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-w-20 fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"></path></svg></a><div class="jss21"><p>The Helix API methods that deal with bits.</p></div></div><div class="jss25"><h2>Overview</h2><div class="jss26"><div class="jss27"><h3 class="jss28">Methods</h3><ul class="jss29"><li class="jss30"><a class="jss31" href="/versions/main/reference/api/classes/HelixBitsApi.html#getCheermotes">getCheermotes</a><span title="async" class="jss34 jss36 jss35 jss32">a</span></li><li class="jss30"><a class="jss31" href="/versions/main/reference/api/classes/HelixBitsApi.html#getLeaderboard">getLeaderboard</a><span title="async" class="jss34 jss37 jss35 jss32">a</span></li></ul></div></div><div class="jss21"><p>Can be accessed using <code>client.bits</code> on an <a class="jss22" href="/versions/main/reference/api/classes/ApiClient.html">ApiClient</a> instance.</p>
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/versions/main/">Twurple</a><a class="jss2" href="/versions/main/docs/auth/">Authentication</a><a class="jss2" href="/versions/main/docs/getting-data/">Getting data</a><a class="jss2" href="/versions/main/docs/examples/">Examples</a><a class="jss2" href="/versions/main/docs/faq/">FAQ</a><a class="jss2" href="/versions/main/docs/migration/">Migration</a><div class="jss5"><div class="jss2 jss3">Reference</div><div class="jss6"><a class="jss2 jss7" href="/versions/main/reference/api/">api</a><a class="jss2 jss7" href="/versions/main/reference/api-call/">api-call</a><a class="jss2 jss7" href="/versions/main/reference/auth/">auth</a><a class="jss2 jss7" href="/versions/main/reference/auth-ext/">auth-ext</a><a class="jss2 jss7" href="/versions/main/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/versions/main/reference/chat/">chat</a><a class="jss2 jss7" href="/versions/main/reference/common/">common</a><a class="jss2 jss7" href="/versions/main/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/versions/main/reference/ebs-helper/">ebs-helper</a><a class="jss2 jss7" href="/versions/main/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/versions/main/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><a href="https://github.com/twurple/twurple" class="jss2"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></a><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><div class="jss14"><h2 class="jss15">Classes</h2><div class="jss16"><a title="ApiClient" class="jss17" href="/versions/main/reference/api/classes/ApiClient.html">ApiClient</a><a title="BadgesApi" class="jss17" href="/versions/main/reference/api/classes/BadgesApi.html">BadgesApi</a><a title="ChatBadgeList" class="jss17" href="/versions/main/reference/api/classes/ChatBadgeList.html">ChatBadgeList</a><a title="ChatBadgeSet" class="jss17" href="/versions/main/reference/api/classes/ChatBadgeSet.html">ChatBadgeSet</a><a title="ChatBadgeVersion" class="jss17" href="/versions/main/reference/api/classes/ChatBadgeVersion.html">ChatBadgeVersion</a><a title="ChattersList" class="jss17" href="/versions/main/reference/api/classes/ChattersList.html">ChattersList</a><a title="ConfigError" class="jss17" href="/versions/main/reference/api/classes/ConfigError.html">ConfigError</a><a title="HelixApiGroup" class="jss17" href="/versions/main/reference/api/classes/HelixApiGroup.html">HelixApiGroup</a><a title="HelixBan" class="jss17" href="/versions/main/reference/api/classes/HelixBan.html">HelixBan</a><a title="HelixBanEvent" class="jss17" href="/versions/main/reference/api/classes/HelixBanEvent.html">HelixBanEvent</a><a title="HelixBitsApi" aria-current="page" class="jss17 jss18" href="/versions/main/reference/api/classes/HelixBitsApi.html">HelixBitsApi</a><a title="HelixBitsLeaderboard" class="jss17" href="/versions/main/reference/api/classes/HelixBitsLeaderboard.html">HelixBitsLeaderboard</a><a title="HelixBitsLeaderboardEntry" class="jss17" href="/versions/main/reference/api/classes/HelixBitsLeaderboardEntry.html">HelixBitsLeaderboardEntry</a><a title="HelixChannel" class="jss17" href="/versions/main/reference/api/classes/HelixChannel.html">HelixChannel</a><a title="HelixChannelApi" class="jss17" href="/versions/main/reference/api/classes/HelixChannelApi.html">HelixChannelApi</a><a title="HelixChannelEditor" class="jss17" href="/versions/main/reference/api/classes/HelixChannelEditor.html">HelixChannelEditor</a><a title="HelixChannelEmote" class="jss17" href="/versions/main/reference/api/classes/HelixChannelEmote.html">HelixChannelEmote</a><a title="HelixChannelPointsApi" class="jss17" href="/versions/main/reference/api/classes/HelixChannelPointsApi.html">HelixChannelPointsApi</a><a title="HelixChannelReference" class="jss17" href="/versions/main/reference/api/classes/HelixChannelReference.html">HelixChannelReference</a><a title="HelixChannelSearchResult" class="jss17" href="/versions/main/reference/api/classes/HelixChannelSearchResult.html">HelixChannelSearchResult</a><a title="HelixChatApi" class="jss17" href="/versions/main/reference/api/classes/HelixChatApi.html">HelixChatApi</a><a title="HelixChatBadgeSet" class="jss17" href="/versions/main/reference/api/classes/HelixChatBadgeSet.html">HelixChatBadgeSet</a><a title="HelixChatBadgeVersion" class="jss17" href="/versions/main/reference/api/classes/HelixChatBadgeVersion.html">HelixChatBadgeVersion</a><a title="HelixCheermoteList" class="jss17" href="/versions/main/reference/api/classes/HelixCheermoteList.html">HelixCheermoteList</a><a title="HelixClip" class="jss17" href="/versions/main/reference/api/classes/HelixClip.html">HelixClip</a><a title="HelixClipApi" class="jss17" href="/versions/main/reference/api/classes/HelixClipApi.html">HelixClipApi</a><a title="HelixCustomReward" class="jss17" href="/versions/main/reference/api/classes/HelixCustomReward.html">HelixCustomReward</a><a title="HelixCustomRewardRedemption" class="jss17" href="/versions/main/reference/api/classes/HelixCustomRewardRedemption.html">HelixCustomRewardRedemption</a><a title="HelixEmote" class="jss17" href="/versions/main/reference/api/classes/HelixEmote.html">HelixEmote</a><a title="HelixEmoteFromSet" class="jss17" href="/versions/main/reference/api/classes/HelixEmoteFromSet.html">HelixEmoteFromSet</a><a title="HelixEventSubApi" class="jss17" href="/versions/main/reference/api/classes/HelixEventSubApi.html">HelixEventSubApi</a><a title="HelixEventSubSubscription" class="jss17" href="/versions/main/reference/api/classes/HelixEventSubSubscription.html">HelixEventSubSubscription</a><a title="HelixExtensionBitsProduct" class="jss17" href="/versions/main/reference/api/classes/HelixExtensionBitsProduct.html">HelixExtensionBitsProduct</a><a title="HelixExtensionsApi" class="jss17" href="/versions/main/reference/api/classes/HelixExtensionsApi.html">HelixExtensionsApi</a><a title="HelixExtensionTransaction" class="jss17" href="/versions/main/reference/api/classes/HelixExtensionTransaction.html">HelixExtensionTransaction</a><a title="HelixFollow" class="jss17" href="/versions/main/reference/api/classes/HelixFollow.html">HelixFollow</a><a title="HelixGame" class="jss17" href="/versions/main/reference/api/classes/HelixGame.html">HelixGame</a><a title="HelixGameApi" class="jss17" href="/versions/main/reference/api/classes/HelixGameApi.html">HelixGameApi</a><a title="HelixGoal" class="jss17" href="/versions/main/reference/api/classes/HelixGoal.html">HelixGoal</a><a title="HelixGoalApi" class="jss17" href="/versions/main/reference/api/classes/HelixGoalApi.html">HelixGoalApi</a><a title="HelixHypeTrainApi" class="jss17" href="/versions/main/reference/api/classes/HelixHypeTrainApi.html">HelixHypeTrainApi</a><a title="HelixHypeTrainContribution" class="jss17" href="/versions/main/reference/api/classes/HelixHypeTrainContribution.html">HelixHypeTrainContribution</a><a title="HelixHypeTrainEvent" class="jss17" href="/versions/main/reference/api/classes/HelixHypeTrainEvent.html">HelixHypeTrainEvent</a><a title="HelixInstalledExtension" class="jss17" href="/versions/main/reference/api/classes/HelixInstalledExtension.html">HelixInstalledExtension</a><a title="HelixInstalledExtensionList" class="jss17" href="/versions/main/reference/api/classes/HelixInstalledExtensionList.html">HelixInstalledExtensionList</a><a title="HelixModerationApi" class="jss17" href="/versions/main/reference/api/classes/HelixModerationApi.html">HelixModerationApi</a><a title="HelixModerator" class="jss17" href="/versions/main/reference/api/classes/HelixModerator.html">HelixModerator</a><a title="HelixModeratorEvent" class="jss17" href="/versions/main/reference/api/classes/HelixModeratorEvent.html">HelixModeratorEvent</a><a title="HelixPaginatedRequest" class="jss17" href="/versions/main/reference/api/classes/HelixPaginatedRequest.html">HelixPaginatedRequest</a><a title="HelixPaginatedRequestWithTotal" class="jss17" href="/versions/main/reference/api/classes/HelixPaginatedRequestWithTotal.html">HelixPaginatedRequestWithTotal</a><a title="HelixPaginatedScheduleSegmentRequest" class="jss17" href="/versions/main/reference/api/classes/HelixPaginatedScheduleSegmentRequest.html">HelixPaginatedScheduleSegmentRequest</a><a title="HelixPoll" class="jss17" href="/versions/main/reference/api/classes/HelixPoll.html">HelixPoll</a><a title="HelixPollApi" class="jss17" href="/versions/main/reference/api/classes/HelixPollApi.html">HelixPollApi</a><a title="HelixPollChoice" class="jss17" href="/versions/main/reference/api/classes/HelixPollChoice.html">HelixPollChoice</a><a title="HelixPrediction" class="jss17" href="/versions/main/reference/api/classes/HelixPrediction.html">HelixPrediction</a><a title="HelixPredictionApi" class="jss17" href="/versions/main/reference/api/classes/HelixPredictionApi.html">HelixPredictionApi</a><a title="HelixPredictionOutcome" class="jss17" href="/versions/main/reference/api/classes/HelixPredictionOutcome.html">HelixPredictionOutcome</a><a title="HelixPredictor" class="jss17" href="/versions/main/reference/api/classes/HelixPredictor.html">HelixPredictor</a><a title="HelixPrivilegedUser" class="jss17" href="/versions/main/reference/api/classes/HelixPrivilegedUser.html">HelixPrivilegedUser</a><a title="HelixSchedule" class="jss17" href="/versions/main/reference/api/classes/HelixSchedule.html">HelixSchedule</a><a title="HelixScheduleApi" class="jss17" href="/versions/main/reference/api/classes/HelixScheduleApi.html">HelixScheduleApi</a><a title="HelixScheduleSegment" class="jss17" href="/versions/main/reference/api/classes/HelixScheduleSegment.html">HelixScheduleSegment</a><a title="HelixSearchApi" class="jss17" href="/versions/main/reference/api/classes/HelixSearchApi.html">HelixSearchApi</a><a title="HelixStream" class="jss17" href="/versions/main/reference/api/classes/HelixStream.html">HelixStream</a><a title="HelixStreamApi" class="jss17" href="/versions/main/reference/api/classes/HelixStreamApi.html">HelixStreamApi</a><a title="HelixStreamMarker" class="jss17" href="/versions/main/reference/api/classes/HelixStreamMarker.html">HelixStreamMarker</a><a title="HelixStreamMarkerWithVideo" class="jss17" href="/versions/main/reference/api/classes/HelixStreamMarkerWithVideo.html">HelixStreamMarkerWithVideo</a><a title="HelixSubscription" class="jss17" href="/versions/main/reference/api/classes/HelixSubscription.html">HelixSubscription</a><a title="HelixSubscriptionApi" class="jss17" href="/versions/main/reference/api/classes/HelixSubscriptionApi.html">HelixSubscriptionApi</a><a title="HelixSubscriptionEvent" class="jss17" href="/versions/main/reference/api/classes/HelixSubscriptionEvent.html">HelixSubscriptionEvent</a><a title="HelixTag" class="jss17" href="/versions/main/reference/api/classes/HelixTag.html">HelixTag</a><a title="HelixTagApi" class="jss17" href="/versions/main/reference/api/classes/HelixTagApi.html">HelixTagApi</a><a title="HelixTeam" class="jss17" href="/versions/main/reference/api/classes/HelixTeam.html">HelixTeam</a><a title="HelixTeamApi" class="jss17" href="/versions/main/reference/api/classes/HelixTeamApi.html">HelixTeamApi</a><a title="HelixTeamWithUsers" class="jss17" href="/versions/main/reference/api/classes/HelixTeamWithUsers.html">HelixTeamWithUsers</a><a title="HelixUser" class="jss17" href="/versions/main/reference/api/classes/HelixUser.html">HelixUser</a><a title="HelixUserApi" class="jss17" href="/versions/main/reference/api/classes/HelixUserApi.html">HelixUserApi</a><a title="HelixUserBlock" class="jss17" href="/versions/main/reference/api/classes/HelixUserBlock.html">HelixUserBlock</a><a title="HelixUserExtension" class="jss17" href="/versions/main/reference/api/classes/HelixUserExtension.html">HelixUserExtension</a><a title="HelixUserRelation" class="jss17" href="/versions/main/reference/api/classes/HelixUserRelation.html">HelixUserRelation</a><a title="HelixUserSubscription" class="jss17" href="/versions/main/reference/api/classes/HelixUserSubscription.html">HelixUserSubscription</a><a title="HelixVideo" class="jss17" href="/versions/main/reference/api/classes/HelixVideo.html">HelixVideo</a><a title="HelixVideoApi" class="jss17" href="/versions/main/reference/api/classes/HelixVideoApi.html">HelixVideoApi</a><a title="NoSubscriptionProgramError" class="jss17" href="/versions/main/reference/api/classes/NoSubscriptionProgramError.html">NoSubscriptionProgramError</a><a title="StreamNotLiveError" class="jss17" href="/versions/main/reference/api/classes/StreamNotLiveError.html">StreamNotLiveError</a><a title="UnsupportedApi" class="jss17" href="/versions/main/reference/api/classes/UnsupportedApi.html">UnsupportedApi</a></div></div><div class="jss14"><h2 class="jss15">Interfaces</h2><div class="jss16"><a title="ApiConfig" class="jss17" href="/versions/main/reference/api/interfaces/ApiConfig.html">ApiConfig</a><a title="HelixBanFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixBanFilter.html">HelixBanFilter</a><a title="HelixBitsLeaderboardQuery" class="jss17" href="/versions/main/reference/api/interfaces/HelixBitsLeaderboardQuery.html">HelixBitsLeaderboardQuery</a><a title="HelixChannelSearchFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixChannelSearchFilter.html">HelixChannelSearchFilter</a><a title="HelixChannelUpdate" class="jss17" href="/versions/main/reference/api/interfaces/HelixChannelUpdate.html">HelixChannelUpdate</a><a title="HelixClipCreateParams" class="jss17" href="/versions/main/reference/api/interfaces/HelixClipCreateParams.html">HelixClipCreateParams</a><a title="HelixClipFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixClipFilter.html">HelixClipFilter</a><a title="HelixCreateCustomRewardData" class="jss17" href="/versions/main/reference/api/interfaces/HelixCreateCustomRewardData.html">HelixCreateCustomRewardData</a><a title="HelixCreatePollData" class="jss17" href="/versions/main/reference/api/interfaces/HelixCreatePollData.html">HelixCreatePollData</a><a title="HelixCreatePredictionData" class="jss17" href="/versions/main/reference/api/interfaces/HelixCreatePredictionData.html">HelixCreatePredictionData</a><a title="HelixCreateScheduleSegmentData" class="jss17" href="/versions/main/reference/api/interfaces/HelixCreateScheduleSegmentData.html">HelixCreateScheduleSegmentData</a><a title="HelixCustomRewardRedemptionFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixCustomRewardRedemptionFilter.html">HelixCustomRewardRedemptionFilter</a><a title="HelixEventSubWebHookTransportOptions" class="jss17" href="/versions/main/reference/api/interfaces/HelixEventSubWebHookTransportOptions.html">HelixEventSubWebHookTransportOptions</a><a title="HelixExtensionBitsProductUpdatePayload" class="jss17" href="/versions/main/reference/api/interfaces/HelixExtensionBitsProductUpdatePayload.html">HelixExtensionBitsProductUpdatePayload</a><a title="HelixExtensionTransactionsFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixExtensionTransactionsFilter.html">HelixExtensionTransactionsFilter</a><a title="HelixExtensionTransactionsPaginatedFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixExtensionTransactionsPaginatedFilter.html">HelixExtensionTransactionsPaginatedFilter</a><a title="HelixFollowFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixFollowFilter.html">HelixFollowFilter</a><a title="HelixForwardPagination" class="jss17" href="/versions/main/reference/api/interfaces/HelixForwardPagination.html">HelixForwardPagination</a><a title="HelixModeratorFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixModeratorFilter.html">HelixModeratorFilter</a><a title="HelixPaginatedChannelSearchFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixPaginatedChannelSearchFilter.html">HelixPaginatedChannelSearchFilter</a><a title="HelixPaginatedClipFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixPaginatedClipFilter.html">HelixPaginatedClipFilter</a><a title="HelixPaginatedCustomRewardRedemptionFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixPaginatedCustomRewardRedemptionFilter.html">HelixPaginatedCustomRewardRedemptionFilter</a><a title="HelixPaginatedFollowFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixPaginatedFollowFilter.html">HelixPaginatedFollowFilter</a><a title="HelixPaginatedResult" class="jss17" href="/versions/main/reference/api/interfaces/HelixPaginatedResult.html">HelixPaginatedResult</a><a title="HelixPaginatedResultWithTotal" class="jss17" href="/versions/main/reference/api/interfaces/HelixPaginatedResultWithTotal.html">HelixPaginatedResultWithTotal</a><a title="HelixPaginatedScheduleFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixPaginatedScheduleFilter.html">HelixPaginatedScheduleFilter</a><a title="HelixPaginatedStreamFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixPaginatedStreamFilter.html">HelixPaginatedStreamFilter</a><a title="HelixPaginatedSubscriptionsResult" class="jss17" href="/versions/main/reference/api/interfaces/HelixPaginatedSubscriptionsResult.html">HelixPaginatedSubscriptionsResult</a><a title="HelixPaginatedVideoFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixPaginatedVideoFilter.html">HelixPaginatedVideoFilter</a><a title="HelixPagination" class="jss17" href="/versions/main/reference/api/interfaces/HelixPagination.html">HelixPagination</a><a title="HelixScheduleFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixScheduleFilter.html">HelixScheduleFilter</a><a title="HelixScheduleSettingsUpdate" class="jss17" href="/versions/main/reference/api/interfaces/HelixScheduleSettingsUpdate.html">HelixScheduleSettingsUpdate</a><a title="HelixStreamFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixStreamFilter.html">HelixStreamFilter</a><a title="HelixUpdateCustomRewardData" class="jss17" href="/versions/main/reference/api/interfaces/HelixUpdateCustomRewardData.html">HelixUpdateCustomRewardData</a><a title="HelixUpdateScheduleSegmentData" class="jss17" href="/versions/main/reference/api/interfaces/HelixUpdateScheduleSegmentData.html">HelixUpdateScheduleSegmentData</a><a title="HelixUserBlockAdditionalInfo" class="jss17" href="/versions/main/reference/api/interfaces/HelixUserBlockAdditionalInfo.html">HelixUserBlockAdditionalInfo</a><a title="HelixUserExtensionUpdatePayload" class="jss17" href="/versions/main/reference/api/interfaces/HelixUserExtensionUpdatePayload.html">HelixUserExtensionUpdatePayload</a><a title="HelixUserExtensionUpdatePayloadActiveSlot" class="jss17" href="/versions/main/reference/api/interfaces/HelixUserExtensionUpdatePayloadActiveSlot.html">HelixUserExtensionUpdatePayloadActiveSlot</a><a title="HelixUserExtensionUpdatePayloadInactiveSlot" class="jss17" href="/versions/main/reference/api/interfaces/HelixUserExtensionUpdatePayloadInactiveSlot.html">HelixUserExtensionUpdatePayloadInactiveSlot</a><a title="HelixUserUpdate" class="jss17" href="/versions/main/reference/api/interfaces/HelixUserUpdate.html">HelixUserUpdate</a><a title="HelixVideoFilter" class="jss17" href="/versions/main/reference/api/interfaces/HelixVideoFilter.html">HelixVideoFilter</a></div></div></div><div class="jss12"><main><div class="jss19"><h1>HelixBitsApi</h1><a class="jss20" href="https://github.com/twurple/twurple/blob/main/packages/api/src/api/helix/bits/HelixBitsApi.ts#L56" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M414.8 40.79L286.8 488.8C281.9 505.8 264.2 515.6 247.2 510.8C230.2 505.9 220.4 488.2 225.2 471.2L353.2 23.21C358.1 6.216 375.8-3.624 392.8 1.232C409.8 6.087 419.6 23.8 414.8 40.79H414.8zM518.6 121.4L630.6 233.4C643.1 245.9 643.1 266.1 630.6 278.6L518.6 390.6C506.1 403.1 485.9 403.1 473.4 390.6C460.9 378.1 460.9 357.9 473.4 345.4L562.7 256L473.4 166.6C460.9 154.1 460.9 133.9 473.4 121.4C485.9 108.9 506.1 108.9 518.6 121.4V121.4zM166.6 166.6L77.25 256L166.6 345.4C179.1 357.9 179.1 378.1 166.6 390.6C154.1 403.1 133.9 403.1 121.4 390.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4L121.4 121.4C133.9 108.9 154.1 108.9 166.6 121.4C179.1 133.9 179.1 154.1 166.6 166.6V166.6z"></path></svg></a><div class="jss21"><p>The Helix API methods that deal with bits.</p></div></div><div class="jss25"><h2>Overview</h2><div class="jss26"><div class="jss27"><h3 class="jss28">Methods</h3><ul class="jss29"><li class="jss30"><a class="jss31" href="/versions/main/reference/api/classes/HelixBitsApi.html#getCheermotes">getCheermotes</a><span title="async" class="jss34 jss36 jss35 jss32">a</span></li><li class="jss30"><a class="jss31" href="/versions/main/reference/api/classes/HelixBitsApi.html#getLeaderboard">getLeaderboard</a><span title="async" class="jss34 jss37 jss35 jss32">a</span></li></ul></div></div><div class="jss21"><p>Can be accessed using <code>client.bits</code> on an <a class="jss22" href="/versions/main/reference/api/classes/ApiClient.html">ApiClient</a> instance.</p>
 <h2>Example</h2>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> api = </span><span style="color:#cb7832">new</span><span> ApiClient(</span><span style="color:#cb7832">new</span><span> StaticAuthProvider(clientId, accessToken));
-</span></span><span><span></span><span style="color:#cb7832">const</span><span> leaderboard = </span><span style="color:#cb7832">await</span><span> api.bits.getLeaderboard({ </span><span class="hljs-attr">period</span><span>: </span><span style="color:#6a8759">&#x27;day&#x27;</span><span> });</span></span></code></pre></pre></div><h2>Methods</h2><div id="getCheermotes" class="jss49 jss44"><div class="jss50 jss45"><a class="jss20 jss51" href="https://github.com/twurple/twurple/blob/main/packages/api/src/api/helix/bits/HelixBitsApi.ts#L86" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-w-20 fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"></path></svg></a><a class="jss51 jss52" title="Direct link to this symbol" href="/versions/main/reference/api/classes/HelixBitsApi.html#getCheermotes"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-w-16 fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg></a></div><h3 class="jss55">getCheermotes<!-- -->(<!-- -->broadcaster<!-- -->)</h3><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/await" title="This method actually returns a Promise object, but the use of await is recommended for easier use. Please click on the badge for further information." class="jss34 jss56 jss54">async</a><div class="jss21"><p>Retrieves all available cheermotes.</p></div><table class="jss57"><thead><tr><th class="jss58">Parameter</th><th class="jss58">Type</th><th class="jss58">Required</th><th class="jss58">Default</th><th class="jss58">Description</th></tr></thead><tbody><tr><td class="jss59">broadcaster</td><td class="jss59"><div class="jss61"><abbr class="jss62">UserIdResolvable</abbr><div class="jss63"><div class="jss64"><div class="jss21"><p>A user ID or a user or channel object.</p></div><div class="jss21"><p>This is not a user name.
+</span></span><span><span></span><span style="color:#cb7832">const</span><span> leaderboard = </span><span style="color:#cb7832">await</span><span> api.bits.getLeaderboard({ </span><span class="hljs-attr">period</span><span>: </span><span style="color:#6a8759">&#x27;day&#x27;</span><span> });</span></span></code></pre></pre></div><h2>Methods</h2><div id="getCheermotes" class="jss49 jss44"><div class="jss50 jss45"><a class="jss20 jss51" href="https://github.com/twurple/twurple/blob/main/packages/api/src/api/helix/bits/HelixBitsApi.ts#L87" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M414.8 40.79L286.8 488.8C281.9 505.8 264.2 515.6 247.2 510.8C230.2 505.9 220.4 488.2 225.2 471.2L353.2 23.21C358.1 6.216 375.8-3.624 392.8 1.232C409.8 6.087 419.6 23.8 414.8 40.79H414.8zM518.6 121.4L630.6 233.4C643.1 245.9 643.1 266.1 630.6 278.6L518.6 390.6C506.1 403.1 485.9 403.1 473.4 390.6C460.9 378.1 460.9 357.9 473.4 345.4L562.7 256L473.4 166.6C460.9 154.1 460.9 133.9 473.4 121.4C485.9 108.9 506.1 108.9 518.6 121.4V121.4zM166.6 166.6L77.25 256L166.6 345.4C179.1 357.9 179.1 378.1 166.6 390.6C154.1 403.1 133.9 403.1 121.4 390.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4L121.4 121.4C133.9 108.9 154.1 108.9 166.6 121.4C179.1 133.9 179.1 154.1 166.6 166.6V166.6z"></path></svg></a><a class="jss51 jss52" title="Direct link to this symbol" href="/versions/main/reference/api/classes/HelixBitsApi.html#getCheermotes"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"></path></svg></a></div><h3 class="jss55">getCheermotes<!-- -->(<!-- -->broadcaster<!-- -->)</h3><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/await" title="This method actually returns a Promise object, but the use of await is recommended for easier use. Please click on the badge for further information." class="jss34 jss56 jss54">async</a><div class="jss21"><p>Retrieves all available cheermotes.</p></div><table class="jss57"><thead><tr><th class="jss58">Parameter</th><th class="jss58">Type</th><th class="jss58">Required</th><th class="jss58">Default</th><th class="jss58">Description</th></tr></thead><tbody><tr><td class="jss59">broadcaster</td><td class="jss59"><div class="jss61"><abbr class="jss62">UserIdResolvable</abbr><div class="jss63"><div class="jss64"><div class="jss21"><p>A user ID or a user or channel object.</p></div><div class="jss21"><p>This is not a user name.
 Please use <a class="jss22" href="/versions/main/reference/api/classes/HelixUserApi.html#getUserByName">HelixUserApi#getUserByName</a> to fetch a user object by name.</p></div><p>Aliased type: <span class="jss65">string<!-- --> | <!-- -->number<!-- --> | <a class="jss66" href="/versions/main/reference/common/interfaces/UserIdResolvableType.html">UserIdResolvableType</a></span></p></div></div></div></td><td class="jss59"></td><td class="jss59"><em>none</em></td><td class="jss59"><div class="jss21"><p>The broadcaster to include custom cheermotes of.</p>
-<p>If not given, only retrieves global cheermotes.</p></div></td></tr></tbody></table><div class="jss67">Return type:<!-- --> <span class="jss68"><a class="jss66" href="/versions/main/reference/api/classes/HelixCheermoteList.html">HelixCheermoteList</a></span></div></div><div id="getLeaderboard" class="jss49 jss44"><div class="jss50 jss45"><a class="jss20 jss51" href="https://github.com/twurple/twurple/blob/main/packages/api/src/api/helix/bits/HelixBitsApi.ts#L62" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-w-20 fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"></path></svg></a><a class="jss51 jss52" title="Direct link to this symbol" href="/versions/main/reference/api/classes/HelixBitsApi.html#getLeaderboard"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-w-16 fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg></a></div><h3 class="jss55">getLeaderboard<!-- -->(<!-- -->params<!-- -->)</h3><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/await" title="This method actually returns a Promise object, but the use of await is recommended for easier use. Please click on the badge for further information." class="jss34 jss69 jss54">async</a><div class="jss21"><p>Retrieves a bits leaderboard of your channel.</p></div><table class="jss57"><thead><tr><th class="jss58">Parameter</th><th class="jss58">Type</th><th class="jss58">Required</th><th class="jss58">Default</th><th class="jss58">Description</th></tr></thead><tbody><tr><td class="jss59">params</td><td class="jss59"><a class="jss66" href="/versions/main/reference/api/interfaces/HelixBitsLeaderboardQuery.html">HelixBitsLeaderboardQuery</a></td><td class="jss59"></td><td class="jss59">&lt;complex&gt;</td><td class="jss59"><em>see below</em></td></tr><tr><td class="jss59">params.contextUserId</td><td class="jss59">string</td><td class="jss59"></td><td class="jss59"><em>none</em></td><td class="jss59"><div class="jss21"><p>The user ID to show.</p></div><div class="jss21"><p>The leaderboard will be guaranteed to include this user and then have more users before and after that user.</p></div></td></tr><tr><td class="jss59">params.count</td><td class="jss59">number</td><td class="jss59"></td><td class="jss59"><em>none</em></td><td class="jss59"><div class="jss21"><p>The number of leaderboard entries you want to retrieve.</p></div></td></tr><tr><td class="jss59">params.period</td><td class="jss59"><div class="jss61"><abbr class="jss62">HelixBitsLeaderboardPeriod</abbr><div class="jss63"><div class="jss64"><div class="jss21"><p>The possible time periods for a bits leaderboard.</p></div><p>Aliased type: <span class="jss65">&quot;day&quot;<!-- --> | <!-- -->&quot;week&quot;<!-- --> | <!-- -->&quot;month&quot;<!-- --> | <!-- -->&quot;year&quot;<!-- --> | <!-- -->&quot;all&quot;</span></p></div></div></div></td><td class="jss59"></td><td class="jss59"><em>none</em></td><td class="jss59"><div class="jss21"><p>The time period from which bits should count towards the leaderboard.</p></div><div class="jss21"><p>The leaderboards reset with the start of a new period, e.g. the <code>week</code> leaderboards reset every Monday midnight PST.</p></div></td></tr><tr><td class="jss59">params.startDate</td><td class="jss59">Date</td><td class="jss59"></td><td class="jss59"><em>none</em></td><td class="jss59"><div class="jss21"><p>The time to retrieve the bits leaderboard for.</p></div></td></tr></tbody></table><div class="jss67">Return type:<!-- --> <span class="jss68"><a class="jss66" href="/versions/main/reference/api/classes/HelixBitsLeaderboard.html">HelixBitsLeaderboard</a></span></div></div></div></main></div></div></div>
+<p>If not given, only retrieves global cheermotes.</p></div></td></tr></tbody></table><div class="jss67">Return type:<!-- --> <span class="jss68"><a class="jss66" href="/versions/main/reference/api/classes/HelixCheermoteList.html">HelixCheermoteList</a></span></div></div><div id="getLeaderboard" class="jss49 jss44"><div class="jss50 jss45"><a class="jss20 jss51" href="https://github.com/twurple/twurple/blob/main/packages/api/src/api/helix/bits/HelixBitsApi.ts#L63" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M414.8 40.79L286.8 488.8C281.9 505.8 264.2 515.6 247.2 510.8C230.2 505.9 220.4 488.2 225.2 471.2L353.2 23.21C358.1 6.216 375.8-3.624 392.8 1.232C409.8 6.087 419.6 23.8 414.8 40.79H414.8zM518.6 121.4L630.6 233.4C643.1 245.9 643.1 266.1 630.6 278.6L518.6 390.6C506.1 403.1 485.9 403.1 473.4 390.6C460.9 378.1 460.9 357.9 473.4 345.4L562.7 256L473.4 166.6C460.9 154.1 460.9 133.9 473.4 121.4C485.9 108.9 506.1 108.9 518.6 121.4V121.4zM166.6 166.6L77.25 256L166.6 345.4C179.1 357.9 179.1 378.1 166.6 390.6C154.1 403.1 133.9 403.1 121.4 390.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4L121.4 121.4C133.9 108.9 154.1 108.9 166.6 121.4C179.1 133.9 179.1 154.1 166.6 166.6V166.6z"></path></svg></a><a class="jss51 jss52" title="Direct link to this symbol" href="/versions/main/reference/api/classes/HelixBitsApi.html#getLeaderboard"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"></path></svg></a></div><h3 class="jss55">getLeaderboard<!-- -->(<!-- -->params<!-- -->)</h3><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/await" title="This method actually returns a Promise object, but the use of await is recommended for easier use. Please click on the badge for further information." class="jss34 jss69 jss54">async</a><div class="jss21"><p>Retrieves a bits leaderboard of your channel.</p></div><table class="jss57"><thead><tr><th class="jss58">Parameter</th><th class="jss58">Type</th><th class="jss58">Required</th><th class="jss58">Default</th><th class="jss58">Description</th></tr></thead><tbody><tr><td class="jss59">params</td><td class="jss59"><a class="jss66" href="/versions/main/reference/api/interfaces/HelixBitsLeaderboardQuery.html">HelixBitsLeaderboardQuery</a></td><td class="jss59"></td><td class="jss59">&lt;complex&gt;</td><td class="jss59"><em>see below</em></td></tr><tr><td class="jss59">params.contextUserId</td><td class="jss59">string</td><td class="jss59"></td><td class="jss59"><em>none</em></td><td class="jss59"><div class="jss21"><p>The user ID to show.</p></div><div class="jss21"><p>The leaderboard will be guaranteed to include this user and then have more users before and after that user.</p></div></td></tr><tr><td class="jss59">params.count</td><td class="jss59">number</td><td class="jss59"></td><td class="jss59"><em>none</em></td><td class="jss59"><div class="jss21"><p>The number of leaderboard entries you want to retrieve.</p></div></td></tr><tr><td class="jss59">params.period</td><td class="jss59"><div class="jss61"><abbr class="jss62">HelixBitsLeaderboardPeriod</abbr><div class="jss63"><div class="jss64"><div class="jss21"><p>The possible time periods for a bits leaderboard.</p></div><p>Aliased type: <span class="jss65">&quot;day&quot;<!-- --> | <!-- -->&quot;week&quot;<!-- --> | <!-- -->&quot;month&quot;<!-- --> | <!-- -->&quot;year&quot;<!-- --> | <!-- -->&quot;all&quot;</span></p></div></div></div></td><td class="jss59"></td><td class="jss59"><em>none</em></td><td class="jss59"><div class="jss21"><p>The time period from which bits should count towards the leaderboard.</p></div><div class="jss21"><p>The leaderboards reset with the start of a new period, e.g. the <code>week</code> leaderboards reset every Monday midnight PST.</p></div></td></tr><tr><td class="jss59">params.startDate</td><td class="jss59">Date</td><td class="jss59"></td><td class="jss59"><em>none</em></td><td class="jss59"><div class="jss21"><p>The time to retrieve the bits leaderboard for.</p></div></td></tr></tbody></table><div class="jss67">Return type:<!-- --> <span class="jss68"><a class="jss66" href="/versions/main/reference/api/classes/HelixBitsLeaderboard.html">HelixBitsLeaderboard</a></span></div></div></div></main></div></div></div>
 <script src="/versions/main/pe.js"></script>
 </body>
 </html>
