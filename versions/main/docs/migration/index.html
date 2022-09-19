@@ -1020,12 +1020,12 @@ You should clean up your subscriptions in some way, for example by calling the E
 <p>During the 4.x series, a few classes, interfaces, enums and properties that were named with improper camel case
 have been renamed, and the old counterparts were deprecated. Please check your usage of the following properties:</p>
 <ul>
-<li><a class="jss16" href="/versions/main/reference/api/classes/HelixExtensionTransaction.html#productSku">HelixExtensionTransaction#productSku</a> - formerly <code>productSKU</code></li>
-<li><a class="jss16" href="/versions/main/reference/api/classes/ApiClient.html#callApi">ApiClient#callApi</a> - formerly <code>callAPI</code></li>
-<li><a class="jss16" href="/versions/main/reference/chat/classes/ChatClient.html#addVip">ChatClient#addVip</a> - formerly <code>addVIP</code></li>
-<li><a class="jss16" href="/versions/main/reference/chat/classes/ChatClient.html#removeVip">ChatClient#removeVip</a> - formerly <code>removeVIP</code></li>
-<li><a class="jss16" href="/versions/main/reference/chat/classes/ChatClient.html#getVips">ChatClient#getVips</a> - formerly <code>getVIPs</code></li>
-<li><a class="jss16" href="/versions/main/reference/auth-electron/interfaces/TwitchClientCredentials.html#redirectUri">TwitchClientCredentials#redirectUri</a> - formerly <code>redirectURI</code></li>
+<li><a class="jss16" href="/versions/main/reference/api/classes/HelixExtensionTransaction.html#productSku">HelixExtensionTransaction#productSku</a>} - formerly <code>productSKU</code></li>
+<li><a class="jss16" href="/versions/main/reference/api/classes/ApiClient.html#callApi">ApiClient#callApi</a>} - formerly <code>callAPI</code></li>
+<li><a class="jss16" href="/versions/main/reference/chat/classes/ChatClient.html#addVip">ChatClient#addVip</a>} - formerly <code>addVIP</code></li>
+<li><a class="jss16" href="/versions/main/reference/chat/classes/ChatClient.html#removeVip">ChatClient#removeVip</a>} - formerly <code>removeVIP</code></li>
+<li><a class="jss16" href="/versions/main/reference/chat/classes/ChatClient.html#getVips">ChatClient#getVips</a>} - formerly <code>getVIPs</code></li>
+<li><a class="jss16" href="/versions/main/reference/auth-electron/interfaces/TwitchClientCredentials.html#redirectUri">TwitchClientCredentials#redirectUri</a>} - formerly <code>redirectURI</code></li>
 </ul>
 <h2>Use the new logger configuration</h2>
 <p>Previously, a few classes exposed a <code>logLevel</code> parameter that allowed you to set the log level directly.</p>
@@ -1126,12 +1126,12 @@ but was integrated into the options object.</p>
 <h2>Pass cheermote formatting options directly to the respective methods</h2>
 <p>It was previously possible to add defaults for displaying cheermotes to the <a class="jss16" href="/versions/main/reference/api/classes/ApiClient.html">ApiClient</a>.
 These defaults were removed - now you have to pass all display options
-to <a class="jss16" href="/versions/main/reference/api/classes/HelixCheermoteList.html#getCheermoteDisplayInfo">HelixCheermoteList#getCheermoteDisplayInfo</a> and <a class="jss16" href="/versions/main/reference/api/classes/HelixCheermoteList.html#parseMessage">HelixCheermoteList#parseMessage</a>
-as well as <a class="jss16" href="/versions/main/reference/chat/classes/TwitchPrivateMessage.html#parseEmotesAndBits">TwitchPrivateMessage#parseEmotesAndBits</a>.</p>
+to <a class="jss16" href="/versions/main/reference/api/classes/HelixCheermoteList.html#getCheermoteDisplayInfo">HelixCheermoteList#getCheermoteDisplayInfo</a>} and <a class="jss16" href="/versions/main/reference/api/classes/HelixCheermoteList.html#parseMessage">HelixCheermoteList#parseMessage</a>}
+as well as <a class="jss16" href="/versions/main/reference/chat/classes/TwitchPrivateMessage.html#parseEmotesAndBits">TwitchPrivateMessage#parseEmotesAndBits</a>}.</p>
 <h2>Remove use of the <code>preAuth</code> and <code>initialScopes</code> properties in <a class="jss16" href="/versions/main/reference/api/interfaces/ApiConfig.html">ApiConfig</a></h2>
 <p>The properties <code>preAuth</code> and <code>initialScopes</code> were dangerous,
 as they left a dangling promise when constructing an <a class="jss16" href="/versions/main/reference/api/classes/ApiClient.html">ApiClient</a>.</p>
-<p>They were replaced by the safer method <a class="jss16" href="/versions/main/reference/api/classes/ApiClient.html#requestScopes">ApiClient#requestScopes</a>,
+<p>They were replaced by the safer method <a class="jss16" href="/versions/main/reference/api/classes/ApiClient.html#requestScopes">ApiClient#requestScopes</a>},
 which you can call (and more importanly, <code>await</code>) by yourself.</p>
 <h2><a class="jss16" href="/versions/main/reference/auth-electron/classes/ElectronAuthProvider.html">ElectronAuthProvider</a> now requires at least Electron 9</h2>
 <p>Electron versions below 9 are way past their support time by now. Please update to a supported version.</p>
@@ -1145,7 +1145,7 @@ to raise them appropriately to your bot status.</p>
 to be consistent with the API and EventSub versions of the same data.
 Please update your code accordingly.</p>
 <h2>Remove our typos</h2>
-<p>See, we all make mistakes sometimes. But we fixed them and we ask you to fix them too (otherwise your code will break).</p>
+<p>See, we all make mistakes sometimes. But we fixed them, and we ask you to fix them too (otherwise your code will break).</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">declare</span><span> </span><span style="color:#cb7832">const</span><span> reward: HelixCustomReward;
 </span></span><span class="jss24"><span></span><span style="color:#e0c46c">console</span><span>.log(reward.propmt);
 </span></span><span class="jss23"><span></span><span style="color:#e0c46c">console</span><span>.log(reward.prompt);</span></span></code></pre></pre>
