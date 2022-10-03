@@ -1059,10 +1059,10 @@ The given channels will automatically be joined after connecting.</p>
 <p>Now you can run your code and see your bot sitting in your channel. But we want it to do something!</p>
 <h2>5. Listen and react to events</h2>
 <p>Fortunately, reacting to things is easy. To listen to chat messages, just use the <code>onMessage</code> method. As an example, we implement a few basic commands here:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span>chatClient.onMessage(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user, message</span><span class="hljs-function">) =&gt;</span><span> {
-</span></span><span><span>	</span><span style="color:#cb7832">if</span><span> (message === </span><span style="color:#6a8759">&#x27;!ping&#x27;</span><span>) {
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span>chatClient.onMessage(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user, text</span><span class="hljs-function">) =&gt;</span><span> {
+</span></span><span><span>	</span><span style="color:#cb7832">if</span><span> (text === </span><span style="color:#6a8759">&#x27;!ping&#x27;</span><span>) {
 </span></span><span><span>		chatClient.say(channel, </span><span style="color:#6a8759">&#x27;Pong!&#x27;</span><span>);
-</span></span><span><span>	} </span><span style="color:#cb7832">else</span><span> </span><span style="color:#cb7832">if</span><span> (message === </span><span style="color:#6a8759">&#x27;!dice&#x27;</span><span>) {
+</span></span><span><span>	} </span><span style="color:#cb7832">else</span><span> </span><span style="color:#cb7832">if</span><span> (text === </span><span style="color:#6a8759">&#x27;!dice&#x27;</span><span>) {
 </span></span><span><span>		</span><span style="color:#cb7832">const</span><span> diceRoll = </span><span style="color:#e0c46c">Math</span><span>.floor(</span><span style="color:#e0c46c">Math</span><span>.random() * </span><span style="color:#6896ba">6</span><span>) + </span><span style="color:#6896ba">1</span><span>;
 </span></span><span><span>		chatClient.say(channel, </span><span style="color:#6a8759">`@</span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759"> rolled a </span><span style="color:#e0c46c">${diceRoll}</span><span style="color:#6a8759">`</span><span>)
 </span></span><span>	}
@@ -1155,10 +1155,10 @@ The given channels will automatically be joined after connecting.</p>
 </span><span><span>	</span><span style="color:#cb7832">const</span><span> chatClient = </span><span style="color:#cb7832">new</span><span> ChatClient({ authProvider, </span><span class="hljs-attr">channels</span><span>: [</span><span style="color:#6a8759">&#x27;satisfiedpear&#x27;</span><span>] });
 </span></span><span><span>	</span><span style="color:#cb7832">await</span><span> chatClient.connect();
 </span></span><span>
-</span><span><span>	chatClient.onMessage(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user, message</span><span class="hljs-function">) =&gt;</span><span> {
-</span></span><span><span>		</span><span style="color:#cb7832">if</span><span> (message === </span><span style="color:#6a8759">&#x27;!ping&#x27;</span><span>) {
+</span><span><span>	chatClient.onMessage(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user, text</span><span class="hljs-function">) =&gt;</span><span> {
+</span></span><span><span>		</span><span style="color:#cb7832">if</span><span> (text === </span><span style="color:#6a8759">&#x27;!ping&#x27;</span><span>) {
 </span></span><span><span>			chatClient.say(channel, </span><span style="color:#6a8759">&#x27;Pong!&#x27;</span><span>);
-</span></span><span><span>		} </span><span style="color:#cb7832">else</span><span> </span><span style="color:#cb7832">if</span><span> (message === </span><span style="color:#6a8759">&#x27;!dice&#x27;</span><span>) {
+</span></span><span><span>		} </span><span style="color:#cb7832">else</span><span> </span><span style="color:#cb7832">if</span><span> (text === </span><span style="color:#6a8759">&#x27;!dice&#x27;</span><span>) {
 </span></span><span><span>			</span><span style="color:#cb7832">const</span><span> diceRoll = </span><span style="color:#e0c46c">Math</span><span>.floor(</span><span style="color:#e0c46c">Math</span><span>.random() * </span><span style="color:#6896ba">6</span><span>) + </span><span style="color:#6896ba">1</span><span>;
 </span></span><span><span>			chatClient.say(channel, </span><span style="color:#6a8759">`@</span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759"> rolled a </span><span style="color:#e0c46c">${diceRoll}</span><span style="color:#6a8759">`</span><span>)
 </span></span><span>		}
