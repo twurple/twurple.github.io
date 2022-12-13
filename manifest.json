@@ -1,6 +1,7 @@
 {
   "versions": [
     "5.2",
+    "5.3",
     "main"
   ],
   "rootUrl": "",
