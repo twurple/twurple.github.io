@@ -1013,7 +1013,7 @@ input:checked + .jss28 {
 <p>We will achieve authorization by fetching an initial access token from Twitch and then refreshing that token using the refreh token provided by the same request.</p>
 <p>If you already have an authentication flow up and running with an <code>AuthProvider</code> instance, you find all you need in step 4 and 5.</p>
 <h2>1. Create a Twitch application</h2>
-<p>Go to your <a class="jss22" href="https://dev.twitch.tv/console/apps">Twitch developer console</a> and create a new application. If you don&#x27;t know what a Redirect URI is, use <code>http://localhost</code>. Write down Client ID and Client Secret somewhere - you&#x27;re gonna need them!</p>
+<p>Go to your <a class="jss22" href="https://dev.twitch.tv/console/apps">Twitch developer console</a> and create a new application. If you don&#x27;t know what a Redirect URI is, use <code>http://localhost</code>. Write down Client ID and Client Secret somewhere - you&#x27;re going to need them!</p>
 <h2>2. Obtain an access token from Twitch</h2>
 <p>Visit this site, with the CLIENT_ID and REDIRECT_URI placeholders replaced with your client ID and redirect URI, respectively:</p>
 <pre><code>https://id.twitch.tv/oauth2/authorize?client_id=CLIENT_ID
@@ -1040,16 +1040,9 @@ input:checked + .jss28 {
 </span></code></pre></pre>
 <p>Write down the <code>access_token</code> and <code>refresh_token</code> properties of the response body. These are important for all the other requests you&#x27;re sending to Twitch!</p>
 <h2>3. Create an <code>AuthProvider</code> instance</h2>
-<p>Now you can finally start writing code! First, import all the classes you&#x27;re gonna need from <code>@twurple/auth</code> and <code>@twurple/chat</code>.</p>
+<p>Now you can finally start writing code! First, import all the classes you&#x27;re going to need from <code>@twurple/auth</code> and <code>@twurple/chat</code>.</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">import</span><span> { StaticAuthProvider } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/auth&#x27;</span><span>;
 </span></span><span><span></span><span style="color:#cb7832">import</span><span> { ChatClient } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/chat&#x27;</span><span>;</span></span></code></pre></pre>
-<p>Now, as long as <a class="jss22" href="https://github.com/tc39/proposal-top-level-await">top-level await</a> has not landed in popular runtimes, you need to work around that by placing your main routine inside an async function and running it.</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">async</span><span> </span><span class="hljs-function" style="color:#cb7832">function</span><span class="hljs-function"> </span><span class="hljs-function hljs-title">main</span><span class="hljs-function">(</span><span class="hljs-function">) </span><span>{
-</span></span><span><span>	</span><span style="color:#7f7f7f">// code goes here</span><span>
-</span></span><span>}
-</span><span>
-</span><span>main();
-</span></code></pre></pre>
 <p>All the following code needs to be inside this function (or at least called from inside it) so we can use <code>await</code> and still avoid race conditions.</p>
 <p>Now, we can construct a <code>StaticAuthProvider</code> instance using a static auth provider:</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> clientId = </span><span style="color:#6a8759">&#x27;uo6dggojyb8d6soh92zknwmi5ej1q2&#x27;</span><span>;
@@ -1087,8 +1080,13 @@ The given channels will automatically be joined after connecting.</p>
 </span></code></pre></pre>
 <p>Now you have a working bot! Until you have to restart it a few hours later...</p>
 <h2>6. Setting up automatic token refreshing</h2>
-<p>Fortunately, with the access token in step 2, we also got a refresh token! (You wrote that down, didn&#x27;t you?)</p>
-<p>With that, you can create another type of auth provider that automatically refreshes the given token.</p>
+<p>Fortunately, with the access token in step 2, we also got a refresh token! <em>(You wrote that down, didn&#x27;t you?)</em></p>
+<p>With that, you can create another type of auth provider that supports multi-user operation (via the <code>addUser</code> method)
+and automatically refreshes all tokens stored in it.</p>
+<p>For the chat client to figure out which user to connect as, you need to specify which one you want to use for chat.</p>
+<p>The feature managing this is called <strong>intents</strong>.
+You can give a user a specific set of intents by passing them to the <code>addUser</code> function as the third parameter.
+The chat client looks for the <code>chat</code> intent by default.</p>
 <p>Just replace the initialization line with this (but keep the <code>clientId</code> and <code>accessToken</code> constants):</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#7f7f7f">// replace @twurple/auth import line</span><span>
 </span></span><span><span></span><span style="color:#cb7832">import</span><span> { RefreshingAuthProvider } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/auth&#x27;</span><span>;
@@ -1100,17 +1098,17 @@ The given channels will automatically be joined after connecting.</p>
 </span></span><span>	{
 </span><span>		clientId,
 </span><span>		clientSecret
-</span><span>	},
-</span><span>	{
-</span><span>		accessToken,
-</span><span>		refreshToken
 </span><span>	}
 </span><span>);
-</span></code></pre></pre>
+</span><span>
+</span><span><span>authProvider.addUser(</span><span style="color:#6a8759">&#x27;125328655&#x27;</span><span>, {
+</span></span><span>	accessToken,
+</span><span>	refreshToken
+</span><span><span>}, [</span><span style="color:#6a8759">&#x27;chat&#x27;</span><span>]);</span></span></code></pre></pre>
 <h2>7. Persisting the refreshed token data</h2>
 <p>The last problem we have is restarting the bot. When it crashes for any reason, the refreshed token is gone and the application will try using the old token again, which probably fails.</p>
 <p>The <code>refreshConfig</code> parameter we just added can contain another property named <code>onRefresh</code>. Using this, you can persist tokens as soon as they&#x27;re refreshed.</p>
-<p>To prepare for this, let&#x27;s move the tokens to a JSON file named <code>tokens.json</code>:</p>
+<p>To prepare for this, let&#x27;s move the tokens to a JSON file named <code>tokens.125328655.json</code>:</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-json" style="white-space:pre-wrap"><span><span>{
 </span></span><span><span>	</span><span class="hljs-attr">&quot;accessToken&quot;</span><span>: </span><span style="color:#6a8759">&quot;0123456789abcdefghijABCDEFGHIJ&quot;</span><span>,
 </span></span><span><span>	</span><span class="hljs-attr">&quot;refreshToken&quot;</span><span>: </span><span style="color:#6a8759">&quot;eyJfaWQmNzMtNGCJ9%6VFV5LNrZFUj8oU231/3Aj&quot;</span><span>,
@@ -1119,19 +1117,19 @@ The given channels will automatically be joined after connecting.</p>
 </span></span><span>}
 </span></code></pre></pre>
 <p>I also added two new properties called <code>expiresIn</code> and <code>obtainmentTimestamp</code>. They will save the expiry time of the access token so the client can determine when to refresh the token without making a failing call first. If you didn&#x27;t get a current timetamp when sending the manual code request (you probably didn&#x27;t - I wouldn&#x27;t either), you can initialize them to zero to always make a refresh call in the beginning.</p>
-<p>Now, we can parse this JSON file on startup, load the tokens from it and when the tokens refresh, save them back into the same file.</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#7f7f7f">// add to import block before async function</span><span>
+<p>Now, we can parse this JSON file on startup, load the tokens from it and when the tokens refresh,
+save them back into the same file. (We&#x27;re adding the user ID to the file name dynamically in the callback to make it easy to extend to multiple users later.)</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#7f7f7f">// add to imports</span><span>
 </span></span><span><span></span><span style="color:#cb7832">import</span><span> { promises </span><span style="color:#cb7832">as</span><span> fs } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;fs&#x27;</span><span>;
 </span></span><span>
-</span><span><span></span><span style="color:#7f7f7f">// inside the async function again</span><span>
-</span></span><span><span></span><span style="color:#cb7832">const</span><span> tokenData = </span><span style="color:#e0c46c">JSON</span><span>.parse(</span><span style="color:#cb7832">await</span><span> fs.readFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>, </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>));
+</span><span><span></span><span style="color:#7f7f7f">// replace the constructor line</span><span>
+</span></span><span><span></span><span style="color:#cb7832">const</span><span> tokenData = </span><span style="color:#e0c46c">JSON</span><span>.parse(</span><span style="color:#cb7832">await</span><span> fs.readFile(</span><span style="color:#6a8759">&#x27;./tokens.125328655.json&#x27;</span><span>, </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>));
 </span></span><span><span></span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> RefreshingAuthProvider(
 </span></span><span>	{
 </span><span>		clientId,
 </span><span>		clientSecret,
-</span><span><span>		</span><span class="hljs-attr">onRefresh</span><span>: </span><span style="color:#cb7832">async</span><span> newTokenData =&gt; </span><span style="color:#cb7832">await</span><span> fs.writeFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>, </span><span style="color:#e0c46c">JSON</span><span>.stringify(newTokenData, </span><span style="color:#6896ba">null</span><span>, </span><span style="color:#6896ba">4</span><span>), </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>)
-</span></span><span>	},
-</span><span>	tokenData
+</span><span><span>		</span><span class="hljs-attr">onRefresh</span><span>: </span><span style="color:#cb7832">async</span><span> (userId, newTokenData) =&gt; </span><span style="color:#cb7832">await</span><span> fs.writeFile(</span><span style="color:#6a8759">`./tokens.</span><span style="color:#e0c46c">${userId}</span><span style="color:#6a8759">.json`</span><span>, </span><span style="color:#e0c46c">JSON</span><span>.stringify(newTokenData, </span><span style="color:#6896ba">null</span><span>, </span><span style="color:#6896ba">4</span><span>), </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>)
+</span></span><span>	}
 </span><span>);
 </span></code></pre></pre>
 <h2>8. ???</h2>
@@ -1143,43 +1141,42 @@ The given channels will automatically be joined after connecting.</p>
 </span></span><span><span></span><span style="color:#cb7832">import</span><span> { ChatClient } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/chat&#x27;</span><span>;
 </span></span><span><span></span><span style="color:#cb7832">import</span><span> { promises </span><span style="color:#cb7832">as</span><span> fs } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;fs&#x27;</span><span>;
 </span></span><span>
-</span><span><span></span><span style="color:#cb7832">async</span><span> </span><span class="hljs-function" style="color:#cb7832">function</span><span class="hljs-function"> </span><span class="hljs-function hljs-title">main</span><span class="hljs-function">(</span><span class="hljs-function">) </span><span>{
-</span></span><span><span>	</span><span style="color:#cb7832">const</span><span> clientId = </span><span style="color:#6a8759">&#x27;uo6dggojyb8d6soh92zknwmi5ej1q2&#x27;</span><span>;
-</span></span><span><span>	</span><span style="color:#cb7832">const</span><span> clientSecret = </span><span style="color:#6a8759">&#x27;nyo51xcdrerl8z9m56w9w6wg&#x27;</span><span>;
-</span></span><span><span>	</span><span style="color:#cb7832">const</span><span> tokenData = </span><span style="color:#e0c46c">JSON</span><span>.parse(</span><span style="color:#cb7832">await</span><span> fs.readFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>, </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>));
-</span></span><span><span>	</span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> RefreshingAuthProvider(
-</span></span><span>		{
-</span><span>			clientId,
-</span><span>			clientSecret,
-</span><span><span>			</span><span class="hljs-attr">onRefresh</span><span>: </span><span style="color:#cb7832">async</span><span> newTokenData =&gt; </span><span style="color:#cb7832">await</span><span> fs.writeFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>, </span><span style="color:#e0c46c">JSON</span><span>.stringify(newTokenData, </span><span style="color:#6896ba">null</span><span>, </span><span style="color:#6896ba">4</span><span>), </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>)
-</span></span><span>		},
-</span><span>		tokenData
-</span><span>	);
-</span><span>
-</span><span><span>	</span><span style="color:#cb7832">const</span><span> chatClient = </span><span style="color:#cb7832">new</span><span> ChatClient({ authProvider, </span><span class="hljs-attr">channels</span><span>: [</span><span style="color:#6a8759">&#x27;satisfiedpear&#x27;</span><span>] });
-</span></span><span><span>	</span><span style="color:#cb7832">await</span><span> chatClient.connect();
+</span><span><span></span><span style="color:#cb7832">const</span><span> clientId = </span><span style="color:#6a8759">&#x27;uo6dggojyb8d6soh92zknwmi5ej1q2&#x27;</span><span>;
+</span></span><span><span></span><span style="color:#cb7832">const</span><span> clientSecret = </span><span style="color:#6a8759">&#x27;nyo51xcdrerl8z9m56w9w6wg&#x27;</span><span>;
+</span></span><span><span></span><span style="color:#cb7832">const</span><span> tokenData = </span><span style="color:#e0c46c">JSON</span><span>.parse(</span><span style="color:#cb7832">await</span><span> fs.readFile(</span><span style="color:#6a8759">&#x27;./tokens.125328655.json&#x27;</span><span>, </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>));
+</span></span><span><span></span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> RefreshingAuthProvider(
+</span></span><span>	{
+</span><span>		clientId,
+</span><span>		clientSecret,
+</span><span><span>		</span><span class="hljs-attr">onRefresh</span><span>: </span><span style="color:#cb7832">async</span><span> (userId, newTokenData) =&gt; </span><span style="color:#cb7832">await</span><span> fs.writeFile(</span><span style="color:#6a8759">`./tokens.</span><span style="color:#e0c46c">${userId}</span><span style="color:#6a8759">.json`</span><span>, </span><span style="color:#e0c46c">JSON</span><span>.stringify(newTokenData, </span><span style="color:#6896ba">null</span><span>, </span><span style="color:#6896ba">4</span><span>), </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>)
+</span></span><span>	}
+</span><span>);
+</span><span><span>authProvider.addUser(</span><span style="color:#6a8759">&#x27;125328655&#x27;</span><span>, {
+</span></span><span>	accessToken,
+</span><span>	refreshToken
+</span><span><span>}, [</span><span style="color:#6a8759">&#x27;chat&#x27;</span><span>]);
 </span></span><span>
-</span><span><span>	chatClient.onMessage(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user, text</span><span class="hljs-function">) =&gt;</span><span> {
-</span></span><span><span>		</span><span style="color:#cb7832">if</span><span> (text === </span><span style="color:#6a8759">&#x27;!ping&#x27;</span><span>) {
-</span></span><span><span>			chatClient.say(channel, </span><span style="color:#6a8759">&#x27;Pong!&#x27;</span><span>);
-</span></span><span><span>		} </span><span style="color:#cb7832">else</span><span> </span><span style="color:#cb7832">if</span><span> (text === </span><span style="color:#6a8759">&#x27;!dice&#x27;</span><span>) {
-</span></span><span><span>			</span><span style="color:#cb7832">const</span><span> diceRoll = </span><span style="color:#e0c46c">Math</span><span>.floor(</span><span style="color:#e0c46c">Math</span><span>.random() * </span><span style="color:#6896ba">6</span><span>) + </span><span style="color:#6896ba">1</span><span>;
-</span></span><span><span>			chatClient.say(channel, </span><span style="color:#6a8759">`@</span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759"> rolled a </span><span style="color:#e0c46c">${diceRoll}</span><span style="color:#6a8759">`</span><span>)
-</span></span><span>		}
-</span><span>	});
+</span><span><span></span><span style="color:#cb7832">const</span><span> chatClient = </span><span style="color:#cb7832">new</span><span> ChatClient({ authProvider, </span><span class="hljs-attr">channels</span><span>: [</span><span style="color:#6a8759">&#x27;satisfiedpear&#x27;</span><span>] });
+</span></span><span><span></span><span style="color:#cb7832">await</span><span> chatClient.connect();
+</span></span><span>
+</span><span><span>chatClient.onMessage(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user, text</span><span class="hljs-function">) =&gt;</span><span> {
+</span></span><span><span>	</span><span style="color:#cb7832">if</span><span> (text === </span><span style="color:#6a8759">&#x27;!ping&#x27;</span><span>) {
+</span></span><span><span>		chatClient.say(channel, </span><span style="color:#6a8759">&#x27;Pong!&#x27;</span><span>);
+</span></span><span><span>	} </span><span style="color:#cb7832">else</span><span> </span><span style="color:#cb7832">if</span><span> (text === </span><span style="color:#6a8759">&#x27;!dice&#x27;</span><span>) {
+</span></span><span><span>		</span><span style="color:#cb7832">const</span><span> diceRoll = </span><span style="color:#e0c46c">Math</span><span>.floor(</span><span style="color:#e0c46c">Math</span><span>.random() * </span><span style="color:#6896ba">6</span><span>) + </span><span style="color:#6896ba">1</span><span>;
+</span></span><span><span>		chatClient.say(channel, </span><span style="color:#6a8759">`@</span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759"> rolled a </span><span style="color:#e0c46c">${diceRoll}</span><span style="color:#6a8759">`</span><span>)
+</span></span><span>	}
+</span><span>});
 </span><span>
-</span><span><span>	chatClient.onSub(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user</span><span class="hljs-function">) =&gt;</span><span> {
-</span></span><span><span>		chatClient.say(channel, </span><span style="color:#6a8759">`Thanks to @</span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759"> for subscribing to the channel!`</span><span>);
-</span></span><span>	});
-</span><span><span>	chatClient.onResub(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user, subInfo</span><span class="hljs-function">) =&gt;</span><span> {
-</span></span><span><span>		chatClient.say(channel, </span><span style="color:#6a8759">`Thanks to @</span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759"> for subscribing to the channel for a total of </span><span style="color:#e0c46c">${subInfo.months}</span><span style="color:#6a8759"> months!`</span><span>);
-</span></span><span>	});
-</span><span><span>	chatClient.onSubGift(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user, subInfo</span><span class="hljs-function">) =&gt;</span><span> {
-</span></span><span><span>		chatClient.say(channel, </span><span style="color:#6a8759">`Thanks to </span><span style="color:#e0c46c">${subInfo.gifter}</span><span style="color:#6a8759"> for gifting a subscription to </span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759">!`</span><span>);
-</span></span><span>	});
-</span><span>}
-</span><span>
-</span><span>main();
+</span><span><span>chatClient.onSub(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user</span><span class="hljs-function">) =&gt;</span><span> {
+</span></span><span><span>	chatClient.say(channel, </span><span style="color:#6a8759">`Thanks to @</span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759"> for subscribing to the channel!`</span><span>);
+</span></span><span>});
+</span><span><span>chatClient.onResub(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user, subInfo</span><span class="hljs-function">) =&gt;</span><span> {
+</span></span><span><span>	chatClient.say(channel, </span><span style="color:#6a8759">`Thanks to @</span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759"> for subscribing to the channel for a total of </span><span style="color:#e0c46c">${subInfo.months}</span><span style="color:#6a8759"> months!`</span><span>);
+</span></span><span>});
+</span><span><span>chatClient.onSubGift(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user, subInfo</span><span class="hljs-function">) =&gt;</span><span> {
+</span></span><span><span>	chatClient.say(channel, </span><span style="color:#6a8759">`Thanks to </span><span style="color:#e0c46c">${subInfo.gifter}</span><span style="color:#6a8759"> for gifting a subscription to </span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759">!`</span><span>);
+</span></span><span>});
 </span></code></pre></pre></div></div></div></div></div>
 <script src="/versions/main/pe.js"></script>
 </body>
