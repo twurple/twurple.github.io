@@ -1028,7 +1028,7 @@ input:checked + .jss28 {
 </span></span><span>chatClient.removeListener(followAgeListener);
 </span></code></pre></div></pre>
 <p>A list of all chat events can be found in the <a class="jss22" href="/versions/main/reference/chat/classes/ChatClient.html">ChatClient</a> class reference.</p>
-<div class="jss23"><h3 class="jss24">Why does my onConnect listener not work?</h3><p>You should use <code>onRegister</code> to do things after the registration with the chat server finishes.</p><p>The <code>onConnect</code> event is fired before authentication and is therefore unlikely to be what you want since you can&#x27;t send any messages at this point.</p></div></div></div></div></div></div>
+<div class="jss23"><h3 class="jss24">Why do actions right after the `connect()` call not work?</h3><p>You should use <code>onRegister</code> to do things after the registration with the chat server finishes.</p><p>The <code>connect()</code> method finishes before authentication and is therefore unlikely to be what you want since you can&#x27;t send any messages at this point.</p></div></div></div></div></div></div>
 <script src="/versions/main/pe.js"></script>
 </body>
 </html>
