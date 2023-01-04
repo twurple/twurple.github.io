@@ -1015,7 +1015,7 @@ input:checked + .jss28 {
 </span></span><span>
 </span><span><span></span><span style="color:#cb7832">const</span><span> apiClient = </span><span style="color:#cb7832">new</span><span> ApiClient({ authProvider });</span></span></code></pre></div></pre>
 <p>On the <a class="jss22" href="/versions/main/reference/api/classes/ApiClient.html">ApiClient</a> instance, the API methods are namespaced into the different resources like <code>users</code> and <code>streams</code>.</p>
-<p>All API methods are <code>async</code> and thus can be <code>await</code>ed. Here&#x27;s a quick example:</p>
+<p>All API methods are <code>async</code> and thus must be <code>await</code>ed. Here&#x27;s a quick example:</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre-wrap"><span><span style="color:#cb7832">async</span><span> </span><span class="hljs-function" style="color:#cb7832">function</span><span class="hljs-function"> </span><span class="hljs-function hljs-title">isStreamLive</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">userName: </span><span class="hljs-function" style="color:#e0c46c">string</span><span class="hljs-function">) </span><span>{
 </span></span><span><span>	</span><span style="color:#cb7832">const</span><span> user = </span><span style="color:#cb7832">await</span><span> apiClient.users.getUserByName(userName);
 </span></span><span><span>	</span><span style="color:#cb7832">if</span><span> (!user) {
