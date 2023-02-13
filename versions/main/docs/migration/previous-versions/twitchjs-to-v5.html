@@ -1,0 +1,1235 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Twurple</title>
+    <style>
+    	@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+
+		html {
+			height: 100%;
+		}
+
+		html, body, #app-root {
+			width: 100%;
+			display: flex;
+			flex: 1;
+			flex-direction: column;
+		}
+		
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-size: 14px;
+			line-height: 1.6em;
+			background: #141414;
+			color: #b9b9b9;
+		}
+
+		p {
+			margin: 8px 0;
+		}
+		
+		:root, :host {
+  --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Solid";
+  --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Regular";
+  --fa-font-light: normal 300 1em/1 "Font Awesome 6 Light";
+  --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Thin";
+  --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
+  --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-regular: normal 400 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+}
+
+svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
+  overflow: visible;
+  box-sizing: content-box;
+}
+
+.svg-inline--fa {
+  display: var(--fa-display, inline-block);
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+.svg-inline--fa.fa-2xs {
+  vertical-align: 0.1em;
+}
+.svg-inline--fa.fa-xs {
+  vertical-align: 0em;
+}
+.svg-inline--fa.fa-sm {
+  vertical-align: -0.0714285705em;
+}
+.svg-inline--fa.fa-lg {
+  vertical-align: -0.2em;
+}
+.svg-inline--fa.fa-xl {
+  vertical-align: -0.25em;
+}
+.svg-inline--fa.fa-2xl {
+  vertical-align: -0.3125em;
+}
+.svg-inline--fa.fa-pull-left {
+  margin-right: var(--fa-pull-margin, 0.3em);
+  width: auto;
+}
+.svg-inline--fa.fa-pull-right {
+  margin-left: var(--fa-pull-margin, 0.3em);
+  width: auto;
+}
+.svg-inline--fa.fa-li {
+  width: var(--fa-li-width, 2em);
+  top: 0.25em;
+}
+.svg-inline--fa.fa-fw {
+  width: var(--fa-fw-width, 1.25em);
+}
+
+.fa-layers svg.svg-inline--fa {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.fa-layers-counter, .fa-layers-text {
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+}
+
+.fa-layers {
+  display: inline-block;
+  height: 1em;
+  position: relative;
+  text-align: center;
+  vertical-align: -0.125em;
+  width: 1em;
+}
+.fa-layers svg.svg-inline--fa {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.fa-layers-text {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.fa-layers-counter {
+  background-color: var(--fa-counter-background-color, #ff253a);
+  border-radius: var(--fa-counter-border-radius, 1em);
+  box-sizing: border-box;
+  color: var(--fa-inverse, #fff);
+  line-height: var(--fa-counter-line-height, 1);
+  max-width: var(--fa-counter-max-width, 5em);
+  min-width: var(--fa-counter-min-width, 1.5em);
+  overflow: hidden;
+  padding: var(--fa-counter-padding, 0.25em 0.5em);
+  right: var(--fa-right, 0);
+  text-overflow: ellipsis;
+  top: var(--fa-top, 0);
+  -webkit-transform: scale(var(--fa-counter-scale, 0.25));
+          transform: scale(var(--fa-counter-scale, 0.25));
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+
+.fa-layers-bottom-right {
+  bottom: var(--fa-bottom, 0);
+  right: var(--fa-right, 0);
+  top: auto;
+  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+          transform: scale(var(--fa-layers-scale, 0.25));
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+}
+
+.fa-layers-bottom-left {
+  bottom: var(--fa-bottom, 0);
+  left: var(--fa-left, 0);
+  right: auto;
+  top: auto;
+  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+          transform: scale(var(--fa-layers-scale, 0.25));
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+}
+
+.fa-layers-top-right {
+  top: var(--fa-top, 0);
+  right: var(--fa-right, 0);
+  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+          transform: scale(var(--fa-layers-scale, 0.25));
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+
+.fa-layers-top-left {
+  left: var(--fa-left, 0);
+  right: auto;
+  top: var(--fa-top, 0);
+  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+          transform: scale(var(--fa-layers-scale, 0.25));
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+}
+
+.fa-1x {
+  font-size: 1em;
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa-3x {
+  font-size: 3em;
+}
+
+.fa-4x {
+  font-size: 4em;
+}
+
+.fa-5x {
+  font-size: 5em;
+}
+
+.fa-6x {
+  font-size: 6em;
+}
+
+.fa-7x {
+  font-size: 7em;
+}
+
+.fa-8x {
+  font-size: 8em;
+}
+
+.fa-9x {
+  font-size: 9em;
+}
+
+.fa-10x {
+  font-size: 10em;
+}
+
+.fa-2xs {
+  font-size: 0.625em;
+  line-height: 0.1em;
+  vertical-align: 0.225em;
+}
+
+.fa-xs {
+  font-size: 0.75em;
+  line-height: 0.0833333337em;
+  vertical-align: 0.125em;
+}
+
+.fa-sm {
+  font-size: 0.875em;
+  line-height: 0.0714285718em;
+  vertical-align: 0.0535714295em;
+}
+
+.fa-lg {
+  font-size: 1.25em;
+  line-height: 0.05em;
+  vertical-align: -0.075em;
+}
+
+.fa-xl {
+  font-size: 1.5em;
+  line-height: 0.0416666682em;
+  vertical-align: -0.125em;
+}
+
+.fa-2xl {
+  font-size: 2em;
+  line-height: 0.03125em;
+  vertical-align: -0.1875em;
+}
+
+.fa-fw {
+  text-align: center;
+  width: 1.25em;
+}
+
+.fa-ul {
+  list-style-type: none;
+  margin-left: var(--fa-li-margin, 2.5em);
+  padding-left: 0;
+}
+.fa-ul > li {
+  position: relative;
+}
+
+.fa-li {
+  left: calc(var(--fa-li-width, 2em) * -1);
+  position: absolute;
+  text-align: center;
+  width: var(--fa-li-width, 2em);
+  line-height: inherit;
+}
+
+.fa-border {
+  border-color: var(--fa-border-color, #eee);
+  border-radius: var(--fa-border-radius, 0.1em);
+  border-style: var(--fa-border-style, solid);
+  border-width: var(--fa-border-width, 0.08em);
+  padding: var(--fa-border-padding, 0.2em 0.25em 0.15em);
+}
+
+.fa-pull-left {
+  float: left;
+  margin-right: var(--fa-pull-margin, 0.3em);
+}
+
+.fa-pull-right {
+  float: right;
+  margin-left: var(--fa-pull-margin, 0.3em);
+}
+
+.fa-beat {
+  -webkit-animation-name: fa-beat;
+          animation-name: fa-beat;
+  -webkit-animation-delay: var(--fa-animation-delay, 0s);
+          animation-delay: var(--fa-animation-delay, 0s);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, ease-in-out);
+          animation-timing-function: var(--fa-animation-timing, ease-in-out);
+}
+
+.fa-bounce {
+  -webkit-animation-name: fa-bounce;
+          animation-name: fa-bounce;
+  -webkit-animation-delay: var(--fa-animation-delay, 0s);
+          animation-delay: var(--fa-animation-delay, 0s);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+          animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+}
+
+.fa-fade {
+  -webkit-animation-name: fa-fade;
+          animation-name: fa-fade;
+  -webkit-animation-delay: var(--fa-animation-delay, 0s);
+          animation-delay: var(--fa-animation-delay, 0s);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+          animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+}
+
+.fa-beat-fade {
+  -webkit-animation-name: fa-beat-fade;
+          animation-name: fa-beat-fade;
+  -webkit-animation-delay: var(--fa-animation-delay, 0s);
+          animation-delay: var(--fa-animation-delay, 0s);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+          animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+}
+
+.fa-flip {
+  -webkit-animation-name: fa-flip;
+          animation-name: fa-flip;
+  -webkit-animation-delay: var(--fa-animation-delay, 0s);
+          animation-delay: var(--fa-animation-delay, 0s);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, ease-in-out);
+          animation-timing-function: var(--fa-animation-timing, ease-in-out);
+}
+
+.fa-shake {
+  -webkit-animation-name: fa-shake;
+          animation-name: fa-shake;
+  -webkit-animation-delay: var(--fa-animation-delay, 0s);
+          animation-delay: var(--fa-animation-delay, 0s);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, linear);
+          animation-timing-function: var(--fa-animation-timing, linear);
+}
+
+.fa-spin {
+  -webkit-animation-name: fa-spin;
+          animation-name: fa-spin;
+  -webkit-animation-delay: var(--fa-animation-delay, 0s);
+          animation-delay: var(--fa-animation-delay, 0s);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 2s);
+          animation-duration: var(--fa-animation-duration, 2s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, linear);
+          animation-timing-function: var(--fa-animation-timing, linear);
+}
+
+.fa-spin-reverse {
+  --fa-animation-direction: reverse;
+}
+
+.fa-pulse,
+.fa-spin-pulse {
+  -webkit-animation-name: fa-spin;
+          animation-name: fa-spin;
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, steps(8));
+          animation-timing-function: var(--fa-animation-timing, steps(8));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fa-beat,
+.fa-bounce,
+.fa-fade,
+.fa-beat-fade,
+.fa-flip,
+.fa-pulse,
+.fa-shake,
+.fa-spin,
+.fa-spin-pulse {
+    -webkit-animation-delay: -1ms;
+            animation-delay: -1ms;
+    -webkit-animation-duration: 1ms;
+            animation-duration: 1ms;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+    -webkit-transition-duration: 0s;
+            transition-duration: 0s;
+  }
+}
+@-webkit-keyframes fa-beat {
+  0%, 90% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  45% {
+    -webkit-transform: scale(var(--fa-beat-scale, 1.25));
+            transform: scale(var(--fa-beat-scale, 1.25));
+  }
+}
+@keyframes fa-beat {
+  0%, 90% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  45% {
+    -webkit-transform: scale(var(--fa-beat-scale, 1.25));
+            transform: scale(var(--fa-beat-scale, 1.25));
+  }
+}
+@-webkit-keyframes fa-bounce {
+  0% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    -webkit-transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+            transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+  }
+  30% {
+    -webkit-transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+            transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+  }
+  50% {
+    -webkit-transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+            transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+  }
+  57% {
+    -webkit-transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+            transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+  }
+  64% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+}
+@keyframes fa-bounce {
+  0% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    -webkit-transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+            transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+  }
+  30% {
+    -webkit-transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+            transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+  }
+  50% {
+    -webkit-transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+            transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+  }
+  57% {
+    -webkit-transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+            transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+  }
+  64% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+}
+@-webkit-keyframes fa-fade {
+  50% {
+    opacity: var(--fa-fade-opacity, 0.4);
+  }
+}
+@keyframes fa-fade {
+  50% {
+    opacity: var(--fa-fade-opacity, 0.4);
+  }
+}
+@-webkit-keyframes fa-beat-fade {
+  0%, 100% {
+    opacity: var(--fa-beat-fade-opacity, 0.4);
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(var(--fa-beat-fade-scale, 1.125));
+            transform: scale(var(--fa-beat-fade-scale, 1.125));
+  }
+}
+@keyframes fa-beat-fade {
+  0%, 100% {
+    opacity: var(--fa-beat-fade-opacity, 0.4);
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(var(--fa-beat-fade-scale, 1.125));
+            transform: scale(var(--fa-beat-fade-scale, 1.125));
+  }
+}
+@-webkit-keyframes fa-flip {
+  50% {
+    -webkit-transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+            transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+  }
+}
+@keyframes fa-flip {
+  50% {
+    -webkit-transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+            transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+  }
+}
+@-webkit-keyframes fa-shake {
+  0% {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+  }
+  4% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  8%, 24% {
+    -webkit-transform: rotate(-18deg);
+            transform: rotate(-18deg);
+  }
+  12%, 28% {
+    -webkit-transform: rotate(18deg);
+            transform: rotate(18deg);
+  }
+  16% {
+    -webkit-transform: rotate(-22deg);
+            transform: rotate(-22deg);
+  }
+  20% {
+    -webkit-transform: rotate(22deg);
+            transform: rotate(22deg);
+  }
+  32% {
+    -webkit-transform: rotate(-12deg);
+            transform: rotate(-12deg);
+  }
+  36% {
+    -webkit-transform: rotate(12deg);
+            transform: rotate(12deg);
+  }
+  40%, 100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+@keyframes fa-shake {
+  0% {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+  }
+  4% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  8%, 24% {
+    -webkit-transform: rotate(-18deg);
+            transform: rotate(-18deg);
+  }
+  12%, 28% {
+    -webkit-transform: rotate(18deg);
+            transform: rotate(18deg);
+  }
+  16% {
+    -webkit-transform: rotate(-22deg);
+            transform: rotate(-22deg);
+  }
+  20% {
+    -webkit-transform: rotate(22deg);
+            transform: rotate(22deg);
+  }
+  32% {
+    -webkit-transform: rotate(-12deg);
+            transform: rotate(-12deg);
+  }
+  36% {
+    -webkit-transform: rotate(12deg);
+            transform: rotate(12deg);
+  }
+  40%, 100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.fa-rotate-90 {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.fa-rotate-180 {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.fa-rotate-270 {
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+.fa-flip-horizontal {
+  -webkit-transform: scale(-1, 1);
+          transform: scale(-1, 1);
+}
+
+.fa-flip-vertical {
+  -webkit-transform: scale(1, -1);
+          transform: scale(1, -1);
+}
+
+.fa-flip-both,
+.fa-flip-horizontal.fa-flip-vertical {
+  -webkit-transform: scale(-1, -1);
+          transform: scale(-1, -1);
+}
+
+.fa-rotate-by {
+  -webkit-transform: rotate(var(--fa-rotate-angle, none));
+          transform: rotate(var(--fa-rotate-angle, none));
+}
+
+.fa-stack {
+  display: inline-block;
+  vertical-align: middle;
+  height: 2em;
+  position: relative;
+  width: 2.5em;
+}
+
+.fa-stack-1x,
+.fa-stack-2x {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: var(--fa-stack-z-index, auto);
+}
+
+.svg-inline--fa.fa-stack-1x {
+  height: 1em;
+  width: 1.25em;
+}
+.svg-inline--fa.fa-stack-2x {
+  height: 2em;
+  width: 2.5em;
+}
+
+.fa-inverse {
+  color: var(--fa-inverse, #fff);
+}
+
+.sr-only,
+.fa-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only-focusable:not(:focus),
+.fa-sr-only-focusable:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.svg-inline--fa .fa-primary {
+  fill: var(--fa-primary-color, currentColor);
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa .fa-secondary {
+  fill: var(--fa-secondary-color, currentColor);
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-primary {
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-secondary {
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa mask .fa-primary,
+.svg-inline--fa mask .fa-secondary {
+  fill: black;
+}
+
+.fad.fa-inverse,
+.fa-duotone.fa-inverse {
+  color: var(--fa-inverse, #fff);
+}
+
+	</style>
+    <style id="server-side-styles">.jss13 {
+  min-height: 100%;
+  border-right: 1px solid #444;
+}
+.jss16 {
+  color: #b9b9b9;
+  display: block;
+  padding: 8px 0;
+}
+.jss17 {
+  height: 1em;
+  margin: 0;
+  padding: 4px 8px 4px 12px;
+  font-size: 1.1em;
+  font-weight: bold;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+.jss18 > a {
+  padding-left: 20px;
+}
+.jss14 {
+  color: #b9b9b9;
+  height: 1em;
+  display: block;
+  padding: 8px;
+  overflow: hidden;
+  transition: .3s background-color ease-in-out, .3s border-left-color ease-in-out;
+  border-left: .25em solid transparent;
+  line-height: 1em;
+  text-overflow: ellipsis;
+  text-decoration: none;
+}
+.jss14:hover {
+  background-color: #333333;
+}
+.jss15 {
+  border-color: #647d0f;
+  background-color: #242424;
+}
+.jss15:hover {
+  border-left-color: #88ab14;
+}
+.jss25 {
+  position: relative;
+}
+.jss26 {
+  top: 8px;
+  right: 8px;
+  border: 1px solid #444;
+  display: flex;
+  opacity: 0;
+  position: absolute;
+  transition: opacity .5s ease-in-out;
+  pointer-events: none;
+}
+.jss25:hover .jss26 {
+  opacity: 1;
+  pointer-events: auto;
+}
+.jss27 {
+  display: none;
+}
+.jss28 {
+  cursor: pointer;
+  padding: 8px;
+  transition: background-color .3s ease-in-out;
+  border-left: 1px solid #444;
+}
+.jss28:first-of-type {
+  border-left: 0 none;
+}
+input:checked + .jss28 {
+  background: #444;
+}
+.jss29 {
+  display: block;
+  background-color: rgba(9, 180, 50, 0.25);
+}
+.jss30 {
+  display: block;
+  background-color: rgba(255, 106, 105, 0.25);
+}
+.jss21 table {
+  border-collapse: collapse;
+}
+.jss21 th, .jss21 td {
+  border: 1px solid #444;
+  padding: 8px;
+}
+.jss21 li {
+  margin: 16px 0;
+}
+.jss21 li::marker {
+  color: #647d0f;
+}
+.jss22 {
+  color: inherit;
+  transition: border-color .3s ease-in-out;
+  font-weight: bold;
+  border-bottom: 1.5px solid #647d0f;
+  text-decoration: none;
+}
+.jss22:hover {
+  border-bottom-color: #88ab14;
+}
+.jss23 {
+  display: flow-root;
+  padding: 0 1em;
+  border-left: 4px solid #ab9120;
+  margin-bottom: 1em;
+  background-color: #242424;
+}
+.jss24 {
+  font-size: 1em;
+}
+.jss20 {
+  padding: 16px;
+}
+.jss20 h2 {
+  margin: 24px 0 16px;
+}
+.jss20 h2:first-child {
+  margin-top: 0;
+}
+.jss19 {
+  color: #b9b9b9;
+  padding: 16px;
+  position: relative;
+  background-color: #242424;
+}
+.jss19 h1 {
+  margin: 0;
+  display: inline;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+.jss19 p {
+  margin: 0;
+}
+.jss10 {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+.jss11 {
+  width: 250px;
+}
+.jss12 {
+  flex: 1;
+}
+.jss1 {
+  display: flex;
+  border-bottom: 1px solid #444;
+}
+.jss2 {
+  color: #b9b9b9;
+  cursor: pointer;
+  margin: 0;
+  padding: 8px 16px;
+  transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
+  line-height: 1.3em;
+  user-select: none;
+  border-bottom: 3px solid transparent;
+  text-decoration: none;
+}
+.jss2:hover {
+  background-color: #333333;
+}
+.jss3 {
+  background-color: #242424;
+  border-bottom-color: #647d0f;
+}
+.jss3:hover {
+  border-bottom-color: #88ab14;
+}
+.jss4 {
+  font-weight: bold;
+  margin-left: 0;
+}
+.jss5 {
+  margin: 0 8px;
+  position: relative;
+}
+.jss5 > .jss2 {
+  margin: 0;
+}
+.jss5:hover .jss6 {
+  display: block;
+}
+.jss6 {
+  top: 100%;
+  left: 0;
+  border: 1px solid #444;
+  display: none;
+  z-index: 4;
+  position: absolute;
+  background-color: #141414;
+}
+.jss7 {
+  margin: 0;
+  display: block;
+  border-left: 3px solid transparent;
+  white-space: nowrap;
+  border-right: 0 none;
+  border-bottom: 0 none;
+}
+.jss7:first-child {
+  border-top: 0 none;
+}
+.jss8 {
+  background-color: #242424;
+  border-left-color: #647d0f;
+}
+.jss8:hover {
+  border-left-color: #88ab14;
+}
+.jss9 {
+  flex: 1;
+}</style>
+</head>
+<body>
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/versions/main/">Twurple</a><a class="jss2" href="/versions/main/docs/auth/">Authentication</a><a class="jss2" href="/versions/main/docs/getting-data/">Getting data</a><a class="jss2" href="/versions/main/docs/examples/">Examples</a><a class="jss2" href="/versions/main/docs/faq/">FAQ</a><a class="jss2" href="/versions/main/docs/migration/">Migration</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/versions/main/reference/api/">api</a><a class="jss2 jss7" href="/versions/main/reference/api-call/">api-call</a><a class="jss2 jss7" href="/versions/main/reference/auth/">auth</a><a class="jss2 jss7" href="/versions/main/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/versions/main/reference/chat/">chat</a><a class="jss2 jss7" href="/versions/main/reference/common/">common</a><a class="jss2 jss7" href="/versions/main/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/versions/main/reference/ebs-helper/">ebs-helper</a><a class="jss2 jss7" href="/versions/main/reference/eventsub-base/">eventsub-base</a><a class="jss2 jss7" href="/versions/main/reference/eventsub-http/">eventsub-http</a><a class="jss2 jss7" href="/versions/main/reference/eventsub-ws/">eventsub-ws</a><a class="jss2 jss7" href="/versions/main/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><a href="https://github.com/twurple/twurple" class="jss2"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></a><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><a class="jss14" href="/versions/main/docs/migration/">Migration from v5 to v6</a><div class="jss16"><h2 class="jss17">Previous versions</h2><div class="jss18"><a title="Migration from Twitch.js to v5" aria-current="page" class="jss14 jss15" href="/versions/main/docs/migration/previous-versions/twitchjs-to-v5.html">Migration from Twitch.js to v5</a></div></div></div><div class="jss12"><div class="jss19"><h1>Migration from Twitch.js to v5</h1></div><div class="jss20"><div class="jss21"><h2>Make sure your Node version is new enough</h2>
+<p>Node versions below v12.11 are not supported by Twurple.
+Please make sure you&#x27;re at least on this version - anything older than the v12.x branch is out of support anyway.</p>
+<h2>Install and import new packages</h2>
+<p>The packages were moved to a new NPM scope named <code>@twurple</code>. Here&#x27;s the old and new packages for comparison:</p>
+<table><thead><tr><th>Old</th><th>New</th></tr></thead><tbody><tr><td><code>easy-twitch-bot</code></td><td><code>@twurple/easy-bot</code></td></tr><tr><td><code>twitch</code></td><td><code>@twurple/api</code></td></tr><tr><td><code>twitch-api-call</code></td><td><code>@twurple/api-call</code></td></tr><tr><td><code>twitch-auth</code></td><td><code>@twurple/auth</code></td></tr><tr><td><code>twitch-auth-tmi</code></td><td><code>@twurple/auth-tmi</code></td></tr><tr><td><code>twitch-chat-client</code></td><td><code>@twurple/chat</code></td></tr><tr><td><code>twitch-common</code></td><td><code>@twurple/common</code></td></tr><tr><td><code>twitch-electron-auth-provider</code></td><td><code>@twurple/auth-electron</code></td></tr><tr><td><code>twitch-eventsub</code></td><td><code>@twurple/eventsub</code></td></tr><tr><td><code>twitch-eventsub-ngrok</code></td><td><code>@twurple/eventsub-ngrok</code></td></tr><tr><td><code>twitch-pubsub-client</code></td><td><code>@twurple/pubsub</code></td></tr><tr><td><code>twitch-webhooks</code></td><td><em>removed</em></td></tr><tr><td><code>twitch-webhooks-ngrok</code></td><td><em>removed</em></td></tr></tbody></table>
+<h2>Switch from Kraken to Helix</h2>
+<p>The namespace <code>.kraken</code> was completely removed from the <a class="jss22" href="/versions/main/reference/api/classes/ApiClient.html">ApiClient</a>.
+Please migrate to the respective Helix counterparts.</p>
+<h2>Switch from WebHooks to EventSub</h2>
+<p>The legacy WebHooks product was deprecated by Twitch and is going to be removed on September 16th.</p>
+<p>The <code>@twurple/eventsub</code> package is very similar in usage to the old <code>twitch-webhooks</code> package.
+Please check the <a class="jss22" href="/versions/main/docs/getting-data/eventsub/listener-setup.html">documentation on EventSub</a> for further information.</p>
+<h2>Replace default imports with named imports</h2>
+<p>Default exports have been deprecated in 4.2 from all packages that had them. Their named counterparts have been added
+at the same time and the docs have been encouraging their use ever since.</p>
+<p>If your code was written for Twitch.js version 4.1 or lower, you might still have these default imports in your code,
+and it&#x27;s time to replace them now, as they&#x27;re being removed.</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss30"><span style="color:#cb7832">import</span><span> ApiClient </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;twitch&#x27;</span><span>;
+</span></span><span class="jss30"><span></span><span style="color:#cb7832">import</span><span> ChatClient </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;twitch-chat-client&#x27;</span><span>;
+</span></span><span class="jss30"><span></span><span style="color:#cb7832">import</span><span> PubSubClient </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;twitch-pubsub-client&#x27;</span><span>;
+</span></span><span class="jss29"><span></span><span style="color:#cb7832">import</span><span> { ApiClient } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/api&#x27;</span><span>;
+</span></span><span class="jss29"><span></span><span style="color:#cb7832">import</span><span> { ChatClient } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/chat&#x27;</span><span>;
+</span></span><span class="jss29"><span></span><span style="color:#cb7832">import</span><span> { PubSubClient } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/pubsub&#x27;</span><span>;</span></span></code></pre></pre>
+<h2>Move all <code>EventSubListener</code> constructor parameters into the options object</h2>
+<p>To be more consistent with other classes in the package family,
+the properties <code>apiClient</code> and <code>secret</code> were added to <code>EventSubListenerConfig</code>.
+An object of that type is now the only parameter of the <code>EventSubListener</code> constructor.</p>
+<h2>Replace use of <code>MiddlewareAdapter</code> with the new <a class="jss22" href="/versions/main/reference/eventsub-http/classes/EventSubMiddleware.html">EventSubMiddleware</a> class</h2>
+<p>A separate listener and a middleware for an existing listener share a lot of common code.
+Still, but to make better use of their <em>differences</em>, the listener class was split and the <code>MiddlewareAdapter</code> was in turn removed.
+Instead, you can use the new <a class="jss22" href="/versions/main/reference/eventsub-http/classes/EventSubMiddleware.html">EventSubMiddleware</a> class to apply a middleware to your existing Express app.</p>
+<p>The &quot;old&quot; way and the &quot;new&quot; way are too different, so instead of a complicated diff,
+we prefer to just link you to the <a class="jss22" href="/versions/main/reference/eventsub-http/classes/EventSubMiddleware.html">EventSubMiddleware</a> documentation for a comprehensive example.</p>
+<h2>Clean up your EventSub subscriptions before running the upgraded code for the first time</h2>
+<p>To be able to add additional endpoints to the EventSub listener (other than events),
+the base path of the EventSub event callbacks has changed.
+This means that Twitch will keep trying to access your old callbacks, wasting traffic.
+You should clean up your subscriptions in some way, for example by calling the EventSub API:</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span>apiClient.eventSub.deleteAllSubscriptions();</span></span></code></pre></pre>
+<h2>Use string literals rather than enums</h2>
+<p>A few types were changes from enums to literal strings. Please make sure you look for these types and replace them with literals:</p>
+<ul>
+<li><code>CheermoteBackground</code></li>
+<li><code>CheermoteScale</code></li>
+<li><code>CheermoteState</code></li>
+<li><code>HelixBanEventType</code></li>
+<li><code>HelixBroadcasterType</code></li>
+<li><code>HelixModeratorEventType</code></li>
+<li><code>HelixStreamType</code></li>
+<li><code>HelixSubscriptionEventType</code></li>
+<li><code>HelixUserType</code></li>
+<li><code>TwitchApiCallType</code></li>
+</ul>
+<h2>Fix camel case capitalization</h2>
+<p>During the 4.x series, a few classes, interfaces, enums and properties that were named with improper camel case
+have been renamed, and the old counterparts were deprecated. Please check your usage of the following properties:</p>
+<ul>
+<li><a class="jss22" href="/versions/main/reference/api/classes/HelixExtensionTransaction.html#productSku">HelixExtensionTransaction#productSku</a>} - formerly <code>productSKU</code></li>
+<li><a class="jss22" href="/versions/main/reference/api/classes/ApiClient.html#callApi">ApiClient#callApi</a>} - formerly <code>callAPI</code></li>
+<li><a class="jss22" href="/versions/main/reference/chat/classes/ChatClient.html#addVip">ChatClient#addVip</a>} - formerly <code>addVIP</code></li>
+<li><a class="jss22" href="/versions/main/reference/chat/classes/ChatClient.html#removeVip">ChatClient#removeVip</a>} - formerly <code>removeVIP</code></li>
+<li><a class="jss22" href="/versions/main/reference/chat/classes/ChatClient.html#getVips">ChatClient#getVips</a>} - formerly <code>getVIPs</code></li>
+<li><a class="jss22" href="/versions/main/reference/auth-electron/interfaces/TwitchClientCredentials.html#redirectUri">TwitchClientCredentials#redirectUri</a>} - formerly <code>redirectURI</code></li>
+</ul>
+<h2>Use the new logger configuration</h2>
+<p>Previously, a few classes exposed a <code>logLevel</code> parameter that allowed you to set the log level directly.</p>
+<p>Now, this parameter was replaced with a <code>logger</code> parameter everywhere that exposes the full logger configuration.</p>
+<p>To facilitate this with your usual level of granularity, please change your code as such:</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> chat = </span><span style="color:#cb7832">new</span><span> ChatClient({
+</span></span><span class="jss30"><span>	</span><span class="hljs-attr">logLevel</span><span>: </span><span style="color:#6a8759">&#x27;debug&#x27;</span><span>,
+</span></span><span class="jss29"><span>	</span><span class="hljs-attr">logger</span><span>: {
+</span></span><span class="jss29"><span>		</span><span class="hljs-attr">minLevel</span><span>: </span><span style="color:#6a8759">&#x27;debug&#x27;</span><span>
+</span></span><span class="jss29">	}
+</span><span>});
+</span></code></pre></pre>
+<div class="jss23"><h3 class="jss24">Easier logger configuration</h3><p>You probably want to check out the new global <a class="jss22" href="/versions/main/docs/getting-data/logging/configuration.html">logging configuration</a> via environment variables.</p><p>In most cases, it&#x27;s much easier to set up.</p></div>
+<h2>Replace <code>RefreshableAuthProvider</code> with <a class="jss22" href="/versions/main/reference/auth/classes/RefreshingAuthProvider.html">RefreshingAuthProvider</a> &amp; make use of the new fully serializable <a class="jss22" href="/versions/main/reference/auth/interfaces/AccessToken.html">AccessToken</a> interface</h2>
+<p>The old <code>RefreshableAuthProvider</code> was clunky to use. It was initially intended to make it easy to add refreshing
+to any existing <a class="jss22" href="/versions/main/reference/auth/interfaces/AuthProvider.html">AuthProvider</a> implementation, but that benefit never went past the basic <a class="jss22" href="/versions/main/reference/auth/classes/StaticAuthProvider.html">StaticAuthProvider</a> wrapping.</p>
+<p>In turn, it is being removed and replaced by a standalone provider called <a class="jss22" href="/versions/main/reference/auth/classes/RefreshingAuthProvider.html">RefreshingAuthProvider</a>
+which doesn&#x27;t need to wrap another provider anymore. Its parameters are divided into two parts:</p>
+<ul>
+<li>The static data, i.e. app credentials and refresh callback</li>
+<li>The initial token data, which is just an <a class="jss22" href="/versions/main/reference/auth/interfaces/AccessToken.html">AccessToken</a> object</li>
+</ul>
+<p>The mentioned <a class="jss22" href="/versions/main/reference/auth/interfaces/AccessToken.html">AccessToken</a> was changed from a class to a fully serializable interface. This has two implications:</p>
+<ul>
+<li>On the downside, it loses a few convenience getters like <code>.isExpired</code> - use the free-standing functions like <a class="jss22" href="/versions/main/reference/auth/functions/accessTokenIsExpired.html">accessTokenIsExpired</a> instead.</li>
+<li>On the upside, you can now just write the data to a file/database/etc. and read it back from there without any manual conversion shenanigans.</li>
+</ul>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss30"><span style="color:#cb7832">const</span><span> tokenData = </span><span style="color:#e0c46c">JSON</span><span>.parse(</span><span style="color:#cb7832">await</span><span> fs.readFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>, </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>));
+</span></span><span class="jss29"><span></span><span style="color:#cb7832">const</span><span> tokenData: AccessToken = </span><span style="color:#e0c46c">JSON</span><span>.parse(</span><span style="color:#cb7832">await</span><span> fs.readFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>, </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>));
+</span></span><span class="jss30"><span></span><span style="color:#cb7832">const</span><span> auth = </span><span style="color:#cb7832">new</span><span> RefreshableAuthProvider(
+</span></span><span class="jss30"><span>	</span><span style="color:#cb7832">new</span><span> StaticAuthProvider(clientId, tokenData.accessToken),
+</span></span><span class="jss30">	{
+</span><span class="jss30">		clientSecret,
+</span><span class="jss30"><span>		</span><span class="hljs-attr">refreshToken</span><span>: tokenData.refreshToken,
+</span></span><span class="jss30"><span>		</span><span class="hljs-attr">expiry</span><span>: tokenData.expiryTimestamp === </span><span style="color:#6896ba">null</span><span> ? </span><span style="color:#6896ba">null</span><span> : </span><span style="color:#cb7832">new</span><span> </span><span style="color:#e0c46c">Date</span><span>(tokenData.expiryTimestamp),
+</span></span><span class="jss30"><span>		</span><span class="hljs-attr">onRefresh</span><span>: </span><span style="color:#cb7832">async</span><span> ({ accessToken, refreshToken, expiryDate }) =&gt; {
+</span></span><span class="jss30"><span>			</span><span style="color:#cb7832">const</span><span> newTokenData = {
+</span></span><span class="jss30">				accessToken,
+</span><span class="jss30">				refreshToken,
+</span><span class="jss30"><span>				</span><span class="hljs-attr">expiryTimestamp</span><span>: expiryDate === </span><span style="color:#6896ba">null</span><span> ? </span><span style="color:#6896ba">null</span><span> : expiryDate.getTime()
+</span></span><span class="jss30">			};
+</span><span class="jss30"><span>			</span><span style="color:#cb7832">await</span><span> fs.writeFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>, </span><span style="color:#e0c46c">JSON</span><span>.stringify(newTokenData, </span><span style="color:#6896ba">null</span><span>, </span><span style="color:#6896ba">4</span><span>), </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>)
+</span></span><span class="jss30">		}
+</span><span class="jss30">	}
+</span><span class="jss30">);
+</span><span class="jss29"><span></span><span style="color:#cb7832">const</span><span> auth = </span><span style="color:#cb7832">new</span><span> RefreshingAuthProvider(
+</span></span><span class="jss29">	{
+</span><span class="jss29">		clientId,
+</span><span class="jss29">		clientSecret,
+</span><span class="jss29"><span>		</span><span class="hljs-attr">onRefresh</span><span>: </span><span style="color:#cb7832">async</span><span> newTokenData =&gt; </span><span style="color:#cb7832">await</span><span> fs.writeFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>, </span><span style="color:#e0c46c">JSON</span><span>.stringify(newTokenData, </span><span style="color:#6896ba">null</span><span>, </span><span style="color:#6896ba">4</span><span>), </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>)
+</span></span><span class="jss29">	},
+</span><span class="jss29">	tokenData
+</span><span class="jss29">);
+</span></code></pre></pre>
+<h2>Use <code>AuthProvider</code>s directly</h2>
+<p>Previously, <a class="jss22" href="/versions/main/reference/api/classes/ApiClient.html">ApiClient</a> exposed a few helper methods to instantiate it with an <a class="jss22" href="/versions/main/reference/auth/interfaces/AuthProvider.html">AuthProvider</a> created internally.</p>
+<p>In order to decouple these components from each other, these helpers were removed.
+Instead, you should now instantiate the providers by yourself.</p>
+<p>Additionally, some token related helpers on the <a class="jss22" href="/versions/main/reference/api/classes/ApiClient.html">ApiClient</a> have been removed.
+You should call them on the provider directly, or use the free-standing helper functions.
+Both the providers and the helpers are now exported from the <code>@twurple/auth</code> package.</p>
+<p>Examples for the most common use cases:</p>
+<h3>Static token (for quick testing)</h3>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss30"><span style="color:#cb7832">const</span><span> api = </span><span style="color:#cb7832">await</span><span> ApiClient.withCredentials(clientId, accessToken);
+</span></span><span class="jss29"><span></span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> StaticAuthProvider(clientId, accessToken);
+</span></span><span class="jss29"><span></span><span style="color:#cb7832">const</span><span> api = </span><span style="color:#cb7832">new</span><span> ApiClient({ authProvider });</span></span></code></pre></pre>
+<h3>Refreshing token (for continuous access to user data)</h3>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss30"><span style="color:#cb7832">const</span><span> api = </span><span style="color:#cb7832">await</span><span> ApiClient.withCredentials(clientId, accessToken, </span><span style="color:#6896ba">undefined</span><span>, {
+</span></span><span class="jss30">	refreshToken,
+</span><span class="jss30">	clientSecret,
+</span><span class="jss30"><span>	</span><span class="hljs-attr">onRefresh</span><span>: </span><span class="hljs-function" style="color:#b9b9b9">newTokenData</span><span class="hljs-function"> =&gt;</span><span> { </span><span style="color:#7f7f7f">/* refresh callback */</span><span> }
+</span></span><span class="jss30">});
+</span><span class="jss29"><span></span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> RefreshingAuthProvider(
+</span></span><span class="jss29">	{
+</span><span class="jss29">		clientId,
+</span><span class="jss29">		clientSecret,
+</span><span class="jss29"><span>		</span><span class="hljs-attr">onRefresh</span><span>: </span><span style="color:#cb7832">async</span><span> newTokenData =&gt; { </span><span style="color:#7f7f7f">/* refresh callback, ATTENTION: new data format */</span><span> }
+</span></span><span class="jss29">	},
+</span><span class="jss29">	tokenData
+</span><span class="jss29">);
+</span><span class="jss29"><span></span><span style="color:#cb7832">const</span><span> api = </span><span style="color:#cb7832">new</span><span> ApiClient({ authProvider });</span></span></code></pre></pre>
+<h3>App access token (for server-to-server requests without scopes)</h3>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss30"><span style="color:#cb7832">const</span><span> api = ApiClient.withClientCredentials(clientId, clientSecret);
+</span></span><span class="jss29"><span></span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> ClientCredentialsAuthProvider(clientId, clientSecret);
+</span></span><span class="jss29"><span></span><span style="color:#cb7832">const</span><span> api = </span><span style="color:#cb7832">new</span><span> ApiClient({ authProvider });</span></span></code></pre></pre>
+<h2>Replace API clients with auth providers and remove usage of helpers in other packages</h2>
+<p>Similarly to the above, the helper <code>ChatClient.forTwitchClient</code> has been removed.
+Instead, pass the auth provider to the constructor directly.</p>
+<p>As you may also have noticed, the <code>authProvider</code> isn&#x27;t a separate parameter anymore,
+but was integrated into the options object.</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss30"><span style="color:#cb7832">const</span><span> api = </span><span style="color:#cb7832">new</span><span> ApiClient({ authProvider });
+</span></span><span class="jss30"><span></span><span style="color:#cb7832">const</span><span> chat = ChatClient.forTwitchClient(api);
+</span></span><span class="jss29"><span></span><span style="color:#cb7832">const</span><span> chat = </span><span style="color:#cb7832">new</span><span> ChatClient({ authProvider });</span></span></code></pre></pre>
+<p>Also, the different PubSub classes now take auth providers instead of API clients.</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss30"><span style="color:#cb7832">const</span><span> api = </span><span style="color:#cb7832">new</span><span> ApiClient({ authProvider });
+</span></span><span class="jss30"><span></span><span style="color:#cb7832">await</span><span> pubsub.registerUserListener(api);
+</span></span><span class="jss29"><span></span><span style="color:#cb7832">await</span><span> pubsub.registerUserListener(authProvider);</span></span></code></pre></pre>
+<h2>Pass cheermote formatting options directly to the respective methods</h2>
+<p>It was previously possible to add defaults for displaying cheermotes to the <a class="jss22" href="/versions/main/reference/api/classes/ApiClient.html">ApiClient</a>.
+These defaults were removed - now you have to pass all display options
+to <a class="jss22" href="/versions/main/reference/api/classes/HelixCheermoteList.html#getCheermoteDisplayInfo">HelixCheermoteList#getCheermoteDisplayInfo</a>} and <a class="jss22" href="/versions/main/reference/api/classes/HelixCheermoteList.html#parseMessage">HelixCheermoteList#parseMessage</a>}
+as well as <a class="jss22" href="/versions/main/reference/chat/classes/TwitchPrivateMessage.html#parseEmotesAndBits">TwitchPrivateMessage#parseEmotesAndBits</a>}.</p>
+<h2>Remove use of the <code>preAuth</code> and <code>initialScopes</code> properties in <a class="jss22" href="/versions/main/reference/api/interfaces/ApiConfig.html">ApiConfig</a></h2>
+<p>The properties <code>preAuth</code> and <code>initialScopes</code> were dangerous,
+as they left a dangling promise when constructing an <a class="jss22" href="/versions/main/reference/api/classes/ApiClient.html">ApiClient</a>.</p>
+<p>They were replaced by the safer method <a class="jss22" href="/versions/main/reference/api/classes/ApiClient.html#requestScopes">ApiClient#requestScopes</a>},
+which you can call (and more importanly, <code>await</code>) by yourself.</p>
+<h2><a class="jss22" href="/versions/main/reference/auth-electron/classes/ElectronAuthProvider.html">ElectronAuthProvider</a> now requires at least Electron 9</h2>
+<p>Electron versions below 9 are way past their support time by now. Please update to a supported version.</p>
+<h2>Check your bot type in the <a class="jss22" href="/versions/main/reference/chat/classes/ChatClient.html">ChatClient</a> instantiation</h2>
+<p><a class="jss22" href="/versions/main/reference/chat/classes/ChatClient.html">ChatClient</a> now applies rate limiting by default.
+If your bot is a known or verified bot, it may now use way lower rate limits than it could theoretically use.</p>
+<p>Please investigate the properties <a class="jss22" href="/versions/main/reference/chat/interfaces/ChatClientOptions.html#botLevel">ChatClientOptions#botLevel</a> and <a class="jss22" href="/versions/main/reference/chat/interfaces/ChatClientOptions.html#isAlwaysMod">ChatClientOptions#isAlwaysMod</a>
+to raise them appropriately to your bot status.</p>
+<h2>Rename <a class="jss22" href="/versions/main/reference/pubsub/classes/PubSubRedemptionMessage.html">PubSubRedemptionMessage</a>&#x27;s <code>rewardName</code> property</h2>
+<p>The property <code>rewardName</code> was renamed to <code>rewardTitle</code>
+to be consistent with the API and EventSub versions of the same data.
+Please update your code accordingly.</p>
+<h2>Remove our typos</h2>
+<p>See, we all make mistakes sometimes. But we fixed them, and we ask you to fix them too (otherwise your code will break).</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">declare</span><span> </span><span style="color:#cb7832">const</span><span> reward: HelixCustomReward;
+</span></span><span class="jss30"><span></span><span style="color:#e0c46c">console</span><span>.log(reward.propmt);
+</span></span><span class="jss29"><span></span><span style="color:#e0c46c">console</span><span>.log(reward.prompt);</span></span></code></pre></pre>
+<h2>Update your own <a class="jss22" href="/versions/main/reference/auth/interfaces/AuthProvider.html">AuthProvider</a> implementation</h2>
+<p>If you built your own auth provider, its interface now <em>requires</em> setting the <code>tokenType</code> property
+to one of the strings <code>user</code> or <code>app</code> depending on which type of OAuth token it yields.
+You probably want this to be <code>user</code>.</p>
+<h2>Update log level passing for <a class="jss22" href="/versions/main/reference/pubsub/classes/BasicPubSubClient.html">BasicPubSubClient</a></h2>
+<p>In the past, it was possible to directly pass a log level to the <a class="jss22" href="/versions/main/reference/pubsub/classes/BasicPubSubClient.html">BasicPubSubClient</a> constructor.</p>
+<p>Now, only the usual logger configuration is valid.</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss30"><span style="color:#cb7832">new</span><span> BasicPubSubClient(</span><span style="color:#6a8759">&#x27;error&#x27;</span><span>)
+</span></span><span class="jss29"><span></span><span style="color:#cb7832">new</span><span> BasicPubSubClient({ </span><span class="hljs-attr">logger</span><span>: { </span><span class="hljs-attr">minLevel</span><span>: </span><span style="color:#6a8759">&#x27;error&#x27;</span><span> } })</span></span></code></pre></pre>
+<h2>Check usage of <code>setId</code> in <a class="jss22" href="/versions/main/reference/common/classes/ChatEmote.html">ChatEmote</a></h2>
+<p>The property <code>setId</code> was moved from the class <a class="jss22" href="/versions/main/reference/common/classes/ChatEmote.html">ChatEmote</a> to its new subclass <a class="jss22" href="/versions/main/reference/common/classes/ChatEmoteWithSet.html">ChatEmoteWithSet</a> to better reflect
+when a <code>setId</code> is available and when it isn&#x27;t. Previously, a <code>setId</code> of <code>-1</code> was the indicator for a missing set ID.
+Now, instead, you should be aware of which methods return a set and which do not.</p>
+<h2>[TypeScript] Check your <code>callApi</code> calls</h2>
+<p>From now on, <code>callApi</code> returns <code>unknown</code> by default, rather than <code>any</code>. This may lead to a lot of compiler errors.</p>
+<p>Please specify your return types properly in order to fix them.</p>
+<p>Alternatively, you may silence the errors (hopefully temporarily!) by passing <code>any</code> as type parameter explicitly.</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss30"><span style="color:#cb7832">const</span><span> data = </span><span style="color:#cb7832">await</span><span> api.callApi({ </span><span class="hljs-attr">url</span><span>: </span><span style="color:#6a8759">&#x27;users&#x27;</span><span> });
+</span></span><span class="jss29"><span></span><span style="color:#cb7832">const</span><span> data = </span><span style="color:#cb7832">await</span><span> api.callApi&lt;</span><span style="color:#e0c46c">any</span><span>&gt;({ </span><span class="hljs-attr">url</span><span>: </span><span style="color:#6a8759">&#x27;users&#x27;</span><span> });</span></span></code></pre></pre>
+<h2>[TypeScript] Remove the external port setting from EventSub adapter constructors</h2>
+<p>The external port settings for various <a class="jss22" href="/versions/main/reference/eventsub-http/classes/ConnectionAdapter.html">ConnectionAdapter</a> implementations were removed,
+since Twitch requires port 443 externally anyway.</p>
+<p>While in regular JavaScript, this will just be silently ignored, it will make the TypeScript compiler fail,
+so remove it from your code - it probably didn&#x27;t work anyway.</p>
+<h2>[Deprecation] Remove usage of the <code>.helix</code> namespace</h2>
+<p>The namespace <code>.helix</code> has been deprecated. All the Helix sub-namespaces now live directly on the <a class="jss22" href="/versions/main/reference/api/classes/ApiClient.html">ApiClient</a>.</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss30"><span style="color:#cb7832">const</span><span> me = </span><span style="color:#cb7832">await</span><span> api.helix.users.getMe();
+</span></span><span class="jss29"><span></span><span style="color:#cb7832">const</span><span> me = </span><span style="color:#cb7832">await</span><span> api.users.getMe();</span></span></code></pre></pre>
+<h2>[Deprecation] Use the Helix Chat namespaces instead of the Badges namespace</h2>
+<p>The Badges namespace is a basically-unofficial part of the Twitch API.
+Since the Helix Chat namespace contains the same functionality, you should use it instead.</p></div></div></div></div></div>
+<script src="/versions/main/pe.js"></script>
+</body>
+</html>
