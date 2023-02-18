@@ -39,6 +39,7 @@
   --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Thin";
   --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
   --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-regular: normal 400 1em/1 "Font Awesome 6 Sharp";
   --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
 }
 
@@ -438,8 +439,10 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
             animation-duration: 1ms;
     -webkit-animation-iteration-count: 1;
             animation-iteration-count: 1;
-    transition-delay: 0s;
-    transition-duration: 0s;
+    -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+    -webkit-transition-duration: 0s;
+            transition-duration: 0s;
   }
 }
 @-webkit-keyframes fa-beat {
@@ -791,12 +794,12 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
   min-height: 100%;
   border-right: 1px solid #444;
 }
-.jss14 {
+.jss16 {
   color: #b9b9b9;
   display: block;
   padding: 8px 0;
 }
-.jss15 {
+.jss17 {
   height: 1em;
   margin: 0;
   padding: 4px 8px 4px 12px;
@@ -805,10 +808,10 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
   line-height: 1em;
   text-transform: uppercase;
 }
-.jss16 > a {
+.jss18 > a {
   padding-left: 20px;
 }
-.jss17 {
+.jss14 {
   color: #b9b9b9;
   height: 1em;
   display: block;
@@ -820,72 +823,123 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
   text-overflow: ellipsis;
   text-decoration: none;
 }
-.jss17:hover {
+.jss14:hover {
   background-color: #333333;
 }
-.jss18 {
+.jss15 {
   border-color: #647d0f;
   background-color: #242424;
 }
-.jss18:hover {
+.jss15:hover {
   border-left-color: #88ab14;
 }
-.jss22 table {
+.jss25 {
+  position: relative;
+}
+.jss26 {
+  top: 8px;
+  right: 8px;
+  border: 1px solid #444;
+  display: flex;
+  opacity: 0;
+  position: absolute;
+  transition: opacity .5s ease-in-out;
+  pointer-events: none;
+}
+.jss25:hover .jss26 {
+  opacity: 1;
+  pointer-events: auto;
+}
+.jss27 {
+  display: none;
+}
+.jss28 {
+  cursor: pointer;
+  padding: 8px;
+  transition: background-color .3s ease-in-out;
+  border-left: 1px solid #444;
+}
+.jss28:first-of-type {
+  border-left: 0 none;
+}
+input:checked + .jss28 {
+  background: #444;
+}
+.jss29 {
+  display: block;
+  background-color: rgba(9, 180, 50, 0.25);
+}
+.jss30 {
+  display: block;
+  background-color: rgba(255, 106, 105, 0.25);
+}
+.jss21 table {
   border-collapse: collapse;
 }
-.jss22 th, .jss22 td {
+.jss21 th, .jss21 td {
   border: 1px solid #444;
   padding: 8px;
 }
-.jss22 li {
+.jss21 li {
   margin: 16px 0;
 }
-.jss22 li::marker {
+.jss21 li::marker {
   color: #647d0f;
 }
-.jss23 {
+.jss22 {
   color: inherit;
   transition: border-color .3s ease-in-out;
   font-weight: bold;
   border-bottom: 1.5px solid #647d0f;
   text-decoration: none;
 }
-.jss23:hover {
+.jss22:hover {
   border-bottom-color: #88ab14;
 }
-.jss24 {
+.jss23 {
   display: flow-root;
   padding: 0 1em;
   border-left: 4px solid #ab9120;
   margin-bottom: 1em;
   background-color: #242424;
 }
-.jss25 {
+.jss24 {
   font-size: 1em;
 }
-.jss26 {
+.jss20 {
   padding: 16px;
 }
-.jss26 h2 {
+.jss20 h2 {
   margin: 24px 0 16px;
 }
-.jss26 h2:first-child {
+.jss20 h2:first-child {
   margin-top: 0;
 }
-.jss20 {
+.jss19 {
   color: #b9b9b9;
   padding: 16px;
   position: relative;
   background-color: #242424;
 }
-.jss20 h1 {
+.jss19 h1 {
   margin: 0;
   display: inline;
   font-size: 1.5em;
   font-weight: normal;
 }
-.jss20 p {
+.jss19 p {
   margin: 0;
+}
+.jss10 {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+.jss11 {
+  width: 250px;
+}
+.jss12 {
+  flex: 1;
 }
 .jss1 {
   display: flex;
@@ -955,33 +1009,35 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
 }
 .jss9 {
   flex: 1;
-}
-.jss21 {
-  color: #647d0f;
-  transition: color .3s ease-in-out;
-  margin-left: 1em;
-}
-.jss21:hover {
-  color: #88ab14;
-}
-.jss19 {
-  font-family: Monaco, Menlo, "Lucida Console", monospace;
-}
-.jss10 {
-  flex: 1;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-}
-.jss11 {
-  width: 250px;
-}
-.jss12 {
-  flex: 1;
 }</style>
 </head>
 <body>
-<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><a class="jss2" href="/docs/faq/">FAQ</a><a class="jss2" href="/docs/migration/">Migration</a><div class="jss5"><div class="jss2 jss3">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/api-call/">api-call</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/ebs-helper/">ebs-helper</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/eventsub-base/">eventsub-base</a><a class="jss2 jss7" href="/reference/eventsub-http/">eventsub-http</a><a class="jss2 jss7" href="/reference/eventsub-ws/">eventsub-ws</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><a href="https://github.com/twurple/twurple" class="jss2"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></a><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><div class="jss14"><h2 class="jss15">Classes</h2><div class="jss16"><a title="BaseAuthProvider" class="jss17" href="/reference/auth/classes/BaseAuthProvider.html">BaseAuthProvider</a><a title="ClientCredentialsAuthProvider" class="jss17" href="/reference/auth/classes/ClientCredentialsAuthProvider.html">ClientCredentialsAuthProvider</a><a title="InvalidTokenError" class="jss17" href="/reference/auth/classes/InvalidTokenError.html">InvalidTokenError</a><a title="InvalidTokenTypeError" class="jss17" href="/reference/auth/classes/InvalidTokenTypeError.html">InvalidTokenTypeError</a><a title="RefreshingAuthProvider" class="jss17" href="/reference/auth/classes/RefreshingAuthProvider.html">RefreshingAuthProvider</a><a title="StaticAuthProvider" class="jss17" href="/reference/auth/classes/StaticAuthProvider.html">StaticAuthProvider</a><a title="TokenInfo" class="jss17" href="/reference/auth/classes/TokenInfo.html">TokenInfo</a></div></div><div class="jss14"><h2 class="jss15">Functions</h2><div class="jss16"><a title="accessTokenIsExpired" class="jss17" href="/reference/auth/functions/accessTokenIsExpired.html">accessTokenIsExpired</a><a title="exchangeCode" class="jss17" href="/reference/auth/functions/exchangeCode.html">exchangeCode</a><a title="getAppToken" class="jss17" href="/reference/auth/functions/getAppToken.html">getAppToken</a><a title="getExpiryDateOfAccessToken" class="jss17" href="/reference/auth/functions/getExpiryDateOfAccessToken.html">getExpiryDateOfAccessToken</a><a title="getTokenInfo" class="jss17" href="/reference/auth/functions/getTokenInfo.html">getTokenInfo</a><a title="refreshUserToken" class="jss17" href="/reference/auth/functions/refreshUserToken.html">refreshUserToken</a><a title="revokeToken" class="jss17" href="/reference/auth/functions/revokeToken.html">revokeToken</a></div></div><div class="jss14"><h2 class="jss15">Interfaces</h2><div class="jss16"><a title="AccessToken" class="jss17" href="/reference/auth/interfaces/AccessToken.html">AccessToken</a><a title="AuthProvider" class="jss17" href="/reference/auth/interfaces/AuthProvider.html">AuthProvider</a><a title="RefreshConfig" class="jss17" href="/reference/auth/interfaces/RefreshConfig.html">RefreshConfig</a><a title="TokenInfoData" class="jss17" href="/reference/auth/interfaces/TokenInfoData.html">TokenInfoData</a></div></div><div class="jss14"><h2 class="jss15">Type aliases</h2><div class="jss16"><a title="AuthProviderTokenType" aria-current="page" class="jss17 jss18" href="/reference/auth/types/AuthProviderTokenType.html">AuthProviderTokenType</a><a title="ExpireableAccessToken" class="jss17" href="/reference/auth/types/ExpireableAccessToken.html">ExpireableAccessToken</a></div></div></div><div class="jss12"><main><div class="jss20"><h1>AuthProviderTokenType</h1><a class="jss21" href="https://github.com/twurple/twurple/blob/versions/5.3/packages/auth/src/providers/AuthProvider.ts#L6" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></a><div class="jss22"><p>The type of token an auth provider can return - user tokens and app tokens are supported.</p></div></div><div class="jss26"><p>Aliased type:<!-- --> <span class="jss19">&quot;user&quot;<!-- --> | <!-- -->&quot;app&quot;</span></p></div></main></div></div></div>
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><a class="jss2" href="/docs/faq/">FAQ</a><a class="jss2" href="/docs/migration/">Migration</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/api-call/">api-call</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/ebs-helper/">ebs-helper</a><a class="jss2 jss7" href="/reference/eventsub-base/">eventsub-base</a><a class="jss2 jss7" href="/reference/eventsub-http/">eventsub-http</a><a class="jss2 jss7" href="/reference/eventsub-ws/">eventsub-ws</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><a href="https://github.com/twurple/twurple" class="jss2"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></a><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><a class="jss14" href="/docs/auth/">Authentication</a><div class="jss16"><h2 class="jss17">Providers</h2><div class="jss18"><a title="Using a fixed token" class="jss14" href="/docs/auth/providers/static.html">Using a fixed token</a><a title="Auto-refreshing tokens" class="jss14" href="/docs/auth/providers/refreshing.html">Auto-refreshing tokens</a><a title="Using app tokens" class="jss14" href="/docs/auth/providers/app-tokens.html">Using app tokens</a><a title="For Electron apps" class="jss14" href="/docs/auth/providers/electron.html">For Electron apps</a><a title="For Extension frontends" class="jss14" href="/docs/auth/providers/extensions.html">For Extension frontends</a></div></div><div class="jss16"><h2 class="jss17">Concepts</h2><div class="jss18"><a title="Context switching" class="jss14" href="/docs/auth/concepts/context-switching.html">Context switching</a><a title="Intents" aria-current="page" class="jss14 jss15" href="/docs/auth/concepts/intents.html">Intents</a></div></div></div><div class="jss12"><div class="jss19"><h1>Intents</h1></div><div class="jss20"><div class="jss21"><p>Intents enable you to give responsibilities to your different authenticated users. For example,
+you can assign one user to be a chatbot that will then be used to connect to chat and represent your application there.</p>
+<div class="jss23"><h3 class="jss24">Warning</h3><p>At the moment, only the <a class="jss22" href="/reference/auth/classes/RefreshingAuthProvider.html">RefreshingAuthProvider</a> implements this concept.</p><p>You can also include it in your own <a class="jss22" href="/reference/auth/interfaces/AuthProvider.html">AuthProvider</a> implementation.</p></div>
+<p>Assignment of intents to a user can be done when adding a user to the provider, using the third parameter:</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span>authProvider.addUser(</span><span style="color:#6a8759">&#x27;125328655&#x27;</span><span>, tokenData, [</span><span style="color:#6a8759">&#x27;chat&#x27;</span><span>]);</span></span></code></pre></pre>
+<p>This will add the <code>chat</code> intent to that user, assigning it to be used by <a class="jss22" href="/reference/chat/classes/ChatClient.html">ChatClient</a> by default.
+(The used intents can be configured in its options.)</p>
+<p>Alternatively, you can add intents to users after the fact as well:</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span>authProvider.addIntentsToUser(</span><span style="color:#6a8759">&#x27;125328655&#x27;</span><span>, [</span><span style="color:#6a8759">&#x27;chat&#x27;</span><span>]);</span></span></code></pre></pre>
+<h2>Advanced usage: Fallback</h2>
+<p>Suppose you are running a big chatbot that runs under the same username for everyone.</p>
+<p>Now you want to add some premium features for paying users: they run in their own process,
+and they can optionally link their own bot account that your bot will run as.</p>
+<p>With intents, this is nearly trivial. First, register your regular chatbot with the <code>chat</code> intent as described above.</p>
+<p>Then, if the streamer opts to use the custom bot feature,
+just assign the custom bot account to an intent including the streamer&#x27;s ID:</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span>authProvider.addUser(customBotUserId, customBotTokenData, [</span><span style="color:#6a8759">`chatBotFor:</span><span style="color:#e0c46c">${streamerUserId}</span><span style="color:#6a8759">`</span><span>]);</span></span></code></pre></pre>
+<p>Now, for each of your &quot;premium user&quot; processes, you can configure <a class="jss22" href="/reference/chat/classes/ChatClient.html">ChatClient</a>
+to make it use the intent you just configured.</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> chat = </span><span style="color:#cb7832">new</span><span> ChatClient({
+</span></span><span><span>	</span><span style="color:#7f7f7f">// ... more options ...</span><span>
+</span></span><span><span>	</span><span class="hljs-attr">authIntents</span><span>: [</span><span style="color:#6a8759">`chatBotFor:</span><span style="color:#e0c46c">${streamerUserId}</span><span style="color:#6a8759">`</span><span>]
+</span></span><span>});
+</span></code></pre></pre>
+<p>This will make the bot run on the custom account if it&#x27;s configured.
+If there is no custom account, it will fall back to using the regular account with the <code>chat</code> intent.</p></div></div></div></div></div>
 <script src="/pe.js"></script>
 </body>
 </html>
