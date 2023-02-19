@@ -1104,7 +1104,7 @@ The chat client looks for the <code>chat</code> intent by default.</p>
 </span><span>	}
 </span><span>);
 </span><span>
-</span><span><span>authProvider.addUser(</span><span style="color:#6a8759">&#x27;125328655&#x27;</span><span>, {
+</span><span><span></span><span style="color:#cb7832">await</span><span> authProvider.addUserForToken({
 </span></span><span>	accessToken,
 </span><span>	refreshToken
 </span><span><span>}, [</span><span style="color:#6a8759">&#x27;chat&#x27;</span><span>]);</span></span></code></pre></pre>
@@ -1154,7 +1154,7 @@ save them back into the same file. (We&#x27;re adding the user ID to the file na
 </span><span><span>		</span><span class="hljs-attr">onRefresh</span><span>: </span><span style="color:#cb7832">async</span><span> (userId, newTokenData) =&gt; </span><span style="color:#cb7832">await</span><span> fs.writeFile(</span><span style="color:#6a8759">`./tokens.</span><span style="color:#e0c46c">${userId}</span><span style="color:#6a8759">.json`</span><span>, </span><span style="color:#e0c46c">JSON</span><span>.stringify(newTokenData, </span><span style="color:#6896ba">null</span><span>, </span><span style="color:#6896ba">4</span><span>), </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>)
 </span></span><span>	}
 </span><span>);
-</span><span><span>authProvider.addUser(</span><span style="color:#6a8759">&#x27;125328655&#x27;</span><span>, {
+</span><span><span></span><span style="color:#cb7832">await</span><span> authProvider.addUserForToken({
 </span></span><span>	accessToken,
 </span><span>	refreshToken
 </span><span><span>}, [</span><span style="color:#6a8759">&#x27;chat&#x27;</span><span>]);

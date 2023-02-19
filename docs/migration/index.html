@@ -1030,7 +1030,7 @@ The respective deprecated counterparts have been removed.</p>
 Now, instead of creating an <code>AuthProvider</code> and <code>ApiClient</code> for each of your users and your app separately,
 you can manage all your users using just one of each.</p>
 <h3><a class="jss22" href="/reference/auth/classes/RefreshingAuthProvider.html">RefreshingAuthProvider</a></h3>
-<p>You can just use the <code>addUser</code> method to add your users to the provider.
+<p>You can just use the <code>addUserForToken</code> method to add your users to the provider.
 It will also take care of app tokens using the supplied client ID and secret.</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> RefreshingAuthProvider(
 </span></span><span>	{
@@ -1042,7 +1042,11 @@ It will also take care of app tokens using the supplied client ID and secret.</p
 </span><span class="jss30">	tokenData,
 </span><span>);
 </span><span>
-</span><span class="jss29"><span>authProvider.addUser(</span><span style="color:#6a8759">&#x27;125328655&#x27;</span><span>, tokenData);</span></span></code></pre></pre>
+</span><span class="jss29">authProvider.addUserForToken(tokenData);
+</span></code></pre></pre>
+<p>Alternatively, if you already know the ID of the user you&#x27;re adding,
+you can use <code>addUser</code> instead as a minor optimization:</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span>authProvider.addUser(</span><span style="color:#6a8759">&#x27;125328655&#x27;</span><span>, tokenData);</span></span></code></pre></pre>
 <h3><a class="jss22" href="/reference/auth/classes/AppTokenAuthProvider.html">AppTokenAuthProvider</a></h3>
 <p>The <code>ClientCredentialsAuthProvider</code> has been renamed to <code>AppTokenAuthProvider</code> to reflect its outcome better.
 Anything using it will, as before, only support calling APIs using app tokens, not representing any user.</p>
@@ -1055,8 +1059,8 @@ The required intent can be configured using the <code>authIntents</code> option.
 <h3>Intents</h3>
 <p>You can set intents on every user in an auth provider.
 A user can have more than one intent, but an intent can only be used for one user.</p>
-<p>To use them with the <a class="jss22" href="/reference/auth/classes/RefreshingAuthProvider.html">RefreshingAuthProvider</a>, just add another parameter to <code>addUser</code>:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span>authProvider.addUser(</span><span style="color:#6a8759">&#x27;125328655&#x27;</span><span>, tokenData, [</span><span style="color:#6a8759">&#x27;chat&#x27;</span><span>]);</span></span></code></pre></pre>
+<p>To use them with the <a class="jss22" href="/reference/auth/classes/RefreshingAuthProvider.html">RefreshingAuthProvider</a>, just add another parameter to <code>addUser</code> or <code>addUserForToken</code>:</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span>authProvider.addUserForToken(tokenData, [</span><span style="color:#6a8759">&#x27;chat&#x27;</span><span>]);</span></span></code></pre></pre>
 <p>You can also add intents to a user after the fact:</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span>authProvider.addIntentsToUser(</span><span style="color:#6a8759">&#x27;125328655&#x27;</span><span>, [</span><span style="color:#6a8759">&#x27;chat&#x27;</span><span>]);</span></span></code></pre></pre>
 <h3>Custom <a class="jss22" href="/reference/auth/interfaces/AuthProvider.html">AuthProvider</a> implementations</h3>
