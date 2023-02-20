@@ -1084,11 +1084,11 @@ The given channels will automatically be joined after connecting.</p>
 <p>Now you have a working bot! Until you have to restart it a few hours later...</p>
 <h2>6. Setting up automatic token refreshing</h2>
 <p>Fortunately, with the access token in step 2, we also got a refresh token! <em>(You wrote that down, didn&#x27;t you?)</em></p>
-<p>With that, you can create another type of auth provider that supports multi-user operation (via the <code>addUser</code> method)
+<p>With that, you can create another type of auth provider that supports multi-user operation (via the <code>addUserForToken</code> method)
 and automatically refreshes all tokens stored in it.</p>
 <p>For the chat client to figure out which user to connect as, you need to specify which one you want to use for chat.</p>
 <p>The feature managing this is called <strong>intents</strong>.
-You can give a user a specific set of intents by passing them to the <code>addUser</code> function as the third parameter.
+You can give a user a specific set of intents by passing them to the <code>addUserForToken</code> function as the second parameter.
 The chat client looks for the <code>chat</code> intent by default.</p>
 <p>Just replace the initialization line with this (but keep the <code>clientId</code> and <code>accessToken</code> constants):</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#7f7f7f">// replace @twurple/auth import line</span><span>
@@ -1104,7 +1104,7 @@ The chat client looks for the <code>chat</code> intent by default.</p>
 </span><span>	}
 </span><span>);
 </span><span>
-</span><span><span>authProvider.addUser(</span><span style="color:#6a8759">&#x27;125328655&#x27;</span><span>, {
+</span><span><span></span><span style="color:#cb7832">await</span><span> authProvider.addUserForToken({
 </span></span><span>	accessToken,
 </span><span>	refreshToken
 </span><span><span>}, [</span><span style="color:#6a8759">&#x27;chat&#x27;</span><span>]);</span></span></code></pre></pre>
@@ -1125,7 +1125,7 @@ save them back into the same file. (We&#x27;re adding the user ID to the file na
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#7f7f7f">// add to imports</span><span>
 </span></span><span><span></span><span style="color:#cb7832">import</span><span> { promises </span><span style="color:#cb7832">as</span><span> fs } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;fs&#x27;</span><span>;
 </span></span><span>
-</span><span><span></span><span style="color:#7f7f7f">// replace the constructor line</span><span>
+</span><span><span></span><span style="color:#7f7f7f">// replace the constructor lines</span><span>
 </span></span><span><span></span><span style="color:#cb7832">const</span><span> tokenData = </span><span style="color:#e0c46c">JSON</span><span>.parse(</span><span style="color:#cb7832">await</span><span> fs.readFile(</span><span style="color:#6a8759">&#x27;./tokens.125328655.json&#x27;</span><span>, </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>));
 </span></span><span><span></span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> RefreshingAuthProvider(
 </span></span><span>	{
@@ -1134,7 +1134,8 @@ save them back into the same file. (We&#x27;re adding the user ID to the file na
 </span><span><span>		</span><span class="hljs-attr">onRefresh</span><span>: </span><span style="color:#cb7832">async</span><span> (userId, newTokenData) =&gt; </span><span style="color:#cb7832">await</span><span> fs.writeFile(</span><span style="color:#6a8759">`./tokens.</span><span style="color:#e0c46c">${userId}</span><span style="color:#6a8759">.json`</span><span>, </span><span style="color:#e0c46c">JSON</span><span>.stringify(newTokenData, </span><span style="color:#6896ba">null</span><span>, </span><span style="color:#6896ba">4</span><span>), </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>)
 </span></span><span>	}
 </span><span>);
-</span></code></pre></pre>
+</span><span>
+</span><span><span>authProvider.addUserForToken(tokenData, [</span><span style="color:#6a8759">&#x27;chat&#x27;</span><span>]);</span></span></code></pre></pre>
 <h2>8. ???</h2>
 <p>We&#x27;re done! Your bot should now connect to chat and react to a few basic commands as well as subs, resubs and gift subs. It is able to recover gracefully when crashing.</p>
 <h2>9. Profit!</h2>
@@ -1154,10 +1155,8 @@ save them back into the same file. (We&#x27;re adding the user ID to the file na
 </span><span><span>		</span><span class="hljs-attr">onRefresh</span><span>: </span><span style="color:#cb7832">async</span><span> (userId, newTokenData) =&gt; </span><span style="color:#cb7832">await</span><span> fs.writeFile(</span><span style="color:#6a8759">`./tokens.</span><span style="color:#e0c46c">${userId}</span><span style="color:#6a8759">.json`</span><span>, </span><span style="color:#e0c46c">JSON</span><span>.stringify(newTokenData, </span><span style="color:#6896ba">null</span><span>, </span><span style="color:#6896ba">4</span><span>), </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>)
 </span></span><span>	}
 </span><span>);
-</span><span><span>authProvider.addUser(</span><span style="color:#6a8759">&#x27;125328655&#x27;</span><span>, {
-</span></span><span>	accessToken,
-</span><span>	refreshToken
-</span><span><span>}, [</span><span style="color:#6a8759">&#x27;chat&#x27;</span><span>]);
+</span><span>
+</span><span><span></span><span style="color:#cb7832">await</span><span> authProvider.addUserForToken(tokenData, [</span><span style="color:#6a8759">&#x27;chat&#x27;</span><span>]);
 </span></span><span>
 </span><span><span></span><span style="color:#cb7832">const</span><span> chatClient = </span><span style="color:#cb7832">new</span><span> ChatClient({ authProvider, </span><span class="hljs-attr">channels</span><span>: [</span><span style="color:#6a8759">&#x27;satisfiedpear&#x27;</span><span>] });
 </span></span><span><span></span><span style="color:#cb7832">await</span><span> chatClient.connect();
