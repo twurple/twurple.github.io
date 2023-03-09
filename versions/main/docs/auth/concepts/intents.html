@@ -1016,7 +1016,7 @@ input:checked + .jss28 {
 you can assign one user to be a chatbot that will then be used to connect to chat and represent your application there.</p>
 <div class="jss23"><h3 class="jss24">Warning</h3><p>At the moment, only the <a class="jss22" href="/versions/main/reference/auth/classes/RefreshingAuthProvider.html">RefreshingAuthProvider</a> implements this concept.</p><p>You can also include it in your own <a class="jss22" href="/versions/main/reference/auth/interfaces/AuthProvider.html">AuthProvider</a> implementation.</p></div>
 <p>Assignment of intents to a user can be done when adding a user to the provider, using the second parameter:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span>authProvider.addUserForToken(tokenData, [</span><span style="color:#6a8759">&#x27;chat&#x27;</span><span>]);</span></span></code></pre></pre>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">await</span><span> authProvider.addUserForToken(tokenData, [</span><span style="color:#6a8759">&#x27;chat&#x27;</span><span>]);</span></span></code></pre></pre>
 <p>This will add the <code>chat</code> intent to that user, assigning it to be used by <a class="jss22" href="/versions/main/reference/chat/classes/ChatClient.html">ChatClient</a> by default.
 (The used intents can be configured in its options.)</p>
 <p>Alternatively, you can add intents to users after the fact as well:</p>
@@ -1028,7 +1028,7 @@ and they can optionally link their own bot account that your bot will run as.</p
 <p>With intents, this is nearly trivial. First, register your regular chatbot with the <code>chat</code> intent as described above.</p>
 <p>Then, if the streamer opts to use the custom bot feature,
 just assign the custom bot account to an intent including the streamer&#x27;s ID:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span>authProvider.addUserForToken(customBotTokenData, [</span><span style="color:#6a8759">`chatBotFor:</span><span style="color:#e0c46c">${streamerUserId}</span><span style="color:#6a8759">`</span><span>]);</span></span></code></pre></pre>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">await</span><span> authProvider.addUserForToken(customBotTokenData, [</span><span style="color:#6a8759">`chatBotFor:</span><span style="color:#e0c46c">${streamerUserId}</span><span style="color:#6a8759">`</span><span>]);</span></span></code></pre></pre>
 <p>Now, for each of your &quot;premium user&quot; processes, you can configure <a class="jss22" href="/versions/main/reference/chat/classes/ChatClient.html">ChatClient</a>
 to make it use the intent you just configured.</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> chat = </span><span style="color:#cb7832">new</span><span> ChatClient({
