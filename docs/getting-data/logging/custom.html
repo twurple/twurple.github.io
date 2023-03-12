@@ -866,10 +866,13 @@ input:checked + .jss28 {
   background: #444;
 }
 .jss29 {
+  tab-size: 2;
+}
+.jss30 {
   display: block;
   background-color: rgba(9, 180, 50, 0.25);
 }
-.jss30 {
+.jss31 {
   display: block;
   background-color: rgba(255, 106, 105, 0.25);
 }
@@ -1018,7 +1021,7 @@ by adding a small wrapper around it and passing it to the <code>custom</code> pr
 and the <code>minLevel</code> property are still applied, although,
 as opposed to the default logger, the default level of <code>warning</code> does <em>not</em> apply here.</p></div>
 <h2>Simple - function form</h2>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> chat = </span><span style="color:#cb7832">new</span><span> ChatClient({
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> chat = </span><span style="color:#cb7832">new</span><span> ChatClient({
 </span></span><span><span>	</span><span style="color:#7f7f7f">// ...</span><span>
 </span></span><span><span>	</span><span class="hljs-attr">logger</span><span>: {
 </span></span><span><span>		</span><span class="hljs-attr">custom</span><span>: </span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">level, message</span><span class="hljs-function">) =&gt;</span><span> {
@@ -1031,7 +1034,7 @@ as opposed to the default logger, the default level of <code>warning</code> does
 which you should import from the <a class="jss22" href="https://www.npmjs.com/package/@d-fischer/logger"><code>@d-fischer/logger</code> package</a>
 to transform it back into a string rather than reversing the level manually with a <code>switch</code> or multiple <code>if</code> statements.</p>
 <h2>Advanced - object form</h2>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> chat = </span><span style="color:#cb7832">new</span><span> ChatClient({
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> chat = </span><span style="color:#cb7832">new</span><span> ChatClient({
 </span></span><span><span>	</span><span style="color:#7f7f7f">// ...</span><span>
 </span></span><span><span>	</span><span class="hljs-attr">logger</span><span>: {
 </span></span><span><span>		</span><span class="hljs-attr">custom</span><span>: {

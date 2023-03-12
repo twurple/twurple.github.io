@@ -866,10 +866,13 @@ input:checked + .jss28 {
   background: #444;
 }
 .jss29 {
+  tab-size: 2;
+}
+.jss30 {
   display: block;
   background-color: rgba(9, 180, 50, 0.25);
 }
-.jss30 {
+.jss31 {
   display: block;
   background-color: rgba(255, 106, 105, 0.25);
 }
@@ -1083,9 +1086,9 @@ and you create a <a class="jss22" href="/reference/eventsub-ws/classes/EventSubW
 </span></code></pre></div></pre>
 <p>The subscription will then automatically start.</p>
 <p>When you don&#x27;t want to listen to a particular event anymore, you just stop its subscription:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span>onlineSubscription.stop();</span></span></code></pre></pre>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span>onlineSubscription.stop();</span></span></code></pre></pre>
 <p>To start it back up after stopping, you can use:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span>onlineSubscription.start();</span></span></code></pre></pre>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span>onlineSubscription.start();</span></span></code></pre></pre>
 <p>Note that you don&#x27;t need to call <code>.start()</code> after creating the subscription.
 It&#x27;s only used for subscriptions that you previously stopped manually.</p>
 <h2>Testing events</h2>

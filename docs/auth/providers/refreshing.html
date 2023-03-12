@@ -866,10 +866,13 @@ input:checked + .jss28 {
   background: #444;
 }
 .jss29 {
+  tab-size: 2;
+}
+.jss30 {
   display: block;
   background-color: rgba(9, 180, 50, 0.25);
 }
-.jss30 {
+.jss31 {
   display: block;
   background-color: rgba(255, 106, 105, 0.25);
 }
@@ -1019,7 +1022,7 @@ especially if you need to fetch data for more than one user.</p><p>The complete 
 <p>Created a file named <code>tokens.{USERID}.json</code>
 (the <code>{USERID}</code> placeholder stands for the ID of the user the token was created for, without the braces)
 with the following structure of data in it (also replace the placeholders here with your tokens):</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-json" style="white-space:pre-wrap"><span><span>{
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span>{
 </span></span><span><span>	</span><span class="hljs-attr">&quot;accessToken&quot;</span><span>: </span><span style="color:#6a8759">&quot;{INITIAL_ACCESS_TOKEN}&quot;</span><span>,
 </span></span><span><span>	</span><span class="hljs-attr">&quot;refreshToken&quot;</span><span>: </span><span style="color:#6a8759">&quot;{INITIAL_REFRESH_TOKEN}&quot;</span><span>,
 </span></span><span><span>	</span><span class="hljs-attr">&quot;expiresIn&quot;</span><span>: </span><span style="color:#6896ba">0</span><span>,
@@ -1044,7 +1047,7 @@ This is done to prevent having to calculate the initial expiry timestamp manuall
 </span><span>
 </span><span><span></span><span style="color:#cb7832">await</span><span> authProvider.addUserForToken(tokenData);</span></span></code></pre></div></pre>
 <p>If you already know the ID of the user you&#x27;re adding, you can save a few internal requests by doing:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span>authProvider.addUser(</span><span style="color:#6a8759">&#x27;125328655&#x27;</span><span>, tokenData);</span></span></code></pre></pre>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span>authProvider.addUser(</span><span style="color:#6a8759">&#x27;125328655&#x27;</span><span>, tokenData);</span></span></code></pre></pre>
 <h2>Getting the initial token using an OAuth code</h2>
 <p>If you received an OAuth authorization code from Twitch&#x27;s Authorization Code Flow,
 you can use that to directly get a suitable <a class="jss22" href="/reference/auth/interfaces/AccessToken.html">AccessToken</a> object using the <code>exchangeToken</code> function:</p>
