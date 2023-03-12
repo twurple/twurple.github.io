@@ -866,10 +866,13 @@ input:checked + .jss28 {
   background: #444;
 }
 .jss29 {
+  tab-size: 2;
+}
+.jss30 {
   display: block;
   background-color: rgba(9, 180, 50, 0.25);
 }
-.jss30 {
+.jss31 {
   display: block;
   background-color: rgba(255, 106, 105, 0.25);
 }
@@ -1022,7 +1025,7 @@ For private info and mutations a user token will be required.</p>
 <p>All API requests that don&#x27;t require a scope are, as stated above,
 called with a token from the user the request relates to if applicable and available, otherwise an app token is used.</p>
 <p>You can override this behavior using the <a class="jss22" href="/versions/main/reference/api/classes/ApiClient.html#asUser">ApiClient#asUser</a> method:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#7f7f7f">// ctx will have the same methods as a regular ApiClient, so you can use any of its methods</span><span>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span style="color:#7f7f7f">// ctx will have the same methods as a regular ApiClient, so you can use any of its methods</span><span>
 </span></span><span><span></span><span style="color:#cb7832">const</span><span> badgeNames = </span><span style="color:#cb7832">await</span><span> apiClient.asUser(userId, </span><span style="color:#cb7832">async</span><span> ctx =&gt; {
 </span></span><span><span>	</span><span style="color:#7f7f7f">// would normally get called using an app access token, but is overridden to use the given user token</span><span>
 </span></span><span><span>	</span><span style="color:#cb7832">const</span><span> badges = </span><span style="color:#cb7832">await</span><span> ctx.chat.getGlobalBadges();

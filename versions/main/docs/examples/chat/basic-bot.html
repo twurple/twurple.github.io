@@ -866,10 +866,13 @@ input:checked + .jss28 {
   background: #444;
 }
 .jss29 {
+  tab-size: 2;
+}
+.jss30 {
   display: block;
   background-color: rgba(9, 180, 50, 0.25);
 }
-.jss30 {
+.jss31 {
   display: block;
   background-color: rgba(255, 106, 105, 0.25);
 }
@@ -1033,7 +1036,7 @@ input:checked + .jss28 {
     &amp;redirect_uri=REDIRECT_URI
 </code></pre>
 <p>The response body should look similar to the following:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-json" style="white-space:pre-wrap"><span><span>{
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span>{
 </span></span><span><span>	</span><span class="hljs-attr">&quot;access_token&quot;</span><span>: </span><span style="color:#6a8759">&quot;0123456789abcdefghijABCDEFGHIJ&quot;</span><span>,
 </span></span><span><span>	</span><span class="hljs-attr">&quot;refresh_token&quot;</span><span>: </span><span style="color:#6a8759">&quot;eyJfaWQmNzMtNGCJ9%6VFV5LNrZFUj8oU231/3Aj&quot;</span><span>,
 </span></span><span><span>	</span><span class="hljs-attr">&quot;expires_in&quot;</span><span>: </span><span style="color:#6896ba">3600</span><span>,
@@ -1044,22 +1047,22 @@ input:checked + .jss28 {
 <p>Write down the <code>access_token</code> and <code>refresh_token</code> properties of the response body. These are important for all the other requests you&#x27;re sending to Twitch!</p>
 <h2>3. Create an <code>AuthProvider</code> instance</h2>
 <p>Now you can finally start writing code! First, import all the classes you&#x27;re going to need from <code>@twurple/auth</code> and <code>@twurple/chat</code>.</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">import</span><span> { StaticAuthProvider } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/auth&#x27;</span><span>;
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span style="color:#cb7832">import</span><span> { StaticAuthProvider } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/auth&#x27;</span><span>;
 </span></span><span><span></span><span style="color:#cb7832">import</span><span> { ChatClient } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/chat&#x27;</span><span>;</span></span></code></pre></pre>
 <p>All the following code needs to be inside this function (or at least called from inside it) so we can use <code>await</code> and still avoid race conditions.</p>
 <p>Now, we can construct a <code>StaticAuthProvider</code> instance using a static auth provider:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> clientId = </span><span style="color:#6a8759">&#x27;uo6dggojyb8d6soh92zknwmi5ej1q2&#x27;</span><span>;
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> clientId = </span><span style="color:#6a8759">&#x27;uo6dggojyb8d6soh92zknwmi5ej1q2&#x27;</span><span>;
 </span></span><span><span></span><span style="color:#cb7832">const</span><span> accessToken = </span><span style="color:#6a8759">&#x27;0123456789abcdefghijABCDEFGHIJ&#x27;</span><span>;
 </span></span><span><span></span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> StaticAuthProvider(clientId, accessToken);</span></span></code></pre></pre>
 <h2>4. Connect to chat</h2>
 <p>Using the <code>AuthProvider</code> instance we just created, we can easily create a <code>ChatClient</code> instance and connect to the chat server.
 The given channels will automatically be joined after connecting.</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> chatClient = </span><span style="color:#cb7832">new</span><span> ChatClient({ authProvider, </span><span class="hljs-attr">channels</span><span>: [</span><span style="color:#6a8759">&#x27;satisfiedpear&#x27;</span><span>] });
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> chatClient = </span><span style="color:#cb7832">new</span><span> ChatClient({ authProvider, </span><span class="hljs-attr">channels</span><span>: [</span><span style="color:#6a8759">&#x27;satisfiedpear&#x27;</span><span>] });
 </span></span><span><span></span><span style="color:#cb7832">await</span><span> chatClient.connect();</span></span></code></pre></pre>
 <p>Now you can run your code and see your bot sitting in your channel. But we want it to do something!</p>
 <h2>5. Listen and react to events</h2>
 <p>Fortunately, reacting to things is easy. To listen to chat messages, just use the <code>onMessage</code> method. As an example, we implement a few basic commands here:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span>chatClient.onMessage(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user, text</span><span class="hljs-function">) =&gt;</span><span> {
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span>chatClient.onMessage(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user, text</span><span class="hljs-function">) =&gt;</span><span> {
 </span></span><span><span>	</span><span style="color:#cb7832">if</span><span> (text === </span><span style="color:#6a8759">&#x27;!ping&#x27;</span><span>) {
 </span></span><span><span>		chatClient.say(channel, </span><span style="color:#6a8759">&#x27;Pong!&#x27;</span><span>);
 </span></span><span><span>	} </span><span style="color:#cb7832">else</span><span> </span><span style="color:#cb7832">if</span><span> (text === </span><span style="color:#6a8759">&#x27;!dice&#x27;</span><span>) {
@@ -1069,7 +1072,7 @@ The given channels will automatically be joined after connecting.</p>
 </span><span>});
 </span></code></pre></pre>
 <p>Handling subscriptions is also pretty easy.</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span>chatClient.onSub(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user</span><span class="hljs-function">) =&gt;</span><span> {
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span>chatClient.onSub(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user</span><span class="hljs-function">) =&gt;</span><span> {
 </span></span><span><span>	chatClient.say(channel, </span><span style="color:#6a8759">`Thanks to @</span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759"> for subscribing to the channel!`</span><span>);
 </span></span><span>});
 </span><span>
@@ -1091,7 +1094,7 @@ and automatically refreshes all tokens stored in it.</p>
 You can give a user a specific set of intents by passing them to the <code>addUserForToken</code> function as the second parameter.
 The chat client looks for the <code>chat</code> intent by default.</p>
 <p>Just replace the initialization line with this (but keep the <code>clientId</code> and <code>accessToken</code> constants):</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#7f7f7f">// replace @twurple/auth import line</span><span>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span style="color:#7f7f7f">// replace @twurple/auth import line</span><span>
 </span></span><span><span></span><span style="color:#cb7832">import</span><span> { RefreshingAuthProvider } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/auth&#x27;</span><span>;
 </span></span><span>
 </span><span><span></span><span style="color:#cb7832">const</span><span> clientSecret = </span><span style="color:#6a8759">&#x27;nyo51xcdrerl8z9m56w9w6wg&#x27;</span><span>;
@@ -1112,7 +1115,7 @@ The chat client looks for the <code>chat</code> intent by default.</p>
 <p>The last problem we have is restarting the bot. When it crashes for any reason, the refreshed token is gone and the application will try using the old token again, which probably fails.</p>
 <p>The <code>refreshConfig</code> parameter we just added can contain another property named <code>onRefresh</code>. Using this, you can persist tokens as soon as they&#x27;re refreshed.</p>
 <p>To prepare for this, let&#x27;s move the tokens to a JSON file named <code>tokens.125328655.json</code>:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-json" style="white-space:pre-wrap"><span><span>{
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span>{
 </span></span><span><span>	</span><span class="hljs-attr">&quot;accessToken&quot;</span><span>: </span><span style="color:#6a8759">&quot;0123456789abcdefghijABCDEFGHIJ&quot;</span><span>,
 </span></span><span><span>	</span><span class="hljs-attr">&quot;refreshToken&quot;</span><span>: </span><span style="color:#6a8759">&quot;eyJfaWQmNzMtNGCJ9%6VFV5LNrZFUj8oU231/3Aj&quot;</span><span>,
 </span></span><span><span>	</span><span class="hljs-attr">&quot;expiresIn&quot;</span><span>: </span><span style="color:#6896ba">0</span><span>,
@@ -1122,7 +1125,7 @@ The chat client looks for the <code>chat</code> intent by default.</p>
 <p>I also added two new properties called <code>expiresIn</code> and <code>obtainmentTimestamp</code>. They will save the expiry time of the access token so the client can determine when to refresh the token without making a failing call first. If you didn&#x27;t get a current timetamp when sending the manual code request (you probably didn&#x27;t - I wouldn&#x27;t either), you can initialize them to zero to always make a refresh call in the beginning.</p>
 <p>Now, we can parse this JSON file on startup, load the tokens from it and when the tokens refresh,
 save them back into the same file. (We&#x27;re adding the user ID to the file name dynamically in the callback to make it easy to extend to multiple users later.)</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#7f7f7f">// add to imports</span><span>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span style="color:#7f7f7f">// add to imports</span><span>
 </span></span><span><span></span><span style="color:#cb7832">import</span><span> { promises </span><span style="color:#cb7832">as</span><span> fs } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;fs&#x27;</span><span>;
 </span></span><span>
 </span><span><span></span><span style="color:#7f7f7f">// replace the constructor lines</span><span>
@@ -1141,7 +1144,7 @@ save them back into the same file. (We&#x27;re adding the user ID to the file na
 <h2>9. Profit!</h2>
 <p>Now you can implement a more elaborated command system, add more events to react to, and much more! All events are documented in the <a class="jss22" href="/versions/main/reference/chat/classes/ChatClient.html">ChatClient</a> class. And don&#x27;t forget to have fun!</p>
 <p>For reference, here&#x27;s the full code that <em>should</em> be the result of everything we just did:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">import</span><span> { RefreshingAuthProvider } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/auth&#x27;</span><span>;
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span style="color:#cb7832">import</span><span> { RefreshingAuthProvider } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/auth&#x27;</span><span>;
 </span></span><span><span></span><span style="color:#cb7832">import</span><span> { ChatClient } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/chat&#x27;</span><span>;
 </span></span><span><span></span><span style="color:#cb7832">import</span><span> { promises </span><span style="color:#cb7832">as</span><span> fs } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;fs&#x27;</span><span>;
 </span></span><span>

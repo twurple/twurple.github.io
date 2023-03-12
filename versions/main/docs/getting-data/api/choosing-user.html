@@ -866,10 +866,13 @@ input:checked + .jss28 {
   background: #444;
 }
 .jss29 {
+  tab-size: 2;
+}
+.jss30 {
   display: block;
   background-color: rgba(9, 180, 50, 0.25);
 }
-.jss30 {
+.jss31 {
   display: block;
   background-color: rgba(255, 106, 105, 0.25);
 }
@@ -1034,7 +1037,7 @@ so they will <strong>always be called using an app token</strong>:</p>
 <h2>Overriding optional user context</h2>
 <p>For the resources in categories 2 and 3, you can override the user context to a specified user ID
 using the <code>asUser</code> method:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> videoId = </span><span style="color:#cb7832">await</span><span> apiClient.asUser(</span><span style="color:#6a8759">&#x27;125328655&#x27;</span><span>, </span><span class="hljs-function" style="color:#b9b9b9">ctx</span><span class="hljs-function"> =&gt;</span><span> {
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> videoId = </span><span style="color:#cb7832">await</span><span> apiClient.asUser(</span><span style="color:#6a8759">&#x27;125328655&#x27;</span><span>, </span><span class="hljs-function" style="color:#b9b9b9">ctx</span><span class="hljs-function"> =&gt;</span><span> {
 </span></span><span><span>	</span><span style="color:#cb7832">const</span><span> video = ctx.videos.getVideoById(videoId);
 </span></span><span><span>	</span><span style="color:#cb7832">return</span><span> video.id;
 </span></span><span>});
