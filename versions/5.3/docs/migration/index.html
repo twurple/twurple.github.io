@@ -39,6 +39,7 @@
   --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Thin";
   --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
   --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-regular: normal 400 1em/1 "Font Awesome 6 Sharp";
   --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
 }
 
@@ -438,8 +439,10 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
             animation-duration: 1ms;
     -webkit-animation-iteration-count: 1;
             animation-iteration-count: 1;
-    transition-delay: 0s;
-    transition-duration: 0s;
+    -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+    -webkit-transition-duration: 0s;
+            transition-duration: 0s;
   }
 }
 @-webkit-keyframes fa-beat {
@@ -966,19 +969,19 @@ input:checked + .jss22 {
 }</style>
 </head>
 <body>
-<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><a class="jss2" href="/docs/faq/">FAQ</a><a aria-current="page" class="jss2 jss3" href="/docs/migration/">Migration</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/api-call/">api-call</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/ebs-helper/">ebs-helper</a><a class="jss2 jss7" href="/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/reference/eventsub-base/">eventsub-base</a><a class="jss2 jss7" href="/reference/eventsub-http/">eventsub-http</a><a class="jss2 jss7" href="/reference/eventsub-ws/">eventsub-ws</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><a href="https://github.com/twurple/twurple" class="jss2"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></a><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss12"><div class="jss13"><h1>Migration from Twitch.js</h1></div><div class="jss14"><div class="jss15"><h2>Make sure your Node version is new enough</h2>
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/versions/5.3/">Twurple</a><a class="jss2" href="/versions/5.3/docs/auth/">Authentication</a><a class="jss2" href="/versions/5.3/docs/getting-data/">Getting data</a><a class="jss2" href="/versions/5.3/docs/examples/">Examples</a><a class="jss2" href="/versions/5.3/docs/faq/">FAQ</a><a aria-current="page" class="jss2 jss3" href="/versions/5.3/docs/migration/">Migration</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/versions/5.3/reference/api/">api</a><a class="jss2 jss7" href="/versions/5.3/reference/api-call/">api-call</a><a class="jss2 jss7" href="/versions/5.3/reference/auth/">auth</a><a class="jss2 jss7" href="/versions/5.3/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/versions/5.3/reference/chat/">chat</a><a class="jss2 jss7" href="/versions/5.3/reference/common/">common</a><a class="jss2 jss7" href="/versions/5.3/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/versions/5.3/reference/ebs-helper/">ebs-helper</a><a class="jss2 jss7" href="/versions/5.3/reference/eventsub/">eventsub</a><a class="jss2 jss7" href="/versions/5.3/reference/eventsub-base/">eventsub-base</a><a class="jss2 jss7" href="/versions/5.3/reference/eventsub-http/">eventsub-http</a><a class="jss2 jss7" href="/versions/5.3/reference/eventsub-ws/">eventsub-ws</a><a class="jss2 jss7" href="/versions/5.3/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><a href="https://github.com/twurple/twurple" class="jss2"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></a><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss12"><div class="jss13"><h1>Migration from Twitch.js</h1></div><div class="jss14"><div class="jss15"><h2>Make sure your Node version is new enough</h2>
 <p>Node versions below v12.11 are not supported by Twurple.
 Please make sure you&#x27;re at least on this version - anything older than the v12.x branch is out of support anyway.</p>
 <h2>Install and import new packages</h2>
 <p>The packages were moved to a new NPM scope named <code>@twurple</code>. Here&#x27;s the old and new packages for comparison:</p>
 <table><thead><tr><th>Old</th><th>New</th></tr></thead><tbody><tr><td><code>easy-twitch-bot</code></td><td><code>@twurple/easy-bot</code></td></tr><tr><td><code>twitch</code></td><td><code>@twurple/api</code></td></tr><tr><td><code>twitch-api-call</code></td><td><code>@twurple/api-call</code></td></tr><tr><td><code>twitch-auth</code></td><td><code>@twurple/auth</code></td></tr><tr><td><code>twitch-auth-tmi</code></td><td><code>@twurple/auth-tmi</code></td></tr><tr><td><code>twitch-chat-client</code></td><td><code>@twurple/chat</code></td></tr><tr><td><code>twitch-common</code></td><td><code>@twurple/common</code></td></tr><tr><td><code>twitch-electron-auth-provider</code></td><td><code>@twurple/auth-electron</code></td></tr><tr><td><code>twitch-eventsub</code></td><td><code>@twurple/eventsub</code></td></tr><tr><td><code>twitch-eventsub-ngrok</code></td><td><code>@twurple/eventsub-ngrok</code></td></tr><tr><td><code>twitch-pubsub-client</code></td><td><code>@twurple/pubsub</code></td></tr><tr><td><code>twitch-webhooks</code></td><td><em>removed</em></td></tr><tr><td><code>twitch-webhooks-ngrok</code></td><td><em>removed</em></td></tr></tbody></table>
 <h2>Switch from Kraken to Helix</h2>
-<p>The namespace <code>.kraken</code> was completely removed from the <a class="jss16" href="/reference/api/classes/ApiClient.html">ApiClient</a>.
+<p>The namespace <code>.kraken</code> was completely removed from the <a class="jss16" href="/versions/5.3/reference/api/classes/ApiClient.html">ApiClient</a>.
 Please migrate to the respective Helix counterparts.</p>
 <h2>Switch from WebHooks to EventSub</h2>
 <p>The legacy WebHooks product was deprecated by Twitch and is going to be removed on September 16th.</p>
 <p>The <code>@twurple/eventsub</code> package is very similar in usage to the old <code>twitch-webhooks</code> package.
-Please check the <a class="jss16" href="/docs/getting-data/eventsub/listener-setup.html">documentation on EventSub</a> for further information.</p>
+Please check the <a class="jss16" href="/versions/5.3/docs/getting-data/eventsub/listener-setup.html">documentation on EventSub</a> for further information.</p>
 <h2>Replace default imports with named imports</h2>
 <p>Default exports have been deprecated in 4.2 from all packages that had them. Their named counterparts have been added
 at the same time and the docs have been encouraging their use ever since.</p>
@@ -994,12 +997,12 @@ and it&#x27;s time to replace them now, as they&#x27;re being removed.</p>
 <p>To be more consistent with other classes in the package family,
 the properties <code>apiClient</code> and <code>secret</code> were added to <code>EventSubListenerConfig</code>.
 An object of that type is now the only parameter of the <code>EventSubListener</code> constructor.</p>
-<h2>Replace use of <code>MiddlewareAdapter</code> with the new <a class="jss16" href="/reference/eventsub-http/classes/EventSubMiddleware.html">EventSubMiddleware</a> class</h2>
+<h2>Replace use of <code>MiddlewareAdapter</code> with the new <a class="jss16" href="/versions/5.3/reference/eventsub-http/classes/EventSubMiddleware.html">EventSubMiddleware</a> class</h2>
 <p>A separate listener and a middleware for an existing listener share a lot of common code.
 Still, but to make better use of their <em>differences</em>, the listener class was split and the <code>MiddlewareAdapter</code> was in turn removed.
-Instead, you can use the new <a class="jss16" href="/reference/eventsub-http/classes/EventSubMiddleware.html">EventSubMiddleware</a> class to apply a middleware to your existing Express app.</p>
+Instead, you can use the new <a class="jss16" href="/versions/5.3/reference/eventsub-http/classes/EventSubMiddleware.html">EventSubMiddleware</a> class to apply a middleware to your existing Express app.</p>
 <p>The &quot;old&quot; way and the &quot;new&quot; way are too different, so instead of a complicated diff,
-we prefer to just link you to the <a class="jss16" href="/reference/eventsub-http/classes/EventSubMiddleware.html">EventSubMiddleware</a> documentation for a comprehensive example.</p>
+we prefer to just link you to the <a class="jss16" href="/versions/5.3/reference/eventsub-http/classes/EventSubMiddleware.html">EventSubMiddleware</a> documentation for a comprehensive example.</p>
 <h2>Clean up your EventSub subscriptions before running the upgraded code for the first time</h2>
 <p>To be able to add additional endpoints to the EventSub listener (other than events),
 the base path of the EventSub event callbacks has changed.
@@ -1024,12 +1027,12 @@ You should clean up your subscriptions in some way, for example by calling the E
 <p>During the 4.x series, a few classes, interfaces, enums and properties that were named with improper camel case
 have been renamed, and the old counterparts were deprecated. Please check your usage of the following properties:</p>
 <ul>
-<li><a class="jss16" href="/reference/api/classes/HelixExtensionTransaction.html#productSku">HelixExtensionTransaction#productSku</a>} - formerly <code>productSKU</code></li>
-<li><a class="jss16" href="/reference/api/classes/ApiClient.html#callApi">ApiClient#callApi</a>} - formerly <code>callAPI</code></li>
-<li><a class="jss16" href="/reference/chat/classes/ChatClient.html#addVip">ChatClient#addVip</a>} - formerly <code>addVIP</code></li>
-<li><a class="jss16" href="/reference/chat/classes/ChatClient.html#removeVip">ChatClient#removeVip</a>} - formerly <code>removeVIP</code></li>
-<li><a class="jss16" href="/reference/chat/classes/ChatClient.html#getVips">ChatClient#getVips</a>} - formerly <code>getVIPs</code></li>
-<li><a class="jss16" href="/reference/auth-electron/interfaces/TwitchClientCredentials.html#redirectUri">TwitchClientCredentials#redirectUri</a>} - formerly <code>redirectURI</code></li>
+<li><a class="jss16" href="/versions/5.3/reference/api/classes/HelixExtensionTransaction.html#productSku">HelixExtensionTransaction#productSku</a>} - formerly <code>productSKU</code></li>
+<li><a class="jss16" href="/versions/5.3/reference/api/classes/ApiClient.html#callApi">ApiClient#callApi</a>} - formerly <code>callAPI</code></li>
+<li><a class="jss16" href="/versions/5.3/reference/chat/classes/ChatClient.html#addVip">ChatClient#addVip</a>} - formerly <code>addVIP</code></li>
+<li><a class="jss16" href="/versions/5.3/reference/chat/classes/ChatClient.html#removeVip">ChatClient#removeVip</a>} - formerly <code>removeVIP</code></li>
+<li><a class="jss16" href="/versions/5.3/reference/chat/classes/ChatClient.html#getVips">ChatClient#getVips</a>} - formerly <code>getVIPs</code></li>
+<li><a class="jss16" href="/versions/5.3/reference/auth-electron/interfaces/TwitchClientCredentials.html#redirectUri">TwitchClientCredentials#redirectUri</a>} - formerly <code>redirectURI</code></li>
 </ul>
 <h2>Use the new logger configuration</h2>
 <p>Previously, a few classes exposed a <code>logLevel</code> parameter that allowed you to set the log level directly.</p>
@@ -1042,19 +1045,19 @@ have been renamed, and the old counterparts were deprecated. Please check your u
 </span></span><span class="jss23">	}
 </span><span>});
 </span></code></pre></pre>
-<div class="jss17"><h3 class="jss18">Easier logger configuration</h3><p>You probably want to check out the new global <a class="jss16" href="/docs/getting-data/logging/configuration.html">logging configuration</a> via environment variables.</p><p>In most cases, it&#x27;s much easier to set up.</p></div>
-<h2>Replace <code>RefreshableAuthProvider</code> with <a class="jss16" href="/reference/auth/classes/RefreshingAuthProvider.html">RefreshingAuthProvider</a> &amp; make use of the new fully serializable <a class="jss16" href="/reference/auth/interfaces/AccessToken.html">AccessToken</a> interface</h2>
+<div class="jss17"><h3 class="jss18">Easier logger configuration</h3><p>You probably want to check out the new global <a class="jss16" href="/versions/5.3/docs/getting-data/logging/configuration.html">logging configuration</a> via environment variables.</p><p>In most cases, it&#x27;s much easier to set up.</p></div>
+<h2>Replace <code>RefreshableAuthProvider</code> with <a class="jss16" href="/versions/5.3/reference/auth/classes/RefreshingAuthProvider.html">RefreshingAuthProvider</a> &amp; make use of the new fully serializable <a class="jss16" href="/versions/5.3/reference/auth/interfaces/AccessToken.html">AccessToken</a> interface</h2>
 <p>The old <code>RefreshableAuthProvider</code> was clunky to use. It was initially intended to make it easy to add refreshing
-to any existing <a class="jss16" href="/reference/auth/interfaces/AuthProvider.html">AuthProvider</a> implementation, but that benefit never went past the basic <a class="jss16" href="/reference/auth/classes/StaticAuthProvider.html">StaticAuthProvider</a> wrapping.</p>
-<p>In turn, it is being removed and replaced by a standalone provider called <a class="jss16" href="/reference/auth/classes/RefreshingAuthProvider.html">RefreshingAuthProvider</a>
+to any existing <a class="jss16" href="/versions/5.3/reference/auth/interfaces/AuthProvider.html">AuthProvider</a> implementation, but that benefit never went past the basic <a class="jss16" href="/versions/5.3/reference/auth/classes/StaticAuthProvider.html">StaticAuthProvider</a> wrapping.</p>
+<p>In turn, it is being removed and replaced by a standalone provider called <a class="jss16" href="/versions/5.3/reference/auth/classes/RefreshingAuthProvider.html">RefreshingAuthProvider</a>
 which doesn&#x27;t need to wrap another provider anymore. Its parameters are divided into two parts:</p>
 <ul>
 <li>The static data, i.e. app credentials and refresh callback</li>
-<li>The initial token data, which is just an <a class="jss16" href="/reference/auth/interfaces/AccessToken.html">AccessToken</a> object</li>
+<li>The initial token data, which is just an <a class="jss16" href="/versions/5.3/reference/auth/interfaces/AccessToken.html">AccessToken</a> object</li>
 </ul>
-<p>The mentioned <a class="jss16" href="/reference/auth/interfaces/AccessToken.html">AccessToken</a> was changed from a class to a fully serializable interface. This has two implications:</p>
+<p>The mentioned <a class="jss16" href="/versions/5.3/reference/auth/interfaces/AccessToken.html">AccessToken</a> was changed from a class to a fully serializable interface. This has two implications:</p>
 <ul>
-<li>On the downside, it loses a few convenience getters like <code>.isExpired</code> - use the free-standing functions like <a class="jss16" href="/reference/auth/functions/accessTokenIsExpired.html">accessTokenIsExpired</a> instead.</li>
+<li>On the downside, it loses a few convenience getters like <code>.isExpired</code> - use the free-standing functions like <a class="jss16" href="/versions/5.3/reference/auth/functions/accessTokenIsExpired.html">accessTokenIsExpired</a> instead.</li>
 <li>On the upside, you can now just write the data to a file/database/etc. and read it back from there without any manual conversion shenanigans.</li>
 </ul>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss24"><span style="color:#cb7832">const</span><span> tokenData = </span><span style="color:#e0c46c">JSON</span><span>.parse(</span><span style="color:#cb7832">await</span><span> fs.readFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>, </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>));
@@ -1085,10 +1088,10 @@ which doesn&#x27;t need to wrap another provider anymore. Its parameters are div
 </span><span class="jss23">);
 </span></code></pre></pre>
 <h2>Use <code>AuthProvider</code>s directly</h2>
-<p>Previously, <a class="jss16" href="/reference/api/classes/ApiClient.html">ApiClient</a> exposed a few helper methods to instantiate it with an <a class="jss16" href="/reference/auth/interfaces/AuthProvider.html">AuthProvider</a> created internally.</p>
+<p>Previously, <a class="jss16" href="/versions/5.3/reference/api/classes/ApiClient.html">ApiClient</a> exposed a few helper methods to instantiate it with an <a class="jss16" href="/versions/5.3/reference/auth/interfaces/AuthProvider.html">AuthProvider</a> created internally.</p>
 <p>In order to decouple these components from each other, these helpers were removed.
 Instead, you should now instantiate the providers by yourself.</p>
-<p>Additionally, some token related helpers on the <a class="jss16" href="/reference/api/classes/ApiClient.html">ApiClient</a> have been removed.
+<p>Additionally, some token related helpers on the <a class="jss16" href="/versions/5.3/reference/api/classes/ApiClient.html">ApiClient</a> have been removed.
 You should call them on the provider directly, or use the free-standing helper functions.
 Both the providers and the helpers are now exported from the <code>@twurple/auth</code> package.</p>
 <p>Examples for the most common use cases:</p>
@@ -1128,23 +1131,23 @@ but was integrated into the options object.</p>
 </span></span><span class="jss24"><span></span><span style="color:#cb7832">await</span><span> pubsub.registerUserListener(api);
 </span></span><span class="jss23"><span></span><span style="color:#cb7832">await</span><span> pubsub.registerUserListener(authProvider);</span></span></code></pre></pre>
 <h2>Pass cheermote formatting options directly to the respective methods</h2>
-<p>It was previously possible to add defaults for displaying cheermotes to the <a class="jss16" href="/reference/api/classes/ApiClient.html">ApiClient</a>.
+<p>It was previously possible to add defaults for displaying cheermotes to the <a class="jss16" href="/versions/5.3/reference/api/classes/ApiClient.html">ApiClient</a>.
 These defaults were removed - now you have to pass all display options
-to <a class="jss16" href="/reference/api/classes/HelixCheermoteList.html#getCheermoteDisplayInfo">HelixCheermoteList#getCheermoteDisplayInfo</a>} and <a class="jss16" href="/reference/api/classes/HelixCheermoteList.html#parseMessage">HelixCheermoteList#parseMessage</a>}
-as well as <a class="jss16" href="/reference/chat/classes/TwitchPrivateMessage.html#parseEmotesAndBits">TwitchPrivateMessage#parseEmotesAndBits</a>}.</p>
-<h2>Remove use of the <code>preAuth</code> and <code>initialScopes</code> properties in <a class="jss16" href="/reference/api/interfaces/ApiConfig.html">ApiConfig</a></h2>
+to <a class="jss16" href="/versions/5.3/reference/api/classes/HelixCheermoteList.html#getCheermoteDisplayInfo">HelixCheermoteList#getCheermoteDisplayInfo</a>} and <a class="jss16" href="/versions/5.3/reference/api/classes/HelixCheermoteList.html#parseMessage">HelixCheermoteList#parseMessage</a>}
+as well as <a class="jss16" href="/versions/5.3/reference/chat/classes/TwitchPrivateMessage.html#parseEmotesAndBits">TwitchPrivateMessage#parseEmotesAndBits</a>}.</p>
+<h2>Remove use of the <code>preAuth</code> and <code>initialScopes</code> properties in <a class="jss16" href="/versions/5.3/reference/api/interfaces/ApiConfig.html">ApiConfig</a></h2>
 <p>The properties <code>preAuth</code> and <code>initialScopes</code> were dangerous,
-as they left a dangling promise when constructing an <a class="jss16" href="/reference/api/classes/ApiClient.html">ApiClient</a>.</p>
-<p>They were replaced by the safer method <a class="jss16" href="/reference/api/classes/ApiClient.html#requestScopes">ApiClient#requestScopes</a>},
+as they left a dangling promise when constructing an <a class="jss16" href="/versions/5.3/reference/api/classes/ApiClient.html">ApiClient</a>.</p>
+<p>They were replaced by the safer method <a class="jss16" href="/versions/5.3/reference/api/classes/ApiClient.html#requestScopes">ApiClient#requestScopes</a>},
 which you can call (and more importanly, <code>await</code>) by yourself.</p>
-<h2><a class="jss16" href="/reference/auth-electron/classes/ElectronAuthProvider.html">ElectronAuthProvider</a> now requires at least Electron 9</h2>
+<h2><a class="jss16" href="/versions/5.3/reference/auth-electron/classes/ElectronAuthProvider.html">ElectronAuthProvider</a> now requires at least Electron 9</h2>
 <p>Electron versions below 9 are way past their support time by now. Please update to a supported version.</p>
-<h2>Check your bot type in the <a class="jss16" href="/reference/chat/classes/ChatClient.html">ChatClient</a> instantiation</h2>
-<p><a class="jss16" href="/reference/chat/classes/ChatClient.html">ChatClient</a> now applies rate limiting by default.
+<h2>Check your bot type in the <a class="jss16" href="/versions/5.3/reference/chat/classes/ChatClient.html">ChatClient</a> instantiation</h2>
+<p><a class="jss16" href="/versions/5.3/reference/chat/classes/ChatClient.html">ChatClient</a> now applies rate limiting by default.
 If your bot is a known or verified bot, it may now use way lower rate limits than it could theoretically use.</p>
-<p>Please investigate the properties <a class="jss16" href="/reference/chat/interfaces/ChatClientOptions.html#botLevel">ChatClientOptions#botLevel</a> and <a class="jss16" href="/reference/chat/interfaces/ChatClientOptions.html#isAlwaysMod">ChatClientOptions#isAlwaysMod</a>
+<p>Please investigate the properties <a class="jss16" href="/versions/5.3/reference/chat/interfaces/ChatClientOptions.html#botLevel">ChatClientOptions#botLevel</a> and <a class="jss16" href="/versions/5.3/reference/chat/interfaces/ChatClientOptions.html#isAlwaysMod">ChatClientOptions#isAlwaysMod</a>
 to raise them appropriately to your bot status.</p>
-<h2>Rename <a class="jss16" href="/reference/pubsub/classes/PubSubRedemptionMessage.html">PubSubRedemptionMessage</a>&#x27;s <code>rewardName</code> property</h2>
+<h2>Rename <a class="jss16" href="/versions/5.3/reference/pubsub/classes/PubSubRedemptionMessage.html">PubSubRedemptionMessage</a>&#x27;s <code>rewardName</code> property</h2>
 <p>The property <code>rewardName</code> was renamed to <code>rewardTitle</code>
 to be consistent with the API and EventSub versions of the same data.
 Please update your code accordingly.</p>
@@ -1153,17 +1156,17 @@ Please update your code accordingly.</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">declare</span><span> </span><span style="color:#cb7832">const</span><span> reward: HelixCustomReward;
 </span></span><span class="jss24"><span></span><span style="color:#e0c46c">console</span><span>.log(reward.propmt);
 </span></span><span class="jss23"><span></span><span style="color:#e0c46c">console</span><span>.log(reward.prompt);</span></span></code></pre></pre>
-<h2>Update your own <a class="jss16" href="/reference/auth/interfaces/AuthProvider.html">AuthProvider</a> implementation</h2>
+<h2>Update your own <a class="jss16" href="/versions/5.3/reference/auth/interfaces/AuthProvider.html">AuthProvider</a> implementation</h2>
 <p>If you built your own auth provider, its interface now <em>requires</em> setting the <code>tokenType</code> property
 to one of the strings <code>user</code> or <code>app</code> depending on which type of OAuth token it yields.
 You probably want this to be <code>user</code>.</p>
-<h2>Update log level passing for <a class="jss16" href="/reference/pubsub/classes/BasicPubSubClient.html">BasicPubSubClient</a></h2>
-<p>In the past, it was possible to directly pass a log level to the <a class="jss16" href="/reference/pubsub/classes/BasicPubSubClient.html">BasicPubSubClient</a> constructor.</p>
+<h2>Update log level passing for <a class="jss16" href="/versions/5.3/reference/pubsub/classes/BasicPubSubClient.html">BasicPubSubClient</a></h2>
+<p>In the past, it was possible to directly pass a log level to the <a class="jss16" href="/versions/5.3/reference/pubsub/classes/BasicPubSubClient.html">BasicPubSubClient</a> constructor.</p>
 <p>Now, only the usual logger configuration is valid.</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss24"><span style="color:#cb7832">new</span><span> BasicPubSubClient(</span><span style="color:#6a8759">&#x27;error&#x27;</span><span>)
 </span></span><span class="jss23"><span></span><span style="color:#cb7832">new</span><span> BasicPubSubClient({ </span><span class="hljs-attr">logger</span><span>: { </span><span class="hljs-attr">minLevel</span><span>: </span><span style="color:#6a8759">&#x27;error&#x27;</span><span> } })</span></span></code></pre></pre>
-<h2>Check usage of <code>setId</code> in <a class="jss16" href="/reference/common/classes/ChatEmote.html">ChatEmote</a></h2>
-<p>The property <code>setId</code> was moved from the class <a class="jss16" href="/reference/common/classes/ChatEmote.html">ChatEmote</a> to its new subclass <a class="jss16" href="/reference/common/classes/ChatEmoteWithSet.html">ChatEmoteWithSet</a> to better reflect
+<h2>Check usage of <code>setId</code> in <a class="jss16" href="/versions/5.3/reference/common/classes/ChatEmote.html">ChatEmote</a></h2>
+<p>The property <code>setId</code> was moved from the class <a class="jss16" href="/versions/5.3/reference/common/classes/ChatEmote.html">ChatEmote</a> to its new subclass <a class="jss16" href="/versions/5.3/reference/common/classes/ChatEmoteWithSet.html">ChatEmoteWithSet</a> to better reflect
 when a <code>setId</code> is available and when it isn&#x27;t. Previously, a <code>setId</code> of <code>-1</code> was the indicator for a missing set ID.
 Now, instead, you should be aware of which methods return a set and which do not.</p>
 <h2>[TypeScript] Check your <code>callApi</code> calls</h2>
@@ -1173,17 +1176,17 @@ Now, instead, you should be aware of which methods return a set and which do not
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss24"><span style="color:#cb7832">const</span><span> data = </span><span style="color:#cb7832">await</span><span> api.callApi({ </span><span class="hljs-attr">url</span><span>: </span><span style="color:#6a8759">&#x27;users&#x27;</span><span> });
 </span></span><span class="jss23"><span></span><span style="color:#cb7832">const</span><span> data = </span><span style="color:#cb7832">await</span><span> api.callApi&lt;</span><span style="color:#e0c46c">any</span><span>&gt;({ </span><span class="hljs-attr">url</span><span>: </span><span style="color:#6a8759">&#x27;users&#x27;</span><span> });</span></span></code></pre></pre>
 <h2>[TypeScript] Remove the external port setting from EventSub adapter constructors</h2>
-<p>The external port settings for various <a class="jss16" href="/reference/eventsub-http/classes/ConnectionAdapter.html">ConnectionAdapter</a> implementations were removed,
+<p>The external port settings for various <a class="jss16" href="/versions/5.3/reference/eventsub-http/classes/ConnectionAdapter.html">ConnectionAdapter</a> implementations were removed,
 since Twitch requires port 443 externally anyway.</p>
 <p>While in regular JavaScript, this will just be silently ignored, it will make the TypeScript compiler fail,
 so remove it from your code - it probably didn&#x27;t work anyway.</p>
 <h2>[Deprecation] Remove usage of the <code>.helix</code> namespace</h2>
-<p>The namespace <code>.helix</code> has been deprecated. All the Helix sub-namespaces now live directly on the <a class="jss16" href="/reference/api/classes/ApiClient.html">ApiClient</a>.</p>
+<p>The namespace <code>.helix</code> has been deprecated. All the Helix sub-namespaces now live directly on the <a class="jss16" href="/versions/5.3/reference/api/classes/ApiClient.html">ApiClient</a>.</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss24"><span style="color:#cb7832">const</span><span> me = </span><span style="color:#cb7832">await</span><span> api.helix.users.getMe();
 </span></span><span class="jss23"><span></span><span style="color:#cb7832">const</span><span> me = </span><span style="color:#cb7832">await</span><span> api.users.getMe();</span></span></code></pre></pre>
 <h2>[Deprecation] Use the Helix Chat namespaces instead of the Badges namespace</h2>
 <p>The Badges namespace is a basically-unofficial part of the Twitch API.
 Since the Helix Chat namespace contains the same functionality, you should use it instead.</p></div></div></div></div></div>
-<script src="/pe.js"></script>
+<script src="/versions/5.3/pe.js"></script>
 </body>
 </html>
