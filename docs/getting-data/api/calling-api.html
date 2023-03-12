@@ -1019,28 +1019,38 @@ input:checked + .jss28 {
 </span><span><span></span><span style="color:#cb7832">const</span><span> apiClient = </span><span style="color:#cb7832">new</span><span> ApiClient({ authProvider });</span></span></code></pre></div></pre>
 <p>On the <a class="jss22" href="/reference/api/classes/ApiClient.html">ApiClient</a> instance, the API methods are namespaced into the different resources like <code>users</code> and <code>streams</code>.</p>
 <p>All API methods are <code>async</code> and thus must be <code>await</code>ed. Here&#x27;s a quick example:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre-wrap"><span><span style="color:#cb7832">async</span><span> </span><span class="hljs-function" style="color:#cb7832">function</span><span class="hljs-function"> </span><span class="hljs-function hljs-title">isStreamLive</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">userName: </span><span class="hljs-function" style="color:#e0c46c">string</span><span class="hljs-function">) </span><span>{
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">async</span><span> </span><span class="hljs-function" style="color:#cb7832">function</span><span class="hljs-function"> </span><span class="hljs-function hljs-title">isSubscribedTo</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">userName: </span><span class="hljs-function" style="color:#e0c46c">string</span><span class="hljs-function" style="color:#b9b9b9">, broadcasterName: </span><span class="hljs-function" style="color:#e0c46c">string</span><span class="hljs-function">) </span><span>{
 </span></span><span><span>	</span><span style="color:#cb7832">const</span><span> user = </span><span style="color:#cb7832">await</span><span> apiClient.users.getUserByName(userName);
 </span></span><span><span>	</span><span style="color:#cb7832">if</span><span> (!user) {
 </span></span><span><span>		</span><span style="color:#cb7832">return</span><span> </span><span style="color:#6896ba">false</span><span>;
 </span></span><span>	}
-</span><span><span>	</span><span style="color:#cb7832">return</span><span> </span><span style="color:#cb7832">await</span><span> apiClient.streams.getStreamByUserId(user.id) !== </span><span style="color:#6896ba">null</span><span>;
+</span><span><span>	</span><span style="color:#cb7832">const</span><span> broadcaster = </span><span style="color:#cb7832">await</span><span> apiClient.users.getUserByName(broadcasterName);
+</span></span><span><span>	</span><span style="color:#cb7832">if</span><span> (!broadcaster) {
+</span></span><span><span>		</span><span style="color:#cb7832">return</span><span> </span><span style="color:#6896ba">false</span><span>;
+</span></span><span>	}
+</span><span><span>	</span><span style="color:#cb7832">const</span><span> subscription = </span><span style="color:#cb7832">await</span><span> apiClient.subscriptions.getSubscriptionForUser(broadcaster, user);
+</span></span><span>	
+</span><span><span>	</span><span style="color:#cb7832">return</span><span> subscription !== </span><span style="color:#6896ba">null</span><span>;
 </span></span><span>}
 </span></code></pre></pre>
-<p>We make extensive use of convenience methods that fetch related resources, so this can also be written a bit easier:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre-wrap"><span><span style="color:#cb7832">async</span><span> </span><span class="hljs-function" style="color:#cb7832">function</span><span class="hljs-function"> </span><span class="hljs-function hljs-title">isStreamLive</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">userName: </span><span class="hljs-function" style="color:#e0c46c">string</span><span class="hljs-function">) </span><span>{
+<p>We make extensive use of shortcut methods that fetch related resources, so this can also be written a bit easier:</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">async</span><span> </span><span class="hljs-function" style="color:#cb7832">function</span><span class="hljs-function"> </span><span class="hljs-function hljs-title">isSubscribedTo</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">userName: </span><span class="hljs-function" style="color:#e0c46c">string</span><span class="hljs-function" style="color:#b9b9b9">, broadcasterName: </span><span class="hljs-function" style="color:#e0c46c">string</span><span class="hljs-function">) </span><span>{
 </span></span><span><span>	</span><span style="color:#cb7832">const</span><span> user = </span><span style="color:#cb7832">await</span><span> apiClient.users.getUserByName(userName);
 </span></span><span><span>	</span><span style="color:#cb7832">if</span><span> (!user) {
 </span></span><span><span>		</span><span style="color:#cb7832">return</span><span> </span><span style="color:#6896ba">false</span><span>;
 </span></span><span>	}
-</span><span><span>	</span><span style="color:#cb7832">return</span><span> </span><span style="color:#cb7832">await</span><span> user.getStream() !== </span><span style="color:#6896ba">null</span><span>;
+</span><span><span>	</span><span style="color:#cb7832">const</span><span> broadcaster = </span><span style="color:#cb7832">await</span><span> apiClient.users.getUserByName(broadcasterName);
+</span></span><span><span>	</span><span style="color:#cb7832">if</span><span> (!broadcaster) {
+</span></span><span><span>		</span><span style="color:#cb7832">return</span><span> </span><span style="color:#6896ba">false</span><span>;
+</span></span><span>	}
+</span><span><span>	</span><span style="color:#cb7832">return</span><span> </span><span style="color:#cb7832">await</span><span> user.isSubscribedTo(broadcaster);
 </span></span><span>}
 </span></code></pre></pre>
 <p>In Helix, some resources are paginated using a cursor. To faciliate easy pagination, there are special methods suffixed with <code>Paginated</code> that wrap the result in a <a class="jss22" href="/reference/api/classes/HelixPaginatedRequest.html">HelixPaginatedRequest</a> object. There are multiple ways to use this object to get your results.</p>
 <ul>
 <li>Using <code>getNext()</code>:</li>
 </ul>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre-wrap"><span><span style="color:#cb7832">async</span><span> </span><span class="hljs-function" style="color:#cb7832">function</span><span class="hljs-function"> </span><span class="hljs-function hljs-title">getAllClipsForBroadcaster</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">userId: </span><span class="hljs-function" style="color:#e0c46c">string</span><span class="hljs-function">) </span><span>{
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">async</span><span> </span><span class="hljs-function" style="color:#cb7832">function</span><span class="hljs-function"> </span><span class="hljs-function hljs-title">getAllClipsForBroadcaster</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">userId: </span><span class="hljs-function" style="color:#e0c46c">string</span><span class="hljs-function">) </span><span>{
 </span></span><span><span>	</span><span style="color:#cb7832">const</span><span> request = apiClient.clips.getClipsForBroadcasterPaginated(userId);
 </span></span><span><span>	</span><span style="color:#cb7832">let</span><span> page: HelixClip[];
 </span></span><span><span>	</span><span style="color:#cb7832">const</span><span> result: HelixClip[] = [];
@@ -1055,7 +1065,7 @@ input:checked + .jss28 {
 <ul>
 <li>Using <code>getAll()</code>:</li>
 </ul>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre-wrap"><span><span style="color:#cb7832">async</span><span> </span><span class="hljs-function" style="color:#cb7832">function</span><span class="hljs-function"> </span><span class="hljs-function hljs-title">getAllClipsForBroadcaster</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">userId: </span><span class="hljs-function" style="color:#e0c46c">string</span><span class="hljs-function">) </span><span>{
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">async</span><span> </span><span class="hljs-function" style="color:#cb7832">function</span><span class="hljs-function"> </span><span class="hljs-function hljs-title">getAllClipsForBroadcaster</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">userId: </span><span class="hljs-function" style="color:#e0c46c">string</span><span class="hljs-function">) </span><span>{
 </span></span><span><span>	</span><span style="color:#cb7832">const</span><span> request = apiClient.clips.getClipsForBroadcasterPaginated(userId);
 </span></span><span>
 </span><span><span>	</span><span style="color:#cb7832">return</span><span> request.getAll();
@@ -1064,7 +1074,7 @@ input:checked + .jss28 {
 <ul>
 <li>Using a <a class="jss22" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of"><code>for await ... of</code></a> loop:</li>
 </ul>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre-wrap"><span><span style="color:#cb7832">async</span><span> </span><span class="hljs-function" style="color:#cb7832">function</span><span class="hljs-function"> </span><span class="hljs-function hljs-title">findClipFromBroadcasterWithTitle</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">userId: </span><span class="hljs-function" style="color:#e0c46c">string</span><span class="hljs-function" style="color:#b9b9b9">, searchTerm: </span><span class="hljs-function" style="color:#e0c46c">string</span><span class="hljs-function">) </span><span>{
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">async</span><span> </span><span class="hljs-function" style="color:#cb7832">function</span><span class="hljs-function"> </span><span class="hljs-function hljs-title">findClipFromBroadcasterWithTitle</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">userId: </span><span class="hljs-function" style="color:#e0c46c">string</span><span class="hljs-function" style="color:#b9b9b9">, searchTerm: </span><span class="hljs-function" style="color:#e0c46c">string</span><span class="hljs-function">) </span><span>{
 </span></span><span><span>	</span><span style="color:#cb7832">for</span><span> </span><span style="color:#cb7832">await</span><span> (</span><span style="color:#cb7832">const</span><span> clip </span><span style="color:#cb7832">of</span><span> apiClient.clips.getClipsForBroadcasterPaginated(userId)) {
 </span></span><span><span>		</span><span style="color:#cb7832">if</span><span> (clip.title.includes(searchTerm)) {
 </span></span><span><span>			</span><span style="color:#cb7832">return</span><span> clip;
