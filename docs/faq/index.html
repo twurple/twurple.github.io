@@ -1032,16 +1032,21 @@ the result might be slightly mismatched in formatting, which breaks the signatur
 <p>This can have different reasons:</p>
 <ul>
 <li>If you run a reverse proxy in front of the listener, make sure it forwards the requests properly.
-The listener expects the <code>pathPrefix</code> to be stripped from the received URL.<br/>
-<!-- -->Consult your reverse proxy&#x27;s logs and <a class="jss16" href="/docs/getting-data/logging/configuration.html">set up logging for the listener</a> as well.</li>
+The listener expects the <code>pathPrefix</code> to be stripped from the received URL.
+Consult your reverse proxy&#x27;s logs
+and <a class="jss16" href="/docs/getting-data/logging/configuration.html">set up logging for the listener</a> as well.</li>
 <li>Make sure your SSL is set up properly.
 In particular, you need to make sure you&#x27;re using a trusted certificate (self-signed won&#x27;t work)
-and that you&#x27;re passing the full certificate chain.<br/>
-<!-- -->A good way to test your SSL setup is <a class="jss16" href="https://www.ssllabs.com/ssltest">the Qualys SSL Labs test</a>.
+and that you&#x27;re passing the full certificate chain.
+A good way to test your SSL setup is <a class="jss16" href="https://www.ssllabs.com/ssltest">the Qualys SSL Labs test</a>.
 It will make sure you find all trust and chain issues.</li>
+<li>Middleman services like CloudFlare are known to cause issues with inbound traffic from Twitch.
+Disable any of these and try again.</li>
 </ul>
 <h2>EventSub: What does the error message <code>subscription missing proper authorization</code> mean?</h2>
-<p>EventSub uses app tokens to create subscriptions. App tokens can&#x27;t have any scopes.<br/>
+<p>If you&#x27;re using <code>@twurple/eventsub-ws</code>, your user token just doesn&#x27;t have the
+<a class="jss16" href="https://dev.twitch.tv/docs/eventsub/eventsub-subscription-types">necessary scopes</a> for the subscription.</p>
+<p><code>@twurple/eventsub-http</code> on the other hand uses app tokens to create subscriptions. App tokens can&#x27;t have any scopes.<br/>
 <!-- -->However, that doesn&#x27;t mean that authorization isn&#x27;t necessary at all.
 Twitch will check with its internal systems whether the user ever authorized the necessary scope for the topic
 and give you the mentioned error message when it fails to find this authorization.</p>
