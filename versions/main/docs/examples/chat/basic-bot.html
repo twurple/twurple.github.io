@@ -1047,42 +1047,49 @@ input:checked + .jss28 {
 </span></code></pre></pre>
 <p>Write down the <code>access_token</code> and <code>refresh_token</code> properties of the response body. These are important for all the other requests you&#x27;re sending to Twitch!</p>
 <h2>3. Create an <code>AuthProvider</code> instance</h2>
-<p>Now you can finally start writing code! First, import all the classes you&#x27;re going to need from <code>@twurple/auth</code> and <code>@twurple/chat</code>.</p>
+<p>Now you can finally start writing code! First, import all the classes you&#x27;re going to need from <code>@twurple/auth</code> and <code>@twurple/easy-bot</code>.</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span style="color:#cb7832">import</span><span> { StaticAuthProvider } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/auth&#x27;</span><span>;
-</span></span><span><span></span><span style="color:#cb7832">import</span><span> { ChatClient } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/chat&#x27;</span><span>;</span></span></code></pre></pre>
+</span></span><span><span></span><span style="color:#cb7832">import</span><span> { Bot, createBotCommand } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/easy-bot&#x27;</span><span>;</span></span></code></pre></pre>
 <p>All the following code needs to be inside this function (or at least called from inside it) so we can use <code>await</code> and still avoid race conditions.</p>
 <p>Now, we can construct a <code>StaticAuthProvider</code> instance using a static auth provider:</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> clientId = </span><span style="color:#6a8759">&#x27;uo6dggojyb8d6soh92zknwmi5ej1q2&#x27;</span><span>;
 </span></span><span><span></span><span style="color:#cb7832">const</span><span> accessToken = </span><span style="color:#6a8759">&#x27;0123456789abcdefghijABCDEFGHIJ&#x27;</span><span>;
 </span></span><span><span></span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> StaticAuthProvider(clientId, accessToken);</span></span></code></pre></pre>
 <h2>4. Connect to chat</h2>
-<p>Using the <code>AuthProvider</code> instance we just created, we can easily create a <code>ChatClient</code> instance and connect to the chat server.
+<p>Using the <code>AuthProvider</code> instance we just created, we can easily create a <code>Bot</code> instance.
+It will automatically connect to the chat server.
 The given channels will automatically be joined after connecting.</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> chatClient = </span><span style="color:#cb7832">new</span><span> ChatClient({ authProvider, </span><span class="hljs-attr">channels</span><span>: [</span><span style="color:#6a8759">&#x27;satisfiedpear&#x27;</span><span>] });
-</span></span><span><span></span><span style="color:#cb7832">await</span><span> chatClient.connect();</span></span></code></pre></pre>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> bot = </span><span style="color:#cb7832">new</span><span> Bot({ authProvider, </span><span class="hljs-attr">channels</span><span>: [</span><span style="color:#6a8759">&#x27;satisfiedpear&#x27;</span><span>] });</span></span></code></pre></pre>
 <p>Now you can run your code and see your bot sitting in your channel. But we want it to do something!</p>
 <h2>5. Listen and react to events</h2>
-<p>Fortunately, reacting to things is easy. To listen to chat messages, just use the <code>onMessage</code> method. As an example, we implement a few basic commands here:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span>chatClient.onMessage(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user, text</span><span class="hljs-function">) =&gt;</span><span> {
-</span></span><span><span>	</span><span style="color:#cb7832">if</span><span> (text === </span><span style="color:#6a8759">&#x27;!ping&#x27;</span><span>) {
-</span></span><span><span>		chatClient.say(channel, </span><span style="color:#6a8759">&#x27;Pong!&#x27;</span><span>);
-</span></span><span><span>	} </span><span style="color:#cb7832">else</span><span> </span><span style="color:#cb7832">if</span><span> (text === </span><span style="color:#6a8759">&#x27;!dice&#x27;</span><span>) {
-</span></span><span><span>		</span><span style="color:#cb7832">const</span><span> diceRoll = </span><span style="color:#e0c46c">Math</span><span>.floor(</span><span style="color:#e0c46c">Math</span><span>.random() * </span><span style="color:#6896ba">6</span><span>) + </span><span style="color:#6896ba">1</span><span>;
-</span></span><span><span>		chatClient.say(channel, </span><span style="color:#6a8759">`@</span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759"> rolled a </span><span style="color:#e0c46c">${diceRoll}</span><span style="color:#6a8759">`</span><span>)
-</span></span><span>	}
+<p>The <code>Bot</code> configuration makes it easy to react to chat commands.
+With the following change to the constructor, we can add two basic commands:</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> bot = </span><span style="color:#cb7832">new</span><span> Bot({
+</span></span><span>	authProvider,
+</span><span><span>	</span><span class="hljs-attr">channels</span><span>: [</span><span style="color:#6a8759">&#x27;satisfiedpear&#x27;</span><span>],
+</span></span><span><span>	</span><span class="hljs-attr">commands</span><span>: [
+</span></span><span><span>		createBotCommand(</span><span style="color:#6a8759">&#x27;dice&#x27;</span><span>, </span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">params, { reply }</span><span class="hljs-function">) =&gt;</span><span> {
+</span></span><span><span>			</span><span style="color:#cb7832">const</span><span> diceRoll = </span><span style="color:#e0c46c">Math</span><span>.floor(</span><span style="color:#e0c46c">Math</span><span>.random() * </span><span style="color:#6896ba">6</span><span>) + </span><span style="color:#6896ba">1</span><span>;
+</span></span><span><span>			reply(</span><span style="color:#6a8759">`You rolled a </span><span style="color:#e0c46c">${diceRoll}</span><span style="color:#6a8759">`</span><span>);
+</span></span><span>		}),
+</span><span><span>		createBotCommand(</span><span style="color:#6a8759">&#x27;slap&#x27;</span><span>, </span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">params, { userName, say }</span><span class="hljs-function">) =&gt;</span><span> {
+</span></span><span><span>			say(</span><span style="color:#6a8759">`</span><span style="color:#e0c46c">${userName}</span><span style="color:#6a8759"> slaps </span><span style="color:#e0c46c">${params.join(</span><span style="color:#e0c46c">&#x27; &#x27;</span><span style="color:#e0c46c">)}</span><span style="color:#6a8759"> around a bit with a large trout`</span><span>);
+</span></span><span>		})
+</span><span>	]
 </span><span>});
 </span></code></pre></pre>
-<p>Handling subscriptions is also pretty easy.</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span>chatClient.onSub(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user</span><span class="hljs-function">) =&gt;</span><span> {
-</span></span><span><span>	chatClient.say(channel, </span><span style="color:#6a8759">`Thanks to @</span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759"> for subscribing to the channel!`</span><span>);
+<p>These commands can now be accessed using <code>!dice</code> and <code>!slap AnotherUser</code> in the joined channel(s).</p>
+<p>Handling subscriptions (and lots of other events) is also pretty easy.</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span>bot.onSub(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">{ broadcasterName, userName }</span><span class="hljs-function">) =&gt;</span><span> {
+</span></span><span><span>	bot.say(broadcasterName, </span><span style="color:#6a8759">`Thanks to @</span><span style="color:#e0c46c">${userName}</span><span style="color:#6a8759"> for subscribing to the channel!`</span><span>);
 </span></span><span>});
 </span><span>
-</span><span><span>chatClient.onResub(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user, subInfo</span><span class="hljs-function">) =&gt;</span><span> {
-</span></span><span><span>	chatClient.say(channel, </span><span style="color:#6a8759">`Thanks to @</span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759"> for subscribing to the channel for a total of </span><span style="color:#e0c46c">${subInfo.months}</span><span style="color:#6a8759"> months!`</span><span>);
+</span><span><span>bot.onResub(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">{ broadcasterName, userName, months }</span><span class="hljs-function">) =&gt;</span><span> {
+</span></span><span><span>	bot.say(broadcasterName, </span><span style="color:#6a8759">`Thanks to @</span><span style="color:#e0c46c">${userName}</span><span style="color:#6a8759"> for subscribing to the channel for a total of </span><span style="color:#e0c46c">${months}</span><span style="color:#6a8759"> months!`</span><span>);
 </span></span><span>});
 </span><span>
-</span><span><span>chatClient.onSubGift(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user, subInfo</span><span class="hljs-function">) =&gt;</span><span> {
-</span></span><span><span>	chatClient.say(channel, </span><span style="color:#6a8759">`Thanks to </span><span style="color:#e0c46c">${subInfo.gifter}</span><span style="color:#6a8759"> for gifting a subscription to </span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759">!`</span><span>);
+</span><span><span>bot.onSubGift(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">{ broadcasterName, gifterName, userName }</span><span class="hljs-function">) =&gt;</span><span> {
+</span></span><span><span>	bot.say(broadcasterName, </span><span style="color:#6a8759">`Thanks to @</span><span style="color:#e0c46c">${gifterName}</span><span style="color:#6a8759"> for gifting a subscription to @</span><span style="color:#e0c46c">${userName}</span><span style="color:#6a8759">!`</span><span>);
 </span></span><span>});
 </span></code></pre></pre>
 <p>Now you have a working bot! Until you have to restart it a few hours later...</p>
@@ -1090,10 +1097,10 @@ The given channels will automatically be joined after connecting.</p>
 <p>Fortunately, with the access token in step 2, we also got a refresh token! <em>(You wrote that down, didn&#x27;t you?)</em></p>
 <p>With that, you can create another type of auth provider that supports multi-user operation (via the <code>addUserForToken</code> method)
 and automatically refreshes all tokens stored in it.</p>
-<p>For the chat client to figure out which user to connect as, you need to specify which one you want to use for chat.</p>
+<p>For the bot to figure out which user to connect as, you need to specify which one you want to use for chat.</p>
 <p>The feature managing this is called <strong>intents</strong>.
 You can give a user a specific set of intents by passing them to the <code>addUserForToken</code> function as the second parameter.
-The chat client looks for the <code>chat</code> intent by default.</p>
+The bot looks for the <code>chat</code> intent by default.</p>
 <p>Just replace the initialization line with this (but keep the <code>clientId</code> and <code>accessToken</code> constants):</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span style="color:#7f7f7f">// replace @twurple/auth import line</span><span>
 </span></span><span><span></span><span style="color:#cb7832">import</span><span> { RefreshingAuthProvider } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/auth&#x27;</span><span>;
@@ -1143,10 +1150,10 @@ save them back into the same file. (We&#x27;re adding the user ID to the file na
 <h2>8. ???</h2>
 <p>We&#x27;re done! Your bot should now connect to chat and react to a few basic commands as well as subs, resubs and gift subs. It is able to recover gracefully when crashing.</p>
 <h2>9. Profit!</h2>
-<p>Now you can implement a more elaborated command system, add more events to react to, and much more! All events are documented in the <a class="jss22" href="/versions/main/reference/chat/classes/ChatClient.html">ChatClient</a> class. And don&#x27;t forget to have fun!</p>
+<p>Now you can implement a more elaborate command system, add more events to react to, and much more! All events are documented in the <a class="jss22" href="/versions/main/reference/easy-bot/classes/Bot.html">Bot</a> class. And don&#x27;t forget to have fun!</p>
 <p>For reference, here&#x27;s the full code that <em>should</em> be the result of everything we just did:</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span style="color:#cb7832">import</span><span> { RefreshingAuthProvider } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/auth&#x27;</span><span>;
-</span></span><span><span></span><span style="color:#cb7832">import</span><span> { ChatClient } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/chat&#x27;</span><span>;
+</span></span><span><span></span><span style="color:#cb7832">import</span><span> { Bot, createBotCommand } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/easy-bot&#x27;</span><span>;
 </span></span><span><span></span><span style="color:#cb7832">import</span><span> { promises </span><span style="color:#cb7832">as</span><span> fs } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;fs&#x27;</span><span>;
 </span></span><span>
 </span><span><span></span><span style="color:#cb7832">const</span><span> clientId = </span><span style="color:#6a8759">&#x27;uo6dggojyb8d6soh92zknwmi5ej1q2&#x27;</span><span>;
@@ -1162,26 +1169,28 @@ save them back into the same file. (We&#x27;re adding the user ID to the file na
 </span><span>
 </span><span><span></span><span style="color:#cb7832">await</span><span> authProvider.addUserForToken(tokenData, [</span><span style="color:#6a8759">&#x27;chat&#x27;</span><span>]);
 </span></span><span>
-</span><span><span></span><span style="color:#cb7832">const</span><span> chatClient = </span><span style="color:#cb7832">new</span><span> ChatClient({ authProvider, </span><span class="hljs-attr">channels</span><span>: [</span><span style="color:#6a8759">&#x27;satisfiedpear&#x27;</span><span>] });
-</span></span><span><span></span><span style="color:#cb7832">await</span><span> chatClient.connect();
-</span></span><span>
-</span><span><span>chatClient.onMessage(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user, text</span><span class="hljs-function">) =&gt;</span><span> {
-</span></span><span><span>	</span><span style="color:#cb7832">if</span><span> (text === </span><span style="color:#6a8759">&#x27;!ping&#x27;</span><span>) {
-</span></span><span><span>		chatClient.say(channel, </span><span style="color:#6a8759">&#x27;Pong!&#x27;</span><span>);
-</span></span><span><span>	} </span><span style="color:#cb7832">else</span><span> </span><span style="color:#cb7832">if</span><span> (text === </span><span style="color:#6a8759">&#x27;!dice&#x27;</span><span>) {
-</span></span><span><span>		</span><span style="color:#cb7832">const</span><span> diceRoll = </span><span style="color:#e0c46c">Math</span><span>.floor(</span><span style="color:#e0c46c">Math</span><span>.random() * </span><span style="color:#6896ba">6</span><span>) + </span><span style="color:#6896ba">1</span><span>;
-</span></span><span><span>		chatClient.say(channel, </span><span style="color:#6a8759">`@</span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759"> rolled a </span><span style="color:#e0c46c">${diceRoll}</span><span style="color:#6a8759">`</span><span>)
-</span></span><span>	}
+</span><span><span></span><span style="color:#cb7832">const</span><span> bot = </span><span style="color:#cb7832">new</span><span> Bot({
+</span></span><span>	authProvider,
+</span><span><span>	</span><span class="hljs-attr">channels</span><span>: [</span><span style="color:#6a8759">&#x27;satisfiedpear&#x27;</span><span>],
+</span></span><span><span>	</span><span class="hljs-attr">commands</span><span>: [
+</span></span><span><span>		createBotCommand(</span><span style="color:#6a8759">&#x27;dice&#x27;</span><span>, </span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">params, { reply }</span><span class="hljs-function">) =&gt;</span><span> {
+</span></span><span><span>			</span><span style="color:#cb7832">const</span><span> diceRoll = </span><span style="color:#e0c46c">Math</span><span>.floor(</span><span style="color:#e0c46c">Math</span><span>.random() * </span><span style="color:#6896ba">6</span><span>) + </span><span style="color:#6896ba">1</span><span>;
+</span></span><span><span>			reply(</span><span style="color:#6a8759">`You rolled a </span><span style="color:#e0c46c">${diceRoll}</span><span style="color:#6a8759">`</span><span>);
+</span></span><span>		}),
+</span><span><span>		createBotCommand(</span><span style="color:#6a8759">&#x27;slap&#x27;</span><span>, </span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">params, { userName, say }</span><span class="hljs-function">) =&gt;</span><span> {
+</span></span><span><span>			say(</span><span style="color:#6a8759">`</span><span style="color:#e0c46c">${userName}</span><span style="color:#6a8759"> slaps </span><span style="color:#e0c46c">${params.join(</span><span style="color:#e0c46c">&#x27; &#x27;</span><span style="color:#e0c46c">)}</span><span style="color:#6a8759"> around a bit with a large trout`</span><span>);
+</span></span><span>		})
+</span><span>	]
 </span><span>});
 </span><span>
-</span><span><span>chatClient.onSub(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user</span><span class="hljs-function">) =&gt;</span><span> {
-</span></span><span><span>	chatClient.say(channel, </span><span style="color:#6a8759">`Thanks to @</span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759"> for subscribing to the channel!`</span><span>);
+</span><span><span>bot.onSub(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">{ broadcasterName, userName }</span><span class="hljs-function">) =&gt;</span><span> {
+</span></span><span><span>	bot.say(broadcasterName, </span><span style="color:#6a8759">`Thanks to @</span><span style="color:#e0c46c">${userName}</span><span style="color:#6a8759"> for subscribing to the channel!`</span><span>);
 </span></span><span>});
-</span><span><span>chatClient.onResub(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user, subInfo</span><span class="hljs-function">) =&gt;</span><span> {
-</span></span><span><span>	chatClient.say(channel, </span><span style="color:#6a8759">`Thanks to @</span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759"> for subscribing to the channel for a total of </span><span style="color:#e0c46c">${subInfo.months}</span><span style="color:#6a8759"> months!`</span><span>);
+</span><span><span>bot.onResub(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">{ broadcasterName, userName, months }</span><span class="hljs-function">) =&gt;</span><span> {
+</span></span><span><span>	bot.say(broadcasterName, </span><span style="color:#6a8759">`Thanks to @</span><span style="color:#e0c46c">${userName}</span><span style="color:#6a8759"> for subscribing to the channel for a total of </span><span style="color:#e0c46c">${months}</span><span style="color:#6a8759"> months!`</span><span>);
 </span></span><span>});
-</span><span><span>chatClient.onSubGift(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">channel, user, subInfo</span><span class="hljs-function">) =&gt;</span><span> {
-</span></span><span><span>	chatClient.say(channel, </span><span style="color:#6a8759">`Thanks to </span><span style="color:#e0c46c">${subInfo.gifter}</span><span style="color:#6a8759"> for gifting a subscription to </span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759">!`</span><span>);
+</span><span><span>bot.onSubGift(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">{ broadcasterName, gifterName, userName }</span><span class="hljs-function">) =&gt;</span><span> {
+</span></span><span><span>	bot.say(broadcasterName, </span><span style="color:#6a8759">`Thanks to @</span><span style="color:#e0c46c">${gifterName}</span><span style="color:#6a8759"> for gifting a subscription to @</span><span style="color:#e0c46c">${userName}</span><span style="color:#6a8759">!`</span><span>);
 </span></span><span>});
 </span></code></pre></pre></div></div></div></div></div>
 <script src="/versions/main/pe.js"></script>
