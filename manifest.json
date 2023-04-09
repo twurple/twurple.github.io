@@ -2,8 +2,9 @@
   "versions": [
     "5.3",
     "6.0",
+    "6.1",
     "main"
   ],
   "rootUrl": "",
-  "defaultVersion": "6.0"
+  "defaultVersion": "6.1"
 }
