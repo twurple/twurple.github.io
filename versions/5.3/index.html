@@ -40,6 +40,7 @@
   --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
   --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 6 Sharp";
   --fa-font-sharp-regular: normal 400 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-light: normal 300 1em/1 "Font Awesome 6 Sharp";
   --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
 }
 
@@ -823,10 +824,13 @@ input:checked + .jss22 {
   background: #444;
 }
 .jss23 {
+  tab-size: 2;
+}
+.jss24 {
   display: block;
   background-color: rgba(9, 180, 50, 0.25);
 }
-.jss24 {
+.jss25 {
   display: block;
   background-color: rgba(255, 106, 105, 0.25);
 }
@@ -982,7 +986,7 @@ input:checked + .jss22 {
 <!-- -->All peer dependencies between the different packages are shown here:</p>
 <table><thead><tr><th>Package</th><th>Peer dependencies</th></tr></thead><tbody><tr><td><code>@twurple/api</code></td><td><code>@twurple/auth</code></td></tr><tr><td><code>@twurple/chat</code></td><td><code>@twurple/auth</code></td></tr><tr><td><code>@twurple/eventsub-http</code></td><td><code>@twurple/auth</code>, <code>@twurple/api</code></td></tr><tr><td><code>@twurple/eventsub-ws</code></td><td><code>@twurple/auth</code>, <code>@twurple/api</code></td></tr><tr><td><code>@twurple/pubsub</code></td><td><code>@twurple/auth</code></td></tr></tbody></table>
 <p>For example, to use EventSub over WebSockets, execute one of:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-bash" style="white-space:pre-wrap"><span><span>yarn add </span><span style="color:#7f7f7f">@twurple</span><span>/auth </span><span style="color:#7f7f7f">@twurple</span><span>/api </span><span style="color:#7f7f7f">@twurple</span><span>/eventsub-ws
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss23" style="white-space:pre-wrap"><span><span>yarn add </span><span style="color:#7f7f7f">@twurple</span><span>/auth </span><span style="color:#7f7f7f">@twurple</span><span>/api </span><span style="color:#7f7f7f">@twurple</span><span>/eventsub-ws
 </span></span><span># or
 </span><span><span>npm install </span><span style="color:#7f7f7f">@twurple</span><span>/auth </span><span style="color:#7f7f7f">@twurple</span><span>/api </span><span style="color:#7f7f7f">@twurple</span><span>/eventsub-ws</span></span></code></pre></pre>
 <h2>I got stuck/have more questions! Where do I get help?</h2>

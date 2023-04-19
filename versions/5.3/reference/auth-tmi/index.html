@@ -40,6 +40,7 @@
   --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
   --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 6 Sharp";
   --fa-font-sharp-regular: normal 400 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-light: normal 300 1em/1 "Font Awesome 6 Sharp";
   --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
 }
 
@@ -866,10 +867,13 @@ input:checked + .jss31 {
   background: #444;
 }
 .jss32 {
+  tab-size: 2;
+}
+.jss33 {
   display: block;
   background-color: rgba(9, 180, 50, 0.25);
 }
-.jss33 {
+.jss34 {
   display: block;
   background-color: rgba(255, 106, 105, 0.25);
 }
@@ -1044,7 +1048,7 @@ instance that can be used for other <code>@twurple</code> packages as well.</p>
 <a class="jss25" href="https://twurple.js.org/docs/auth/providers/refreshing.html">a refreshing AuthProvider</a>.</p>
 <h3>Example</h3>
 <p>Taken from the <a class="jss25" href="https://www.npmjs.com/package/tmi.js">tmi.js README</a> and adapted for this package:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-js" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> tmi = </span><span style="color:#e0c46c">require</span><span>(</span><span style="color:#6a8759">&#x27;@twurple/auth-tmi&#x27;</span><span>);
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss32" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> tmi = </span><span style="color:#e0c46c">require</span><span>(</span><span style="color:#6a8759">&#x27;@twurple/auth-tmi&#x27;</span><span>);
 </span></span><span><span></span><span style="color:#cb7832">const</span><span> { StaticAuthProvider } = </span><span style="color:#e0c46c">require</span><span>(</span><span style="color:#6a8759">&#x27;@twurple/auth&#x27;</span><span>);
 </span></span><span><span></span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> StaticAuthProvider(</span><span style="color:#6a8759">&#x27;my-client-id&#x27;</span><span>, </span><span style="color:#6a8759">&#x27;my-bot-token&#x27;</span><span>);
 </span></span><span><span></span><span style="color:#cb7832">const</span><span> client = </span><span style="color:#cb7832">new</span><span> tmi.Client({

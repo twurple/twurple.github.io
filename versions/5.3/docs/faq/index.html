@@ -40,6 +40,7 @@
   --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
   --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 6 Sharp";
   --fa-font-sharp-regular: normal 400 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-light: normal 300 1em/1 "Font Awesome 6 Sharp";
   --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
 }
 
@@ -823,10 +824,13 @@ input:checked + .jss22 {
   background: #444;
 }
 .jss23 {
+  tab-size: 2;
+}
+.jss24 {
   display: block;
   background-color: rgba(9, 180, 50, 0.25);
 }
-.jss24 {
+.jss25 {
   display: block;
   background-color: rgba(255, 106, 105, 0.25);
 }
@@ -980,13 +984,13 @@ which in turn means that you can&#x27;t join channels or send messages yet in a 
 and has the additional downside that your code will only run when the client connects for the first time,
 and does not re-run when you reconnect due to connection instability.</p>
 <p>Instead, you should use the <code>onRegister</code> event to send messages.</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span>chatClient.onRegister(</span><span class="hljs-function">() =&gt;</span><span> {
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss23" style="white-space:pre-wrap"><span><span>chatClient.onRegister(</span><span class="hljs-function">() =&gt;</span><span> {
 </span></span><span><span>	chatClient.say(</span><span style="color:#6a8759">&#x27;someone&#x27;</span><span>, </span><span style="color:#6a8759">&#x27;Hello, I\&#x27;m now connected!&#x27;</span><span>);
 </span></span><span>})
 </span></code></pre></pre>
 <p>For joining channels, the <code>channels</code> option exists in the constructor of the <code>ChatClient</code> class.
 You can even pass an async function to it to dynamically access a possibly changing set of channels:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> chatClient = </span><span style="color:#cb7832">new</span><span> ChatClient({
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss23" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> chatClient = </span><span style="color:#cb7832">new</span><span> ChatClient({
 </span></span><span>	authProvider,
 </span><span><span>	</span><span class="hljs-attr">channels</span><span>: </span><span style="color:#cb7832">async</span><span> () =&gt; </span><span style="color:#cb7832">await</span><span> someDatabase.select(</span><span style="color:#6a8759">&#x27;twitchUsername&#x27;</span><span>).from(</span><span style="color:#6a8759">&#x27;users&#x27;</span><span>).fetchAll().map(</span><span class="hljs-function" style="color:#b9b9b9">u</span><span class="hljs-function"> =&gt;</span><span> u.twitchUsername)
 </span></span><span>})
@@ -1000,7 +1004,7 @@ You can even pass an async function to it to dynamically access a possibly chang
 </ul>
 <p>Many popular express tutorials (in fact, even the official documentation of <code>express</code>!)
 tell you to apply these body parsers for all requests, like so:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-js" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> express = </span><span style="color:#e0c46c">require</span><span>(</span><span style="color:#6a8759">&#x27;express&#x27;</span><span>);
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss23" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> express = </span><span style="color:#e0c46c">require</span><span>(</span><span style="color:#6a8759">&#x27;express&#x27;</span><span>);
 </span></span><span>
 </span><span><span></span><span style="color:#cb7832">const</span><span> app = express();
 </span></span><span><span>app.use(express.json()); </span><span style="color:#7f7f7f">// don&#x27;t do this!</span><span>
@@ -1021,7 +1025,7 @@ they sign the request using the secret that was passed at subscription time.<br/
 the result might be slightly mismatched in formatting, which breaks the signature.</p>
 <p>The proper way to use body parser middleware is to apply them where you actually expect JSON <em>input</em>
 (as opposed to returning JSON):</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-js" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> express = </span><span style="color:#e0c46c">require</span><span>(</span><span style="color:#6a8759">&#x27;express&#x27;</span><span>);
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss23" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> express = </span><span style="color:#e0c46c">require</span><span>(</span><span style="color:#6a8759">&#x27;express&#x27;</span><span>);
 </span></span><span>
 </span><span><span></span><span style="color:#cb7832">const</span><span> app = express();
 </span></span><span>

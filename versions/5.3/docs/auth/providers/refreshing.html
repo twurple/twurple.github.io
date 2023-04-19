@@ -40,6 +40,7 @@
   --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
   --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 6 Sharp";
   --fa-font-sharp-regular: normal 400 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-light: normal 300 1em/1 "Font Awesome 6 Sharp";
   --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
 }
 
@@ -866,10 +867,13 @@ input:checked + .jss28 {
   background: #444;
 }
 .jss29 {
+  tab-size: 2;
+}
+.jss30 {
   display: block;
   background-color: rgba(9, 180, 50, 0.25);
 }
-.jss30 {
+.jss31 {
   display: block;
   background-color: rgba(255, 106, 105, 0.25);
 }
@@ -1017,7 +1021,7 @@ timestamp in some way.</p>
 <p>This example uses files to make it easily understandable, but you should probably use a database or similar,
 especially if you need to fetch data for more than one user.</p>
 <p>It also assumes that you pre-populated this file (in this example named <code>tokens.json</code>) with some data:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-json" style="white-space:pre-wrap"><span><span>{
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span>{
 </span></span><span><span>	</span><span class="hljs-attr">&quot;accessToken&quot;</span><span>: </span><span style="color:#6a8759">&quot;INITIAL_ACCESS_TOKEN&quot;</span><span>,
 </span></span><span><span>	</span><span class="hljs-attr">&quot;refreshToken&quot;</span><span>: </span><span style="color:#6a8759">&quot;INITIAL_REFRESH_TOKEN&quot;</span><span>,
 </span></span><span><span>	</span><span class="hljs-attr">&quot;expiresIn&quot;</span><span>: </span><span style="color:#6896ba">0</span><span>,

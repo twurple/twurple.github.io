@@ -40,6 +40,7 @@
   --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
   --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 6 Sharp";
   --fa-font-sharp-regular: normal 400 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-light: normal 300 1em/1 "Font Awesome 6 Sharp";
   --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
 }
 
@@ -866,10 +867,13 @@ input:checked + .jss31 {
   background: #444;
 }
 .jss32 {
+  tab-size: 2;
+}
+.jss33 {
   display: block;
   background-color: rgba(9, 180, 50, 0.25);
 }
-.jss33 {
+.jss34 {
   display: block;
   background-color: rgba(255, 106, 105, 0.25);
 }
@@ -1036,7 +1040,7 @@ input:checked + .jss31 {
 <pre><code>npm install @twurple/easy-bot
 </code></pre>
 <h2>Example</h2>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-typescript" style="white-space:pre-wrap"><span><span style="color:#cb7832">import</span><span> { Bot, createBotCommand } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/easy-bot&#x27;</span><span>;
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss32" style="white-space:pre-wrap"><span><span style="color:#cb7832">import</span><span> { Bot, createBotCommand } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/easy-bot&#x27;</span><span>;
 </span></span><span>Bot.create({
 </span><span><span>    </span><span class="hljs-attr">auth</span><span>: </span><span style="color:#6a8759">&#x27;YOURTOKENHERE&#x27;</span><span>,
 </span></span><span><span>    </span><span class="hljs-attr">channel</span><span>: </span><span style="color:#6a8759">&#x27;satisfiedpear&#x27;</span><span>,
