@@ -1212,8 +1212,8 @@ You probably want this to be <code>user</code>.</p>
 <p>Now, only the usual logger configuration is valid.</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss31"><span style="color:#cb7832">new</span><span> BasicPubSubClient(</span><span style="color:#6a8759">&#x27;error&#x27;</span><span>)
 </span></span><span class="jss30"><span></span><span style="color:#cb7832">new</span><span> BasicPubSubClient({ </span><span class="hljs-attr">logger</span><span>: { </span><span class="hljs-attr">minLevel</span><span>: </span><span style="color:#6a8759">&#x27;error&#x27;</span><span> } })</span></span></code></pre></pre>
-<h2>Check usage of <code>setId</code> in <a class="jss22" href="/versions/main/reference/common/classes/ChatEmote.html">ChatEmote</a></h2>
-<p>The property <code>setId</code> was moved from the class <a class="jss22" href="/versions/main/reference/common/classes/ChatEmote.html">ChatEmote</a> to its new subclass <a class="jss22" href="/versions/main/reference/common/classes/ChatEmoteWithSet.html">ChatEmoteWithSet</a> to better reflect
+<h2>Check usage of <code>setId</code> in {@link ChatEmote}</h2>
+<p>The property <code>setId</code> was moved from the class {@link ChatEmote} to its new subclass {@link ChatEmoteWithSet} to better reflect
 when a <code>setId</code> is available and when it isn&#x27;t. Previously, a <code>setId</code> of <code>-1</code> was the indicator for a missing set ID.
 Now, instead, you should be aware of which methods return a set and which do not.</p>
 <h2>[TypeScript] Check your <code>callApi</code> calls</h2>
