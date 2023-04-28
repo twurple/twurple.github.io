@@ -1079,7 +1079,7 @@ have been renamed, and the old counterparts were deprecated. Please check your u
 <li><a class="jss22" href="/versions/main/reference/chat/classes/ChatClient.html#addVip">ChatClient#addVip</a>} - formerly <code>addVIP</code></li>
 <li><a class="jss22" href="/versions/main/reference/chat/classes/ChatClient.html#removeVip">ChatClient#removeVip</a>} - formerly <code>removeVIP</code></li>
 <li><a class="jss22" href="/versions/main/reference/chat/classes/ChatClient.html#getVips">ChatClient#getVips</a>} - formerly <code>getVIPs</code></li>
-<li><a class="jss22" href="/versions/main/reference/auth-electron/interfaces/TwitchClientCredentials.html#redirectUri">TwitchClientCredentials#redirectUri</a>} - formerly <code>redirectURI</code></li>
+<li>{@link TwitchClientCredentials#redirectUri}} - formerly <code>redirectURI</code></li>
 </ul>
 <h2>Use the new logger configuration</h2>
 <p>Previously, a few classes exposed a <code>logLevel</code> parameter that allowed you to set the log level directly.</p>
@@ -1187,7 +1187,7 @@ as well as {@link TwitchPrivateMessage#parseEmotesAndBits}}.</p>
 as they left a dangling promise when constructing an <a class="jss22" href="/versions/main/reference/api/classes/ApiClient.html">ApiClient</a>.</p>
 <p>They were replaced by the safer method <a class="jss22" href="/versions/main/reference/api/classes/ApiClient.html#requestScopes">ApiClient#requestScopes</a>},
 which you can call (and more importanly, <code>await</code>) by yourself.</p>
-<h2><a class="jss22" href="/versions/main/reference/auth-electron/classes/ElectronAuthProvider.html">ElectronAuthProvider</a> now requires at least Electron 9</h2>
+<h2>{@link ElectronAuthProvider} now requires at least Electron 9</h2>
 <p>Electron versions below 9 are way past their support time by now. Please update to a supported version.</p>
 <h2>Check your bot type in the <a class="jss22" href="/versions/main/reference/chat/classes/ChatClient.html">ChatClient</a> instantiation</h2>
 <p><a class="jss22" href="/versions/main/reference/chat/classes/ChatClient.html">ChatClient</a> now applies rate limiting by default.
