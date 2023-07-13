@@ -3,8 +3,9 @@
     "5.3",
     "6.1",
     "6.2",
+    "7.0",
     "main"
   ],
   "rootUrl": "",
-  "defaultVersion": "6.2"
+  "defaultVersion": "7.0"
 }

@@ -1016,14 +1016,35 @@ input:checked + .jss28 {
 }</style>
 </head>
 <body>
-<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><a class="jss2" href="/docs/faq/">FAQ</a><a aria-current="page" class="jss2 jss3" href="/docs/migration/">Migration</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/api-call/">api-call</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/ebs-helper/">ebs-helper</a><a class="jss2 jss7" href="/reference/eventsub-base/">eventsub-base</a><a class="jss2 jss7" href="/reference/eventsub-http/">eventsub-http</a><a class="jss2 jss7" href="/reference/eventsub-ws/">eventsub-ws</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><a href="https://github.com/twurple/twurple" class="jss2"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></a><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><a aria-current="page" class="jss14 jss15" href="/docs/migration/">Migration from v5 to v6</a><div class="jss16"><h2 class="jss17">Previous versions</h2><div class="jss18"><a title="Migration from Twitch.js to v5" class="jss14" href="/docs/migration/previous-versions/twitchjs-to-v5.html">Migration from Twitch.js to v5</a></div></div></div><div class="jss12"><div class="jss19"><h1>Migration from v5 to v6</h1></div><div class="jss20"><div class="jss21"><h2>Make sure your Node version is new enough</h2>
-<p>We don&#x27;t test on Node versions below 16 anymore, so make sure you are running a supported Node version.</p>
-<h2>Replace the <code>@twurple/eventsub</code> package with <code>@twurple/eventsub-http</code></h2>
-<p>There have mostly just been naming changes here. Replace the package and update your imports.</p>
-<p>A few classes and interfaces now additionally have <code>Http</code> in their names:</p>
-<table><thead><tr><th>Old</th><th>New</th></tr></thead><tbody><tr><td><code>EventSubListener</code></td><td><code>EventSubHttpListener</code></td></tr><tr><td><code>EventSubBaseConfig</code></td><td><code>EventSubHttpBaseConfig</code></td></tr><tr><td><code>EventSubListenerCertificateConfig</code></td><td><code>EventSubHttpListenerCertificateConfig</code></td></tr><tr><td><code>EventSubListenerConfig</code></td><td><code>EventSubHttpListenerConfig</code></td></tr></tbody></table>
-<p>Additionally, please use <code>.start()</code> instead of <code>.listen()</code> and <code>.stop()</code> instead of <code>.unlisten()</code>.
-The respective deprecated counterparts have been removed.</p>
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/">Twurple</a><a class="jss2" href="/docs/auth/">Authentication</a><a class="jss2" href="/docs/getting-data/">Getting data</a><a class="jss2" href="/docs/examples/">Examples</a><a class="jss2" href="/docs/faq/">FAQ</a><a aria-current="page" class="jss2 jss3" href="/docs/migration/">Migration</a><div class="jss5"><div class="jss2">Reference</div><div class="jss6"><a class="jss2 jss7" href="/reference/api/">api</a><a class="jss2 jss7" href="/reference/api-call/">api-call</a><a class="jss2 jss7" href="/reference/auth/">auth</a><a class="jss2 jss7" href="/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/reference/chat/">chat</a><a class="jss2 jss7" href="/reference/common/">common</a><a class="jss2 jss7" href="/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/reference/ebs-helper/">ebs-helper</a><a class="jss2 jss7" href="/reference/eventsub-base/">eventsub-base</a><a class="jss2 jss7" href="/reference/eventsub-http/">eventsub-http</a><a class="jss2 jss7" href="/reference/eventsub-ws/">eventsub-ws</a><a class="jss2 jss7" href="/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><a href="https://github.com/twurple/twurple" class="jss2"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></a><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><a aria-current="page" class="jss14 jss15" href="/docs/migration/">Migration from v6 to v7</a><div class="jss16"><h2 class="jss17">Previous versions</h2><div class="jss18"><a title="Migration from v5 to v6" class="jss14" href="/docs/migration/previous-versions/v5-to-v6.html">Migration from v5 to v6</a><a title="Migration from Twitch.js to v5" class="jss14" href="/docs/migration/previous-versions/twitchjs-to-v5.html">Migration from Twitch.js to v5</a></div></div></div><div class="jss12"><div class="jss19"><h1>Migration from v6 to v7</h1></div><div class="jss20"><div class="jss21"><h2>Make sure legacy secrets are not used anymore</h2>
+<p>Support for legacy secrets was removed in v7. If you&#x27;re using v6 with the <code>legacySecrets: true</code> flag on,
+you have two options to mitigate this:</p>
+<h3>The easy (but downtime-incurring) way</h3>
+<p>This should only be done if you have just a few subscriptions (a maximum of about 50-100).<br/>
+<strong>Both of these steps will take a while and cause downtime for your application.</strong></p>
+<ol>
+<li>Run <code>apiClient.eventSub.deleteAllSubscriptions()</code> once.<br/>
+<!-- -->(Do not keep it in the code that runs on every start of your applications.)</li>
+<li>Deploy a new version of your application with the <code>legacySecrets</code> config option removed, and ignore the warning.</li>
+</ol>
+<h3>The hard (but smooth) way</h3>
+<p>If you do this correctly, this will <em>not</em> cause any downtime
+other than the time necessary for the restarts/deployments themselves,
+even though the last step is the same as in the other process.</p>
+<ol>
+<li>Change the configuration to <code>legacySecrets: &#x27;migrate&#x27;</code>.</li>
+<li>On every single subscription object you created, call the <code>.migrate()</code> method.<br/>
+<!-- -->This does not have to be done all at once and can be done at your own pace,
+but <strong>make sure the application does not go down before calling this on <em>every</em> subscription.</strong>
+Otherwise, you will have to switch to the other method,
+as it is impossible to find out which subscriptions have already been migrated.</li>
+<li>After all subscriptions have been migrated,
+deploy a new version of your application with the <code>legacySecrets</code> config option removed, and ignore the warning.</li>
+</ol>
+<h2>Remove auth-electron package</h2>
+<p>The <code>auth-electron</code> package was removed, as Twitch does not support embedding their login page in Electron anymore.<br/>
+<!-- -->There is no direct replacement for this. You need to implement some kind of communication channel
+between your application and the browser instead.</p>
 <h2>Update all packages to the same version</h2>
 <p>Make sure that all Twurple packages are up-to-date and on the same version.</p>
 <p>On a unix-like system with the <code>jq</code> utility installed, you can use one of these handy one-liners for that:</p>
@@ -1032,109 +1053,74 @@ jq -r &#x27;.dependencies | keys[] | select(. | startswith(&quot;@twurple/&quot;
 # for npm
 jq -r &#x27;.dependencies | keys[] | select(. | startswith(&quot;@twurple/&quot;))&#x27; package.json | xargs printf &#x27;%s@latest\n&#x27; | xargs npm install --save
 </code></pre>
-<h2>Update any <code>AuthProvider</code> usage</h2>
-<p>The <code>AuthProvider</code> interface and its implementations have been completely reworked.
-Now, instead of creating an <code>AuthProvider</code> and <code>ApiClient</code> for each of your users and your app separately,
-you can manage all your users using just one of each.</p>
-<h3><a class="jss22" href="/reference/auth/classes/RefreshingAuthProvider.html">RefreshingAuthProvider</a></h3>
-<p>You can just use the <code>addUserForToken</code> method to add your users to the provider.
-It will also take care of app tokens using the supplied client ID and secret.</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> RefreshingAuthProvider(
-</span></span><span>	{
-</span><span>		clientId,
-</span><span>		clientSecret,
-</span><span class="jss31"><span>		</span><span class="hljs-attr">onRefresh</span><span>: </span><span style="color:#cb7832">async</span><span> (newTokenData) =&gt; </span><span style="color:#cb7832">await</span><span> fs.writeFile(</span><span style="color:#6a8759">`./tokens.json`</span><span>, </span><span style="color:#e0c46c">JSON</span><span>.stringify(newTokenData, </span><span style="color:#6896ba">null</span><span>, </span><span style="color:#6896ba">4</span><span>), </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>),
-</span></span><span class="jss30"><span>		</span><span class="hljs-attr">onRefresh</span><span>: </span><span style="color:#cb7832">async</span><span> (userId, newTokenData) =&gt; </span><span style="color:#cb7832">await</span><span> fs.writeFile(</span><span style="color:#6a8759">`./tokens.</span><span style="color:#e0c46c">${userId}</span><span style="color:#6a8759">.json`</span><span>, </span><span style="color:#e0c46c">JSON</span><span>.stringify(newTokenData, </span><span style="color:#6896ba">null</span><span>, </span><span style="color:#6896ba">4</span><span>), </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>),
-</span></span><span>	},
-</span><span class="jss31">	tokenData,
-</span><span>);
-</span><span>
-</span><span class="jss30"><span></span><span style="color:#cb7832">await</span><span> authProvider.addUserForToken(tokenData);</span></span></code></pre></pre>
-<p>Alternatively, if you already know the ID of the user you&#x27;re adding,
-you can use <code>addUser</code> instead as a minor optimization:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span>authProvider.addUser(</span><span style="color:#6a8759">&#x27;125328655&#x27;</span><span>, tokenData);</span></span></code></pre></pre>
-<h3><a class="jss22" href="/reference/auth/classes/AppTokenAuthProvider.html">AppTokenAuthProvider</a></h3>
-<p>The <code>ClientCredentialsAuthProvider</code> has been renamed to <code>AppTokenAuthProvider</code> to reflect its outcome better.
-Anything using it will, as before, only support calling APIs using app tokens, not representing any user.</p>
-<h3><a class="jss22" href="/reference/auth/classes/StaticAuthProvider.html">StaticAuthProvider</a></h3>
-<p>There have been no changes, as a static token can only represent one user.</p>
-<h3><a class="jss22" href="/reference/chat/classes/ChatClient.html">ChatClient</a></h3>
-<p>In your chat clients, the account to connect with is determined using the <code>chat</code> intent by default.
-The required intent can be configured using the <code>authIntents</code> option.</p>
-<p>Now you might be asking, what are intents?</p>
-<h3>Intents</h3>
-<p>You can set intents on every user in an auth provider.
-A user can have more than one intent, but an intent can only be used for one user.</p>
-<p>To use them with the <a class="jss22" href="/reference/auth/classes/RefreshingAuthProvider.html">RefreshingAuthProvider</a>, just add another parameter to <code>addUser</code> or <code>addUserForToken</code>:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span style="color:#cb7832">await</span><span> authProvider.addUserForToken(tokenData, [</span><span style="color:#6a8759">&#x27;chat&#x27;</span><span>]);</span></span></code></pre></pre>
-<p>You can also add intents to a user after the fact:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span>authProvider.addIntentsToUser(</span><span style="color:#6a8759">&#x27;125328655&#x27;</span><span>, [</span><span style="color:#6a8759">&#x27;chat&#x27;</span><span>]);</span></span></code></pre></pre>
-<h3>Custom <a class="jss22" href="/reference/auth/interfaces/AuthProvider.html">AuthProvider</a> implementations</h3>
-<p>If you wrote your own provider, please refer to the <a class="jss22" href="/reference/auth/interfaces/AuthProvider.html">AuthProvider</a> reference page to reimplement it from scratch.
-There is no straightforward migration strategy here.</p>
-<h2>Update API calls that now require a broadcaster ID to determine the token to use</h2>
-<p>In order for the <a class="jss22" href="/reference/api/classes/ApiClient.html">ApiClient</a> to properly determine the user to execute requests as,
-a few methods now require you to additionally pass a user to them:</p>
-<table><thead><tr><th>Category</th><th>Method</th></tr></thead><tbody><tr><td>Bits</td><td><a class="jss22" href="/reference/api/classes/HelixBitsApi.html#getLeaderboard">HelixBitsApi#getLeaderboard</a></td></tr><tr><td>Users</td><td><a class="jss22" href="/reference/api/classes/HelixUserApi.html#getAuthenticatedUser">HelixUserApi#getAuthenticatedUser</a> (renamed from <code>getMe</code>)</td></tr><tr><td>Users</td><td><a class="jss22" href="/reference/api/classes/HelixUserApi.html#updateAuthenticatedUser">HelixUserApi#updateAuthenticatedUser</a> (renamed from <code>updateUser</code>)</td></tr><tr><td>Users</td><td><a class="jss22" href="/reference/api/classes/HelixUserApi.html#updateAuthenticatedUser">HelixUserApi#updateAuthenticatedUser</a> (renamed from <code>updateUser</code>)</td></tr><tr><td>Users</td><td><a class="jss22" href="/reference/api/classes/HelixUserApi.html#createBlock">HelixUserApi#createBlock</a></td></tr><tr><td>Users</td><td><a class="jss22" href="/reference/api/classes/HelixUserApi.html#deleteBlock">HelixUserApi#deleteBlock</a></td></tr><tr><td>Users</td><td><a class="jss22" href="/reference/api/classes/HelixUserApi.html#getExtensionsForAuthenticatedUser">HelixUserApi#getExtensionsForAuthenticatedUser</a> (renamed from <code>getMyExtensions</code>)</td></tr><tr><td>Users</td><td><a class="jss22" href="/reference/api/classes/HelixUserApi.html#updateActiveExtensionsForAuthenticatedUser">HelixUserApi#updateActiveExtensionsForAuthenticatedUser</a> (renamed from <code>updateMyActiveExtensions</code>)</td></tr><tr><td>Videos</td><td><a class="jss22" href="/reference/api/classes/HelixVideoApi.html#deleteVideosByIds">HelixVideoApi#deleteVideosByIds</a></td></tr></tbody></table>
-<h2>Make sure that not too many of your calls use the app token</h2>
-<p>Now that authentication works on a basic level,
-you should probably read the page on <a class="jss22" href="/docs/getting-data/api/choosing-user.html">choosing the correct user for your requests</a>.</p>
-<p>The methods listed there should probably use a user context override (as documented on the bottom of that page)
-whenever possible, otherwise you might quickly exhaust the rate limit for your app token.</p>
-<h2>Rename subscription methods in EventSub packages</h2>
-<p>In the <code>eventsub-http</code> and <code>eventsub-ws</code> packages, the naming convention for the subscription methods has been changed.</p>
-<p>Now, instead of starting with <code>subscribeTo</code> and ending in <code>Events</code>,
-the subscription methods start with <code>on</code> and dropped the suffix.
-For example, <code>subscribeToChannelUpdateEvents</code> was renamed to <code>onChannelUpdate</code>.</p>
-<p>The respective API calls are not affected by this change.</p>
-<h2>Use synchronous <a class="jss22" href="/reference/eventsub-http/classes/EventSubMiddleware.html#apply">EventSubMiddleware#apply</a></h2>
-<p>Historically, the <code>apply</code> method did some async operations.
-Now it doesn&#x27;t anymore, so we got rid of the pretty much useless <code>async</code> attribute,
-which means that the function does not return a <code>Promise</code> anymore.</p>
-<p>You may need to adapt your <code>Promise</code> based code due to this.</p>
-<h2>Listen to more failure events</h2>
-<p>A lot of the APIs relating to persistent connections (chat, pubsub, eventsub-ws)
-or at least pose as if they were (eventsub-http) were updated from a <code>Promise</code> based API
-to a more event based API. This means that instead of having the promises reject (possibly fatally),
-there are now events that report these failures.</p>
-<table><thead><tr><th>Old rejecting method</th><th>New event</th></tr></thead><tbody><tr><td><code>EventSubListener#subscribeTo*</code></td><td><a class="jss22" href="/reference/eventsub-http/classes/EventSubHttpListener.html#onSubscriptionCreateFailure">EventSubHttpListener#onSubscriptionCreateFailure</a></td></tr><tr><td><code>EventSubSubscription#stop</code></td><td><a class="jss22" href="/reference/eventsub-http/classes/EventSubHttpListener.html#onSubscriptionDeleteFailure">EventSubHttpListener#onSubscriptionDeleteFailure</a></td></tr><tr><td><code>PubSubClient#on*</code></td><td><a class="jss22" href="/reference/pubsub/classes/PubSubClient.html#onListenError">PubSubClient#onListenError</a></td></tr></tbody></table>
-<h2>Configure a port for your EventSub &amp; ngrok development setup</h2>
-<p>Previously, the <a class="jss22" href="/reference/eventsub-ngrok/classes/NgrokAdapter.html">NgrokAdapter</a> would find a port to listen on using the <code>portfinder</code> package.
-This behavior was removed. Instead, you can configure the port you want now.</p>
-<p>If you want the old behavior back, use the <code>portfinder</code> package directly.</p>
-<h2>Switch from the old badges API</h2>
-<p>There were two different badges APIs, one of which (<code>apiClient.badges</code>) is obsolete now.
-Please use the very similar methods within <a class="jss22" href="/reference/api/classes/HelixChatApi.html">HelixChatApi</a> instead.</p>
-<h2>Switch from the old chatters API</h2>
-<p>Similarly, there was a chatters API available under the <code>apiClient.unsupported</code> namespace.
-This was now removed in favor of the new Helix API under <a class="jss22" href="/reference/api/classes/HelixChatApi.html#getChatters">HelixChatApi#getChatters</a>.</p>
-<h2>Switch chat actions to the Helix API</h2>
-<p>All chat actions other than ones relating to sending messages (like banning, changing sub/follower only mode etc.)
-were removed by Twitch. You need to switch to the respective Helix APIs instead.</p>
-<p>Most of them are in <a class="jss22" href="/reference/api/classes/HelixChatApi.html">HelixChatApi</a> or <a class="jss22" href="/reference/api/classes/HelixModerationApi.html">HelixModerationApi</a>.</p>
-<h2>Create bans &amp; clips: update request body</h2>
-<p>When creating bans &amp; clips, the banned user / the channel to create the clip in could always have been a user ID or a user object,
-just like in most places in the library. The parameter names were updated to reflect that.
-So instead of giving a <code>userId</code> to ban, you now give a <code>user</code> (which can still be an ID).
-Similarly, replace the <code>channelId</code> for the clip with just <code>channel</code>.</p>
-<h2>Adapt for additional minor renames and removes</h2>
-<p>There&#x27;s not that much to say about these (most were just to align more to the documentation or for consistency),
-so I&#x27;ll just list them:</p>
-<table><thead><tr><th>Old</th><th>New</th></tr></thead><tbody><tr><td><code>ApiClient#lastKnown*</code></td><td><a class="jss22" href="/reference/api/classes/ApiClient.html#rateLimiterStats">ApiClient#rateLimiterStats</a></td></tr><tr><td><code>EventSubChannelRedemptionAddEvent#redeemedAt</code></td><td><a class="jss22" href="/reference/eventsub-base/classes/EventSubChannelRedemptionAddEvent.html#redemptionDate">EventSubChannelRedemptionAddEvent#redemptionDate</a></td></tr><tr><td><code>HelixBanUser#broadcasterId</code></td><td><em>removed</em> (you needed this ID for fetching anyway)</td></tr><tr><td><code>HelixBanUser#endDate</code></td><td><a class="jss22" href="/reference/api/classes/HelixBanUser.html#expiryDate">HelixBanUser#expiryDate</a></td></tr><tr><td><code>HelixChannelApi#getChannelInfo</code></td><td><a class="jss22" href="/reference/api/classes/HelixChannelApi.html#getChannelInfoById">HelixChannelApi#getChannelInfoById</a></td></tr><tr><td><code>HelixCustomReward#autoApproved</code></td><td><a class="jss22" href="/reference/api/classes/HelixCustomReward.html#autoFulfill">HelixCustomReward#autoFulfill</a></td></tr><tr><td><code>HelixUser#views</code></td><td><em>removed</em> (removed by Twitch)</td></tr><tr><td><code>HelixUserApi#getMe</code></td><td><a class="jss22" href="/reference/api/classes/HelixUserApi.html#getAuthenticatedUser">HelixUserApi#getAuthenticatedUser</a></td></tr><tr><td><code>HelixUserApi#getMyExtensions</code></td><td><a class="jss22" href="/reference/api/classes/HelixUserApi.html#getExtensionsForAuthenticatedUser">HelixUserApi#getExtensionsForAuthenticatedUser</a></td></tr><tr><td><code>HelixUserApi#updateMyActiveExtensions</code></td><td><a class="jss22" href="/reference/api/classes/HelixUserApi.html#updateActiveExtensionsForAuthenticatedUser">HelixUserApi#updateActiveExtensionsForAuthenticatedUser</a></td></tr><tr><td><code>HelixUserApi#updateUser</code></td><td><a class="jss22" href="/reference/api/classes/HelixUserApi.html#updateAuthenticatedUser">HelixUserApi#updateAuthenticatedUser</a></td></tr><tr><td><code>PubSubListener</code></td><td><a class="jss22" href="/reference/pubsub/classes/PubSubHandler.html">PubSubHandler</a></td></tr><tr><td><code>PubSubSubscriptionMessage#giftDuration</code></td><td><a class="jss22" href="/reference/pubsub/classes/PubSubSubscriptionMessage.html#duration">PubSubSubscriptionMessage#duration</a></td></tr></tbody></table>
-<h2>Make sure your EventSub HTTP host name configuration is correct (or configure the listener accordingly)</h2>
-<p>The <code>strictHostCheck</code> configuration option now defaults to being on.
-This means that requests that go to the wrong host name but still reach the listener
-(for example wide-range port scanners) will automatically be filtered.
-In some cases, this can filter out legitimate requests, for example with a misconfigured reverse proxy.</p>
-<p>While we recommend you to fix your reverse proxy (or any other part of your setup) instead,
-you may disable this behavior explicitly by setting <code>strictHostCheck: false</code> in the constructor options.</p>
-<h2>Clear your EventSub HTTP subscriptions (or opt to do it a bit later)</h2>
-<p>In the past, your EventSub secret was augmented with an internal ID for each subscription
-in order to create different secrets for different subscriptions.
-This is pretty much unnecessary and in some cases may even reduce entropy.</p>
-<p>This behavior is now disabled by default, which means you have to delete all subscriptions and re-subscribe to them.</p>
-<p>Alternatively, you can set <code>legacySecrets: true</code> in the constructor options to postpone this,
-but be aware that this flag will go away in the next major release of Twurple.</p></div></div></div></div></div>
+<h2>Remove/replace moderator &amp; client ID parameters</h2>
+<p>Many methods used <code>moderator</code> parameters to select the authenticated user from the <code>AuthProvider</code> to call an endpoint with.
+This was removed, and you can now either directly use the broadcaster as context
+or use the <code>asUser</code> or <code>asIntent</code> methods on the <a class="jss22" href="/reference/api/classes/ApiClient.html">ApiClient</a> to override the context.</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss31"><span style="color:#cb7832">await</span><span> apiClient.moderation.deleteChatMessages(broadcaster, broadcaster, messageId);
+</span></span><span class="jss30"><span></span><span style="color:#cb7832">await</span><span> apiClient.moderation.deleteChatMessages(broadcaster, messageId);</span></span></code></pre></pre>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss31"><span style="color:#cb7832">await</span><span> apiClient.moderation.deleteChatMessages(broadcaster, moderator, messageId);
+</span></span><span class="jss30"><span></span><span style="color:#cb7832">await</span><span> apiClient.asUser(
+</span></span><span class="jss30">	moderator,
+</span><span class="jss30"><span>	</span><span style="color:#cb7832">async</span><span> ctx =&gt; </span><span style="color:#cb7832">await</span><span> ctx.moderation.deleteChatMessages(broadcaster, messageId)
+</span></span><span class="jss30">)
+</span></code></pre></pre>
+<p>This applies to the following methods:</p>
+<ul>
+<li><a class="jss22" href="/reference/api/classes/HelixChannelApi.html#getChannelFollowers">HelixChannelApi#getChannelFollowers</a>, <a class="jss22" href="/reference/api/classes/HelixChannelApi.html#getChannelFollowersPaginated">HelixChannelApi#getChannelFollowersPaginated</a></li>
+<li><a class="jss22" href="/reference/api/classes/HelixChatApi.html#getChatters">HelixChatApi#getChatters</a>, <a class="jss22" href="/reference/api/classes/HelixChatApi.html#getChattersPaginated">HelixChatApi#getChattersPaginated</a></li>
+<li><a class="jss22" href="/reference/api/classes/HelixChatApi.html#getSettingsPrivileged">HelixChatApi#getSettingsPrivileged</a>, <a class="jss22" href="/reference/api/classes/HelixChatApi.html#updateSettings">HelixChatApi#updateSettings</a></li>
+<li><a class="jss22" href="/reference/api/classes/HelixChatApi.html#sendAnnouncement">HelixChatApi#sendAnnouncement</a></li>
+<li><a class="jss22" href="/reference/api/classes/HelixChatApi.html#shoutoutUser">HelixChatApi#shoutoutUser</a></li>
+<li><a class="jss22" href="/reference/api/classes/HelixEventSubApi.html#subscribeToChannelFollowEvents">HelixEventSubApi#subscribeToChannelFollowEvents</a>, <a class="jss22" href="/reference/api/classes/HelixEventSubApi.html#subscribeToChannelShieldModeBeginEvents">HelixEventSubApi#subscribeToChannelShieldModeBeginEvents</a>, <a class="jss22" href="/reference/api/classes/HelixEventSubApi.html#subscribeToChannelShieldModeEndEvents">HelixEventSubApi#subscribeToChannelShieldModeEndEvents</a>, <a class="jss22" href="/reference/api/classes/HelixEventSubApi.html#subscribeToChannelShoutoutCreateEvents">HelixEventSubApi#subscribeToChannelShoutoutCreateEvents</a>, <a class="jss22" href="/reference/api/classes/HelixEventSubApi.html#subscribeToChannelShoutoutReceiveEvents">HelixEventSubApi#subscribeToChannelShoutoutReceiveEvents</a></li>
+<li><a class="jss22" href="/reference/api/classes/HelixModerationApi.html#getAutoModSettings">HelixModerationApi#getAutoModSettings</a>, <a class="jss22" href="/reference/api/classes/HelixModerationApi.html#updateAutoModSettings">HelixModerationApi#updateAutoModSettings</a></li>
+<li><a class="jss22" href="/reference/api/classes/HelixModerationApi.html#banUser">HelixModerationApi#banUser</a>, <a class="jss22" href="/reference/api/classes/HelixModerationApi.html#unbanUser">HelixModerationApi#unbanUser</a></li>
+<li><a class="jss22" href="/reference/api/classes/HelixModerationApi.html#getBlockedTerms">HelixModerationApi#getBlockedTerms</a>, <a class="jss22" href="/reference/api/classes/HelixModerationApi.html#addBlockedTerm">HelixModerationApi#addBlockedTerm</a>, <a class="jss22" href="/reference/api/classes/HelixModerationApi.html#removeBlockedTerm">HelixModerationApi#removeBlockedTerm</a></li>
+<li><a class="jss22" href="/reference/api/classes/HelixModerationApi.html#deleteChatMessages">HelixModerationApi#deleteChatMessages</a></li>
+<li><a class="jss22" href="/reference/api/classes/HelixModerationApi.html#getShieldModeStatus">HelixModerationApi#getShieldModeStatus</a>, <a class="jss22" href="/reference/api/classes/HelixModerationApi.html#updateShieldModeStatus">HelixModerationApi#updateShieldModeStatus</a></li>
+</ul>
+<p>Similarly, the following methods have been changed to not require to pass the client ID explicitly anymore,
+as it&#x27;s already provided by your <code>AuthProvider</code> instance:</p>
+<ul>
+<li><a class="jss22" href="/reference/eventsub-base/interfaces/EventSubListener.html#onExtensionBitsTransactionCreate">EventSubListener#onExtensionBitsTransactionCreate</a></li>
+<li><a class="jss22" href="/reference/eventsub-base/interfaces/EventSubListener.html#onUserAuthorizationGrant">EventSubListener#onUserAuthorizationGrant</a></li>
+<li><a class="jss22" href="/reference/eventsub-base/interfaces/EventSubListener.html#onUserAuthorizationRevoke">EventSubListener#onUserAuthorizationRevoke</a></li>
+</ul>
+<h2>Check authentication requirements for <code>HelixUser</code> subscription and follower shortcuts</h2>
+<p>The <a class="jss22" href="/reference/api/classes/HelixUser.html">HelixUser</a> class has some shortcuts to determine subscriber status.
+The already existing methods switched from broadcaster authentication to user subscription
+to have their names and <code>this</code> context make more sense, and new methods for broadcaster context were added.</p>
+<p>Similarly, the follower methods were changed to use the new authenticated follower APIs,
+as the unauthenticated versions will be shut down by Twitch soon.</p>
+<p>Check the documentation of the <a class="jss22" href="/reference/api/classes/HelixUser.html">HelixUser</a> class for more information.</p>
+<h2>Change event listener options in <a class="jss22" href="/reference/auth/classes/RefreshingAuthProvider.html">RefreshingAuthProvider</a> to method calls</h2>
+<p>The <code>onRefresh</code> and <code>onRefreshFailure</code> config options from {@RefreshingAuthProvider} have been removed
+in favor of event listener methods of the same name. This was done to be in line with all other event listener methods.</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> RefreshingAuthProvider({
+</span></span><span>	clientId,
+</span><span>	clientSecret,
+</span><span class="jss31"><span>	</span><span class="hljs-attr">onRefresh</span><span>: </span><span style="color:#cb7832">async</span><span> (userId, newTokenData) =&gt; </span><span style="color:#cb7832">await</span><span> fs.writeFile(</span><span style="color:#6a8759">`./tokens.</span><span style="color:#e0c46c">${userId}</span><span style="color:#6a8759">.json`</span><span>, </span><span style="color:#e0c46c">JSON</span><span>.stringify(newTokenData, </span><span style="color:#6896ba">null</span><span>, </span><span style="color:#6896ba">4</span><span>), </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>),
+</span></span><span>});
+</span><span class="jss30"><span>authProvider.onRefresh(</span><span style="color:#cb7832">async</span><span> (userId, newTokenData) =&gt; </span><span style="color:#cb7832">await</span><span> fs.writeFile(</span><span style="color:#6a8759">`./tokens.</span><span style="color:#e0c46c">${userId}</span><span style="color:#6a8759">.json`</span><span>, </span><span style="color:#e0c46c">JSON</span><span>.stringify(newTokenData, </span><span style="color:#6896ba">null</span><span>, </span><span style="color:#6896ba">4</span><span>), </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>));</span></span></code></pre></pre>
+<h2>Update error handling</h2>
+<p>When authentication and token refreshing fails, <a class="jss22" href="/reference/auth/classes/RefreshingAuthProvider.html">RefreshingAuthProvider</a> will now cache that failure.
+This results means that attempts to use authentication for the users that failed
+will now throw a {@link CachedRefreshFailureError} instead of a variety of other errors that could happen when trying to refresh.</p>
+<h2>Take care about <a class="jss22" href="/reference/chat/classes/ChatClient.html">ChatClient</a> <code>Promise</code> handling</h2>
+<p>The <a class="jss22" href="/reference/chat/classes/ChatClient.html">ChatClient</a> methods <code>connect</code> and <code>reconnect</code> have been changed to be synchronous.
+If you have been using <code>.then()</code> to handle the promises returned by these methods, you should change this.
+<code>await</code> will not break, but is useless now.</p>
+<h2>Remove special channel name handling for chat events</h2>
+<p>All chat events now internally remove the leading <code>#</code> from the channel name.
+If you previously used naive methods like <code>channel.slice(1)</code> to cut it off, you should remove that.
+The utility method <a class="jss22" href="/reference/chat/functions/toUserName.html">toUserName</a> from the <code>@twurple/chat</code> package is not as naive, but effectively useless now.</p>
+<h2>Apply other minor renames</h2>
+<p>A few things were renamed for clarity.</p>
+<table><thead><tr><th>Old</th><th>New</th></tr></thead><tbody><tr><td><code>PrivateMessage</code></td><td><code>ChatMessage</code></td></tr><tr><td><code>ChatClient#onR9k</code></td><td><code>ChatClient#onUniqueChat</code></td></tr></tbody></table>
+<h2>Make platform specific fetch options available to your API calls</h2>
+<p>In order to pass specific options like proxy credentials to your API calls,
+you must now augment the <a class="jss22" href="/reference/api-call/interfaces/TwitchApiCallFetchOptions.html">TwitchApiCallFetchOptions</a> interface from the <code>@twurple/api-call</code> package.
+Its reference entry will show you the most common cases.</p></div></div></div></div></div>
 <script src="/pe.js"></script>
 </body>
 </html>

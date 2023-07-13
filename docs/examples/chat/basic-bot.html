@@ -1057,15 +1057,14 @@ input:checked + .jss28 {
 </span></span><span><span></span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> StaticAuthProvider(clientId, accessToken);</span></span></code></pre></pre>
 <h2>4. Connect to chat</h2>
 <p>Using the <code>AuthProvider</code> instance we just created, we can easily create a <code>Bot</code> instance.
-<em>(The first parameter is currently unused and will be removed in the next major version.)</em>
 It will automatically connect to the chat server.
 The given channels will automatically be joined after connecting.</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> bot = </span><span style="color:#cb7832">new</span><span> Bot(</span><span style="color:#6896ba">null</span><span>, { authProvider, </span><span class="hljs-attr">channels</span><span>: [</span><span style="color:#6a8759">&#x27;satisfiedpear&#x27;</span><span>] });</span></span></code></pre></pre>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> bot = </span><span style="color:#cb7832">new</span><span> Bot({ authProvider, </span><span class="hljs-attr">channels</span><span>: [</span><span style="color:#6a8759">&#x27;satisfiedpear&#x27;</span><span>] });</span></span></code></pre></pre>
 <p>Now you can run your code and see your bot sitting in your channel. But we want it to do something!</p>
 <h2>5. Listen and react to events</h2>
 <p>The <code>Bot</code> configuration makes it easy to react to chat commands.
 With the following change to the constructor, we can add two basic commands:</p>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> bot = </span><span style="color:#cb7832">new</span><span> Bot(</span><span style="color:#6896ba">null</span><span>, {
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> bot = </span><span style="color:#cb7832">new</span><span> Bot({
 </span></span><span>	authProvider,
 </span><span><span>	</span><span class="hljs-attr">channels</span><span>: [</span><span style="color:#6a8759">&#x27;satisfiedpear&#x27;</span><span>],
 </span></span><span><span>	</span><span class="hljs-attr">commands</span><span>: [
@@ -1170,7 +1169,7 @@ save them back into the same file. (We&#x27;re adding the user ID to the file na
 </span><span>
 </span><span><span></span><span style="color:#cb7832">await</span><span> authProvider.addUserForToken(tokenData, [</span><span style="color:#6a8759">&#x27;chat&#x27;</span><span>]);
 </span></span><span>
-</span><span><span></span><span style="color:#cb7832">const</span><span> bot = </span><span style="color:#cb7832">new</span><span> Bot(</span><span style="color:#6896ba">null</span><span>, {
+</span><span><span></span><span style="color:#cb7832">const</span><span> bot = </span><span style="color:#cb7832">new</span><span> Bot({
 </span></span><span>	authProvider,
 </span><span><span>	</span><span class="hljs-attr">channels</span><span>: [</span><span style="color:#6a8759">&#x27;satisfiedpear&#x27;</span><span>],
 </span></span><span><span>	</span><span class="hljs-attr">commands</span><span>: [
