@@ -1094,7 +1094,7 @@ to have their names and <code>this</code> context make more sense, and new metho
 as the unauthenticated versions will be shut down by Twitch soon.</p>
 <p>Check the documentation of the <a class="jss22" href="/reference/api/classes/HelixUser.html">HelixUser</a> class for more information.</p>
 <h2>Change event listener options in <a class="jss22" href="/reference/auth/classes/RefreshingAuthProvider.html">RefreshingAuthProvider</a> to method calls</h2>
-<p>The <code>onRefresh</code> and <code>onRefreshFailure</code> config options from {@RefreshingAuthProvider} have been removed
+<p>The <code>onRefresh</code> and <code>onRefreshFailure</code> config options from <a class="jss22" href="/reference/auth/classes/RefreshingAuthProvider.html">RefreshingAuthProvider</a> have been removed
 in favor of event listener methods of the same name. This was done to be in line with all other event listener methods.</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> RefreshingAuthProvider({
 </span></span><span>	clientId,
@@ -1105,7 +1105,7 @@ in favor of event listener methods of the same name. This was done to be in line
 <h2>Update error handling</h2>
 <p>When authentication and token refreshing fails, <a class="jss22" href="/reference/auth/classes/RefreshingAuthProvider.html">RefreshingAuthProvider</a> will now cache that failure.
 This results means that attempts to use authentication for the users that failed
-will now throw a {@link CachedRefreshFailureError} instead of a variety of other errors that could happen when trying to refresh.</p>
+will now throw a <a class="jss22" href="/reference/auth/classes/CachedRefreshFailureError.html">CachedRefreshFailureError</a> instead of a variety of other errors that could happen when trying to refresh.</p>
 <h2>Take care about <a class="jss22" href="/reference/chat/classes/ChatClient.html">ChatClient</a> <code>Promise</code> handling</h2>
 <p>The <a class="jss22" href="/reference/chat/classes/ChatClient.html">ChatClient</a> methods <code>connect</code> and <code>reconnect</code> have been changed to be synchronous.
 If you have been using <code>.then()</code> to handle the promises returned by these methods, you should change this.

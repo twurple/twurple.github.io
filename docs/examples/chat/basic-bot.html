@@ -1141,11 +1141,12 @@ save them back into the same file. (We&#x27;re adding the user ID to the file na
 </span></span><span><span></span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> RefreshingAuthProvider(
 </span></span><span>	{
 </span><span>		clientId,
-</span><span>		clientSecret,
-</span><span><span>		</span><span class="hljs-attr">onRefresh</span><span>: </span><span style="color:#cb7832">async</span><span> (userId, newTokenData) =&gt; </span><span style="color:#cb7832">await</span><span> fs.writeFile(</span><span style="color:#6a8759">`./tokens.</span><span style="color:#e0c46c">${userId}</span><span style="color:#6a8759">.json`</span><span>, </span><span style="color:#e0c46c">JSON</span><span>.stringify(newTokenData, </span><span style="color:#6896ba">null</span><span>, </span><span style="color:#6896ba">4</span><span>), </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>)
-</span></span><span>	}
+</span><span>		clientSecret
+</span><span>	}
 </span><span>);
 </span><span>
+</span><span><span>authProvider.onRefresh(</span><span style="color:#cb7832">async</span><span> (userId, newTokenData) =&gt; </span><span style="color:#cb7832">await</span><span> fs.writeFile(</span><span style="color:#6a8759">`./tokens.</span><span style="color:#e0c46c">${userId}</span><span style="color:#6a8759">.json`</span><span>, </span><span style="color:#e0c46c">JSON</span><span>.stringify(newTokenData, </span><span style="color:#6896ba">null</span><span>, </span><span style="color:#6896ba">4</span><span>), </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>));
+</span></span><span>
 </span><span><span></span><span style="color:#cb7832">await</span><span> authProvider.addUserForToken(tokenData, [</span><span style="color:#6a8759">&#x27;chat&#x27;</span><span>]);</span></span></code></pre></pre>
 <h2>8. ???</h2>
 <p>We&#x27;re done! Your bot should now connect to chat and react to a few basic commands as well as subs, resubs and gift subs. It is able to recover gracefully when crashing.</p>
@@ -1162,11 +1163,12 @@ save them back into the same file. (We&#x27;re adding the user ID to the file na
 </span></span><span><span></span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> RefreshingAuthProvider(
 </span></span><span>	{
 </span><span>		clientId,
-</span><span>		clientSecret,
-</span><span><span>		</span><span class="hljs-attr">onRefresh</span><span>: </span><span style="color:#cb7832">async</span><span> (userId, newTokenData) =&gt; </span><span style="color:#cb7832">await</span><span> fs.writeFile(</span><span style="color:#6a8759">`./tokens.</span><span style="color:#e0c46c">${userId}</span><span style="color:#6a8759">.json`</span><span>, </span><span style="color:#e0c46c">JSON</span><span>.stringify(newTokenData, </span><span style="color:#6896ba">null</span><span>, </span><span style="color:#6896ba">4</span><span>), </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>)
-</span></span><span>	}
+</span><span>		clientSecret
+</span><span>	}
 </span><span>);
 </span><span>
+</span><span><span>authProvider.onRefresh(</span><span style="color:#cb7832">async</span><span> (userId, newTokenData) =&gt; </span><span style="color:#cb7832">await</span><span> fs.writeFile(</span><span style="color:#6a8759">`./tokens.</span><span style="color:#e0c46c">${userId}</span><span style="color:#6a8759">.json`</span><span>, </span><span style="color:#e0c46c">JSON</span><span>.stringify(newTokenData, </span><span style="color:#6896ba">null</span><span>, </span><span style="color:#6896ba">4</span><span>), </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>));
+</span></span><span>
 </span><span><span></span><span style="color:#cb7832">await</span><span> authProvider.addUserForToken(tokenData, [</span><span style="color:#6a8759">&#x27;chat&#x27;</span><span>]);
 </span></span><span>
 </span><span><span></span><span style="color:#cb7832">const</span><span> bot = </span><span style="color:#cb7832">new</span><span> Bot({
