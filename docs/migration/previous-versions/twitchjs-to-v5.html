@@ -1122,8 +1122,8 @@ which doesn&#x27;t need to wrap another provider anymore. Its parameters are div
 <li>On the downside, it loses a few convenience getters like <code>.isExpired</code> - use the free-standing functions like <a class="jss22" href="/reference/auth/functions/accessTokenIsExpired.html">accessTokenIsExpired</a> instead.</li>
 <li>On the upside, you can now just write the data to a file/database/etc. and read it back from there without any manual conversion shenanigans.</li>
 </ul>
-<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss31"><span style="color:#cb7832">const</span><span> tokenData = </span><span style="color:#e0c46c">JSON</span><span>.parse(</span><span style="color:#cb7832">await</span><span> fs.readFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>, </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>));
-</span></span><span class="jss30"><span></span><span style="color:#cb7832">const</span><span> tokenData: AccessToken = </span><span style="color:#e0c46c">JSON</span><span>.parse(</span><span style="color:#cb7832">await</span><span> fs.readFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>, </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>));
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span class="jss31"><span style="color:#cb7832">const</span><span> tokenData = </span><span style="color:#e0c46c">JSON</span><span>.parse(</span><span style="color:#cb7832">await</span><span> fs.readFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>, </span><span style="color:#6a8759">&#x27;utf-8&#x27;</span><span>));
+</span></span><span class="jss30"><span></span><span style="color:#cb7832">const</span><span> tokenData: AccessToken = </span><span style="color:#e0c46c">JSON</span><span>.parse(</span><span style="color:#cb7832">await</span><span> fs.readFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>, </span><span style="color:#6a8759">&#x27;utf-8&#x27;</span><span>));
 </span></span><span class="jss31"><span></span><span style="color:#cb7832">const</span><span> auth = </span><span style="color:#cb7832">new</span><span> RefreshableAuthProvider(
 </span></span><span class="jss31"><span>	</span><span style="color:#cb7832">new</span><span> StaticAuthProvider(clientId, tokenData.accessToken),
 </span></span><span class="jss31">	{
@@ -1136,7 +1136,7 @@ which doesn&#x27;t need to wrap another provider anymore. Its parameters are div
 </span><span class="jss31">				refreshToken,
 </span><span class="jss31"><span>				</span><span class="hljs-attr">expiryTimestamp</span><span>: expiryDate === </span><span style="color:#6896ba">null</span><span> ? </span><span style="color:#6896ba">null</span><span> : expiryDate.getTime()
 </span></span><span class="jss31">			};
-</span><span class="jss31"><span>			</span><span style="color:#cb7832">await</span><span> fs.writeFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>, </span><span style="color:#e0c46c">JSON</span><span>.stringify(newTokenData, </span><span style="color:#6896ba">null</span><span>, </span><span style="color:#6896ba">4</span><span>), </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>)
+</span><span class="jss31"><span>			</span><span style="color:#cb7832">await</span><span> fs.writeFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>, </span><span style="color:#e0c46c">JSON</span><span>.stringify(newTokenData, </span><span style="color:#6896ba">null</span><span>, </span><span style="color:#6896ba">4</span><span>), </span><span style="color:#6a8759">&#x27;utf-8&#x27;</span><span>)
 </span></span><span class="jss31">		}
 </span><span class="jss31">	}
 </span><span class="jss31">);
@@ -1144,7 +1144,7 @@ which doesn&#x27;t need to wrap another provider anymore. Its parameters are div
 </span></span><span class="jss30">	{
 </span><span class="jss30">		clientId,
 </span><span class="jss30">		clientSecret,
-</span><span class="jss30"><span>		</span><span class="hljs-attr">onRefresh</span><span>: </span><span style="color:#cb7832">async</span><span> newTokenData =&gt; </span><span style="color:#cb7832">await</span><span> fs.writeFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>, </span><span style="color:#e0c46c">JSON</span><span>.stringify(newTokenData, </span><span style="color:#6896ba">null</span><span>, </span><span style="color:#6896ba">4</span><span>), </span><span style="color:#6a8759">&#x27;UTF-8&#x27;</span><span>)
+</span><span class="jss30"><span>		</span><span class="hljs-attr">onRefresh</span><span>: </span><span style="color:#cb7832">async</span><span> newTokenData =&gt; </span><span style="color:#cb7832">await</span><span> fs.writeFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>, </span><span style="color:#e0c46c">JSON</span><span>.stringify(newTokenData, </span><span style="color:#6896ba">null</span><span>, </span><span style="color:#6896ba">4</span><span>), </span><span style="color:#6a8759">&#x27;utf-8&#x27;</span><span>)
 </span></span><span class="jss30">	},
 </span><span class="jss30">	tokenData
 </span><span class="jss30">);
