@@ -33,16 +33,17 @@
 		}
 		
 		:root, :host {
-  --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Solid";
-  --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Regular";
-  --fa-font-light: normal 300 1em/1 "Font Awesome 6 Light";
-  --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Thin";
+  --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
+  --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
+  --fa-font-light: normal 300 1em/1 "Font Awesome 6 Pro";
+  --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Pro";
   --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
+  --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
   --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 6 Sharp";
   --fa-font-sharp-regular: normal 400 1em/1 "Font Awesome 6 Sharp";
   --fa-font-sharp-light: normal 300 1em/1 "Font Awesome 6 Sharp";
   --fa-font-sharp-thin: normal 100 1em/1 "Font Awesome 6 Sharp";
-  --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+  --fa-font-sharp-duotone-solid: normal 900 1em/1 "Font Awesome 6 Sharp Duotone";
 }
 
 svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
@@ -114,17 +115,14 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
   width: 1em;
 }
 .fa-layers svg.svg-inline--fa {
-  -webkit-transform-origin: center center;
-          transform-origin: center center;
+  transform-origin: center center;
 }
 
 .fa-layers-text {
   left: 50%;
   top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  -webkit-transform-origin: center center;
-          transform-origin: center center;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
 }
 
 .fa-layers-counter {
@@ -140,20 +138,16 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
   right: var(--fa-right, 0);
   text-overflow: ellipsis;
   top: var(--fa-top, 0);
-  -webkit-transform: scale(var(--fa-counter-scale, 0.25));
-          transform: scale(var(--fa-counter-scale, 0.25));
-  -webkit-transform-origin: top right;
-          transform-origin: top right;
+  transform: scale(var(--fa-counter-scale, 0.25));
+  transform-origin: top right;
 }
 
 .fa-layers-bottom-right {
   bottom: var(--fa-bottom, 0);
   right: var(--fa-right, 0);
   top: auto;
-  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
-          transform: scale(var(--fa-layers-scale, 0.25));
-  -webkit-transform-origin: bottom right;
-          transform-origin: bottom right;
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: bottom right;
 }
 
 .fa-layers-bottom-left {
@@ -161,29 +155,23 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
   left: var(--fa-left, 0);
   right: auto;
   top: auto;
-  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
-          transform: scale(var(--fa-layers-scale, 0.25));
-  -webkit-transform-origin: bottom left;
-          transform-origin: bottom left;
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: bottom left;
 }
 
 .fa-layers-top-right {
   top: var(--fa-top, 0);
   right: var(--fa-right, 0);
-  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
-          transform: scale(var(--fa-layers-scale, 0.25));
-  -webkit-transform-origin: top right;
-          transform-origin: top right;
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: top right;
 }
 
 .fa-layers-top-left {
   left: var(--fa-left, 0);
   right: auto;
   top: var(--fa-top, 0);
-  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
-          transform: scale(var(--fa-layers-scale, 0.25));
-  -webkit-transform-origin: top left;
-          transform-origin: top left;
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: top left;
 }
 
 .fa-1x {
@@ -277,7 +265,7 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
 }
 
 .fa-li {
-  left: calc(var(--fa-li-width, 2em) * -1);
+  left: calc(-1 * var(--fa-li-width, 2em));
   position: absolute;
   text-align: center;
   width: var(--fa-li-width, 2em);
@@ -303,108 +291,66 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
 }
 
 .fa-beat {
-  -webkit-animation-name: fa-beat;
-          animation-name: fa-beat;
-  -webkit-animation-delay: var(--fa-animation-delay, 0s);
-          animation-delay: var(--fa-animation-delay, 0s);
-  -webkit-animation-direction: var(--fa-animation-direction, normal);
-          animation-direction: var(--fa-animation-direction, normal);
-  -webkit-animation-duration: var(--fa-animation-duration, 1s);
-          animation-duration: var(--fa-animation-duration, 1s);
-  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-  -webkit-animation-timing-function: var(--fa-animation-timing, ease-in-out);
-          animation-timing-function: var(--fa-animation-timing, ease-in-out);
+  animation-name: fa-beat;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, ease-in-out);
 }
 
 .fa-bounce {
-  -webkit-animation-name: fa-bounce;
-          animation-name: fa-bounce;
-  -webkit-animation-delay: var(--fa-animation-delay, 0s);
-          animation-delay: var(--fa-animation-delay, 0s);
-  -webkit-animation-direction: var(--fa-animation-direction, normal);
-          animation-direction: var(--fa-animation-direction, normal);
-  -webkit-animation-duration: var(--fa-animation-duration, 1s);
-          animation-duration: var(--fa-animation-duration, 1s);
-  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
-          animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+  animation-name: fa-bounce;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
 }
 
 .fa-fade {
-  -webkit-animation-name: fa-fade;
-          animation-name: fa-fade;
-  -webkit-animation-delay: var(--fa-animation-delay, 0s);
-          animation-delay: var(--fa-animation-delay, 0s);
-  -webkit-animation-direction: var(--fa-animation-direction, normal);
-          animation-direction: var(--fa-animation-direction, normal);
-  -webkit-animation-duration: var(--fa-animation-duration, 1s);
-          animation-duration: var(--fa-animation-duration, 1s);
-  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
-          animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+  animation-name: fa-fade;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
 }
 
 .fa-beat-fade {
-  -webkit-animation-name: fa-beat-fade;
-          animation-name: fa-beat-fade;
-  -webkit-animation-delay: var(--fa-animation-delay, 0s);
-          animation-delay: var(--fa-animation-delay, 0s);
-  -webkit-animation-direction: var(--fa-animation-direction, normal);
-          animation-direction: var(--fa-animation-direction, normal);
-  -webkit-animation-duration: var(--fa-animation-duration, 1s);
-          animation-duration: var(--fa-animation-duration, 1s);
-  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
-          animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+  animation-name: fa-beat-fade;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
 }
 
 .fa-flip {
-  -webkit-animation-name: fa-flip;
-          animation-name: fa-flip;
-  -webkit-animation-delay: var(--fa-animation-delay, 0s);
-          animation-delay: var(--fa-animation-delay, 0s);
-  -webkit-animation-direction: var(--fa-animation-direction, normal);
-          animation-direction: var(--fa-animation-direction, normal);
-  -webkit-animation-duration: var(--fa-animation-duration, 1s);
-          animation-duration: var(--fa-animation-duration, 1s);
-  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-  -webkit-animation-timing-function: var(--fa-animation-timing, ease-in-out);
-          animation-timing-function: var(--fa-animation-timing, ease-in-out);
+  animation-name: fa-flip;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, ease-in-out);
 }
 
 .fa-shake {
-  -webkit-animation-name: fa-shake;
-          animation-name: fa-shake;
-  -webkit-animation-delay: var(--fa-animation-delay, 0s);
-          animation-delay: var(--fa-animation-delay, 0s);
-  -webkit-animation-direction: var(--fa-animation-direction, normal);
-          animation-direction: var(--fa-animation-direction, normal);
-  -webkit-animation-duration: var(--fa-animation-duration, 1s);
-          animation-duration: var(--fa-animation-duration, 1s);
-  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-  -webkit-animation-timing-function: var(--fa-animation-timing, linear);
-          animation-timing-function: var(--fa-animation-timing, linear);
+  animation-name: fa-shake;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, linear);
 }
 
 .fa-spin {
-  -webkit-animation-name: fa-spin;
-          animation-name: fa-spin;
-  -webkit-animation-delay: var(--fa-animation-delay, 0s);
-          animation-delay: var(--fa-animation-delay, 0s);
-  -webkit-animation-direction: var(--fa-animation-direction, normal);
-          animation-direction: var(--fa-animation-direction, normal);
-  -webkit-animation-duration: var(--fa-animation-duration, 2s);
-          animation-duration: var(--fa-animation-duration, 2s);
-  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-  -webkit-animation-timing-function: var(--fa-animation-timing, linear);
-          animation-timing-function: var(--fa-animation-timing, linear);
+  animation-name: fa-spin;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 2s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, linear);
 }
 
 .fa-spin-reverse {
@@ -413,16 +359,11 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
 
 .fa-pulse,
 .fa-spin-pulse {
-  -webkit-animation-name: fa-spin;
-          animation-name: fa-spin;
-  -webkit-animation-direction: var(--fa-animation-direction, normal);
-          animation-direction: var(--fa-animation-direction, normal);
-  -webkit-animation-duration: var(--fa-animation-duration, 1s);
-          animation-duration: var(--fa-animation-duration, 1s);
-  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-  -webkit-animation-timing-function: var(--fa-animation-timing, steps(8));
-          animation-timing-function: var(--fa-animation-timing, steps(8));
+  animation-name: fa-spin;
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, steps(8));
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -435,101 +376,42 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
 .fa-shake,
 .fa-spin,
 .fa-spin-pulse {
-    -webkit-animation-delay: -1ms;
-            animation-delay: -1ms;
-    -webkit-animation-duration: 1ms;
-            animation-duration: 1ms;
-    -webkit-animation-iteration-count: 1;
-            animation-iteration-count: 1;
-    -webkit-transition-delay: 0s;
-            transition-delay: 0s;
-    -webkit-transition-duration: 0s;
-            transition-duration: 0s;
-  }
-}
-@-webkit-keyframes fa-beat {
-  0%, 90% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  45% {
-    -webkit-transform: scale(var(--fa-beat-scale, 1.25));
-            transform: scale(var(--fa-beat-scale, 1.25));
+    animation-delay: -1ms;
+    animation-duration: 1ms;
+    animation-iteration-count: 1;
+    transition-delay: 0s;
+    transition-duration: 0s;
   }
 }
 @keyframes fa-beat {
   0%, 90% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
   }
   45% {
-    -webkit-transform: scale(var(--fa-beat-scale, 1.25));
-            transform: scale(var(--fa-beat-scale, 1.25));
-  }
-}
-@-webkit-keyframes fa-bounce {
-  0% {
-    -webkit-transform: scale(1, 1) translateY(0);
-            transform: scale(1, 1) translateY(0);
-  }
-  10% {
-    -webkit-transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
-            transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
-  }
-  30% {
-    -webkit-transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
-            transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
-  }
-  50% {
-    -webkit-transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
-            transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
-  }
-  57% {
-    -webkit-transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
-            transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
-  }
-  64% {
-    -webkit-transform: scale(1, 1) translateY(0);
-            transform: scale(1, 1) translateY(0);
-  }
-  100% {
-    -webkit-transform: scale(1, 1) translateY(0);
-            transform: scale(1, 1) translateY(0);
+    transform: scale(var(--fa-beat-scale, 1.25));
   }
 }
 @keyframes fa-bounce {
   0% {
-    -webkit-transform: scale(1, 1) translateY(0);
-            transform: scale(1, 1) translateY(0);
+    transform: scale(1, 1) translateY(0);
   }
   10% {
-    -webkit-transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
-            transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+    transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
   }
   30% {
-    -webkit-transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
-            transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+    transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
   }
   50% {
-    -webkit-transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
-            transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+    transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
   }
   57% {
-    -webkit-transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
-            transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+    transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
   }
   64% {
-    -webkit-transform: scale(1, 1) translateY(0);
-            transform: scale(1, 1) translateY(0);
+    transform: scale(1, 1) translateY(0);
   }
   100% {
-    -webkit-transform: scale(1, 1) translateY(0);
-            transform: scale(1, 1) translateY(0);
-  }
-}
-@-webkit-keyframes fa-fade {
-  50% {
-    opacity: var(--fa-fade-opacity, 0.4);
+    transform: scale(1, 1) translateY(0);
   }
 }
 @keyframes fa-fade {
@@ -537,172 +419,85 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
     opacity: var(--fa-fade-opacity, 0.4);
   }
 }
-@-webkit-keyframes fa-beat-fade {
-  0%, 100% {
-    opacity: var(--fa-beat-fade-opacity, 0.4);
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    -webkit-transform: scale(var(--fa-beat-fade-scale, 1.125));
-            transform: scale(var(--fa-beat-fade-scale, 1.125));
-  }
-}
 @keyframes fa-beat-fade {
   0%, 100% {
     opacity: var(--fa-beat-fade-opacity, 0.4);
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
   }
   50% {
     opacity: 1;
-    -webkit-transform: scale(var(--fa-beat-fade-scale, 1.125));
-            transform: scale(var(--fa-beat-fade-scale, 1.125));
-  }
-}
-@-webkit-keyframes fa-flip {
-  50% {
-    -webkit-transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
-            transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+    transform: scale(var(--fa-beat-fade-scale, 1.125));
   }
 }
 @keyframes fa-flip {
   50% {
-    -webkit-transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
-            transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
-  }
-}
-@-webkit-keyframes fa-shake {
-  0% {
-    -webkit-transform: rotate(-15deg);
-            transform: rotate(-15deg);
-  }
-  4% {
-    -webkit-transform: rotate(15deg);
-            transform: rotate(15deg);
-  }
-  8%, 24% {
-    -webkit-transform: rotate(-18deg);
-            transform: rotate(-18deg);
-  }
-  12%, 28% {
-    -webkit-transform: rotate(18deg);
-            transform: rotate(18deg);
-  }
-  16% {
-    -webkit-transform: rotate(-22deg);
-            transform: rotate(-22deg);
-  }
-  20% {
-    -webkit-transform: rotate(22deg);
-            transform: rotate(22deg);
-  }
-  32% {
-    -webkit-transform: rotate(-12deg);
-            transform: rotate(-12deg);
-  }
-  36% {
-    -webkit-transform: rotate(12deg);
-            transform: rotate(12deg);
-  }
-  40%, 100% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
   }
 }
 @keyframes fa-shake {
   0% {
-    -webkit-transform: rotate(-15deg);
-            transform: rotate(-15deg);
+    transform: rotate(-15deg);
   }
   4% {
-    -webkit-transform: rotate(15deg);
-            transform: rotate(15deg);
+    transform: rotate(15deg);
   }
   8%, 24% {
-    -webkit-transform: rotate(-18deg);
-            transform: rotate(-18deg);
+    transform: rotate(-18deg);
   }
   12%, 28% {
-    -webkit-transform: rotate(18deg);
-            transform: rotate(18deg);
+    transform: rotate(18deg);
   }
   16% {
-    -webkit-transform: rotate(-22deg);
-            transform: rotate(-22deg);
+    transform: rotate(-22deg);
   }
   20% {
-    -webkit-transform: rotate(22deg);
-            transform: rotate(22deg);
+    transform: rotate(22deg);
   }
   32% {
-    -webkit-transform: rotate(-12deg);
-            transform: rotate(-12deg);
+    transform: rotate(-12deg);
   }
   36% {
-    -webkit-transform: rotate(12deg);
-            transform: rotate(12deg);
+    transform: rotate(12deg);
   }
   40%, 100% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-}
-@-webkit-keyframes fa-spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(0deg);
   }
 }
 @keyframes fa-spin {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 .fa-rotate-90 {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 .fa-rotate-180 {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .fa-rotate-270 {
-  -webkit-transform: rotate(270deg);
-          transform: rotate(270deg);
+  transform: rotate(270deg);
 }
 
 .fa-flip-horizontal {
-  -webkit-transform: scale(-1, 1);
-          transform: scale(-1, 1);
+  transform: scale(-1, 1);
 }
 
 .fa-flip-vertical {
-  -webkit-transform: scale(1, -1);
-          transform: scale(1, -1);
+  transform: scale(1, -1);
 }
 
 .fa-flip-both,
 .fa-flip-horizontal.fa-flip-vertical {
-  -webkit-transform: scale(-1, -1);
-          transform: scale(-1, -1);
+  transform: scale(-1, -1);
 }
 
 .fa-rotate-by {
-  -webkit-transform: rotate(var(--fa-rotate-angle, 0));
-          transform: rotate(var(--fa-rotate-angle, 0));
+  transform: rotate(var(--fa-rotate-angle, 0));
 }
 
 .fa-stack {
@@ -993,7 +788,7 @@ should use for which use case.</p>
 <h2>Current state &amp; actions</h2>
 <table><thead><tr><th>Operation</th><th><code>@twurple/api</code></th><th><code>@twurple/chat</code></th></tr></thead><tbody><tr><td>Start an ad</td><td>Yes</td><td>No</td></tr><tr><td>Get Bits leaderboard</td><td>Yes</td><td>No</td></tr><tr><td>Get available Cheermotes</td><td>Yes</td><td>No</td></tr><tr><td>Get Extension transactions</td><td>Yes</td><td>No</td></tr><tr><td>Get channel category/title</td><td>Yes</td><td>No</td></tr><tr><td>Set channel category/title</td><td>Yes</td><td>No</td></tr><tr><td>Get channel editors</td><td>Yes</td><td>No</td></tr><tr><td>Manage custom rewards &amp; redemptions</td><td>Yes</td><td>No</td></tr><tr><td>Get available emotes &amp; badges</td><td>Yes</td><td>No</td></tr><tr><td>Get &amp; create clips</td><td>Yes</td><td>No</td></tr><tr><td>Manage drops</td><td>Yes</td><td>No</td></tr><tr><td>Manage extensions</td><td>Yes</td><td>No</td></tr><tr><td>Get category info</td><td>Yes</td><td>No</td></tr><tr><td>Manage polls &amp; predictions</td><td>Yes</td><td>No</td></tr><tr><td>Get banned users</td><td>Yes</td><td>No</td></tr><tr><td>Ban/unban/timeout users</td><td>Yes</td><td>No</td></tr><tr><td>Get &amp; manage schedules</td><td>Yes</td><td>No</td></tr><tr><td>Search categories</td><td>Yes</td><td>No</td></tr><tr><td>Search channels</td><td>Yes</td><td>No</td></tr><tr><td>Get stream key</td><td>Yes</td><td>No</td></tr><tr><td>Get info about streams</td><td>Yes</td><td>No</td></tr><tr><td>Manage stream markers</td><td>Yes</td><td>No</td></tr><tr><td>Get list of subscribers</td><td>Yes</td><td>No</td></tr><tr><td>Check subscription</td><td>Yes</td><td>Yes (in message context)</td></tr><tr><td>Get list of VIPs</td><td>Yes</td><td>No</td></tr><tr><td>Check VIP</td><td>Yes</td><td>Yes (in message context)</td></tr><tr><td>Manage VIPs</td><td>Yes</td><td>No</td></tr><tr><td>Get list of moderators</td><td>Yes</td><td>No</td></tr><tr><td>Manage moderators</td><td>Yes</td><td>No</td></tr><tr><td>Get &amp; manage stream tags</td><td>Yes</td><td>No</td></tr><tr><td>Get team info</td><td>Yes</td><td>No</td></tr><tr><td>Get user info</td><td>Yes</td><td>Yes (in message context; login, display name, ID only)</td></tr><tr><td>Get &amp; manage follows</td><td>Yes</td><td>No</td></tr><tr><td>Get &amp; manage VODs</td><td>Yes</td><td>No</td></tr><tr><td>Raid users</td><td>Yes</td><td>No</td></tr><tr><td>Send chat messages</td><td>Yes</td><td>Yes</td></tr><tr><td>Send chat announcements</td><td>Yes</td><td>No</td></tr><tr><td>Send whispers</td><td>Yes</td><td>No</td></tr><tr><td>Remove chat messages</td><td>Yes</td><td>No</td></tr><tr><td>Set chat modes (e.g. emote/sub/follower only)</td><td>Yes</td><td>No</td></tr><tr><td>Get &amp; manage AutoMod settings</td><td>Yes</td><td>No</td></tr><tr><td>Get current Creator Goals state</td><td>Yes</td><td>No</td></tr><tr><td>Get list of chatters</td><td>Yes</td><td>No</td></tr><tr><td>Get info about charity campaigns</td><td>Yes</td><td>No</td></tr><tr><td>Get &amp; manage Shield Mode status</td><td>Yes</td><td>No</td></tr></tbody></table>
 <h2>Events</h2>
-<table><thead><tr><th>Event type</th><th><code>@twurple/chat</code></th><th><code>@twurple/pubsub</code></th><th><code>@twurple/eventsub-*</code></th></tr></thead><tbody><tr><td>Chat messages</td><td>Yes</td><td>Sub &amp; cheer messages only</td><td>Yes</td></tr><tr><td>Chat mode (e.g. sub only) changes</td><td>Yes</td><td>No</td><td>Yes</td></tr><tr><td>Whispers</td><td>Yes</td><td>Yes</td><td>No (in beta by Twitch)</td></tr><tr><td>Cheers</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr><td>Channel points</td><td>Redemptions w/ messages only</td><td>Redemptions only</td><td>Yes</td></tr><tr><td>Subscriptions</td><td>Published only</td><td>Published only</td><td>Yes</td></tr><tr><td>AutoMod</td><td>No</td><td>Yes</td><td>No (implemented by Twitch)</td></tr><tr><td>Live / offline / stream changes</td><td>No</td><td>No</td><td>Yes</td></tr><tr><td>Follows</td><td>No</td><td>No</td><td>Yes</td></tr><tr><td>Raids</td><td>Yes</td><td>No</td><td>Yes</td></tr><tr><td>Bans</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr><td>Mod add/remove</td><td>No</td><td>Yes</td><td>Yes</td></tr><tr><td>Polls &amp; predictions</td><td>No</td><td>No</td><td>Yes</td></tr><tr><td>Extension transactions</td><td>No</td><td>No</td><td>Yes</td></tr><tr><td>Hype Trains</td><td>No</td><td>No</td><td>Yes</td></tr><tr><td>Authorization grant/revoke</td><td>No</td><td>No</td><td>Yes</td></tr><tr><td>Drops</td><td>No</td><td>No</td><td>Yes</td></tr><tr><td>Charity campaigns &amp; donations</td><td>No</td><td>No</td><td>Yes</td></tr><tr><td>Shield mode begin/end</td><td>No</td><td>No</td><td>Yes</td></tr><tr><td>Unban request approve/deny</td><td>No</td><td>Yes</td><td>No (in beta by Twitch)</td></tr><tr><td>Low-trust users treatment/chat message</td><td>No</td><td>Yes</td><td>No (in beta by Twitch)</td></tr></tbody></table></div></div></div></div></div>
+<table><thead><tr><th>Event type</th><th><code>@twurple/chat</code></th><th><code>@twurple/pubsub</code></th><th><code>@twurple/eventsub-*</code></th></tr></thead><tbody><tr><td>Chat messages</td><td>Yes</td><td>Sub &amp; cheer messages only</td><td>Yes</td></tr><tr><td>Chat mode (e.g. sub only) changes</td><td>Yes</td><td>No</td><td>Yes</td></tr><tr><td>Whispers</td><td>Yes</td><td>Yes</td><td>No (in beta by Twitch)</td></tr><tr><td>Cheers</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr><td>Channel points</td><td>Redemptions w/ messages only</td><td>Redemptions only</td><td>Yes</td></tr><tr><td>Subscriptions</td><td>Published only</td><td>Published only</td><td>Yes</td></tr><tr><td>AutoMod</td><td>No</td><td>Yes</td><td>Yes</td></tr><tr><td>Live / offline / stream changes</td><td>No</td><td>No</td><td>Yes</td></tr><tr><td>Follows</td><td>No</td><td>No</td><td>Yes</td></tr><tr><td>Raids</td><td>Yes</td><td>No</td><td>Yes</td></tr><tr><td>Bans</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr><td>Mod add/remove</td><td>No</td><td>Yes</td><td>Yes</td></tr><tr><td>Polls &amp; predictions</td><td>No</td><td>No</td><td>Yes</td></tr><tr><td>Extension transactions</td><td>No</td><td>No</td><td>Yes</td></tr><tr><td>Hype Trains</td><td>No</td><td>No</td><td>Yes</td></tr><tr><td>Authorization grant/revoke</td><td>No</td><td>No</td><td>Yes</td></tr><tr><td>Drops</td><td>No</td><td>No</td><td>Yes</td></tr><tr><td>Charity campaigns &amp; donations</td><td>No</td><td>No</td><td>Yes</td></tr><tr><td>Shield mode begin/end</td><td>No</td><td>No</td><td>Yes</td></tr><tr><td>Unban request approve/deny</td><td>No</td><td>Yes</td><td>No (in beta by Twitch)</td></tr><tr><td>Low-trust users treatment/chat message</td><td>No</td><td>Yes</td><td>No (in beta by Twitch)</td></tr></tbody></table></div></div></div></div></div>
 <script src="/versions/main/pe.js"></script>
 </body>
 </html>
