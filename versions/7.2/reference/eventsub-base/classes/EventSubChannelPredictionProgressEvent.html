@@ -1,0 +1,945 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Twurple</title>
+    <style>
+    	@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+
+		html {
+			height: 100%;
+		}
+
+		html, body, #app-root {
+			width: 100%;
+			display: flex;
+			flex: 1;
+			flex-direction: column;
+		}
+		
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-size: 14px;
+			line-height: 1.6em;
+			background: #141414;
+			color: #b9b9b9;
+		}
+
+		p {
+			margin: 8px 0;
+		}
+		
+		:root, :host {
+  --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
+  --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
+  --fa-font-light: normal 300 1em/1 "Font Awesome 6 Pro";
+  --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Pro";
+  --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
+  --fa-font-duotone-regular: normal 400 1em/1 "Font Awesome 6 Duotone";
+  --fa-font-duotone-light: normal 300 1em/1 "Font Awesome 6 Duotone";
+  --fa-font-duotone-thin: normal 100 1em/1 "Font Awesome 6 Duotone";
+  --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+  --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-regular: normal 400 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-light: normal 300 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-thin: normal 100 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-duotone-solid: normal 900 1em/1 "Font Awesome 6 Sharp Duotone";
+  --fa-font-sharp-duotone-regular: normal 400 1em/1 "Font Awesome 6 Sharp Duotone";
+  --fa-font-sharp-duotone-light: normal 300 1em/1 "Font Awesome 6 Sharp Duotone";
+  --fa-font-sharp-duotone-thin: normal 100 1em/1 "Font Awesome 6 Sharp Duotone";
+}
+
+svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
+  overflow: visible;
+  box-sizing: content-box;
+}
+
+.svg-inline--fa {
+  display: var(--fa-display, inline-block);
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+.svg-inline--fa.fa-2xs {
+  vertical-align: 0.1em;
+}
+.svg-inline--fa.fa-xs {
+  vertical-align: 0em;
+}
+.svg-inline--fa.fa-sm {
+  vertical-align: -0.0714285705em;
+}
+.svg-inline--fa.fa-lg {
+  vertical-align: -0.2em;
+}
+.svg-inline--fa.fa-xl {
+  vertical-align: -0.25em;
+}
+.svg-inline--fa.fa-2xl {
+  vertical-align: -0.3125em;
+}
+.svg-inline--fa.fa-pull-left {
+  margin-right: var(--fa-pull-margin, 0.3em);
+  width: auto;
+}
+.svg-inline--fa.fa-pull-right {
+  margin-left: var(--fa-pull-margin, 0.3em);
+  width: auto;
+}
+.svg-inline--fa.fa-li {
+  width: var(--fa-li-width, 2em);
+  top: 0.25em;
+}
+.svg-inline--fa.fa-fw {
+  width: var(--fa-fw-width, 1.25em);
+}
+
+.fa-layers svg.svg-inline--fa {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.fa-layers-counter, .fa-layers-text {
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+}
+
+.fa-layers {
+  display: inline-block;
+  height: 1em;
+  position: relative;
+  text-align: center;
+  vertical-align: -0.125em;
+  width: 1em;
+}
+.fa-layers svg.svg-inline--fa {
+  transform-origin: center center;
+}
+
+.fa-layers-text {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+}
+
+.fa-layers-counter {
+  background-color: var(--fa-counter-background-color, #ff253a);
+  border-radius: var(--fa-counter-border-radius, 1em);
+  box-sizing: border-box;
+  color: var(--fa-inverse, #fff);
+  line-height: var(--fa-counter-line-height, 1);
+  max-width: var(--fa-counter-max-width, 5em);
+  min-width: var(--fa-counter-min-width, 1.5em);
+  overflow: hidden;
+  padding: var(--fa-counter-padding, 0.25em 0.5em);
+  right: var(--fa-right, 0);
+  text-overflow: ellipsis;
+  top: var(--fa-top, 0);
+  transform: scale(var(--fa-counter-scale, 0.25));
+  transform-origin: top right;
+}
+
+.fa-layers-bottom-right {
+  bottom: var(--fa-bottom, 0);
+  right: var(--fa-right, 0);
+  top: auto;
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: bottom right;
+}
+
+.fa-layers-bottom-left {
+  bottom: var(--fa-bottom, 0);
+  left: var(--fa-left, 0);
+  right: auto;
+  top: auto;
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: bottom left;
+}
+
+.fa-layers-top-right {
+  top: var(--fa-top, 0);
+  right: var(--fa-right, 0);
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: top right;
+}
+
+.fa-layers-top-left {
+  left: var(--fa-left, 0);
+  right: auto;
+  top: var(--fa-top, 0);
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: top left;
+}
+
+.fa-1x {
+  font-size: 1em;
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa-3x {
+  font-size: 3em;
+}
+
+.fa-4x {
+  font-size: 4em;
+}
+
+.fa-5x {
+  font-size: 5em;
+}
+
+.fa-6x {
+  font-size: 6em;
+}
+
+.fa-7x {
+  font-size: 7em;
+}
+
+.fa-8x {
+  font-size: 8em;
+}
+
+.fa-9x {
+  font-size: 9em;
+}
+
+.fa-10x {
+  font-size: 10em;
+}
+
+.fa-2xs {
+  font-size: 0.625em;
+  line-height: 0.1em;
+  vertical-align: 0.225em;
+}
+
+.fa-xs {
+  font-size: 0.75em;
+  line-height: 0.0833333337em;
+  vertical-align: 0.125em;
+}
+
+.fa-sm {
+  font-size: 0.875em;
+  line-height: 0.0714285718em;
+  vertical-align: 0.0535714295em;
+}
+
+.fa-lg {
+  font-size: 1.25em;
+  line-height: 0.05em;
+  vertical-align: -0.075em;
+}
+
+.fa-xl {
+  font-size: 1.5em;
+  line-height: 0.0416666682em;
+  vertical-align: -0.125em;
+}
+
+.fa-2xl {
+  font-size: 2em;
+  line-height: 0.03125em;
+  vertical-align: -0.1875em;
+}
+
+.fa-fw {
+  text-align: center;
+  width: 1.25em;
+}
+
+.fa-ul {
+  list-style-type: none;
+  margin-left: var(--fa-li-margin, 2.5em);
+  padding-left: 0;
+}
+.fa-ul > li {
+  position: relative;
+}
+
+.fa-li {
+  left: calc(-1 * var(--fa-li-width, 2em));
+  position: absolute;
+  text-align: center;
+  width: var(--fa-li-width, 2em);
+  line-height: inherit;
+}
+
+.fa-border {
+  border-color: var(--fa-border-color, #eee);
+  border-radius: var(--fa-border-radius, 0.1em);
+  border-style: var(--fa-border-style, solid);
+  border-width: var(--fa-border-width, 0.08em);
+  padding: var(--fa-border-padding, 0.2em 0.25em 0.15em);
+}
+
+.fa-pull-left {
+  float: left;
+  margin-right: var(--fa-pull-margin, 0.3em);
+}
+
+.fa-pull-right {
+  float: right;
+  margin-left: var(--fa-pull-margin, 0.3em);
+}
+
+.fa-beat {
+  animation-name: fa-beat;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, ease-in-out);
+}
+
+.fa-bounce {
+  animation-name: fa-bounce;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+}
+
+.fa-fade {
+  animation-name: fa-fade;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+}
+
+.fa-beat-fade {
+  animation-name: fa-beat-fade;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+}
+
+.fa-flip {
+  animation-name: fa-flip;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, ease-in-out);
+}
+
+.fa-shake {
+  animation-name: fa-shake;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, linear);
+}
+
+.fa-spin {
+  animation-name: fa-spin;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 2s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, linear);
+}
+
+.fa-spin-reverse {
+  --fa-animation-direction: reverse;
+}
+
+.fa-pulse,
+.fa-spin-pulse {
+  animation-name: fa-spin;
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, steps(8));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fa-beat,
+.fa-bounce,
+.fa-fade,
+.fa-beat-fade,
+.fa-flip,
+.fa-pulse,
+.fa-shake,
+.fa-spin,
+.fa-spin-pulse {
+    animation-delay: -1ms;
+    animation-duration: 1ms;
+    animation-iteration-count: 1;
+    transition-delay: 0s;
+    transition-duration: 0s;
+  }
+}
+@keyframes fa-beat {
+  0%, 90% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(var(--fa-beat-scale, 1.25));
+  }
+}
+@keyframes fa-bounce {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+  }
+  30% {
+    transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+  }
+  50% {
+    transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+  }
+  57% {
+    transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+  }
+  64% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
+}
+@keyframes fa-fade {
+  50% {
+    opacity: var(--fa-fade-opacity, 0.4);
+  }
+}
+@keyframes fa-beat-fade {
+  0%, 100% {
+    opacity: var(--fa-beat-fade-opacity, 0.4);
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(var(--fa-beat-fade-scale, 1.125));
+  }
+}
+@keyframes fa-flip {
+  50% {
+    transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+  }
+}
+@keyframes fa-shake {
+  0% {
+    transform: rotate(-15deg);
+  }
+  4% {
+    transform: rotate(15deg);
+  }
+  8%, 24% {
+    transform: rotate(-18deg);
+  }
+  12%, 28% {
+    transform: rotate(18deg);
+  }
+  16% {
+    transform: rotate(-22deg);
+  }
+  20% {
+    transform: rotate(22deg);
+  }
+  32% {
+    transform: rotate(-12deg);
+  }
+  36% {
+    transform: rotate(12deg);
+  }
+  40%, 100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes fa-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.fa-rotate-90 {
+  transform: rotate(90deg);
+}
+
+.fa-rotate-180 {
+  transform: rotate(180deg);
+}
+
+.fa-rotate-270 {
+  transform: rotate(270deg);
+}
+
+.fa-flip-horizontal {
+  transform: scale(-1, 1);
+}
+
+.fa-flip-vertical {
+  transform: scale(1, -1);
+}
+
+.fa-flip-both,
+.fa-flip-horizontal.fa-flip-vertical {
+  transform: scale(-1, -1);
+}
+
+.fa-rotate-by {
+  transform: rotate(var(--fa-rotate-angle, 0));
+}
+
+.fa-stack {
+  display: inline-block;
+  vertical-align: middle;
+  height: 2em;
+  position: relative;
+  width: 2.5em;
+}
+
+.fa-stack-1x,
+.fa-stack-2x {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: var(--fa-stack-z-index, auto);
+}
+
+.svg-inline--fa.fa-stack-1x {
+  height: 1em;
+  width: 1.25em;
+}
+.svg-inline--fa.fa-stack-2x {
+  height: 2em;
+  width: 2.5em;
+}
+
+.fa-inverse {
+  color: var(--fa-inverse, #fff);
+}
+
+.sr-only,
+.fa-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only-focusable:not(:focus),
+.fa-sr-only-focusable:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.svg-inline--fa .fa-primary {
+  fill: var(--fa-primary-color, currentColor);
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa .fa-secondary {
+  fill: var(--fa-secondary-color, currentColor);
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-primary {
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-secondary {
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa mask .fa-primary,
+.svg-inline--fa mask .fa-secondary {
+  fill: black;
+}
+
+	</style>
+    <style id="server-side-styles">.jss21 table {
+  border-collapse: collapse;
+}
+.jss21 th, .jss21 td {
+  border: 1px solid #444;
+  padding: 8px;
+}
+.jss21 li {
+  margin: 16px 0;
+}
+.jss21 code {
+  color: #88ab14;
+  outline: 1px solid #444;
+  padding: 0 2px;
+  border-radius: 3px;
+  background-color: #242424;
+}
+.jss21 pre > code {
+  color: inherit;
+  outline: 0 none;
+  padding: 0;
+  border-radius: 0;
+  background-color: inherit;
+}
+.jss21 li::marker {
+  color: #647d0f;
+}
+.jss22 {
+  color: inherit;
+  transition: border-color .3s ease-in-out;
+  font-weight: bold;
+  border-bottom: 1.5px solid #647d0f;
+  text-decoration: none;
+}
+.jss22:hover {
+  border-bottom-color: #88ab14;
+}
+.jss23 {
+  display: flow-root;
+  padding: 0 1em;
+  border-left: 4px solid #ab9120;
+  margin-bottom: 1em;
+  background-color: #242424;
+}
+.jss24 {
+  font-size: 1em;
+}
+.jss13 {
+  min-height: 100%;
+  border-right: 1px solid #444;
+}
+.jss14 {
+  color: #b9b9b9;
+  display: block;
+  padding: 8px 0;
+}
+.jss15 {
+  height: 1em;
+  margin: 0;
+  padding: 4px 8px 4px 12px;
+  font-size: 1.1em;
+  font-weight: bold;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+.jss16 > a {
+  padding-left: 20px;
+}
+.jss17 {
+  color: #b9b9b9;
+  height: 1em;
+  display: block;
+  padding: 8px;
+  overflow: hidden;
+  transition: .3s background-color ease-in-out, .3s border-left-color ease-in-out;
+  border-left: .25em solid transparent;
+  line-height: 1em;
+  text-overflow: ellipsis;
+  text-decoration: none;
+}
+.jss17:hover {
+  background-color: #333333;
+}
+.jss18 {
+  border-color: #647d0f;
+  background-color: #242424;
+}
+.jss18:hover {
+  border-left-color: #88ab14;
+}
+.jss25 {
+  padding: 16px;
+}
+.jss25 h2 {
+  margin: 24px 0 16px;
+}
+.jss25 h2:first-child {
+  margin-top: 0;
+}
+.jss19 {
+  color: #b9b9b9;
+  padding: 16px;
+  position: relative;
+  background-color: #242424;
+}
+.jss19 h1 {
+  margin: 0;
+  display: inline;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+.jss19 p {
+  margin: 0;
+}
+.jss1 {
+  display: flex;
+  border-bottom: 1px solid #444;
+}
+.jss2 {
+  color: #b9b9b9;
+  cursor: pointer;
+  margin: 0;
+  padding: 8px 16px;
+  transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
+  line-height: 1.3em;
+  user-select: none;
+  border-bottom: 3px solid transparent;
+  text-decoration: none;
+}
+.jss2:hover {
+  background-color: #333333;
+}
+.jss3 {
+  background-color: #242424;
+  border-bottom-color: #647d0f;
+}
+.jss3:hover {
+  border-bottom-color: #88ab14;
+}
+.jss4 {
+  font-weight: bold;
+  margin-left: 0;
+}
+.jss5 {
+  margin: 0 8px;
+  position: relative;
+}
+.jss5 > .jss2 {
+  margin: 0;
+}
+.jss5:hover .jss6 {
+  display: block;
+}
+.jss6 {
+  top: 100%;
+  left: 0;
+  border: 1px solid #444;
+  display: none;
+  z-index: 4;
+  position: absolute;
+  background-color: #141414;
+}
+.jss7 {
+  margin: 0;
+  display: block;
+  border-left: 3px solid transparent;
+  white-space: nowrap;
+  border-right: 0 none;
+  border-bottom: 0 none;
+}
+.jss7:first-child {
+  border-top: 0 none;
+}
+.jss8 {
+  background-color: #242424;
+  border-left-color: #647d0f;
+}
+.jss8:hover {
+  border-left-color: #88ab14;
+}
+.jss9 {
+  flex: 1;
+}
+.jss41 {
+  margin: 16px 0;
+  padding: 16px;
+  border-left: 4px solid #444;
+}
+.jss41 h3, .jss41 h4 {
+  margin: 0;
+}
+.jss41 > :last-child {
+  margin-bottom: 0;
+}
+.jss41:target {
+  background-color: #242424;
+}
+.jss46 {
+  color: #949494;
+  font-weight: bold;
+  text-decoration: none;
+}
+.jss45 {
+  color: #949494;
+  font-weight: bold;
+  text-decoration: none;
+}
+.jss56 {
+  border: 1px solid #444;
+  margin: 16px 0;
+}
+.jss57 {
+  padding: 8px;
+  background-color: #242424;
+}
+.jss20 {
+  color: #647d0f;
+  transition: color .3s ease-in-out;
+  margin-left: 1em;
+}
+.jss20:hover {
+  color: #88ab14;
+}
+.jss42 {
+  float: right;
+}
+.jss43 {
+  margin-left: .5em;
+}
+.jss44 {
+  color: #647d0f;
+  transition: color .3s ease-in-out;
+  margin-left: 1em;
+}
+.jss44:hover {
+  color: #88ab14;
+}
+.jss58 {
+  margin: 16px 0 0;
+  font-weight: bold;
+}
+.jss59 {
+  font-weight: normal;
+}
+.jss35 {
+  color: #141414;
+  display: inline-block;
+  padding: 2px 5px;
+  font-size: 12px;
+  line-height: normal;
+  margin-left: 1em;
+  border-radius: 5px;
+  text-decoration: none;
+  background-color: #b9b9b9;
+}
+.jss36 {
+  padding: 1px 3px;
+  font-size: 10px;
+  margin-left: .5em;
+}
+.jss37 {
+  cursor: default;
+}
+.jss55 {
+  cursor: pointer;
+}
+.jss54 {
+  margin: 0 0 .5em;
+  display: inline-block;
+  font-family: Monaco, Menlo, "Lucida Console", monospace;
+}
+.jss53 {
+  background-color: #cccc70;
+}
+.jss48 {
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+}
+.jss47:hover .jss48 {
+  opacity: 1;
+}
+.jss49 {
+  background-color: #cccc70;
+}
+.jss50 {
+  margin: 1em 0 0;
+  font-weight: bold;
+}
+.jss51 {
+  font-family: Monaco, Menlo, "Lucida Console", monospace;
+  font-weight: normal;
+}
+.jss39 {
+  display: inline-block;
+}
+.jss40 {
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+}
+.jss38:hover .jss40 {
+  opacity: 1;
+}
+.jss30 {
+  line-height: 1.3em;
+  list-style-type: none;
+}
+.jss31 {
+  color: #949494;
+  font-size: 12px;
+  text-decoration: none;
+}
+.jss32 {
+  background-color: #cccc70;
+}
+.jss33 {
+  background-color: #cc7070;
+}
+.jss34 {
+  background-color: #ab9120;
+}
+.jss26 {
+  display: flex;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.jss27 {
+  min-width: 300px;
+}
+.jss28 {
+  margin: 0;
+  margin-bottom: 8px;
+}
+.jss29 {
+  margin: 0;
+  border-left: 4px solid #444;
+  padding-left: 8px;
+}
+.jss10 {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.jss11 {
+  width: 250px;
+}
+.jss12 {
+  flex: 1;
+}</style>
+</head>
+<body>
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/versions/7.2/">Twurple</a><a class="jss2" href="/versions/7.2/docs/auth/">Authentication</a><a class="jss2" href="/versions/7.2/docs/getting-data/">Getting data</a><a class="jss2" href="/versions/7.2/docs/examples/">Examples</a><a class="jss2" href="/versions/7.2/docs/faq/">FAQ</a><a class="jss2" href="/versions/7.2/docs/migration/">Migration</a><div class="jss5"><div class="jss2 jss3">Reference</div><div class="jss6"><a class="jss2 jss7" href="/versions/7.2/reference/api/">api</a><a class="jss2 jss7" href="/versions/7.2/reference/api-call/">api-call</a><a class="jss2 jss7" href="/versions/7.2/reference/auth/">auth</a><a class="jss2 jss7" href="/versions/7.2/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/versions/7.2/reference/chat/">chat</a><a class="jss2 jss7" href="/versions/7.2/reference/common/">common</a><a class="jss2 jss7" href="/versions/7.2/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/versions/7.2/reference/ebs-helper/">ebs-helper</a><a aria-current="page" class="jss2 jss7 jss8" href="/versions/7.2/reference/eventsub-base/">eventsub-base</a><a class="jss2 jss7" href="/versions/7.2/reference/eventsub-http/">eventsub-http</a><a class="jss2 jss7" href="/versions/7.2/reference/eventsub-ws/">eventsub-ws</a><a class="jss2 jss7" href="/versions/7.2/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><a href="https://github.com/twurple/twurple" class="jss2"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></a><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><div class="jss14"><h2 class="jss15">Classes</h2><div class="jss16"><a title="EventSubAutoModMessageHoldEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubAutoModMessageHoldEvent.html">EventSubAutoModMessageHoldEvent</a><a title="EventSubAutoModMessageUpdateEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubAutoModMessageUpdateEvent.html">EventSubAutoModMessageUpdateEvent</a><a title="EventSubAutoModSettingsUpdateEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubAutoModSettingsUpdateEvent.html">EventSubAutoModSettingsUpdateEvent</a><a title="EventSubAutoModTermsUpdateEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubAutoModTermsUpdateEvent.html">EventSubAutoModTermsUpdateEvent</a><a title="EventSubChannelAdBreakBeginEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelAdBreakBeginEvent.html">EventSubChannelAdBreakBeginEvent</a><a title="EventSubChannelAutomaticRewardRedemptionAddEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelAutomaticRewardRedemptionAddEvent.html">EventSubChannelAutomaticRewardRedemptionAddEvent</a><a title="EventSubChannelAutoModTermsModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelAutoModTermsModerationEvent.html">EventSubChannelAutoModTermsModerationEvent</a><a title="EventSubChannelBanEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelBanEvent.html">EventSubChannelBanEvent</a><a title="EventSubChannelBanModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelBanModerationEvent.html">EventSubChannelBanModerationEvent</a><a title="EventSubChannelCharityAmount" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelCharityAmount.html">EventSubChannelCharityAmount</a><a title="EventSubChannelCharityCampaignProgressEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelCharityCampaignProgressEvent.html">EventSubChannelCharityCampaignProgressEvent</a><a title="EventSubChannelCharityCampaignStartEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelCharityCampaignStartEvent.html">EventSubChannelCharityCampaignStartEvent</a><a title="EventSubChannelCharityCampaignStopEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelCharityCampaignStopEvent.html">EventSubChannelCharityCampaignStopEvent</a><a title="EventSubChannelCharityDonationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelCharityDonationEvent.html">EventSubChannelCharityDonationEvent</a><a title="EventSubChannelChatClearEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelChatClearEvent.html">EventSubChannelChatClearEvent</a><a title="EventSubChannelChatClearUserMessagesEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelChatClearUserMessagesEvent.html">EventSubChannelChatClearUserMessagesEvent</a><a title="EventSubChannelChatMessageDeleteEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelChatMessageDeleteEvent.html">EventSubChannelChatMessageDeleteEvent</a><a title="EventSubChannelChatMessageEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelChatMessageEvent.html">EventSubChannelChatMessageEvent</a><a title="EventSubChannelChatSettingsUpdateEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelChatSettingsUpdateEvent.html">EventSubChannelChatSettingsUpdateEvent</a><a title="EventSubChannelChatUserMessageHoldEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelChatUserMessageHoldEvent.html">EventSubChannelChatUserMessageHoldEvent</a><a title="EventSubChannelChatUserMessageUpdateEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelChatUserMessageUpdateEvent.html">EventSubChannelChatUserMessageUpdateEvent</a><a title="EventSubChannelCheerEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelCheerEvent.html">EventSubChannelCheerEvent</a><a title="EventSubChannelClearModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelClearModerationEvent.html">EventSubChannelClearModerationEvent</a><a title="EventSubChannelDeleteModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelDeleteModerationEvent.html">EventSubChannelDeleteModerationEvent</a><a title="EventSubChannelEmoteOnlyModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelEmoteOnlyModerationEvent.html">EventSubChannelEmoteOnlyModerationEvent</a><a title="EventSubChannelEmoteOnlyOffModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelEmoteOnlyOffModerationEvent.html">EventSubChannelEmoteOnlyOffModerationEvent</a><a title="EventSubChannelFollowersModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelFollowersModerationEvent.html">EventSubChannelFollowersModerationEvent</a><a title="EventSubChannelFollowersOffModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelFollowersOffModerationEvent.html">EventSubChannelFollowersOffModerationEvent</a><a title="EventSubChannelFollowEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelFollowEvent.html">EventSubChannelFollowEvent</a><a title="EventSubChannelGoalBeginEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelGoalBeginEvent.html">EventSubChannelGoalBeginEvent</a><a title="EventSubChannelGoalEndEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelGoalEndEvent.html">EventSubChannelGoalEndEvent</a><a title="EventSubChannelGoalProgressEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelGoalProgressEvent.html">EventSubChannelGoalProgressEvent</a><a title="EventSubChannelHypeTrainBeginEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelHypeTrainBeginEvent.html">EventSubChannelHypeTrainBeginEvent</a><a title="EventSubChannelHypeTrainContribution" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelHypeTrainContribution.html">EventSubChannelHypeTrainContribution</a><a title="EventSubChannelHypeTrainEndEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelHypeTrainEndEvent.html">EventSubChannelHypeTrainEndEvent</a><a title="EventSubChannelHypeTrainProgressEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelHypeTrainProgressEvent.html">EventSubChannelHypeTrainProgressEvent</a><a title="EventSubChannelModeratorEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelModeratorEvent.html">EventSubChannelModeratorEvent</a><a title="EventSubChannelModModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelModModerationEvent.html">EventSubChannelModModerationEvent</a><a title="EventSubChannelPollBeginChoice" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPollBeginChoice.html">EventSubChannelPollBeginChoice</a><a title="EventSubChannelPollBeginEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPollBeginEvent.html">EventSubChannelPollBeginEvent</a><a title="EventSubChannelPollChoice" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPollChoice.html">EventSubChannelPollChoice</a><a title="EventSubChannelPollEndEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPollEndEvent.html">EventSubChannelPollEndEvent</a><a title="EventSubChannelPollProgressEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPollProgressEvent.html">EventSubChannelPollProgressEvent</a><a title="EventSubChannelPredictionBeginEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionBeginEvent.html">EventSubChannelPredictionBeginEvent</a><a title="EventSubChannelPredictionBeginOutcome" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionBeginOutcome.html">EventSubChannelPredictionBeginOutcome</a><a title="EventSubChannelPredictionEndEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionEndEvent.html">EventSubChannelPredictionEndEvent</a><a title="EventSubChannelPredictionLockEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionLockEvent.html">EventSubChannelPredictionLockEvent</a><a title="EventSubChannelPredictionOutcome" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionOutcome.html">EventSubChannelPredictionOutcome</a><a title="EventSubChannelPredictionPredictor" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionPredictor.html">EventSubChannelPredictionPredictor</a><a title="EventSubChannelPredictionProgressEvent" aria-current="page" class="jss17 jss18" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionProgressEvent.html">EventSubChannelPredictionProgressEvent</a><a title="EventSubChannelRaidEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelRaidEvent.html">EventSubChannelRaidEvent</a><a title="EventSubChannelRaidModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelRaidModerationEvent.html">EventSubChannelRaidModerationEvent</a><a title="EventSubChannelRedemptionAddEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelRedemptionAddEvent.html">EventSubChannelRedemptionAddEvent</a><a title="EventSubChannelRedemptionUpdateEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelRedemptionUpdateEvent.html">EventSubChannelRedemptionUpdateEvent</a><a title="EventSubChannelRewardEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelRewardEvent.html">EventSubChannelRewardEvent</a><a title="EventSubChannelShieldModeBeginEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelShieldModeBeginEvent.html">EventSubChannelShieldModeBeginEvent</a><a title="EventSubChannelShieldModeEndEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelShieldModeEndEvent.html">EventSubChannelShieldModeEndEvent</a><a title="EventSubChannelShoutoutCreateEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelShoutoutCreateEvent.html">EventSubChannelShoutoutCreateEvent</a><a title="EventSubChannelShoutoutReceiveEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelShoutoutReceiveEvent.html">EventSubChannelShoutoutReceiveEvent</a><a title="EventSubChannelSlowModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelSlowModerationEvent.html">EventSubChannelSlowModerationEvent</a><a title="EventSubChannelSlowOffModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelSlowOffModerationEvent.html">EventSubChannelSlowOffModerationEvent</a><a title="EventSubChannelSubscribersModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelSubscribersModerationEvent.html">EventSubChannelSubscribersModerationEvent</a><a title="EventSubChannelSubscribersOffModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelSubscribersOffModerationEvent.html">EventSubChannelSubscribersOffModerationEvent</a><a title="EventSubChannelSubscriptionEndEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelSubscriptionEndEvent.html">EventSubChannelSubscriptionEndEvent</a><a title="EventSubChannelSubscriptionEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelSubscriptionEvent.html">EventSubChannelSubscriptionEvent</a><a title="EventSubChannelSubscriptionGiftEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelSubscriptionGiftEvent.html">EventSubChannelSubscriptionGiftEvent</a><a title="EventSubChannelSubscriptionMessageEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelSubscriptionMessageEvent.html">EventSubChannelSubscriptionMessageEvent</a><a title="EventSubChannelSuspiciousUserMessageEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelSuspiciousUserMessageEvent.html">EventSubChannelSuspiciousUserMessageEvent</a><a title="EventSubChannelSuspiciousUserUpdateEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelSuspiciousUserUpdateEvent.html">EventSubChannelSuspiciousUserUpdateEvent</a><a title="EventSubChannelTimeoutModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelTimeoutModerationEvent.html">EventSubChannelTimeoutModerationEvent</a><a title="EventSubChannelUnbanEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelUnbanEvent.html">EventSubChannelUnbanEvent</a><a title="EventSubChannelUnbanModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelUnbanModerationEvent.html">EventSubChannelUnbanModerationEvent</a><a title="EventSubChannelUnbanRequestCreateEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelUnbanRequestCreateEvent.html">EventSubChannelUnbanRequestCreateEvent</a><a title="EventSubChannelUnbanRequestModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelUnbanRequestModerationEvent.html">EventSubChannelUnbanRequestModerationEvent</a><a title="EventSubChannelUnbanRequestResolveEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelUnbanRequestResolveEvent.html">EventSubChannelUnbanRequestResolveEvent</a><a title="EventSubChannelUniqueChatModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelUniqueChatModerationEvent.html">EventSubChannelUniqueChatModerationEvent</a><a title="EventSubChannelUniqueChatOffModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelUniqueChatOffModerationEvent.html">EventSubChannelUniqueChatOffModerationEvent</a><a title="EventSubChannelUnmodModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelUnmodModerationEvent.html">EventSubChannelUnmodModerationEvent</a><a title="EventSubChannelUnraidModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelUnraidModerationEvent.html">EventSubChannelUnraidModerationEvent</a><a title="EventSubChannelUntimeoutModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelUntimeoutModerationEvent.html">EventSubChannelUntimeoutModerationEvent</a><a title="EventSubChannelUnvipModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelUnvipModerationEvent.html">EventSubChannelUnvipModerationEvent</a><a title="EventSubChannelUpdateEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelUpdateEvent.html">EventSubChannelUpdateEvent</a><a title="EventSubChannelVipEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelVipEvent.html">EventSubChannelVipEvent</a><a title="EventSubChannelVipModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelVipModerationEvent.html">EventSubChannelVipModerationEvent</a><a title="EventSubChannelWarningAcknowledgeEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelWarningAcknowledgeEvent.html">EventSubChannelWarningAcknowledgeEvent</a><a title="EventSubChannelWarningSendEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelWarningSendEvent.html">EventSubChannelWarningSendEvent</a><a title="EventSubDropEntitlementGrantEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubDropEntitlementGrantEvent.html">EventSubDropEntitlementGrantEvent</a><a title="EventSubExtensionBitsTransactionCreateEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubExtensionBitsTransactionCreateEvent.html">EventSubExtensionBitsTransactionCreateEvent</a><a title="EventSubStreamOfflineEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubStreamOfflineEvent.html">EventSubStreamOfflineEvent</a><a title="EventSubStreamOnlineEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubStreamOnlineEvent.html">EventSubStreamOnlineEvent</a><a title="EventSubSubscription" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubSubscription.html">EventSubSubscription</a><a title="EventSubUserAuthorizationGrantEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubUserAuthorizationGrantEvent.html">EventSubUserAuthorizationGrantEvent</a><a title="EventSubUserAuthorizationRevokeEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubUserAuthorizationRevokeEvent.html">EventSubUserAuthorizationRevokeEvent</a><a title="EventSubUserUpdateEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubUserUpdateEvent.html">EventSubUserUpdateEvent</a><a title="EventSubUserWhisperMessageEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/classes/EventSubUserWhisperMessageEvent.html">EventSubUserWhisperMessageEvent</a></div></div><div class="jss14"><h2 class="jss15">Interfaces</h2><div class="jss16"><a title="EventSubBaseConfig" class="jss17" href="/versions/7.2/reference/eventsub-base/interfaces/EventSubBaseConfig.html">EventSubBaseConfig</a><a title="EventSubListener" class="jss17" href="/versions/7.2/reference/eventsub-base/interfaces/EventSubListener.html">EventSubListener</a></div></div><div class="jss14"><h2 class="jss15">Type aliases</h2><div class="jss16"><a title="EventSubAutomaticRewardType" class="jss17" href="/versions/7.2/reference/eventsub-base/types/EventSubAutomaticRewardType.html">EventSubAutomaticRewardType</a><a title="EventSubAutoModLevel" class="jss17" href="/versions/7.2/reference/eventsub-base/types/EventSubAutoModLevel.html">EventSubAutoModLevel</a><a title="EventSubAutoModResolutionStatus" class="jss17" href="/versions/7.2/reference/eventsub-base/types/EventSubAutoModResolutionStatus.html">EventSubAutoModResolutionStatus</a><a title="EventSubAutoModTermsUpdateAction" class="jss17" href="/versions/7.2/reference/eventsub-base/types/EventSubAutoModTermsUpdateAction.html">EventSubAutoModTermsUpdateAction</a><a title="EventSubChannelAutomodTermsModerationEventAction" class="jss17" href="/versions/7.2/reference/eventsub-base/types/EventSubChannelAutomodTermsModerationEventAction.html">EventSubChannelAutomodTermsModerationEventAction</a><a title="EventSubChannelAutomodTermsModerationEventList" class="jss17" href="/versions/7.2/reference/eventsub-base/types/EventSubChannelAutomodTermsModerationEventList.html">EventSubChannelAutomodTermsModerationEventList</a><a title="EventSubChannelBanEvasionEvaluation" class="jss17" href="/versions/7.2/reference/eventsub-base/types/EventSubChannelBanEvasionEvaluation.html">EventSubChannelBanEvasionEvaluation</a><a title="EventSubChannelChatNotificationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/types/EventSubChannelChatNotificationEvent.html">EventSubChannelChatNotificationEvent</a><a title="EventSubChannelGoalType" class="jss17" href="/versions/7.2/reference/eventsub-base/types/EventSubChannelGoalType.html">EventSubChannelGoalType</a><a title="EventSubChannelHypeTrainContributionType" class="jss17" href="/versions/7.2/reference/eventsub-base/types/EventSubChannelHypeTrainContributionType.html">EventSubChannelHypeTrainContributionType</a><a title="EventSubChannelModerationAction" class="jss17" href="/versions/7.2/reference/eventsub-base/types/EventSubChannelModerationAction.html">EventSubChannelModerationAction</a><a title="EventSubChannelModerationEvent" class="jss17" href="/versions/7.2/reference/eventsub-base/types/EventSubChannelModerationEvent.html">EventSubChannelModerationEvent</a><a title="EventSubChannelPollEndStatus" class="jss17" href="/versions/7.2/reference/eventsub-base/types/EventSubChannelPollEndStatus.html">EventSubChannelPollEndStatus</a><a title="EventSubChannelPredictionColor" class="jss17" href="/versions/7.2/reference/eventsub-base/types/EventSubChannelPredictionColor.html">EventSubChannelPredictionColor</a><a title="EventSubChannelPredictionEndStatus" class="jss17" href="/versions/7.2/reference/eventsub-base/types/EventSubChannelPredictionEndStatus.html">EventSubChannelPredictionEndStatus</a><a title="EventSubChannelSubscriptionEndEventTier" class="jss17" href="/versions/7.2/reference/eventsub-base/types/EventSubChannelSubscriptionEndEventTier.html">EventSubChannelSubscriptionEndEventTier</a><a title="EventSubChannelSubscriptionEventTier" class="jss17" href="/versions/7.2/reference/eventsub-base/types/EventSubChannelSubscriptionEventTier.html">EventSubChannelSubscriptionEventTier</a><a title="EventSubChannelSubscriptionGiftEventTier" class="jss17" href="/versions/7.2/reference/eventsub-base/types/EventSubChannelSubscriptionGiftEventTier.html">EventSubChannelSubscriptionGiftEventTier</a><a title="EventSubChannelSubscriptionMessageEventTier" class="jss17" href="/versions/7.2/reference/eventsub-base/types/EventSubChannelSubscriptionMessageEventTier.html">EventSubChannelSubscriptionMessageEventTier</a><a title="EventSubChannelSuspiciousUserLowTrustStatus" class="jss17" href="/versions/7.2/reference/eventsub-base/types/EventSubChannelSuspiciousUserLowTrustStatus.html">EventSubChannelSuspiciousUserLowTrustStatus</a><a title="EventSubChannelSuspiciousUserType" class="jss17" href="/versions/7.2/reference/eventsub-base/types/EventSubChannelSuspiciousUserType.html">EventSubChannelSuspiciousUserType</a><a title="EventSubChannelUnbanRequestStatus" class="jss17" href="/versions/7.2/reference/eventsub-base/types/EventSubChannelUnbanRequestStatus.html">EventSubChannelUnbanRequestStatus</a><a title="EventSubStreamOnlineEventStreamType" class="jss17" href="/versions/7.2/reference/eventsub-base/types/EventSubStreamOnlineEventStreamType.html">EventSubStreamOnlineEventStreamType</a></div></div></div><div class="jss12"><main><div class="jss19"><h1>EventSubChannelPredictionProgressEvent</h1><a class="jss20" href="https://github.com/twurple/twurple/blob/versions/7.2/packages/eventsub-base/src/events/EventSubChannelPredictionProgressEvent.ts#L15" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></a><div class="jss21"><p>An EventSub event representing a prediction being voted on in a channel.</p></div></div><div class="jss25"><h2>Overview</h2><div class="jss26"><div class="jss27"><h3 class="jss28">Properties</h3><ul class="jss29"><li class="jss30"><a class="jss31" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionProgressEvent.html#broadcasterDisplayName">broadcasterDisplayName</a></li><li class="jss30"><a class="jss31" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionProgressEvent.html#broadcasterId">broadcasterId</a></li><li class="jss30"><a class="jss31" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionProgressEvent.html#broadcasterName">broadcasterName</a></li><li class="jss30"><a class="jss31" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionProgressEvent.html#id">id</a></li><li class="jss30"><a class="jss31" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionProgressEvent.html#lockDate">lockDate</a></li><li class="jss30"><a class="jss31" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionProgressEvent.html#outcomes">outcomes</a></li><li class="jss30"><a class="jss31" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionProgressEvent.html#startDate">startDate</a></li><li class="jss30"><a class="jss31" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionProgressEvent.html#title">title</a></li></ul></div><div class="jss27"><h3 class="jss28">Methods</h3><ul class="jss29"><li class="jss30"><a class="jss31" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionProgressEvent.html#getBroadcaster">getBroadcaster</a><span title="async" class="jss35 jss37 jss36 jss32">a</span></li></ul></div></div><h2>Properties</h2><div id="broadcasterDisplayName" class="jss41 jss38"><div class="jss42 jss40"><a class="jss20 jss43" href="https://github.com/twurple/twurple/blob/versions/7.2/packages/eventsub-base/src/events/EventSubChannelPredictionProgressEvent.ts#L48" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></a><a class="jss43 jss44" title="Direct link to this symbol" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionProgressEvent.html#broadcasterDisplayName"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path></svg></a></div><h3 class="jss39">broadcasterDisplayName</h3><h4>Type<!-- -->: <!-- -->string</h4><div class="jss21"><p>The display name of the broadcaster.</p></div></div><div id="broadcasterId" class="jss41 jss38"><div class="jss42 jss40"><a class="jss20 jss43" href="https://github.com/twurple/twurple/blob/versions/7.2/packages/eventsub-base/src/events/EventSubChannelPredictionProgressEvent.ts#L34" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></a><a class="jss43 jss44" title="Direct link to this symbol" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionProgressEvent.html#broadcasterId"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path></svg></a></div><h3 class="jss39">broadcasterId</h3><h4>Type<!-- -->: <!-- -->string</h4><div class="jss21"><p>The ID of the broadcaster.</p></div></div><div id="broadcasterName" class="jss41 jss38"><div class="jss42 jss40"><a class="jss20 jss43" href="https://github.com/twurple/twurple/blob/versions/7.2/packages/eventsub-base/src/events/EventSubChannelPredictionProgressEvent.ts#L41" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></a><a class="jss43 jss44" title="Direct link to this symbol" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionProgressEvent.html#broadcasterName"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path></svg></a></div><h3 class="jss39">broadcasterName</h3><h4>Type<!-- -->: <!-- -->string</h4><div class="jss21"><p>The name of the broadcaster.</p></div></div><div id="id" class="jss41 jss38"><div class="jss42 jss40"><a class="jss20 jss43" href="https://github.com/twurple/twurple/blob/versions/7.2/packages/eventsub-base/src/events/EventSubChannelPredictionProgressEvent.ts#L27" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></a><a class="jss43 jss44" title="Direct link to this symbol" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionProgressEvent.html#id"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path></svg></a></div><h3 class="jss39">id</h3><h4>Type<!-- -->: <!-- -->string</h4><div class="jss21"><p>The ID of the prediction.</p></div></div><div id="lockDate" class="jss41 jss38"><div class="jss42 jss40"><a class="jss20 jss43" href="https://github.com/twurple/twurple/blob/versions/7.2/packages/eventsub-base/src/events/EventSubChannelPredictionProgressEvent.ts#L83" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></a><a class="jss43 jss44" title="Direct link to this symbol" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionProgressEvent.html#lockDate"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path></svg></a></div><h3 class="jss39">lockDate</h3><h4>Type<!-- -->: <!-- -->Date</h4><div class="jss21"><p>The time when the prediction is locked.</p></div></div><div id="outcomes" class="jss41 jss38"><div class="jss42 jss40"><a class="jss20 jss43" href="https://github.com/twurple/twurple/blob/versions/7.2/packages/eventsub-base/src/events/EventSubChannelPredictionProgressEvent.ts#L69" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></a><a class="jss43 jss44" title="Direct link to this symbol" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionProgressEvent.html#outcomes"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path></svg></a></div><h3 class="jss39">outcomes</h3><h4>Type<!-- -->: <a class="jss46" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionOutcome.html">EventSubChannelPredictionOutcome</a>[]</h4><div class="jss21"><p>The possible outcomes of the prediction.</p></div></div><div id="startDate" class="jss41 jss38"><div class="jss42 jss40"><a class="jss20 jss43" href="https://github.com/twurple/twurple/blob/versions/7.2/packages/eventsub-base/src/events/EventSubChannelPredictionProgressEvent.ts#L76" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></a><a class="jss43 jss44" title="Direct link to this symbol" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionProgressEvent.html#startDate"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path></svg></a></div><h3 class="jss39">startDate</h3><h4>Type<!-- -->: <!-- -->Date</h4><div class="jss21"><p>The time when the prediction started.</p></div></div><div id="title" class="jss41 jss38"><div class="jss42 jss40"><a class="jss20 jss43" href="https://github.com/twurple/twurple/blob/versions/7.2/packages/eventsub-base/src/events/EventSubChannelPredictionProgressEvent.ts#L62" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></a><a class="jss43 jss44" title="Direct link to this symbol" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionProgressEvent.html#title"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path></svg></a></div><h3 class="jss39">title</h3><h4>Type<!-- -->: <!-- -->string</h4><div class="jss21"><p>The title of the prediction.</p></div></div><h2>Methods</h2><div id="getBroadcaster" class="jss41 jss47"><div class="jss42 jss48"><a class="jss20 jss43" href="https://github.com/twurple/twurple/blob/versions/7.2/packages/eventsub-base/src/events/EventSubChannelPredictionProgressEvent.ts#L55" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></a><a class="jss43 jss44" title="Direct link to this symbol" href="/versions/7.2/reference/eventsub-base/classes/EventSubChannelPredictionProgressEvent.html#getBroadcaster"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path></svg></a></div><h3 class="jss54">getBroadcaster<!-- -->(<!-- -->)</h3><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/await" target="_blank" title="This method actually returns a Promise object, but the use of await is recommended for easier use. Please click on the badge for further information." class="jss35 jss55 jss53" rel="noreferrer">async</a><div class="jss21"><p>Gets more information about the broadcaster.</p></div><div class="jss58">Return type:<!-- --> <span class="jss59"><a class="jss46" href="/versions/7.2/reference/api/classes/HelixUser.html">HelixUser</a></span></div></div></div></main></div></div></div>
+<script src="/versions/7.2/pe.js"></script>
+</body>
+</html>

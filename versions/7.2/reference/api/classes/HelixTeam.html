@@ -1,0 +1,945 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Twurple</title>
+    <style>
+    	@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+
+		html {
+			height: 100%;
+		}
+
+		html, body, #app-root {
+			width: 100%;
+			display: flex;
+			flex: 1;
+			flex-direction: column;
+		}
+		
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-size: 14px;
+			line-height: 1.6em;
+			background: #141414;
+			color: #b9b9b9;
+		}
+
+		p {
+			margin: 8px 0;
+		}
+		
+		:root, :host {
+  --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
+  --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
+  --fa-font-light: normal 300 1em/1 "Font Awesome 6 Pro";
+  --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Pro";
+  --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
+  --fa-font-duotone-regular: normal 400 1em/1 "Font Awesome 6 Duotone";
+  --fa-font-duotone-light: normal 300 1em/1 "Font Awesome 6 Duotone";
+  --fa-font-duotone-thin: normal 100 1em/1 "Font Awesome 6 Duotone";
+  --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+  --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-regular: normal 400 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-light: normal 300 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-thin: normal 100 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-duotone-solid: normal 900 1em/1 "Font Awesome 6 Sharp Duotone";
+  --fa-font-sharp-duotone-regular: normal 400 1em/1 "Font Awesome 6 Sharp Duotone";
+  --fa-font-sharp-duotone-light: normal 300 1em/1 "Font Awesome 6 Sharp Duotone";
+  --fa-font-sharp-duotone-thin: normal 100 1em/1 "Font Awesome 6 Sharp Duotone";
+}
+
+svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
+  overflow: visible;
+  box-sizing: content-box;
+}
+
+.svg-inline--fa {
+  display: var(--fa-display, inline-block);
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+.svg-inline--fa.fa-2xs {
+  vertical-align: 0.1em;
+}
+.svg-inline--fa.fa-xs {
+  vertical-align: 0em;
+}
+.svg-inline--fa.fa-sm {
+  vertical-align: -0.0714285705em;
+}
+.svg-inline--fa.fa-lg {
+  vertical-align: -0.2em;
+}
+.svg-inline--fa.fa-xl {
+  vertical-align: -0.25em;
+}
+.svg-inline--fa.fa-2xl {
+  vertical-align: -0.3125em;
+}
+.svg-inline--fa.fa-pull-left {
+  margin-right: var(--fa-pull-margin, 0.3em);
+  width: auto;
+}
+.svg-inline--fa.fa-pull-right {
+  margin-left: var(--fa-pull-margin, 0.3em);
+  width: auto;
+}
+.svg-inline--fa.fa-li {
+  width: var(--fa-li-width, 2em);
+  top: 0.25em;
+}
+.svg-inline--fa.fa-fw {
+  width: var(--fa-fw-width, 1.25em);
+}
+
+.fa-layers svg.svg-inline--fa {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.fa-layers-counter, .fa-layers-text {
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+}
+
+.fa-layers {
+  display: inline-block;
+  height: 1em;
+  position: relative;
+  text-align: center;
+  vertical-align: -0.125em;
+  width: 1em;
+}
+.fa-layers svg.svg-inline--fa {
+  transform-origin: center center;
+}
+
+.fa-layers-text {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+}
+
+.fa-layers-counter {
+  background-color: var(--fa-counter-background-color, #ff253a);
+  border-radius: var(--fa-counter-border-radius, 1em);
+  box-sizing: border-box;
+  color: var(--fa-inverse, #fff);
+  line-height: var(--fa-counter-line-height, 1);
+  max-width: var(--fa-counter-max-width, 5em);
+  min-width: var(--fa-counter-min-width, 1.5em);
+  overflow: hidden;
+  padding: var(--fa-counter-padding, 0.25em 0.5em);
+  right: var(--fa-right, 0);
+  text-overflow: ellipsis;
+  top: var(--fa-top, 0);
+  transform: scale(var(--fa-counter-scale, 0.25));
+  transform-origin: top right;
+}
+
+.fa-layers-bottom-right {
+  bottom: var(--fa-bottom, 0);
+  right: var(--fa-right, 0);
+  top: auto;
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: bottom right;
+}
+
+.fa-layers-bottom-left {
+  bottom: var(--fa-bottom, 0);
+  left: var(--fa-left, 0);
+  right: auto;
+  top: auto;
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: bottom left;
+}
+
+.fa-layers-top-right {
+  top: var(--fa-top, 0);
+  right: var(--fa-right, 0);
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: top right;
+}
+
+.fa-layers-top-left {
+  left: var(--fa-left, 0);
+  right: auto;
+  top: var(--fa-top, 0);
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: top left;
+}
+
+.fa-1x {
+  font-size: 1em;
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa-3x {
+  font-size: 3em;
+}
+
+.fa-4x {
+  font-size: 4em;
+}
+
+.fa-5x {
+  font-size: 5em;
+}
+
+.fa-6x {
+  font-size: 6em;
+}
+
+.fa-7x {
+  font-size: 7em;
+}
+
+.fa-8x {
+  font-size: 8em;
+}
+
+.fa-9x {
+  font-size: 9em;
+}
+
+.fa-10x {
+  font-size: 10em;
+}
+
+.fa-2xs {
+  font-size: 0.625em;
+  line-height: 0.1em;
+  vertical-align: 0.225em;
+}
+
+.fa-xs {
+  font-size: 0.75em;
+  line-height: 0.0833333337em;
+  vertical-align: 0.125em;
+}
+
+.fa-sm {
+  font-size: 0.875em;
+  line-height: 0.0714285718em;
+  vertical-align: 0.0535714295em;
+}
+
+.fa-lg {
+  font-size: 1.25em;
+  line-height: 0.05em;
+  vertical-align: -0.075em;
+}
+
+.fa-xl {
+  font-size: 1.5em;
+  line-height: 0.0416666682em;
+  vertical-align: -0.125em;
+}
+
+.fa-2xl {
+  font-size: 2em;
+  line-height: 0.03125em;
+  vertical-align: -0.1875em;
+}
+
+.fa-fw {
+  text-align: center;
+  width: 1.25em;
+}
+
+.fa-ul {
+  list-style-type: none;
+  margin-left: var(--fa-li-margin, 2.5em);
+  padding-left: 0;
+}
+.fa-ul > li {
+  position: relative;
+}
+
+.fa-li {
+  left: calc(-1 * var(--fa-li-width, 2em));
+  position: absolute;
+  text-align: center;
+  width: var(--fa-li-width, 2em);
+  line-height: inherit;
+}
+
+.fa-border {
+  border-color: var(--fa-border-color, #eee);
+  border-radius: var(--fa-border-radius, 0.1em);
+  border-style: var(--fa-border-style, solid);
+  border-width: var(--fa-border-width, 0.08em);
+  padding: var(--fa-border-padding, 0.2em 0.25em 0.15em);
+}
+
+.fa-pull-left {
+  float: left;
+  margin-right: var(--fa-pull-margin, 0.3em);
+}
+
+.fa-pull-right {
+  float: right;
+  margin-left: var(--fa-pull-margin, 0.3em);
+}
+
+.fa-beat {
+  animation-name: fa-beat;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, ease-in-out);
+}
+
+.fa-bounce {
+  animation-name: fa-bounce;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+}
+
+.fa-fade {
+  animation-name: fa-fade;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+}
+
+.fa-beat-fade {
+  animation-name: fa-beat-fade;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+}
+
+.fa-flip {
+  animation-name: fa-flip;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, ease-in-out);
+}
+
+.fa-shake {
+  animation-name: fa-shake;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, linear);
+}
+
+.fa-spin {
+  animation-name: fa-spin;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 2s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, linear);
+}
+
+.fa-spin-reverse {
+  --fa-animation-direction: reverse;
+}
+
+.fa-pulse,
+.fa-spin-pulse {
+  animation-name: fa-spin;
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, steps(8));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fa-beat,
+.fa-bounce,
+.fa-fade,
+.fa-beat-fade,
+.fa-flip,
+.fa-pulse,
+.fa-shake,
+.fa-spin,
+.fa-spin-pulse {
+    animation-delay: -1ms;
+    animation-duration: 1ms;
+    animation-iteration-count: 1;
+    transition-delay: 0s;
+    transition-duration: 0s;
+  }
+}
+@keyframes fa-beat {
+  0%, 90% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(var(--fa-beat-scale, 1.25));
+  }
+}
+@keyframes fa-bounce {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+  }
+  30% {
+    transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+  }
+  50% {
+    transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+  }
+  57% {
+    transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+  }
+  64% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
+}
+@keyframes fa-fade {
+  50% {
+    opacity: var(--fa-fade-opacity, 0.4);
+  }
+}
+@keyframes fa-beat-fade {
+  0%, 100% {
+    opacity: var(--fa-beat-fade-opacity, 0.4);
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(var(--fa-beat-fade-scale, 1.125));
+  }
+}
+@keyframes fa-flip {
+  50% {
+    transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+  }
+}
+@keyframes fa-shake {
+  0% {
+    transform: rotate(-15deg);
+  }
+  4% {
+    transform: rotate(15deg);
+  }
+  8%, 24% {
+    transform: rotate(-18deg);
+  }
+  12%, 28% {
+    transform: rotate(18deg);
+  }
+  16% {
+    transform: rotate(-22deg);
+  }
+  20% {
+    transform: rotate(22deg);
+  }
+  32% {
+    transform: rotate(-12deg);
+  }
+  36% {
+    transform: rotate(12deg);
+  }
+  40%, 100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes fa-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.fa-rotate-90 {
+  transform: rotate(90deg);
+}
+
+.fa-rotate-180 {
+  transform: rotate(180deg);
+}
+
+.fa-rotate-270 {
+  transform: rotate(270deg);
+}
+
+.fa-flip-horizontal {
+  transform: scale(-1, 1);
+}
+
+.fa-flip-vertical {
+  transform: scale(1, -1);
+}
+
+.fa-flip-both,
+.fa-flip-horizontal.fa-flip-vertical {
+  transform: scale(-1, -1);
+}
+
+.fa-rotate-by {
+  transform: rotate(var(--fa-rotate-angle, 0));
+}
+
+.fa-stack {
+  display: inline-block;
+  vertical-align: middle;
+  height: 2em;
+  position: relative;
+  width: 2.5em;
+}
+
+.fa-stack-1x,
+.fa-stack-2x {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: var(--fa-stack-z-index, auto);
+}
+
+.svg-inline--fa.fa-stack-1x {
+  height: 1em;
+  width: 1.25em;
+}
+.svg-inline--fa.fa-stack-2x {
+  height: 2em;
+  width: 2.5em;
+}
+
+.fa-inverse {
+  color: var(--fa-inverse, #fff);
+}
+
+.sr-only,
+.fa-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only-focusable:not(:focus),
+.fa-sr-only-focusable:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.svg-inline--fa .fa-primary {
+  fill: var(--fa-primary-color, currentColor);
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa .fa-secondary {
+  fill: var(--fa-secondary-color, currentColor);
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-primary {
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-secondary {
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa mask .fa-primary,
+.svg-inline--fa mask .fa-secondary {
+  fill: black;
+}
+
+	</style>
+    <style id="server-side-styles">.jss21 table {
+  border-collapse: collapse;
+}
+.jss21 th, .jss21 td {
+  border: 1px solid #444;
+  padding: 8px;
+}
+.jss21 li {
+  margin: 16px 0;
+}
+.jss21 code {
+  color: #88ab14;
+  outline: 1px solid #444;
+  padding: 0 2px;
+  border-radius: 3px;
+  background-color: #242424;
+}
+.jss21 pre > code {
+  color: inherit;
+  outline: 0 none;
+  padding: 0;
+  border-radius: 0;
+  background-color: inherit;
+}
+.jss21 li::marker {
+  color: #647d0f;
+}
+.jss22 {
+  color: inherit;
+  transition: border-color .3s ease-in-out;
+  font-weight: bold;
+  border-bottom: 1.5px solid #647d0f;
+  text-decoration: none;
+}
+.jss22:hover {
+  border-bottom-color: #88ab14;
+}
+.jss23 {
+  display: flow-root;
+  padding: 0 1em;
+  border-left: 4px solid #ab9120;
+  margin-bottom: 1em;
+  background-color: #242424;
+}
+.jss24 {
+  font-size: 1em;
+}
+.jss13 {
+  min-height: 100%;
+  border-right: 1px solid #444;
+}
+.jss14 {
+  color: #b9b9b9;
+  display: block;
+  padding: 8px 0;
+}
+.jss15 {
+  height: 1em;
+  margin: 0;
+  padding: 4px 8px 4px 12px;
+  font-size: 1.1em;
+  font-weight: bold;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+.jss16 > a {
+  padding-left: 20px;
+}
+.jss17 {
+  color: #b9b9b9;
+  height: 1em;
+  display: block;
+  padding: 8px;
+  overflow: hidden;
+  transition: .3s background-color ease-in-out, .3s border-left-color ease-in-out;
+  border-left: .25em solid transparent;
+  line-height: 1em;
+  text-overflow: ellipsis;
+  text-decoration: none;
+}
+.jss17:hover {
+  background-color: #333333;
+}
+.jss18 {
+  border-color: #647d0f;
+  background-color: #242424;
+}
+.jss18:hover {
+  border-left-color: #88ab14;
+}
+.jss25 {
+  padding: 16px;
+}
+.jss25 h2 {
+  margin: 24px 0 16px;
+}
+.jss25 h2:first-child {
+  margin-top: 0;
+}
+.jss19 {
+  color: #b9b9b9;
+  padding: 16px;
+  position: relative;
+  background-color: #242424;
+}
+.jss19 h1 {
+  margin: 0;
+  display: inline;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+.jss19 p {
+  margin: 0;
+}
+.jss1 {
+  display: flex;
+  border-bottom: 1px solid #444;
+}
+.jss2 {
+  color: #b9b9b9;
+  cursor: pointer;
+  margin: 0;
+  padding: 8px 16px;
+  transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
+  line-height: 1.3em;
+  user-select: none;
+  border-bottom: 3px solid transparent;
+  text-decoration: none;
+}
+.jss2:hover {
+  background-color: #333333;
+}
+.jss3 {
+  background-color: #242424;
+  border-bottom-color: #647d0f;
+}
+.jss3:hover {
+  border-bottom-color: #88ab14;
+}
+.jss4 {
+  font-weight: bold;
+  margin-left: 0;
+}
+.jss5 {
+  margin: 0 8px;
+  position: relative;
+}
+.jss5 > .jss2 {
+  margin: 0;
+}
+.jss5:hover .jss6 {
+  display: block;
+}
+.jss6 {
+  top: 100%;
+  left: 0;
+  border: 1px solid #444;
+  display: none;
+  z-index: 4;
+  position: absolute;
+  background-color: #141414;
+}
+.jss7 {
+  margin: 0;
+  display: block;
+  border-left: 3px solid transparent;
+  white-space: nowrap;
+  border-right: 0 none;
+  border-bottom: 0 none;
+}
+.jss7:first-child {
+  border-top: 0 none;
+}
+.jss8 {
+  background-color: #242424;
+  border-left-color: #647d0f;
+}
+.jss8:hover {
+  border-left-color: #88ab14;
+}
+.jss9 {
+  flex: 1;
+}
+.jss41 {
+  margin: 16px 0;
+  padding: 16px;
+  border-left: 4px solid #444;
+}
+.jss41 h3, .jss41 h4 {
+  margin: 0;
+}
+.jss41 > :last-child {
+  margin-bottom: 0;
+}
+.jss41:target {
+  background-color: #242424;
+}
+.jss46 {
+  color: #949494;
+  font-weight: bold;
+  text-decoration: none;
+}
+.jss45 {
+  color: #949494;
+  font-weight: bold;
+  text-decoration: none;
+}
+.jss56 {
+  border: 1px solid #444;
+  margin: 16px 0;
+}
+.jss57 {
+  padding: 8px;
+  background-color: #242424;
+}
+.jss20 {
+  color: #647d0f;
+  transition: color .3s ease-in-out;
+  margin-left: 1em;
+}
+.jss20:hover {
+  color: #88ab14;
+}
+.jss42 {
+  float: right;
+}
+.jss43 {
+  margin-left: .5em;
+}
+.jss44 {
+  color: #647d0f;
+  transition: color .3s ease-in-out;
+  margin-left: 1em;
+}
+.jss44:hover {
+  color: #88ab14;
+}
+.jss58 {
+  margin: 16px 0 0;
+  font-weight: bold;
+}
+.jss59 {
+  font-weight: normal;
+}
+.jss35 {
+  color: #141414;
+  display: inline-block;
+  padding: 2px 5px;
+  font-size: 12px;
+  line-height: normal;
+  margin-left: 1em;
+  border-radius: 5px;
+  text-decoration: none;
+  background-color: #b9b9b9;
+}
+.jss36 {
+  padding: 1px 3px;
+  font-size: 10px;
+  margin-left: .5em;
+}
+.jss37 {
+  cursor: default;
+}
+.jss55 {
+  cursor: pointer;
+}
+.jss54 {
+  margin: 0 0 .5em;
+  display: inline-block;
+  font-family: Monaco, Menlo, "Lucida Console", monospace;
+}
+.jss53 {
+  background-color: #cccc70;
+}
+.jss48 {
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+}
+.jss47:hover .jss48 {
+  opacity: 1;
+}
+.jss49 {
+  background-color: #cccc70;
+}
+.jss50 {
+  margin: 1em 0 0;
+  font-weight: bold;
+}
+.jss51 {
+  font-family: Monaco, Menlo, "Lucida Console", monospace;
+  font-weight: normal;
+}
+.jss39 {
+  display: inline-block;
+}
+.jss40 {
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+}
+.jss38:hover .jss40 {
+  opacity: 1;
+}
+.jss30 {
+  line-height: 1.3em;
+  list-style-type: none;
+}
+.jss31 {
+  color: #949494;
+  font-size: 12px;
+  text-decoration: none;
+}
+.jss32 {
+  background-color: #cccc70;
+}
+.jss33 {
+  background-color: #cc7070;
+}
+.jss34 {
+  background-color: #ab9120;
+}
+.jss26 {
+  display: flex;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.jss27 {
+  min-width: 300px;
+}
+.jss28 {
+  margin: 0;
+  margin-bottom: 8px;
+}
+.jss29 {
+  margin: 0;
+  border-left: 4px solid #444;
+  padding-left: 8px;
+}
+.jss10 {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.jss11 {
+  width: 250px;
+}
+.jss12 {
+  flex: 1;
+}</style>
+</head>
+<body>
+<div id="app-root"><div class="jss1"><a class="jss2 jss4" href="/versions/7.2/">Twurple</a><a class="jss2" href="/versions/7.2/docs/auth/">Authentication</a><a class="jss2" href="/versions/7.2/docs/getting-data/">Getting data</a><a class="jss2" href="/versions/7.2/docs/examples/">Examples</a><a class="jss2" href="/versions/7.2/docs/faq/">FAQ</a><a class="jss2" href="/versions/7.2/docs/migration/">Migration</a><div class="jss5"><div class="jss2 jss3">Reference</div><div class="jss6"><a aria-current="page" class="jss2 jss7 jss8" href="/versions/7.2/reference/api/">api</a><a class="jss2 jss7" href="/versions/7.2/reference/api-call/">api-call</a><a class="jss2 jss7" href="/versions/7.2/reference/auth/">auth</a><a class="jss2 jss7" href="/versions/7.2/reference/auth-tmi/">auth-tmi</a><a class="jss2 jss7" href="/versions/7.2/reference/chat/">chat</a><a class="jss2 jss7" href="/versions/7.2/reference/common/">common</a><a class="jss2 jss7" href="/versions/7.2/reference/easy-bot/">easy-bot</a><a class="jss2 jss7" href="/versions/7.2/reference/ebs-helper/">ebs-helper</a><a class="jss2 jss7" href="/versions/7.2/reference/eventsub-base/">eventsub-base</a><a class="jss2 jss7" href="/versions/7.2/reference/eventsub-http/">eventsub-http</a><a class="jss2 jss7" href="/versions/7.2/reference/eventsub-ws/">eventsub-ws</a><a class="jss2 jss7" href="/versions/7.2/reference/pubsub/">pubsub</a></div></div><div class="jss9"></div><a href="https://github.com/twurple/twurple" class="jss2"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></a><div data-dynamic-component="VersionMenu"></div></div><div class="jss10"><div class="jss13 jss11"><div class="jss14"><h2 class="jss15">Main classes</h2><div class="jss16"><a title="ApiClient" class="jss17" href="/versions/7.2/reference/api/classes/ApiClient.html">ApiClient</a></div></div><div class="jss14"><h2 class="jss15">Helix APIs</h2><div class="jss16"><a title="HelixBitsApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixBitsApi.html">Bits</a><a title="HelixChannelApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixChannelApi.html">Channels</a><a title="HelixChannelPointsApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixChannelPointsApi.html">Channel points</a><a title="HelixCharityApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixCharityApi.html">Charity Campaigns</a><a title="HelixChatApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixChatApi.html">Chat</a><a title="HelixClipApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixClipApi.html">Clips</a><a title="HelixContentClassificationLabelApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixContentClassificationLabelApi.html">Content classification labels</a><a title="HelixEntitlementApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixEntitlementApi.html">Entitlements (Drops)</a><a title="HelixEventSubApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixEventSubApi.html">EventSub</a><a title="HelixExtensionsApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixExtensionsApi.html">Extensions</a><a title="HelixGameApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixGameApi.html">Games</a><a title="HelixHypeTrainApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixHypeTrainApi.html">Hype Trains</a><a title="HelixModerationApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixModerationApi.html">Moderation</a><a title="HelixPollApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixPollApi.html">Polls</a><a title="HelixPredictionApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixPredictionApi.html">Predictions</a><a title="HelixRaidApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixRaidApi.html">Raids</a><a title="HelixScheduleApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixScheduleApi.html">Schedule</a><a title="HelixSearchApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixSearchApi.html">Search</a><a title="HelixStreamApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixStreamApi.html">Streams</a><a title="HelixSubscriptionApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixSubscriptionApi.html">Subscriptions</a><a title="HelixTeamApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixTeamApi.html">Teams</a><a title="HelixUserApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixUserApi.html">Users</a><a title="HelixVideoApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixVideoApi.html">Videos</a><a title="HelixWhisperApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixWhisperApi.html">Whispers</a></div></div><div class="jss14"><h2 class="jss15">Classes</h2><div class="jss16"><a title="ApiReportedRequest" class="jss17" href="/versions/7.2/reference/api/classes/ApiReportedRequest.html">ApiReportedRequest</a><a title="ConfigError" class="jss17" href="/versions/7.2/reference/api/classes/ConfigError.html">ConfigError</a><a title="HelixAdSchedule" class="jss17" href="/versions/7.2/reference/api/classes/HelixAdSchedule.html">HelixAdSchedule</a><a title="HelixBan" class="jss17" href="/versions/7.2/reference/api/classes/HelixBan.html">HelixBan</a><a title="HelixBanUser" class="jss17" href="/versions/7.2/reference/api/classes/HelixBanUser.html">HelixBanUser</a><a title="HelixBitsLeaderboard" class="jss17" href="/versions/7.2/reference/api/classes/HelixBitsLeaderboard.html">HelixBitsLeaderboard</a><a title="HelixBitsLeaderboardEntry" class="jss17" href="/versions/7.2/reference/api/classes/HelixBitsLeaderboardEntry.html">HelixBitsLeaderboardEntry</a><a title="HelixBlockedTerm" class="jss17" href="/versions/7.2/reference/api/classes/HelixBlockedTerm.html">HelixBlockedTerm</a><a title="HelixChannel" class="jss17" href="/versions/7.2/reference/api/classes/HelixChannel.html">HelixChannel</a><a title="HelixChannelEditor" class="jss17" href="/versions/7.2/reference/api/classes/HelixChannelEditor.html">HelixChannelEditor</a><a title="HelixChannelEmote" class="jss17" href="/versions/7.2/reference/api/classes/HelixChannelEmote.html">HelixChannelEmote</a><a title="HelixChannelFollower" class="jss17" href="/versions/7.2/reference/api/classes/HelixChannelFollower.html">HelixChannelFollower</a><a title="HelixChannelReference" class="jss17" href="/versions/7.2/reference/api/classes/HelixChannelReference.html">HelixChannelReference</a><a title="HelixChannelSearchResult" class="jss17" href="/versions/7.2/reference/api/classes/HelixChannelSearchResult.html">HelixChannelSearchResult</a><a title="HelixCharityCampaign" class="jss17" href="/versions/7.2/reference/api/classes/HelixCharityCampaign.html">HelixCharityCampaign</a><a title="HelixCharityCampaignAmount" class="jss17" href="/versions/7.2/reference/api/classes/HelixCharityCampaignAmount.html">HelixCharityCampaignAmount</a><a title="HelixCharityCampaignDonation" class="jss17" href="/versions/7.2/reference/api/classes/HelixCharityCampaignDonation.html">HelixCharityCampaignDonation</a><a title="HelixChatBadgeSet" class="jss17" href="/versions/7.2/reference/api/classes/HelixChatBadgeSet.html">HelixChatBadgeSet</a><a title="HelixChatBadgeVersion" class="jss17" href="/versions/7.2/reference/api/classes/HelixChatBadgeVersion.html">HelixChatBadgeVersion</a><a title="HelixChatChatter" class="jss17" href="/versions/7.2/reference/api/classes/HelixChatChatter.html">HelixChatChatter</a><a title="HelixChatSettings" class="jss17" href="/versions/7.2/reference/api/classes/HelixChatSettings.html">HelixChatSettings</a><a title="HelixCheermoteList" class="jss17" href="/versions/7.2/reference/api/classes/HelixCheermoteList.html">HelixCheermoteList</a><a title="HelixClip" class="jss17" href="/versions/7.2/reference/api/classes/HelixClip.html">HelixClip</a><a title="HelixContentClassificationLabel" class="jss17" href="/versions/7.2/reference/api/classes/HelixContentClassificationLabel.html">HelixContentClassificationLabel</a><a title="HelixCustomReward" class="jss17" href="/versions/7.2/reference/api/classes/HelixCustomReward.html">HelixCustomReward</a><a title="HelixCustomRewardRedemption" class="jss17" href="/versions/7.2/reference/api/classes/HelixCustomRewardRedemption.html">HelixCustomRewardRedemption</a><a title="HelixDropsEntitlement" class="jss17" href="/versions/7.2/reference/api/classes/HelixDropsEntitlement.html">HelixDropsEntitlement</a><a title="HelixEmote" class="jss17" href="/versions/7.2/reference/api/classes/HelixEmote.html">HelixEmote</a><a title="HelixEmoteFromSet" class="jss17" href="/versions/7.2/reference/api/classes/HelixEmoteFromSet.html">HelixEmoteFromSet</a><a title="HelixEventSubConduit" class="jss17" href="/versions/7.2/reference/api/classes/HelixEventSubConduit.html">HelixEventSubConduit</a><a title="HelixEventSubConduitShard" class="jss17" href="/versions/7.2/reference/api/classes/HelixEventSubConduitShard.html">HelixEventSubConduitShard</a><a title="HelixEventSubSubscription" class="jss17" href="/versions/7.2/reference/api/classes/HelixEventSubSubscription.html">HelixEventSubSubscription</a><a title="HelixExtensionBitsProduct" class="jss17" href="/versions/7.2/reference/api/classes/HelixExtensionBitsProduct.html">HelixExtensionBitsProduct</a><a title="HelixExtensionTransaction" class="jss17" href="/versions/7.2/reference/api/classes/HelixExtensionTransaction.html">HelixExtensionTransaction</a><a title="HelixFollow" class="jss17" href="/versions/7.2/reference/api/classes/HelixFollow.html">HelixFollow</a><a title="HelixFollowedChannel" class="jss17" href="/versions/7.2/reference/api/classes/HelixFollowedChannel.html">HelixFollowedChannel</a><a title="HelixGame" class="jss17" href="/versions/7.2/reference/api/classes/HelixGame.html">HelixGame</a><a title="HelixGoal" class="jss17" href="/versions/7.2/reference/api/classes/HelixGoal.html">HelixGoal</a><a title="HelixGoalApi" class="jss17" href="/versions/7.2/reference/api/classes/HelixGoalApi.html">HelixGoalApi</a><a title="HelixHypeTrainContribution" class="jss17" href="/versions/7.2/reference/api/classes/HelixHypeTrainContribution.html">HelixHypeTrainContribution</a><a title="HelixHypeTrainEvent" class="jss17" href="/versions/7.2/reference/api/classes/HelixHypeTrainEvent.html">HelixHypeTrainEvent</a><a title="HelixInstalledExtension" class="jss17" href="/versions/7.2/reference/api/classes/HelixInstalledExtension.html">HelixInstalledExtension</a><a title="HelixInstalledExtensionList" class="jss17" href="/versions/7.2/reference/api/classes/HelixInstalledExtensionList.html">HelixInstalledExtensionList</a><a title="HelixModeratedChannel" class="jss17" href="/versions/7.2/reference/api/classes/HelixModeratedChannel.html">HelixModeratedChannel</a><a title="HelixModerator" class="jss17" href="/versions/7.2/reference/api/classes/HelixModerator.html">HelixModerator</a><a title="HelixPaginatedEventSubSubscriptionsRequest" class="jss17" href="/versions/7.2/reference/api/classes/HelixPaginatedEventSubSubscriptionsRequest.html">HelixPaginatedEventSubSubscriptionsRequest</a><a title="HelixPaginatedRequest" class="jss17" href="/versions/7.2/reference/api/classes/HelixPaginatedRequest.html">HelixPaginatedRequest</a><a title="HelixPaginatedRequestWithTotal" class="jss17" href="/versions/7.2/reference/api/classes/HelixPaginatedRequestWithTotal.html">HelixPaginatedRequestWithTotal</a><a title="HelixPaginatedScheduleSegmentRequest" class="jss17" href="/versions/7.2/reference/api/classes/HelixPaginatedScheduleSegmentRequest.html">HelixPaginatedScheduleSegmentRequest</a><a title="HelixPaginatedSubscriptionsRequest" class="jss17" href="/versions/7.2/reference/api/classes/HelixPaginatedSubscriptionsRequest.html">HelixPaginatedSubscriptionsRequest</a><a title="HelixPoll" class="jss17" href="/versions/7.2/reference/api/classes/HelixPoll.html">HelixPoll</a><a title="HelixPollChoice" class="jss17" href="/versions/7.2/reference/api/classes/HelixPollChoice.html">HelixPollChoice</a><a title="HelixPrediction" class="jss17" href="/versions/7.2/reference/api/classes/HelixPrediction.html">HelixPrediction</a><a title="HelixPredictionOutcome" class="jss17" href="/versions/7.2/reference/api/classes/HelixPredictionOutcome.html">HelixPredictionOutcome</a><a title="HelixPredictor" class="jss17" href="/versions/7.2/reference/api/classes/HelixPredictor.html">HelixPredictor</a><a title="HelixPrivilegedChatSettings" class="jss17" href="/versions/7.2/reference/api/classes/HelixPrivilegedChatSettings.html">HelixPrivilegedChatSettings</a><a title="HelixPrivilegedUser" class="jss17" href="/versions/7.2/reference/api/classes/HelixPrivilegedUser.html">HelixPrivilegedUser</a><a title="HelixRaid" class="jss17" href="/versions/7.2/reference/api/classes/HelixRaid.html">HelixRaid</a><a title="HelixSchedule" class="jss17" href="/versions/7.2/reference/api/classes/HelixSchedule.html">HelixSchedule</a><a title="HelixScheduleSegment" class="jss17" href="/versions/7.2/reference/api/classes/HelixScheduleSegment.html">HelixScheduleSegment</a><a title="HelixSentChatMessage" class="jss17" href="/versions/7.2/reference/api/classes/HelixSentChatMessage.html">HelixSentChatMessage</a><a title="HelixShieldModeStatus" class="jss17" href="/versions/7.2/reference/api/classes/HelixShieldModeStatus.html">HelixShieldModeStatus</a><a title="HelixStream" class="jss17" href="/versions/7.2/reference/api/classes/HelixStream.html">HelixStream</a><a title="HelixStreamMarker" class="jss17" href="/versions/7.2/reference/api/classes/HelixStreamMarker.html">HelixStreamMarker</a><a title="HelixStreamMarkerWithVideo" class="jss17" href="/versions/7.2/reference/api/classes/HelixStreamMarkerWithVideo.html">HelixStreamMarkerWithVideo</a><a title="HelixSubscription" class="jss17" href="/versions/7.2/reference/api/classes/HelixSubscription.html">HelixSubscription</a><a title="HelixTeam" aria-current="page" class="jss17 jss18" href="/versions/7.2/reference/api/classes/HelixTeam.html">HelixTeam</a><a title="HelixTeamWithUsers" class="jss17" href="/versions/7.2/reference/api/classes/HelixTeamWithUsers.html">HelixTeamWithUsers</a><a title="HelixUnbanRequest" class="jss17" href="/versions/7.2/reference/api/classes/HelixUnbanRequest.html">HelixUnbanRequest</a><a title="HelixUser" class="jss17" href="/versions/7.2/reference/api/classes/HelixUser.html">HelixUser</a><a title="HelixUserBlock" class="jss17" href="/versions/7.2/reference/api/classes/HelixUserBlock.html">HelixUserBlock</a><a title="HelixUserEmote" class="jss17" href="/versions/7.2/reference/api/classes/HelixUserEmote.html">HelixUserEmote</a><a title="HelixUserExtension" class="jss17" href="/versions/7.2/reference/api/classes/HelixUserExtension.html">HelixUserExtension</a><a title="HelixUserRelation" class="jss17" href="/versions/7.2/reference/api/classes/HelixUserRelation.html">HelixUserRelation</a><a title="HelixUserSubscription" class="jss17" href="/versions/7.2/reference/api/classes/HelixUserSubscription.html">HelixUserSubscription</a><a title="HelixVideo" class="jss17" href="/versions/7.2/reference/api/classes/HelixVideo.html">HelixVideo</a><a title="HelixWarning" class="jss17" href="/versions/7.2/reference/api/classes/HelixWarning.html">HelixWarning</a><a title="StreamNotLiveError" class="jss17" href="/versions/7.2/reference/api/classes/StreamNotLiveError.html">StreamNotLiveError</a></div></div><div class="jss14"><h2 class="jss15">Interfaces</h2><div class="jss16"><a title="ApiConfig" class="jss17" href="/versions/7.2/reference/api/interfaces/ApiConfig.html">ApiConfig</a><a title="HelixBanFilter" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixBanFilter.html">HelixBanFilter</a><a title="HelixBanUserRequest" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixBanUserRequest.html">HelixBanUserRequest</a><a title="HelixBitsLeaderboardQuery" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixBitsLeaderboardQuery.html">HelixBitsLeaderboardQuery</a><a title="HelixChannelSearchFilter" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixChannelSearchFilter.html">HelixChannelSearchFilter</a><a title="HelixChannelUpdate" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixChannelUpdate.html">HelixChannelUpdate</a><a title="HelixClipCreateParams" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixClipCreateParams.html">HelixClipCreateParams</a><a title="HelixClipFilter" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixClipFilter.html">HelixClipFilter</a><a title="HelixCreateCustomRewardData" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixCreateCustomRewardData.html">HelixCreateCustomRewardData</a><a title="HelixCreatePollData" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixCreatePollData.html">HelixCreatePollData</a><a title="HelixCreatePredictionData" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixCreatePredictionData.html">HelixCreatePredictionData</a><a title="HelixCreateScheduleSegmentData" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixCreateScheduleSegmentData.html">HelixCreateScheduleSegmentData</a><a title="HelixCustomRewardRedemptionFilter" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixCustomRewardRedemptionFilter.html">HelixCustomRewardRedemptionFilter</a><a title="HelixDropsEntitlementFilter" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixDropsEntitlementFilter.html">HelixDropsEntitlementFilter</a><a title="HelixDropsEntitlementPaginatedFilter" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixDropsEntitlementPaginatedFilter.html">HelixDropsEntitlementPaginatedFilter</a><a title="HelixEventSubConduitShardsOptions" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixEventSubConduitShardsOptions.html">HelixEventSubConduitShardsOptions</a><a title="HelixEventSubConduitTransportOptions" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixEventSubConduitTransportOptions.html">HelixEventSubConduitTransportOptions</a><a title="HelixEventSubDropEntitlementGrantFilter" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixEventSubDropEntitlementGrantFilter.html">HelixEventSubDropEntitlementGrantFilter</a><a title="HelixEventSubWebHookTransportOptions" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixEventSubWebHookTransportOptions.html">HelixEventSubWebHookTransportOptions</a><a title="HelixEventSubWebSocketTransportOptions" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixEventSubWebSocketTransportOptions.html">HelixEventSubWebSocketTransportOptions</a><a title="HelixExtensionBitsProductUpdatePayload" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixExtensionBitsProductUpdatePayload.html">HelixExtensionBitsProductUpdatePayload</a><a title="HelixExtensionTransactionsFilter" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixExtensionTransactionsFilter.html">HelixExtensionTransactionsFilter</a><a title="HelixExtensionTransactionsPaginatedFilter" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixExtensionTransactionsPaginatedFilter.html">HelixExtensionTransactionsPaginatedFilter</a><a title="HelixForwardPagination" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixForwardPagination.html">HelixForwardPagination</a><a title="HelixModeratorFilter" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixModeratorFilter.html">HelixModeratorFilter</a><a title="HelixPaginatedChannelSearchFilter" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixPaginatedChannelSearchFilter.html">HelixPaginatedChannelSearchFilter</a><a title="HelixPaginatedClipFilter" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixPaginatedClipFilter.html">HelixPaginatedClipFilter</a><a title="HelixPaginatedCustomRewardRedemptionFilter" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixPaginatedCustomRewardRedemptionFilter.html">HelixPaginatedCustomRewardRedemptionFilter</a><a title="HelixPaginatedEventSubSubscriptionsResult" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixPaginatedEventSubSubscriptionsResult.html">HelixPaginatedEventSubSubscriptionsResult</a><a title="HelixPaginatedResult" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixPaginatedResult.html">HelixPaginatedResult</a><a title="HelixPaginatedResultWithTotal" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixPaginatedResultWithTotal.html">HelixPaginatedResultWithTotal</a><a title="HelixPaginatedScheduleFilter" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixPaginatedScheduleFilter.html">HelixPaginatedScheduleFilter</a><a title="HelixPaginatedStreamFilter" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixPaginatedStreamFilter.html">HelixPaginatedStreamFilter</a><a title="HelixPaginatedSubscriptionsResult" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixPaginatedSubscriptionsResult.html">HelixPaginatedSubscriptionsResult</a><a title="HelixPaginatedVideoFilter" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixPaginatedVideoFilter.html">HelixPaginatedVideoFilter</a><a title="HelixPagination" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixPagination.html">HelixPagination</a><a title="HelixScheduleFilter" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixScheduleFilter.html">HelixScheduleFilter</a><a title="HelixScheduleSettingsUpdate" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixScheduleSettingsUpdate.html">HelixScheduleSettingsUpdate</a><a title="HelixSendChatAnnouncementParams" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixSendChatAnnouncementParams.html">HelixSendChatAnnouncementParams</a><a title="HelixSendChatMessageParams" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixSendChatMessageParams.html">HelixSendChatMessageParams</a><a title="HelixStreamFilter" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixStreamFilter.html">HelixStreamFilter</a><a title="HelixUpdateChatSettingsParams" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixUpdateChatSettingsParams.html">HelixUpdateChatSettingsParams</a><a title="HelixUpdateCustomRewardData" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixUpdateCustomRewardData.html">HelixUpdateCustomRewardData</a><a title="HelixUpdateScheduleSegmentData" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixUpdateScheduleSegmentData.html">HelixUpdateScheduleSegmentData</a><a title="HelixUserBlockAdditionalInfo" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixUserBlockAdditionalInfo.html">HelixUserBlockAdditionalInfo</a><a title="HelixUserEmotesFilter" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixUserEmotesFilter.html">HelixUserEmotesFilter</a><a title="HelixUserExtensionUpdatePayload" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixUserExtensionUpdatePayload.html">HelixUserExtensionUpdatePayload</a><a title="HelixUserExtensionUpdatePayloadActiveSlot" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixUserExtensionUpdatePayloadActiveSlot.html">HelixUserExtensionUpdatePayloadActiveSlot</a><a title="HelixUserExtensionUpdatePayloadInactiveSlot" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixUserExtensionUpdatePayloadInactiveSlot.html">HelixUserExtensionUpdatePayloadInactiveSlot</a><a title="HelixUserUpdate" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixUserUpdate.html">HelixUserUpdate</a><a title="HelixVideoFilter" class="jss17" href="/versions/7.2/reference/api/interfaces/HelixVideoFilter.html">HelixVideoFilter</a></div></div><div class="jss14"><h2 class="jss15">Type aliases</h2><div class="jss16"><a title="HelixBitsLeaderboardPeriod" class="jss17" href="/versions/7.2/reference/api/types/HelixBitsLeaderboardPeriod.html">HelixBitsLeaderboardPeriod</a><a title="HelixBroadcasterType" class="jss17" href="/versions/7.2/reference/api/types/HelixBroadcasterType.html">HelixBroadcasterType</a><a title="HelixChannelEmoteSubscriptionTier" class="jss17" href="/versions/7.2/reference/api/types/HelixChannelEmoteSubscriptionTier.html">HelixChannelEmoteSubscriptionTier</a><a title="HelixChatAnnouncementColor" class="jss17" href="/versions/7.2/reference/api/types/HelixChatAnnouncementColor.html">HelixChatAnnouncementColor</a><a title="HelixChatBadgeScale" class="jss17" href="/versions/7.2/reference/api/types/HelixChatBadgeScale.html">HelixChatBadgeScale</a><a title="HelixChatUserColor" class="jss17" href="/versions/7.2/reference/api/types/HelixChatUserColor.html">HelixChatUserColor</a><a title="HelixCustomRewardRedemptionStatus" class="jss17" href="/versions/7.2/reference/api/types/HelixCustomRewardRedemptionStatus.html">HelixCustomRewardRedemptionStatus</a><a title="HelixCustomRewardRedemptionTargetStatus" class="jss17" href="/versions/7.2/reference/api/types/HelixCustomRewardRedemptionTargetStatus.html">HelixCustomRewardRedemptionTargetStatus</a><a title="HelixDropsEntitlementFulfillmentStatus" class="jss17" href="/versions/7.2/reference/api/types/HelixDropsEntitlementFulfillmentStatus.html">HelixDropsEntitlementFulfillmentStatus</a><a title="HelixDropsEntitlementUpdateStatus" class="jss17" href="/versions/7.2/reference/api/types/HelixDropsEntitlementUpdateStatus.html">HelixDropsEntitlementUpdateStatus</a><a title="HelixEventSubConduitShardsTransportOptions" class="jss17" href="/versions/7.2/reference/api/types/HelixEventSubConduitShardsTransportOptions.html">HelixEventSubConduitShardsTransportOptions</a><a title="HelixEventSubSubscriptionStatus" class="jss17" href="/versions/7.2/reference/api/types/HelixEventSubSubscriptionStatus.html">HelixEventSubSubscriptionStatus</a><a title="HelixEventSubTransportOptions" class="jss17" href="/versions/7.2/reference/api/types/HelixEventSubTransportOptions.html">HelixEventSubTransportOptions</a><a title="HelixExtensionSlotType" class="jss17" href="/versions/7.2/reference/api/types/HelixExtensionSlotType.html">HelixExtensionSlotType</a><a title="HelixGoalType" class="jss17" href="/versions/7.2/reference/api/types/HelixGoalType.html">HelixGoalType</a><a title="HelixHypeTrainContributionType" class="jss17" href="/versions/7.2/reference/api/types/HelixHypeTrainContributionType.html">HelixHypeTrainContributionType</a><a title="HelixHypeTrainEventType" class="jss17" href="/versions/7.2/reference/api/types/HelixHypeTrainEventType.html">HelixHypeTrainEventType</a><a title="HelixPollStatus" class="jss17" href="/versions/7.2/reference/api/types/HelixPollStatus.html">HelixPollStatus</a><a title="HelixPredictionOutcomeColor" class="jss17" href="/versions/7.2/reference/api/types/HelixPredictionOutcomeColor.html">HelixPredictionOutcomeColor</a><a title="HelixPredictionStatus" class="jss17" href="/versions/7.2/reference/api/types/HelixPredictionStatus.html">HelixPredictionStatus</a><a title="HelixStreamType" class="jss17" href="/versions/7.2/reference/api/types/HelixStreamType.html">HelixStreamType</a><a title="HelixUnbanRequestStatus" class="jss17" href="/versions/7.2/reference/api/types/HelixUnbanRequestStatus.html">HelixUnbanRequestStatus</a><a title="HelixUserExtensionUpdatePayloadSlot" class="jss17" href="/versions/7.2/reference/api/types/HelixUserExtensionUpdatePayloadSlot.html">HelixUserExtensionUpdatePayloadSlot</a><a title="HelixVideoType" class="jss17" href="/versions/7.2/reference/api/types/HelixVideoType.html">HelixVideoType</a></div></div></div><div class="jss12"><main><div class="jss19"><h1>HelixTeam</h1><a class="jss20" href="https://github.com/twurple/twurple/blob/versions/7.2/packages/api/src/endpoints/team/HelixTeam.ts#L11" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></a><div class="jss21"><p>A Stream Team.</p></div></div><div class="jss25"><h2>Overview</h2><div class="jss26"><div class="jss27"><h3 class="jss28">Properties</h3><ul class="jss29"><li class="jss30"><a class="jss31" href="/versions/7.2/reference/api/classes/HelixTeam.html#backgroundImageUrl">backgroundImageUrl</a></li><li class="jss30"><a class="jss31" href="/versions/7.2/reference/api/classes/HelixTeam.html#bannerUrl">bannerUrl</a></li><li class="jss30"><a class="jss31" href="/versions/7.2/reference/api/classes/HelixTeam.html#creationDate">creationDate</a></li><li class="jss30"><a class="jss31" href="/versions/7.2/reference/api/classes/HelixTeam.html#displayName">displayName</a></li><li class="jss30"><a class="jss31" href="/versions/7.2/reference/api/classes/HelixTeam.html#id">id</a></li><li class="jss30"><a class="jss31" href="/versions/7.2/reference/api/classes/HelixTeam.html#info">info</a></li><li class="jss30"><a class="jss31" href="/versions/7.2/reference/api/classes/HelixTeam.html#logoThumbnailUrl">logoThumbnailUrl</a></li><li class="jss30"><a class="jss31" href="/versions/7.2/reference/api/classes/HelixTeam.html#name">name</a></li><li class="jss30"><a class="jss31" href="/versions/7.2/reference/api/classes/HelixTeam.html#updateDate">updateDate</a></li></ul></div><div class="jss27"><h3 class="jss28">Methods</h3><ul class="jss29"><li class="jss30"><a class="jss31" href="/versions/7.2/reference/api/classes/HelixTeam.html#getUserRelations">getUserRelations</a><span title="async" class="jss35 jss37 jss36 jss32">a</span></li></ul></div></div><h2>Properties</h2><div id="backgroundImageUrl" class="jss41 jss38"><div class="jss42 jss40"><a class="jss20 jss43" href="https://github.com/twurple/twurple/blob/versions/7.2/packages/api/src/endpoints/team/HelixTeam.ts#L44" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></a><a class="jss43 jss44" title="Direct link to this symbol" href="/versions/7.2/reference/api/classes/HelixTeam.html#backgroundImageUrl"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path></svg></a></div><h3 class="jss39">backgroundImageUrl</h3><h4>Type<!-- -->: <!-- -->string<!-- --> | <!-- -->null</h4><div class="jss21"><p>The URL of the background image of the team.</p></div></div><div id="bannerUrl" class="jss41 jss38"><div class="jss42 jss40"><a class="jss20 jss43" href="https://github.com/twurple/twurple/blob/versions/7.2/packages/api/src/endpoints/team/HelixTeam.ts#L51" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></a><a class="jss43 jss44" title="Direct link to this symbol" href="/versions/7.2/reference/api/classes/HelixTeam.html#bannerUrl"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path></svg></a></div><h3 class="jss39">bannerUrl</h3><h4>Type<!-- -->: <!-- -->string<!-- --> | <!-- -->null</h4><div class="jss21"><p>The URL of the banner of the team.</p></div></div><div id="creationDate" class="jss41 jss38"><div class="jss42 jss40"><a class="jss20 jss43" href="https://github.com/twurple/twurple/blob/versions/7.2/packages/api/src/endpoints/team/HelixTeam.ts#L58" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></a><a class="jss43 jss44" title="Direct link to this symbol" href="/versions/7.2/reference/api/classes/HelixTeam.html#creationDate"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path></svg></a></div><h3 class="jss39">creationDate</h3><h4>Type<!-- -->: <!-- -->Date</h4><div class="jss21"><p>The date when the team was created.</p></div></div><div id="displayName" class="jss41 jss38"><div class="jss42 jss40"><a class="jss20 jss43" href="https://github.com/twurple/twurple/blob/versions/7.2/packages/api/src/endpoints/team/HelixTeam.ts#L37" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></a><a class="jss43 jss44" title="Direct link to this symbol" href="/versions/7.2/reference/api/classes/HelixTeam.html#displayName"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path></svg></a></div><h3 class="jss39">displayName</h3><h4>Type<!-- -->: <!-- -->string</h4><div class="jss21"><p>The display name of the team.</p></div></div><div id="id" class="jss41 jss38"><div class="jss42 jss40"><a class="jss20 jss43" href="https://github.com/twurple/twurple/blob/versions/7.2/packages/api/src/endpoints/team/HelixTeam.ts#L23" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></a><a class="jss43 jss44" title="Direct link to this symbol" href="/versions/7.2/reference/api/classes/HelixTeam.html#id"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path></svg></a></div><h3 class="jss39">id</h3><h4>Type<!-- -->: <!-- -->string</h4><div class="jss21"><p>The ID of the team.</p></div></div><div id="info" class="jss41 jss38"><div class="jss42 jss40"><a class="jss20 jss43" href="https://github.com/twurple/twurple/blob/versions/7.2/packages/api/src/endpoints/team/HelixTeam.ts#L74" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></a><a class="jss43 jss44" title="Direct link to this symbol" href="/versions/7.2/reference/api/classes/HelixTeam.html#info"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path></svg></a></div><h3 class="jss39">info</h3><h4>Type<!-- -->: <!-- -->string</h4><div class="jss21"><p>The info of the team.</p></div><div class="jss21"><p>May contain HTML tags.</p></div></div><div id="logoThumbnailUrl" class="jss41 jss38"><div class="jss42 jss40"><a class="jss20 jss43" href="https://github.com/twurple/twurple/blob/versions/7.2/packages/api/src/endpoints/team/HelixTeam.ts#L81" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></a><a class="jss43 jss44" title="Direct link to this symbol" href="/versions/7.2/reference/api/classes/HelixTeam.html#logoThumbnailUrl"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path></svg></a></div><h3 class="jss39">logoThumbnailUrl</h3><h4>Type<!-- -->: <!-- -->string</h4><div class="jss21"><p>The URL of the thumbnail of the team&#x27;s logo.</p></div></div><div id="name" class="jss41 jss38"><div class="jss42 jss40"><a class="jss20 jss43" href="https://github.com/twurple/twurple/blob/versions/7.2/packages/api/src/endpoints/team/HelixTeam.ts#L30" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></a><a class="jss43 jss44" title="Direct link to this symbol" href="/versions/7.2/reference/api/classes/HelixTeam.html#name"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path></svg></a></div><h3 class="jss39">name</h3><h4>Type<!-- -->: <!-- -->string</h4><div class="jss21"><p>The name of the team.</p></div></div><div id="updateDate" class="jss41 jss38"><div class="jss42 jss40"><a class="jss20 jss43" href="https://github.com/twurple/twurple/blob/versions/7.2/packages/api/src/endpoints/team/HelixTeam.ts#L65" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></a><a class="jss43 jss44" title="Direct link to this symbol" href="/versions/7.2/reference/api/classes/HelixTeam.html#updateDate"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path></svg></a></div><h3 class="jss39">updateDate</h3><h4>Type<!-- -->: <!-- -->Date</h4><div class="jss21"><p>The date when the team was last updated.</p></div></div><h2>Methods</h2><div id="getUserRelations" class="jss41 jss47"><div class="jss42 jss48"><a class="jss20 jss43" href="https://github.com/twurple/twurple/blob/versions/7.2/packages/api/src/endpoints/team/HelixTeam.ts#L88" target="_blank" rel="noopener noreferrer" title="Go to the code"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></a><a class="jss43 jss44" title="Direct link to this symbol" href="/versions/7.2/reference/api/classes/HelixTeam.html#getUserRelations"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path></svg></a></div><h3 class="jss54">getUserRelations<!-- -->(<!-- -->)</h3><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/await" target="_blank" title="This method actually returns a Promise object, but the use of await is recommended for easier use. Please click on the badge for further information." class="jss35 jss55 jss53" rel="noreferrer">async</a><div class="jss21"><p>Gets the relations to the members of the team.</p></div><div class="jss58">Return type:<!-- --> <span class="jss59"><a class="jss46" href="/versions/7.2/reference/api/classes/HelixUserRelation.html">HelixUserRelation</a>[]</span></div></div></div></main></div></div></div>
+<script src="/versions/7.2/pe.js"></script>
+</body>
+</html>
