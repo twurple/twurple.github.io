@@ -59574,13 +59574,18 @@ declare class AppTokenAuthProvider implements AuthProvider {
      */
     get currentScopes(): string[];
     /**
-     * Throws, because this auth provider does not support user authentication.
+     * Can only get tokens for implied scopes (i.e. extension subscription support).
+     *
+     * The consumer is expected to take care that this is actually set up in the Twitch developer console.
+     *
+     * @param user The user to get an access token for.
+     * @param scopeSets The requested scopes.
      */
-    getAccessTokenForUser(): Promise<never>;
+    getAccessTokenForUser(user: UserIdResolvable, ...scopeSets: Array<string[] | undefined>): Promise<AccessTokenWithUserId>;
     /**
      * Throws, because this auth provider does not support user authentication.
      */
-    getCurrentScopesForUser(): never;
+    getCurrentScopesForUser(): string[];
     /**
      * Fetches an app access token.
      */
