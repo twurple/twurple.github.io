@@ -63674,6 +63674,10 @@ interface CreateBotCommandOptions {
      * Alternative names for the command that can be used to call it.
      */
     aliases?: string[];
+    /**
+     * Whether the command name should be case-insensitive. Case-sensitive by default.
+     */
+    ignoreCase?: boolean;
 }
 /**
  * Creates a simple bot command.
