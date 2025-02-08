@@ -61548,6 +61548,12 @@ declare class HelixExtension extends DataObject<HelixExtensionData> {
     /**
      * The extension's feature summary for viewers.
      */
+    get viewerSummary(): string;
+    /**
+     * The extension's feature summary for viewers.
+     *
+     * @deprecated Use \`viewerSummary\` instead.
+     */
     get viewerSummery(): string;
     /**
      * The extension's allowed configuration URLs.
