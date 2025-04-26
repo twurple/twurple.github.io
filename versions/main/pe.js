@@ -59119,7 +59119,7 @@ interface TwitchApiCallOptions {
     /**
      * The URL to request.
      *
-     * If \`type\` is not \`'custom'\`, this is relative to the respective API root endpoint. Otherwise, it is an absoulte URL.
+     * If \`type\` is not \`'custom'\`, this is relative to the respective API root endpoint. Otherwise, it is an absolute URL.
      */
     url: string;
     /**
@@ -60682,8 +60682,10 @@ declare class ChatClient extends EventEmitter {
     private _authRetryTimer?;
     private _authRetryCount;
     private readonly _chatLogger;
-    private readonly _messageRateLimiter;
-    private readonly _joinRateLimiter;
+    private readonly _isAlwaysMod;
+    private readonly _botLevel;
+    private _messageRateLimiter?;
+    private _joinRateLimiter?;
     private readonly _ircClient;
     /**
      * Fires when the client successfully connects to the chat server.
@@ -61122,6 +61124,7 @@ declare class ChatClient extends EventEmitter {
     private _getAuthToken;
     private _getNecessaryScopes;
     private static _generateJustinfanNick;
+    private _initializeRateLimiters;
 }
 
 /** @private */
