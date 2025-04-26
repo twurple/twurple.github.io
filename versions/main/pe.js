@@ -72355,6 +72355,10 @@ declare class EventSubWsListener extends EventSubBase implements EventSubListene
      * Stops the WebSocket listener.
      */
     stop(): void;
+    /**
+     * Whether the WebSocket listener is active.
+     */
+    get isActive(): boolean;
     /** @private */
     _getCliTestCommandForSubscription(subscription: EventSubSubscription): Promise<string>;
     /** @private */
