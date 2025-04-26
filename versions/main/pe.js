@@ -69844,7 +69844,7 @@ interface EventSubChannelUpdateEventData {
     language: string;
     category_id: string;
     category_name: string;
-    is_mature: boolean;
+    content_classification_labels: string[];
 }
 
 /**
@@ -69889,8 +69889,21 @@ declare class EventSubChannelUpdateEvent extends DataObject<EventSubChannelUpdat
     getGame(): Promise<HelixGame | null>;
     /**
      * Whether the channel is flagged as suitable for mature audiences only.
+     *
+     * @deprecated Use {@link EventSubChannelUpdateEvent#contentClassificationLabels} to check if any content
+     * classification labels are applied to the channel.
+     *
+     * Currently, this flag mimics the previous behavior by checking whether the \`contentClassificationLabels\`
+     * array is not empty.
+     *
+     * This flag will be removed in the next major release.
      */
     get isMature(): boolean;
+    /**
+     * An array of content classification label IDs currently applied on the channel.
+     * To retrieve a list of all possible IDs, use the {@link ApiClient#contentClassificationLabels#getAll} API method.
+     */
+    get contentClassificationLabels(): string[];
 }
 
 /** @private */
