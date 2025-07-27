@@ -61945,6 +61945,18 @@ declare class BotCommandContext {
      */
     reply: (text: string) => Promise<void>;
     /**
+     * Sends a reply to the chat message's parent message to the channel.
+     *
+     * @param text The text to send.
+     */
+    replyToParent: (text: string) => Promise<void>;
+    /**
+     * Sends a reply to the chat message's thread starter message to the channel.
+     *
+     * @param text The text to send.
+     */
+    replyToThread: (text: string) => Promise<void>;
+    /**
      * Sends a regular chat message to the channel.
      *
      * @param text The text to send.
