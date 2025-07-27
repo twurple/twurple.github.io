@@ -55185,6 +55185,13 @@ declare class HelixEventSubApi extends BaseApi {
      */
     subscribeToChannelAutomaticRewardRedemptionAddEvents(broadcaster: UserIdResolvable, transport: HelixEventSubTransportOptions): Promise<HelixEventSubSubscription>;
     /**
+     * Subscribe to events that represent a Channel Points automatic reward being redeemed.
+     *
+     * @param broadcaster The broadcaster you want to listen to automatic reward redemption events for.
+     * @param transport The transport options.
+     */
+    subscribeToChannelAutomaticRewardRedemptionAddV2Events(broadcaster: UserIdResolvable, transport: HelixEventSubTransportOptions): Promise<HelixEventSubSubscription>;
+    /**
      * Subscribe to events that represent a poll starting in a channel.
      *
      * @param broadcaster The broadcaster you want to listen to poll begin events for.
@@ -69138,6 +69145,136 @@ declare class EventSubChannelAutomaticRewardRedemptionAddEvent extends DataObjec
     get redemptionDate(): Date | null;
 }
 
+/**
+ * The type of the reward.
+ */
+type EventSubChannelAutomaticRewardType = 'single_message_bypass_sub_mode' | 'send_highlighted_message' | 'random_sub_emote_unlock' | 'chosen_sub_emote_unlock' | 'chosen_modified_sub_emote_unlock';
+/**
+ * Emote associated with the reward.
+ */
+interface EventSubChannelAutomaticRewardEmoteData {
+    id: string;
+    name: string;
+}
+/** @private*/
+interface EventSubChannelAutomaticRewardData {
+    type: EventSubChannelAutomaticRewardType;
+    channel_points: number;
+    emote: EventSubChannelAutomaticRewardEmoteData | null;
+}
+
+/** @private */
+interface EventSubChatAutomaticRewardRedemptionMessageTextPart {
+    type: 'text';
+    text: string;
+}
+/** @private */
+interface EventSubChatAutomaticRewardRedemptionMessageEmoteData {
+    id: string;
+}
+/** @private */
+interface EventSubChatAutomaticRewardRedemptionMessageEmotePart {
+    type: 'emote';
+    text: string;
+    emote: EventSubChatAutomaticRewardRedemptionMessageEmoteData;
+}
+/** @private */
+type EventSubAutomaticRewardRedemptionMessagePart = EventSubChatAutomaticRewardRedemptionMessageTextPart | EventSubChatAutomaticRewardRedemptionMessageEmotePart;
+/** @private */
+interface EventSubChatAutomaticRewardRedemptionMessageData {
+    text: string;
+    fragments: EventSubAutomaticRewardRedemptionMessagePart[];
+}
+/** @private */
+interface EventSubChannelAutomaticRewardRedemptionAddV2EventData {
+    broadcaster_user_id: string;
+    broadcaster_user_name: string;
+    broadcaster_user_login: string;
+    user_id: string;
+    user_name: string;
+    user_login: string;
+    id: string;
+    reward: EventSubChannelAutomaticRewardData;
+    message: EventSubChatAutomaticRewardRedemptionMessageData | null;
+    redeemed_at: string;
+}
+
+/**
+ * An object that contains the reward information.
+ */
+declare class EventSubChannelAutomaticReward extends DataObject<EventSubChannelAutomaticRewardData> {
+    /**
+     * The type of reward.
+     */
+    get type(): EventSubChannelAutomaticRewardType;
+    /**
+     * Number of channel points used.
+     */
+    get channelPoints(): number;
+    /**
+     * Emote associated with the reward, or \`null\` if the reward is not related to emotes.
+     */
+    get emote(): EventSubChannelAutomaticRewardEmoteData | null;
+}
+
+/**
+ * An EventSub event representing an automatic reward being redeemed by a user in a channel.
+ */
+declare class EventSubChannelAutomaticRewardRedemptionAddV2Event extends DataObject<EventSubChannelAutomaticRewardRedemptionAddV2EventData> {
+    /**
+     * The ID of the redemption.
+     */
+    get id(): string;
+    /**
+     * The ID of the broadcaster in whose channel the reward was redeemed.
+     */
+    get broadcasterId(): string;
+    /**
+     * The name of the broadcaster in whose channel the reward was redeemed.
+     */
+    get broadcasterName(): string;
+    /**
+     * The display name of the broadcaster in whose channel the reward was redeemed.
+     */
+    get broadcasterDisplayName(): string;
+    /**
+     * Gets more information about the broadcaster.
+     */
+    getBroadcaster(): Promise<HelixUser>;
+    /**
+     * The ID of the redeeming user.
+     */
+    get userId(): string;
+    /**
+     * The name of the redeeming user.
+     */
+    get userName(): string;
+    /**
+     * The display name of the redeeming user.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the redeeming user.
+     */
+    getUser(): Promise<HelixUser>;
+    /**
+     * An object that contains the reward information.
+     */
+    get reward(): EventSubChannelAutomaticReward;
+    /**
+     * The text of the message, or \`null\` if there is no message.
+     */
+    get messageText(): string | null;
+    /**
+     * The pre-parsed message parts.
+     */
+    get messageParts(): EventSubAutomaticRewardRedemptionMessagePart[];
+    /**
+     * The date when the user redeemed the reward.
+     */
+    get redemptionDate(): Date | null;
+}
+
 /** @private */
 interface EventSubChannelSharedChatSessionParticipantData {
     broadcaster_user_id: string;
@@ -71336,6 +71473,13 @@ declare abstract class EventSubBase extends EventEmitter {
      */
     onChannelAutomaticRewardRedemptionAdd(user: UserIdResolvable, handler: (data: EventSubChannelAutomaticRewardRedemptionAddEvent) => void): EventSubSubscription;
     /**
+     * Subscribes to events that represent a specific Channel Points automatic reward being redeemed.
+     *
+     * @param user The user for which to get notifications when their automatic reward is redeemed.
+     * @param handler The function that will be called for any new notifications.
+     */
+    onChannelAutomaticRewardRedemptionAddV2(user: UserIdResolvable, handler: (data: EventSubChannelAutomaticRewardRedemptionAddV2Event) => void): EventSubSubscription;
+    /**
      * Subscribes to events that represent a poll starting in a channel.
      *
      * @param user The broadcaster for which to receive poll begin events.
@@ -71963,6 +72107,13 @@ interface EventSubListener {
      */
     onChannelAutomaticRewardRedemptionAdd: (user: UserIdResolvable$1, handler: (data: EventSubChannelAutomaticRewardRedemptionAddEvent) => void) => EventSubSubscription;
     /**
+     * Subscribes to events that represent a specific Channel Points automatic reward being redeemed.
+     *
+     * @param user The user for which to get notifications when their automatic reward is redeemed.
+     * @param handler The function that will be called for any new notifications.
+     */
+    onChannelAutomaticRewardRedemptionAddV2: (user: UserIdResolvable$1, handler: (data: EventSubChannelAutomaticRewardRedemptionAddV2Event) => void) => EventSubSubscription;
+    /**
      * Subscribes to events that represent a poll starting in a channel.
      *
      * @param user The broadcaster for which to receive poll begin events.
@@ -72392,7 +72543,7 @@ interface EventSubRevocationPayload {
     subscription: EventSubSubscriptionBody;
 }
 
-export { EventSubAutoModLevel, EventSubAutoModMessageAutoMod, EventSubAutoModMessageAutoModBoundary, EventSubAutoModMessageBlockedTerm, EventSubAutoModMessageHoldEvent, EventSubAutoModMessageHoldReason, EventSubAutoModMessageHoldV2Event, EventSubAutoModMessageUpdateEvent, EventSubAutoModMessageUpdateV2Event, EventSubAutoModResolutionStatus, EventSubAutoModSettingsUpdateEvent, EventSubAutoModTermsUpdateAction, EventSubAutoModTermsUpdateEvent, EventSubAutomaticRewardType, EventSubBase, EventSubBaseConfig, EventSubChannelAdBreakBeginEvent, EventSubChannelAutoModTermsModerationEvent, EventSubChannelAutomaticRewardRedemptionAddEvent, EventSubChannelAutomodTermsModerationEventAction, EventSubChannelAutomodTermsModerationEventList, EventSubChannelBanEvasionEvaluation, EventSubChannelBanEvent, EventSubChannelBanModerationEvent, EventSubChannelBitsUseEvent, EventSubChannelBitsUsePowerUp, EventSubChannelBitsUsePowerUpType, EventSubChannelBitsUseType, EventSubChannelCharityAmount, EventSubChannelCharityCampaignProgressEvent, EventSubChannelCharityCampaignStartEvent, EventSubChannelCharityCampaignStopEvent, EventSubChannelCharityDonationEvent, EventSubChannelChatAnnouncementColor, EventSubChannelChatAnnouncementNotificationEvent, EventSubChannelChatBitsBadgeTierNotificationEvent, EventSubChannelChatCharityDonationNotificationEvent, EventSubChannelChatClearEvent, EventSubChannelChatClearUserMessagesEvent, EventSubChannelChatCommunitySubGiftNotificationEvent, EventSubChannelChatGiftPaidUpgradeNotificationEvent, EventSubChannelChatMessageDeleteEvent, EventSubChannelChatMessageEvent, EventSubChannelChatNotificationEvent, EventSubChannelChatNotificationSubTier, EventSubChannelChatNotificationType, EventSubChannelChatPayItForwardNotificationEvent, EventSubChannelChatPrimePaidUpgradeNotificationEvent, EventSubChannelChatRaidNotificationEvent, EventSubChannelChatResubNotificationEvent, EventSubChannelChatSettingsUpdateEvent, EventSubChannelChatSharedChatAnnouncementNotificationEvent, EventSubChannelChatSharedChatCommunitySubGiftNotificationEvent, EventSubChannelChatSharedChatGiftPaidUpgradeNotificationEvent, EventSubChannelChatSharedChatPayItForwardNotificationEvent, EventSubChannelChatSharedChatPrimePaidUpgradeNotificationEvent, EventSubChannelChatSharedChatRaidNotificationEvent, EventSubChannelChatSharedChatResubNotificationEvent, EventSubChannelChatSharedChatSubGiftNotificationEvent, EventSubChannelChatSharedChatSubNotificationEvent, EventSubChannelChatSubGiftNotificationEvent, EventSubChannelChatSubNotificationEvent, EventSubChannelChatUnraidNotificationEvent, EventSubChannelChatUserMessageHoldEvent, EventSubChannelChatUserMessageUpdateEvent, EventSubChannelCheerEvent, EventSubChannelClearModerationEvent, EventSubChannelDeleteModerationEvent, EventSubChannelEmoteOnlyModerationEvent, EventSubChannelEmoteOnlyOffModerationEvent, EventSubChannelFollowEvent, EventSubChannelFollowersModerationEvent, EventSubChannelFollowersOffModerationEvent, EventSubChannelGoalBeginEvent, EventSubChannelGoalEndEvent, EventSubChannelGoalProgressEvent, EventSubChannelGoalType, EventSubChannelHypeTrainBeginEvent, EventSubChannelHypeTrainBeginV2Event, EventSubChannelHypeTrainContribution, EventSubChannelHypeTrainContributionType, EventSubChannelHypeTrainEndEvent, EventSubChannelHypeTrainEndV2Event, EventSubChannelHypeTrainProgressEvent, EventSubChannelHypeTrainProgressV2Event, EventSubChannelHypeTrainSharedParticipant, EventSubChannelHypeTrainType, EventSubChannelModModerationEvent, EventSubChannelModerationAction, EventSubChannelModerationEvent, EventSubChannelModeratorEvent, EventSubChannelPollBeginChoice, EventSubChannelPollBeginEvent, EventSubChannelPollChoice, EventSubChannelPollEndEvent, EventSubChannelPollEndStatus, EventSubChannelPollProgressEvent, EventSubChannelPredictionBeginEvent, EventSubChannelPredictionBeginOutcome, EventSubChannelPredictionColor, EventSubChannelPredictionEndEvent, EventSubChannelPredictionEndStatus, EventSubChannelPredictionLockEvent, EventSubChannelPredictionOutcome, EventSubChannelPredictionPredictor, EventSubChannelPredictionProgressEvent, EventSubChannelRaidEvent, EventSubChannelRaidModerationEvent, EventSubChannelRedemptionAddEvent, EventSubChannelRedemptionUpdateEvent, EventSubChannelRewardEvent, EventSubChannelSharedChatBanModerationEvent, EventSubChannelSharedChatDeleteModerationEvent, EventSubChannelSharedChatSessionBeginEvent, EventSubChannelSharedChatSessionEndEvent, EventSubChannelSharedChatSessionParticipant, EventSubChannelSharedChatSessionUpdateEvent, EventSubChannelSharedChatTimeoutModerationEvent, EventSubChannelSharedChatUnbanModerationEvent, EventSubChannelSharedChatUntimeoutModerationEvent, EventSubChannelShieldModeBeginEvent, EventSubChannelShieldModeEndEvent, EventSubChannelShoutoutCreateEvent, EventSubChannelShoutoutReceiveEvent, EventSubChannelSlowModerationEvent, EventSubChannelSlowOffModerationEvent, EventSubChannelSubscribersModerationEvent, EventSubChannelSubscribersOffModerationEvent, EventSubChannelSubscriptionEndEvent, EventSubChannelSubscriptionEndEventTier, EventSubChannelSubscriptionEvent, EventSubChannelSubscriptionEventTier, EventSubChannelSubscriptionGiftEvent, EventSubChannelSubscriptionGiftEventTier, EventSubChannelSubscriptionMessageEvent, EventSubChannelSubscriptionMessageEventTier, EventSubChannelSuspiciousUserLowTrustStatus, EventSubChannelSuspiciousUserMessageEvent, EventSubChannelSuspiciousUserType, EventSubChannelSuspiciousUserUpdateEvent, EventSubChannelTimeoutModerationEvent, EventSubChannelUnbanEvent, EventSubChannelUnbanModerationEvent, EventSubChannelUnbanRequestCreateEvent, EventSubChannelUnbanRequestModerationEvent, EventSubChannelUnbanRequestResolveEvent, EventSubChannelUnbanRequestStatus, EventSubChannelUniqueChatModerationEvent, EventSubChannelUniqueChatOffModerationEvent, EventSubChannelUnmodModerationEvent, EventSubChannelUnraidModerationEvent, EventSubChannelUntimeoutModerationEvent, EventSubChannelUnvipModerationEvent, EventSubChannelUpdateEvent, EventSubChannelVipEvent, EventSubChannelVipModerationEvent, EventSubChannelWarningAcknowledgeEvent, EventSubChannelWarningSendEvent, EventSubDropEntitlementGrantEvent, EventSubExtensionBitsTransactionCreateEvent, EventSubListener, EventSubNotificationPayload, EventSubRevocationPayload, EventSubStreamOfflineEvent, EventSubStreamOnlineEvent, EventSubStreamOnlineEventStreamType, EventSubSubscription, EventSubSubscriptionBody, EventSubUserAuthorizationGrantEvent, EventSubUserAuthorizationRevokeEvent, EventSubUserUpdateEvent, EventSubUserWhisperMessageEvent };
+export { EventSubAutoModLevel, EventSubAutoModMessageAutoMod, EventSubAutoModMessageAutoModBoundary, EventSubAutoModMessageBlockedTerm, EventSubAutoModMessageHoldEvent, EventSubAutoModMessageHoldReason, EventSubAutoModMessageHoldV2Event, EventSubAutoModMessageUpdateEvent, EventSubAutoModMessageUpdateV2Event, EventSubAutoModResolutionStatus, EventSubAutoModSettingsUpdateEvent, EventSubAutoModTermsUpdateAction, EventSubAutoModTermsUpdateEvent, EventSubAutomaticRewardType, EventSubBase, EventSubBaseConfig, EventSubChannelAdBreakBeginEvent, EventSubChannelAutoModTermsModerationEvent, EventSubChannelAutomaticReward, EventSubChannelAutomaticRewardRedemptionAddEvent, EventSubChannelAutomaticRewardRedemptionAddV2Event, EventSubChannelAutomaticRewardType, EventSubChannelAutomodTermsModerationEventAction, EventSubChannelAutomodTermsModerationEventList, EventSubChannelBanEvasionEvaluation, EventSubChannelBanEvent, EventSubChannelBanModerationEvent, EventSubChannelBitsUseEvent, EventSubChannelBitsUsePowerUp, EventSubChannelBitsUsePowerUpType, EventSubChannelBitsUseType, EventSubChannelCharityAmount, EventSubChannelCharityCampaignProgressEvent, EventSubChannelCharityCampaignStartEvent, EventSubChannelCharityCampaignStopEvent, EventSubChannelCharityDonationEvent, EventSubChannelChatAnnouncementColor, EventSubChannelChatAnnouncementNotificationEvent, EventSubChannelChatBitsBadgeTierNotificationEvent, EventSubChannelChatCharityDonationNotificationEvent, EventSubChannelChatClearEvent, EventSubChannelChatClearUserMessagesEvent, EventSubChannelChatCommunitySubGiftNotificationEvent, EventSubChannelChatGiftPaidUpgradeNotificationEvent, EventSubChannelChatMessageDeleteEvent, EventSubChannelChatMessageEvent, EventSubChannelChatNotificationEvent, EventSubChannelChatNotificationSubTier, EventSubChannelChatNotificationType, EventSubChannelChatPayItForwardNotificationEvent, EventSubChannelChatPrimePaidUpgradeNotificationEvent, EventSubChannelChatRaidNotificationEvent, EventSubChannelChatResubNotificationEvent, EventSubChannelChatSettingsUpdateEvent, EventSubChannelChatSharedChatAnnouncementNotificationEvent, EventSubChannelChatSharedChatCommunitySubGiftNotificationEvent, EventSubChannelChatSharedChatGiftPaidUpgradeNotificationEvent, EventSubChannelChatSharedChatPayItForwardNotificationEvent, EventSubChannelChatSharedChatPrimePaidUpgradeNotificationEvent, EventSubChannelChatSharedChatRaidNotificationEvent, EventSubChannelChatSharedChatResubNotificationEvent, EventSubChannelChatSharedChatSubGiftNotificationEvent, EventSubChannelChatSharedChatSubNotificationEvent, EventSubChannelChatSubGiftNotificationEvent, EventSubChannelChatSubNotificationEvent, EventSubChannelChatUnraidNotificationEvent, EventSubChannelChatUserMessageHoldEvent, EventSubChannelChatUserMessageUpdateEvent, EventSubChannelCheerEvent, EventSubChannelClearModerationEvent, EventSubChannelDeleteModerationEvent, EventSubChannelEmoteOnlyModerationEvent, EventSubChannelEmoteOnlyOffModerationEvent, EventSubChannelFollowEvent, EventSubChannelFollowersModerationEvent, EventSubChannelFollowersOffModerationEvent, EventSubChannelGoalBeginEvent, EventSubChannelGoalEndEvent, EventSubChannelGoalProgressEvent, EventSubChannelGoalType, EventSubChannelHypeTrainBeginEvent, EventSubChannelHypeTrainBeginV2Event, EventSubChannelHypeTrainContribution, EventSubChannelHypeTrainContributionType, EventSubChannelHypeTrainEndEvent, EventSubChannelHypeTrainEndV2Event, EventSubChannelHypeTrainProgressEvent, EventSubChannelHypeTrainProgressV2Event, EventSubChannelHypeTrainSharedParticipant, EventSubChannelHypeTrainType, EventSubChannelModModerationEvent, EventSubChannelModerationAction, EventSubChannelModerationEvent, EventSubChannelModeratorEvent, EventSubChannelPollBeginChoice, EventSubChannelPollBeginEvent, EventSubChannelPollChoice, EventSubChannelPollEndEvent, EventSubChannelPollEndStatus, EventSubChannelPollProgressEvent, EventSubChannelPredictionBeginEvent, EventSubChannelPredictionBeginOutcome, EventSubChannelPredictionColor, EventSubChannelPredictionEndEvent, EventSubChannelPredictionEndStatus, EventSubChannelPredictionLockEvent, EventSubChannelPredictionOutcome, EventSubChannelPredictionPredictor, EventSubChannelPredictionProgressEvent, EventSubChannelRaidEvent, EventSubChannelRaidModerationEvent, EventSubChannelRedemptionAddEvent, EventSubChannelRedemptionUpdateEvent, EventSubChannelRewardEvent, EventSubChannelSharedChatBanModerationEvent, EventSubChannelSharedChatDeleteModerationEvent, EventSubChannelSharedChatSessionBeginEvent, EventSubChannelSharedChatSessionEndEvent, EventSubChannelSharedChatSessionParticipant, EventSubChannelSharedChatSessionUpdateEvent, EventSubChannelSharedChatTimeoutModerationEvent, EventSubChannelSharedChatUnbanModerationEvent, EventSubChannelSharedChatUntimeoutModerationEvent, EventSubChannelShieldModeBeginEvent, EventSubChannelShieldModeEndEvent, EventSubChannelShoutoutCreateEvent, EventSubChannelShoutoutReceiveEvent, EventSubChannelSlowModerationEvent, EventSubChannelSlowOffModerationEvent, EventSubChannelSubscribersModerationEvent, EventSubChannelSubscribersOffModerationEvent, EventSubChannelSubscriptionEndEvent, EventSubChannelSubscriptionEndEventTier, EventSubChannelSubscriptionEvent, EventSubChannelSubscriptionEventTier, EventSubChannelSubscriptionGiftEvent, EventSubChannelSubscriptionGiftEventTier, EventSubChannelSubscriptionMessageEvent, EventSubChannelSubscriptionMessageEventTier, EventSubChannelSuspiciousUserLowTrustStatus, EventSubChannelSuspiciousUserMessageEvent, EventSubChannelSuspiciousUserType, EventSubChannelSuspiciousUserUpdateEvent, EventSubChannelTimeoutModerationEvent, EventSubChannelUnbanEvent, EventSubChannelUnbanModerationEvent, EventSubChannelUnbanRequestCreateEvent, EventSubChannelUnbanRequestModerationEvent, EventSubChannelUnbanRequestResolveEvent, EventSubChannelUnbanRequestStatus, EventSubChannelUniqueChatModerationEvent, EventSubChannelUniqueChatOffModerationEvent, EventSubChannelUnmodModerationEvent, EventSubChannelUnraidModerationEvent, EventSubChannelUntimeoutModerationEvent, EventSubChannelUnvipModerationEvent, EventSubChannelUpdateEvent, EventSubChannelVipEvent, EventSubChannelVipModerationEvent, EventSubChannelWarningAcknowledgeEvent, EventSubChannelWarningSendEvent, EventSubDropEntitlementGrantEvent, EventSubExtensionBitsTransactionCreateEvent, EventSubListener, EventSubNotificationPayload, EventSubRevocationPayload, EventSubStreamOfflineEvent, EventSubStreamOnlineEvent, EventSubStreamOnlineEventStreamType, EventSubSubscription, EventSubSubscriptionBody, EventSubUserAuthorizationGrantEvent, EventSubUserAuthorizationRevokeEvent, EventSubUserUpdateEvent, EventSubUserWhisperMessageEvent };
 `],["/node_modules/@types/twurple__eventsub-http/index.d.ts",`/// <reference types="node" />
 import * as _d_fischer_typed_event_emitter from '@d-fischer/typed-event-emitter';
 import { HelixEventSubWebHookTransportOptions, HelixEventSubSubscription } from '@twurple/api';
