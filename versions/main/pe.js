@@ -55276,6 +55276,27 @@ declare class HelixEventSubApi extends BaseApi {
      */
     subscribeToChannelHypeTrainEndEvents(broadcaster: UserIdResolvable, transport: HelixEventSubTransportOptions): Promise<HelixEventSubSubscription>;
     /**
+     * Subscribe to events that represent the beginning of a Hype Train event in a channel.
+     *
+     * @param broadcaster The broadcaster you want to listen to Hype train begin events for.
+     * @param transport The transport options.
+     */
+    subscribeToChannelHypeTrainBeginV2Events(broadcaster: UserIdResolvable, transport: HelixEventSubTransportOptions): Promise<HelixEventSubSubscription>;
+    /**
+     * Subscribe to events that represent progress towards the Hype Train goal.
+     *
+     * @param broadcaster The broadcaster for which you want to listen to Hype Train progress events.
+     * @param transport The transport options.
+     */
+    subscribeToChannelHypeTrainProgressV2Events(broadcaster: UserIdResolvable, transport: HelixEventSubTransportOptions): Promise<HelixEventSubSubscription>;
+    /**
+     * Subscribe to events that represent the end of a Hype Train event.
+     *
+     * @param broadcaster The broadcaster for which you want to listen to Hype Train end events.
+     * @param transport The transport options.
+     */
+    subscribeToChannelHypeTrainEndV2Events(broadcaster: UserIdResolvable, transport: HelixEventSubTransportOptions): Promise<HelixEventSubSubscription>;
+    /**
      * Subscribe to events that represent a broadcaster shouting out another broadcaster.
      *
      * @param broadcaster The broadcaster for which you want to listen to outgoing shoutout events.
@@ -63930,7 +63951,7 @@ export { EbsCallConfig, ExternalJwtConfig, createExtensionSecret, createExternal
 `],["/node_modules/@types/twurple__eventsub-base/index.d.ts",`import * as _d_fischer_typed_event_emitter from '@d-fischer/typed-event-emitter';
 import { EventEmitter } from '@d-fischer/typed-event-emitter';
 import { LoggerOptions, Logger } from '@d-fischer/logger';
-import { HelixUser, HelixCustomReward, HelixCustomRewardRedemptionTargetStatus, HelixCustomRewardRedemption, HelixGame, HelixStream, HelixEventSubSubscription, HelixEventSubTransportOptions, ApiClient, HelixEventSubSubscriptionStatus, UserIdResolvable, HelixEventSubDropEntitlementGrantFilter, HelixEventSubTransportData } from '@twurple/api';
+import { HelixUser, ApiClient, HelixCustomReward, HelixCustomRewardRedemptionTargetStatus, HelixCustomRewardRedemption, HelixGame, HelixStream, HelixEventSubSubscription, HelixEventSubTransportOptions, HelixEventSubSubscriptionStatus, UserIdResolvable, HelixEventSubDropEntitlementGrantFilter, HelixEventSubTransportData } from '@twurple/api';
 import { DataObject, UserIdResolvable as UserIdResolvable$1 } from '@twurple/common';
 
 /** @private */
@@ -67025,6 +67046,314 @@ declare class EventSubChannelHypeTrainProgressEvent extends DataObject<EventSubC
      * Indicates if the Hype Train is a Golden Kappa Train.
      */
     get isGoldenKappaTrain(): boolean;
+}
+
+/**
+ * The type of the Hype Train.
+ */
+type EventSubChannelHypeTrainType = 'regular' | 'treasure' | 'golden_kappa';
+
+/** @private */
+interface EventSubChannelHypeTrainSharedParticipantData {
+    broadcaster_user_id: string;
+    broadcaster_user_login: string;
+    broadcaster_user_name: string;
+}
+
+/** @private */
+interface EventSubChannelHypeTrainBeginV2EventData {
+    id: string;
+    broadcaster_user_id: string;
+    broadcaster_user_login: string;
+    broadcaster_user_name: string;
+    type: EventSubChannelHypeTrainType;
+    level: number;
+    total: number;
+    progress: number;
+    goal: number;
+    top_contributions: EventSubChannelHypeTrainContributionData[];
+    is_shared_train: boolean;
+    shared_train_participants: EventSubChannelHypeTrainSharedParticipantData[];
+    all_time_high_level: number;
+    all_time_high_total: number;
+    started_at: string;
+    expires_at: string;
+}
+
+/**
+ * The broadcaster participating in the shared Hype Train.
+ */
+declare class EventSubChannelHypeTrainSharedParticipant extends DataObject<EventSubChannelHypeTrainSharedParticipantData> {
+    private readonly _client;
+    constructor(data: EventSubChannelHypeTrainSharedParticipantData, _client: ApiClient);
+    /**
+     * The ID of the broadcaster participating in the shared Hype Train.
+     */
+    get broadcasterId(): string;
+    /**
+     * The name of the broadcaster participating in the shared Hype Train.
+     */
+    get broadcasterName(): string;
+    /**
+     * The display name of the broadcaster participating in the shared Hype Train.
+     */
+    get broadcasterDisplayName(): string;
+    /**
+     * Gets more information about the broadcaster.
+     */
+    getBroadcaster(): Promise<HelixUser>;
+}
+
+/**
+ * An EventSub event representing a Hype Train starting in a channel.
+ */
+declare class EventSubChannelHypeTrainBeginV2Event extends DataObject<EventSubChannelHypeTrainBeginV2EventData> {
+    /**
+     * The ID of the Hype Train.
+     */
+    get id(): string;
+    /**
+     * The ID of the broadcaster.
+     */
+    get broadcasterId(): string;
+    /**
+     * The name of the broadcaster.
+     */
+    get broadcasterName(): string;
+    /**
+     * The display name of the broadcaster.
+     */
+    get broadcasterDisplayName(): string;
+    /**
+     * Gets more information about the broadcaster.
+     */
+    getBroadcaster(): Promise<HelixUser>;
+    /**
+     * The type of the Hype Train.
+     */
+    get type(): EventSubChannelHypeTrainType;
+    /**
+     * The level the Hype Train started on.
+     */
+    get level(): number;
+    /**
+     * The total points already contributed to the Hype Train.
+     */
+    get total(): number;
+    /**
+     * The number of points contributed to the Hype Train at the current level.
+     */
+    get progress(): number;
+    /**
+     * The number of points required to reach the next level.
+     */
+    get goal(): number;
+    /**
+     * The contributors with the most points contributed.
+     */
+    get topContributors(): EventSubChannelHypeTrainContribution[];
+    /**
+     * Indicates if the Hype Train is shared.
+     *
+     * When \`true\`, {@link EventSubChannelHypeTrainBeginV2Event#sharedTrainParticipants} will contain the list of
+     * broadcasters the train is shared with.
+     */
+    get isSharedTrain(): boolean;
+    /**
+     * The list of broadcasters in the shared Hype Train.
+     *
+     * Empty if {@link EventSubChannelHypeTrainBeginV2Event#isSharedTrain} is \`false\`.
+     */
+    get sharedTrainParticipants(): EventSubChannelHypeTrainSharedParticipant[];
+    /**
+     * The all-time high level this type of Hype Train has reached for this broadcaster.
+     */
+    get allTimeHighLevel(): number;
+    /**
+     * The all-time high total this type of Hype Train has reached for this broadcaster.
+     */
+    get allTimeHighTotal(): number;
+    /**
+     * The time when the Hype Train started.
+     */
+    get startDate(): Date;
+    /**
+     * The time when the Hype Train is expected to expire, unless a change of level occurs to extend the expiration.
+     */
+    get expiryDate(): Date;
+}
+
+/** @private */
+interface EventSubChannelHypeTrainProgressV2EventData {
+    id: string;
+    broadcaster_user_id: string;
+    broadcaster_user_login: string;
+    broadcaster_user_name: string;
+    type: EventSubChannelHypeTrainType;
+    level: number;
+    total: number;
+    progress: number;
+    goal: number;
+    top_contributions: EventSubChannelHypeTrainContributionData[];
+    is_shared_train: boolean;
+    shared_train_participants: EventSubChannelHypeTrainSharedParticipantData[];
+    started_at: string;
+    expires_at: string;
+}
+
+/**
+ * An EventSub event representing progress towards the Hype Train goal.
+ */
+declare class EventSubChannelHypeTrainProgressV2Event extends DataObject<EventSubChannelHypeTrainProgressV2EventData> {
+    /**
+     * The ID of the Hype Train.
+     */
+    get id(): string;
+    /**
+     * The ID of the broadcaster.
+     */
+    get broadcasterId(): string;
+    /**
+     * The name of the broadcaster.
+     */
+    get broadcasterName(): string;
+    /**
+     * The display name of the broadcaster.
+     */
+    get broadcasterDisplayName(): string;
+    /**
+     * Gets more information about the broadcaster.
+     */
+    getBroadcaster(): Promise<HelixUser>;
+    /**
+     * The type of the Hype Train.
+     */
+    get type(): EventSubChannelHypeTrainType;
+    /**
+     * The level the Hype Train started on.
+     */
+    get level(): number;
+    /**
+     * The total points already contributed to the Hype Train.
+     */
+    get total(): number;
+    /**
+     * The number of points contributed to the Hype Train at the current level.
+     */
+    get progress(): number;
+    /**
+     * The number of points required to reach the next level.
+     */
+    get goal(): number;
+    /**
+     * The contributors with the most points contributed.
+     */
+    get topContributors(): EventSubChannelHypeTrainContribution[];
+    /**
+     * Indicates if the Hype Train is shared.
+     *
+     * When \`true\`, {@link EventSubChannelHypeTrainProgressV2Event#sharedTrainParticipants} will contain the list of
+     * broadcasters the train is shared with.
+     */
+    get isSharedTrain(): boolean;
+    /**
+     * The list of broadcasters in the shared Hype Train.
+     *
+     * Empty if {@link EventSubChannelHypeTrainProgressV2Event#isSharedTrain} is \`false\`.
+     */
+    get sharedTrainParticipants(): EventSubChannelHypeTrainSharedParticipant[];
+    /**
+     * The time when the Hype Train started.
+     */
+    get startDate(): Date;
+    /**
+     * The time when the Hype Train is expected to expire, unless a change of level occurs to extend the expiration.
+     */
+    get expiryDate(): Date;
+}
+
+/** @private */
+interface EventSubChannelHypeTrainEndV2EventData {
+    id: string;
+    broadcaster_user_id: string;
+    broadcaster_user_login: string;
+    broadcaster_user_name: string;
+    type: EventSubChannelHypeTrainType;
+    level: number;
+    total: number;
+    top_contributions: EventSubChannelHypeTrainContributionData[];
+    is_shared_train: boolean;
+    shared_train_participants: EventSubChannelHypeTrainSharedParticipantData[];
+    started_at: string;
+    ended_at: string;
+    cooldown_ends_at: string;
+}
+
+/**
+ * An EventSub event representing the end of a Hype train event.
+ */
+declare class EventSubChannelHypeTrainEndV2Event extends DataObject<EventSubChannelHypeTrainEndV2EventData> {
+    /**
+     * The ID of the Hype Train.
+     */
+    get id(): string;
+    /**
+     * The ID of the broadcaster.
+     */
+    get broadcasterId(): string;
+    /**
+     * The name of the broadcaster.
+     */
+    get broadcasterName(): string;
+    /**
+     * The display name of the broadcaster.
+     */
+    get broadcasterDisplayName(): string;
+    /**
+     * Gets more information about the broadcaster.
+     */
+    getBroadcaster(): Promise<HelixUser>;
+    /**
+     * The type of the Hype Train.
+     */
+    get type(): EventSubChannelHypeTrainType;
+    /**
+     * The level the Hype Train started on.
+     */
+    get level(): number;
+    /**
+     * The total points already contributed to the Hype Train.
+     */
+    get total(): number;
+    /**
+     * The contributors with the most points contributed.
+     */
+    get topContributors(): EventSubChannelHypeTrainContribution[];
+    /**
+     * Indicates if the Hype Train is shared.
+     *
+     * When \`true\`, {@link EventSubChannelHypeTrainEndV2Event#sharedTrainParticipants} will contain the list of
+     * broadcasters the train is shared with.
+     */
+    get isSharedTrain(): boolean;
+    /**
+     * The list of broadcasters in the shared Hype Train.
+     *
+     * Empty if {@link EventSubChannelHypeTrainEndV2Event#isSharedTrain} is \`false\`.
+     */
+    get sharedTrainParticipants(): EventSubChannelHypeTrainSharedParticipant[];
+    /**
+     * The time when the Hype Train started.
+     */
+    get startDate(): Date;
+    /**
+     * The time when the Hype Train ended.
+     */
+    get endDate(): Date;
+    /**
+     * The time when the Hype Train cooldown ends.
+     */
+    get cooldownEndDate(): Date;
 }
 
 /**
@@ -71098,6 +71427,27 @@ declare abstract class EventSubBase extends EventEmitter {
      */
     onChannelHypeTrainEnd(user: UserIdResolvable, handler: (data: EventSubChannelHypeTrainEndEvent) => void): EventSubSubscription;
     /**
+     * Subscribes to events that represent a Hype Train beginning.
+     *
+     * @param user The user for which to get notifications about Hype Trains in their channel.
+     * @param handler The function that will be called for any new notifications.
+     */
+    onChannelHypeTrainBeginV2(user: UserIdResolvable, handler: (data: EventSubChannelHypeTrainBeginV2Event) => void): EventSubSubscription;
+    /**
+     * Subscribes to events that represent progress in a Hype Train in a channel.
+     *
+     * @param user The user for which to get notifications about Hype Trains in their channel.
+     * @param handler The function that will be called for any new notifications.
+     */
+    onChannelHypeTrainProgressV2(user: UserIdResolvable, handler: (data: EventSubChannelHypeTrainProgressV2Event) => void): EventSubSubscription;
+    /**
+     * Subscribes to events that represent the end of a Hype Train in a channel.
+     *
+     * @param user The user for which to get notifications about Hype Trains in their channel.
+     * @param handler The function that will be called for any new notifications.
+     */
+    onChannelHypeTrainEndV2(user: UserIdResolvable, handler: (data: EventSubChannelHypeTrainEndV2Event) => void): EventSubSubscription;
+    /**
      * Subscribes to events that represent a broadcaster shouting out another broadcaster.
      *
      * @param broadcaster The broadcaster for which you want to listen to outgoing shoutout events.
@@ -71704,6 +72054,27 @@ interface EventSubListener {
      */
     onChannelHypeTrainEnd: (user: UserIdResolvable$1, handler: (data: EventSubChannelHypeTrainEndEvent) => void) => EventSubSubscription;
     /**
+     * Subscribes to events that represent a Hype Train beginning.
+     *
+     * @param user The user for which to get notifications about Hype Trains in their channel.
+     * @param handler The function that will be called for any new notifications.
+     */
+    onChannelHypeTrainBeginV2: (user: UserIdResolvable$1, handler: (data: EventSubChannelHypeTrainBeginV2Event) => void) => EventSubSubscription;
+    /**
+     * Subscribes to events that represent progress in a Hype Train in a channel.
+     *
+     * @param user The user for which to get notifications about Hype Trains in their channel.
+     * @param handler The function that will be called for any new notifications.
+     */
+    onChannelHypeTrainProgressV2: (user: UserIdResolvable$1, handler: (data: EventSubChannelHypeTrainProgressV2Event) => void) => EventSubSubscription;
+    /**
+     * Subscribes to events that represent the end of a Hype Train in a channel.
+     *
+     * @param user The user for which to get notifications about Hype Trains in their channel.
+     * @param handler The function that will be called for any new notifications.
+     */
+    onChannelHypeTrainEndV2: (user: UserIdResolvable$1, handler: (data: EventSubChannelHypeTrainEndV2Event) => void) => EventSubSubscription;
+    /**
      * Subscribes to events that represent a broadcaster shouting out another broadcaster.
      *
      * @param broadcaster The broadcaster for which you want to listen to outgoing shoutout events.
@@ -72021,7 +72392,7 @@ interface EventSubRevocationPayload {
     subscription: EventSubSubscriptionBody;
 }
 
-export { EventSubAutoModLevel, EventSubAutoModMessageAutoMod, EventSubAutoModMessageAutoModBoundary, EventSubAutoModMessageBlockedTerm, EventSubAutoModMessageHoldEvent, EventSubAutoModMessageHoldReason, EventSubAutoModMessageHoldV2Event, EventSubAutoModMessageUpdateEvent, EventSubAutoModMessageUpdateV2Event, EventSubAutoModResolutionStatus, EventSubAutoModSettingsUpdateEvent, EventSubAutoModTermsUpdateAction, EventSubAutoModTermsUpdateEvent, EventSubAutomaticRewardType, EventSubBase, EventSubBaseConfig, EventSubChannelAdBreakBeginEvent, EventSubChannelAutoModTermsModerationEvent, EventSubChannelAutomaticRewardRedemptionAddEvent, EventSubChannelAutomodTermsModerationEventAction, EventSubChannelAutomodTermsModerationEventList, EventSubChannelBanEvasionEvaluation, EventSubChannelBanEvent, EventSubChannelBanModerationEvent, EventSubChannelBitsUseEvent, EventSubChannelBitsUsePowerUp, EventSubChannelBitsUsePowerUpType, EventSubChannelBitsUseType, EventSubChannelCharityAmount, EventSubChannelCharityCampaignProgressEvent, EventSubChannelCharityCampaignStartEvent, EventSubChannelCharityCampaignStopEvent, EventSubChannelCharityDonationEvent, EventSubChannelChatAnnouncementColor, EventSubChannelChatAnnouncementNotificationEvent, EventSubChannelChatBitsBadgeTierNotificationEvent, EventSubChannelChatCharityDonationNotificationEvent, EventSubChannelChatClearEvent, EventSubChannelChatClearUserMessagesEvent, EventSubChannelChatCommunitySubGiftNotificationEvent, EventSubChannelChatGiftPaidUpgradeNotificationEvent, EventSubChannelChatMessageDeleteEvent, EventSubChannelChatMessageEvent, EventSubChannelChatNotificationEvent, EventSubChannelChatNotificationSubTier, EventSubChannelChatNotificationType, EventSubChannelChatPayItForwardNotificationEvent, EventSubChannelChatPrimePaidUpgradeNotificationEvent, EventSubChannelChatRaidNotificationEvent, EventSubChannelChatResubNotificationEvent, EventSubChannelChatSettingsUpdateEvent, EventSubChannelChatSharedChatAnnouncementNotificationEvent, EventSubChannelChatSharedChatCommunitySubGiftNotificationEvent, EventSubChannelChatSharedChatGiftPaidUpgradeNotificationEvent, EventSubChannelChatSharedChatPayItForwardNotificationEvent, EventSubChannelChatSharedChatPrimePaidUpgradeNotificationEvent, EventSubChannelChatSharedChatRaidNotificationEvent, EventSubChannelChatSharedChatResubNotificationEvent, EventSubChannelChatSharedChatSubGiftNotificationEvent, EventSubChannelChatSharedChatSubNotificationEvent, EventSubChannelChatSubGiftNotificationEvent, EventSubChannelChatSubNotificationEvent, EventSubChannelChatUnraidNotificationEvent, EventSubChannelChatUserMessageHoldEvent, EventSubChannelChatUserMessageUpdateEvent, EventSubChannelCheerEvent, EventSubChannelClearModerationEvent, EventSubChannelDeleteModerationEvent, EventSubChannelEmoteOnlyModerationEvent, EventSubChannelEmoteOnlyOffModerationEvent, EventSubChannelFollowEvent, EventSubChannelFollowersModerationEvent, EventSubChannelFollowersOffModerationEvent, EventSubChannelGoalBeginEvent, EventSubChannelGoalEndEvent, EventSubChannelGoalProgressEvent, EventSubChannelGoalType, EventSubChannelHypeTrainBeginEvent, EventSubChannelHypeTrainContribution, EventSubChannelHypeTrainContributionType, EventSubChannelHypeTrainEndEvent, EventSubChannelHypeTrainProgressEvent, EventSubChannelModModerationEvent, EventSubChannelModerationAction, EventSubChannelModerationEvent, EventSubChannelModeratorEvent, EventSubChannelPollBeginChoice, EventSubChannelPollBeginEvent, EventSubChannelPollChoice, EventSubChannelPollEndEvent, EventSubChannelPollEndStatus, EventSubChannelPollProgressEvent, EventSubChannelPredictionBeginEvent, EventSubChannelPredictionBeginOutcome, EventSubChannelPredictionColor, EventSubChannelPredictionEndEvent, EventSubChannelPredictionEndStatus, EventSubChannelPredictionLockEvent, EventSubChannelPredictionOutcome, EventSubChannelPredictionPredictor, EventSubChannelPredictionProgressEvent, EventSubChannelRaidEvent, EventSubChannelRaidModerationEvent, EventSubChannelRedemptionAddEvent, EventSubChannelRedemptionUpdateEvent, EventSubChannelRewardEvent, EventSubChannelSharedChatBanModerationEvent, EventSubChannelSharedChatDeleteModerationEvent, EventSubChannelSharedChatSessionBeginEvent, EventSubChannelSharedChatSessionEndEvent, EventSubChannelSharedChatSessionParticipant, EventSubChannelSharedChatSessionUpdateEvent, EventSubChannelSharedChatTimeoutModerationEvent, EventSubChannelSharedChatUnbanModerationEvent, EventSubChannelSharedChatUntimeoutModerationEvent, EventSubChannelShieldModeBeginEvent, EventSubChannelShieldModeEndEvent, EventSubChannelShoutoutCreateEvent, EventSubChannelShoutoutReceiveEvent, EventSubChannelSlowModerationEvent, EventSubChannelSlowOffModerationEvent, EventSubChannelSubscribersModerationEvent, EventSubChannelSubscribersOffModerationEvent, EventSubChannelSubscriptionEndEvent, EventSubChannelSubscriptionEndEventTier, EventSubChannelSubscriptionEvent, EventSubChannelSubscriptionEventTier, EventSubChannelSubscriptionGiftEvent, EventSubChannelSubscriptionGiftEventTier, EventSubChannelSubscriptionMessageEvent, EventSubChannelSubscriptionMessageEventTier, EventSubChannelSuspiciousUserLowTrustStatus, EventSubChannelSuspiciousUserMessageEvent, EventSubChannelSuspiciousUserType, EventSubChannelSuspiciousUserUpdateEvent, EventSubChannelTimeoutModerationEvent, EventSubChannelUnbanEvent, EventSubChannelUnbanModerationEvent, EventSubChannelUnbanRequestCreateEvent, EventSubChannelUnbanRequestModerationEvent, EventSubChannelUnbanRequestResolveEvent, EventSubChannelUnbanRequestStatus, EventSubChannelUniqueChatModerationEvent, EventSubChannelUniqueChatOffModerationEvent, EventSubChannelUnmodModerationEvent, EventSubChannelUnraidModerationEvent, EventSubChannelUntimeoutModerationEvent, EventSubChannelUnvipModerationEvent, EventSubChannelUpdateEvent, EventSubChannelVipEvent, EventSubChannelVipModerationEvent, EventSubChannelWarningAcknowledgeEvent, EventSubChannelWarningSendEvent, EventSubDropEntitlementGrantEvent, EventSubExtensionBitsTransactionCreateEvent, EventSubListener, EventSubNotificationPayload, EventSubRevocationPayload, EventSubStreamOfflineEvent, EventSubStreamOnlineEvent, EventSubStreamOnlineEventStreamType, EventSubSubscription, EventSubSubscriptionBody, EventSubUserAuthorizationGrantEvent, EventSubUserAuthorizationRevokeEvent, EventSubUserUpdateEvent, EventSubUserWhisperMessageEvent };
+export { EventSubAutoModLevel, EventSubAutoModMessageAutoMod, EventSubAutoModMessageAutoModBoundary, EventSubAutoModMessageBlockedTerm, EventSubAutoModMessageHoldEvent, EventSubAutoModMessageHoldReason, EventSubAutoModMessageHoldV2Event, EventSubAutoModMessageUpdateEvent, EventSubAutoModMessageUpdateV2Event, EventSubAutoModResolutionStatus, EventSubAutoModSettingsUpdateEvent, EventSubAutoModTermsUpdateAction, EventSubAutoModTermsUpdateEvent, EventSubAutomaticRewardType, EventSubBase, EventSubBaseConfig, EventSubChannelAdBreakBeginEvent, EventSubChannelAutoModTermsModerationEvent, EventSubChannelAutomaticRewardRedemptionAddEvent, EventSubChannelAutomodTermsModerationEventAction, EventSubChannelAutomodTermsModerationEventList, EventSubChannelBanEvasionEvaluation, EventSubChannelBanEvent, EventSubChannelBanModerationEvent, EventSubChannelBitsUseEvent, EventSubChannelBitsUsePowerUp, EventSubChannelBitsUsePowerUpType, EventSubChannelBitsUseType, EventSubChannelCharityAmount, EventSubChannelCharityCampaignProgressEvent, EventSubChannelCharityCampaignStartEvent, EventSubChannelCharityCampaignStopEvent, EventSubChannelCharityDonationEvent, EventSubChannelChatAnnouncementColor, EventSubChannelChatAnnouncementNotificationEvent, EventSubChannelChatBitsBadgeTierNotificationEvent, EventSubChannelChatCharityDonationNotificationEvent, EventSubChannelChatClearEvent, EventSubChannelChatClearUserMessagesEvent, EventSubChannelChatCommunitySubGiftNotificationEvent, EventSubChannelChatGiftPaidUpgradeNotificationEvent, EventSubChannelChatMessageDeleteEvent, EventSubChannelChatMessageEvent, EventSubChannelChatNotificationEvent, EventSubChannelChatNotificationSubTier, EventSubChannelChatNotificationType, EventSubChannelChatPayItForwardNotificationEvent, EventSubChannelChatPrimePaidUpgradeNotificationEvent, EventSubChannelChatRaidNotificationEvent, EventSubChannelChatResubNotificationEvent, EventSubChannelChatSettingsUpdateEvent, EventSubChannelChatSharedChatAnnouncementNotificationEvent, EventSubChannelChatSharedChatCommunitySubGiftNotificationEvent, EventSubChannelChatSharedChatGiftPaidUpgradeNotificationEvent, EventSubChannelChatSharedChatPayItForwardNotificationEvent, EventSubChannelChatSharedChatPrimePaidUpgradeNotificationEvent, EventSubChannelChatSharedChatRaidNotificationEvent, EventSubChannelChatSharedChatResubNotificationEvent, EventSubChannelChatSharedChatSubGiftNotificationEvent, EventSubChannelChatSharedChatSubNotificationEvent, EventSubChannelChatSubGiftNotificationEvent, EventSubChannelChatSubNotificationEvent, EventSubChannelChatUnraidNotificationEvent, EventSubChannelChatUserMessageHoldEvent, EventSubChannelChatUserMessageUpdateEvent, EventSubChannelCheerEvent, EventSubChannelClearModerationEvent, EventSubChannelDeleteModerationEvent, EventSubChannelEmoteOnlyModerationEvent, EventSubChannelEmoteOnlyOffModerationEvent, EventSubChannelFollowEvent, EventSubChannelFollowersModerationEvent, EventSubChannelFollowersOffModerationEvent, EventSubChannelGoalBeginEvent, EventSubChannelGoalEndEvent, EventSubChannelGoalProgressEvent, EventSubChannelGoalType, EventSubChannelHypeTrainBeginEvent, EventSubChannelHypeTrainBeginV2Event, EventSubChannelHypeTrainContribution, EventSubChannelHypeTrainContributionType, EventSubChannelHypeTrainEndEvent, EventSubChannelHypeTrainEndV2Event, EventSubChannelHypeTrainProgressEvent, EventSubChannelHypeTrainProgressV2Event, EventSubChannelHypeTrainSharedParticipant, EventSubChannelHypeTrainType, EventSubChannelModModerationEvent, EventSubChannelModerationAction, EventSubChannelModerationEvent, EventSubChannelModeratorEvent, EventSubChannelPollBeginChoice, EventSubChannelPollBeginEvent, EventSubChannelPollChoice, EventSubChannelPollEndEvent, EventSubChannelPollEndStatus, EventSubChannelPollProgressEvent, EventSubChannelPredictionBeginEvent, EventSubChannelPredictionBeginOutcome, EventSubChannelPredictionColor, EventSubChannelPredictionEndEvent, EventSubChannelPredictionEndStatus, EventSubChannelPredictionLockEvent, EventSubChannelPredictionOutcome, EventSubChannelPredictionPredictor, EventSubChannelPredictionProgressEvent, EventSubChannelRaidEvent, EventSubChannelRaidModerationEvent, EventSubChannelRedemptionAddEvent, EventSubChannelRedemptionUpdateEvent, EventSubChannelRewardEvent, EventSubChannelSharedChatBanModerationEvent, EventSubChannelSharedChatDeleteModerationEvent, EventSubChannelSharedChatSessionBeginEvent, EventSubChannelSharedChatSessionEndEvent, EventSubChannelSharedChatSessionParticipant, EventSubChannelSharedChatSessionUpdateEvent, EventSubChannelSharedChatTimeoutModerationEvent, EventSubChannelSharedChatUnbanModerationEvent, EventSubChannelSharedChatUntimeoutModerationEvent, EventSubChannelShieldModeBeginEvent, EventSubChannelShieldModeEndEvent, EventSubChannelShoutoutCreateEvent, EventSubChannelShoutoutReceiveEvent, EventSubChannelSlowModerationEvent, EventSubChannelSlowOffModerationEvent, EventSubChannelSubscribersModerationEvent, EventSubChannelSubscribersOffModerationEvent, EventSubChannelSubscriptionEndEvent, EventSubChannelSubscriptionEndEventTier, EventSubChannelSubscriptionEvent, EventSubChannelSubscriptionEventTier, EventSubChannelSubscriptionGiftEvent, EventSubChannelSubscriptionGiftEventTier, EventSubChannelSubscriptionMessageEvent, EventSubChannelSubscriptionMessageEventTier, EventSubChannelSuspiciousUserLowTrustStatus, EventSubChannelSuspiciousUserMessageEvent, EventSubChannelSuspiciousUserType, EventSubChannelSuspiciousUserUpdateEvent, EventSubChannelTimeoutModerationEvent, EventSubChannelUnbanEvent, EventSubChannelUnbanModerationEvent, EventSubChannelUnbanRequestCreateEvent, EventSubChannelUnbanRequestModerationEvent, EventSubChannelUnbanRequestResolveEvent, EventSubChannelUnbanRequestStatus, EventSubChannelUniqueChatModerationEvent, EventSubChannelUniqueChatOffModerationEvent, EventSubChannelUnmodModerationEvent, EventSubChannelUnraidModerationEvent, EventSubChannelUntimeoutModerationEvent, EventSubChannelUnvipModerationEvent, EventSubChannelUpdateEvent, EventSubChannelVipEvent, EventSubChannelVipModerationEvent, EventSubChannelWarningAcknowledgeEvent, EventSubChannelWarningSendEvent, EventSubDropEntitlementGrantEvent, EventSubExtensionBitsTransactionCreateEvent, EventSubListener, EventSubNotificationPayload, EventSubRevocationPayload, EventSubStreamOfflineEvent, EventSubStreamOnlineEvent, EventSubStreamOnlineEventStreamType, EventSubSubscription, EventSubSubscriptionBody, EventSubUserAuthorizationGrantEvent, EventSubUserAuthorizationRevokeEvent, EventSubUserUpdateEvent, EventSubUserWhisperMessageEvent };
 `],["/node_modules/@types/twurple__eventsub-http/index.d.ts",`/// <reference types="node" />
 import * as _d_fischer_typed_event_emitter from '@d-fischer/typed-event-emitter';
 import { HelixEventSubWebHookTransportOptions, HelixEventSubSubscription } from '@twurple/api';
