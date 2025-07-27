@@ -53446,6 +53446,18 @@ interface HelixSendChatMessageParams {
     replyParentMessageId?: string;
 }
 /**
+ * A request to send a message to a broadcaster's chat with app access token.
+ */
+interface HelixSendChatMessageAsAppParams extends HelixSendChatMessageParams {
+    /**
+     * Specifies whether the chat message should be sent only to the source channel during a shared chat session.
+     * This parameter has no effect if a shared chat session is not active.
+     *
+     * @default true
+     */
+    forSourceOnly?: boolean;
+}
+/**
  * A request to send an announcement to a broadcaster's chat.
  */
 interface HelixSendChatAnnouncementParams {
@@ -53974,7 +53986,7 @@ declare class HelixChatApi extends BaseApi {
      * @param message The message to send.
      * @param params
      */
-    sendChatMessageAsApp(user: UserIdResolvable, broadcaster: UserIdResolvable, message: string, params?: HelixSendChatMessageParams): Promise<HelixSentChatMessage>;
+    sendChatMessageAsApp(user: UserIdResolvable, broadcaster: UserIdResolvable, message: string, params?: HelixSendChatMessageAsAppParams): Promise<HelixSentChatMessage>;
     /**
      * Sends an announcement to a broadcaster's chat.
      *
@@ -66226,6 +66238,7 @@ interface EventSubChannelChatMessageEventData {
     source_broadcaster_user_name: string | null;
     source_message_id: string | null;
     source_badges: EventSubChatBadge[] | null;
+    is_source_only: boolean | null;
 }
 
 /**
@@ -66409,6 +66422,11 @@ declare class EventSubChannelChatMessageEvent extends DataObject<EventSubChannel
      * @param name The name of the badge to get info for.
      */
     getSourceBadgeInfo(name: string): string | null;
+    /**
+     * Determines if a message delivered during a shared chat session is only sent to the source channel.
+     * Has no effect if the message is not sent during a shared chat session.
+     */
+    get isSourceOnly(): boolean | null;
 }
 
 /** @private */
