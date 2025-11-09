@@ -852,20 +852,21 @@ input:checked + .jss31 {
 </code></pre>
 <h2>Example</h2>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss32" style="white-space:pre-wrap"><span><span style="color:#cb7832">import</span><span> { Bot, createBotCommand } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/easy-bot&#x27;</span><span>;
+</span></span><span><span></span><span style="color:#cb7832">import</span><span> { StaticAuthProvider } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/auth&#x27;</span><span>;
 </span></span><span>
-</span><span><span></span><span style="color:#cb7832">const</span><span> bot = </span><span style="color:#cb7832">new</span><span> Bot(</span><span style="color:#6896ba">null</span><span>, {
-</span></span><span>	authProvider,
-</span><span><span>	</span><span class="hljs-attr">channel</span><span>: </span><span style="color:#6a8759">&#x27;satisfiedpear&#x27;</span><span>,
+</span><span><span></span><span style="color:#cb7832">const</span><span> bot = </span><span style="color:#cb7832">new</span><span> Bot({
+</span></span><span><span>	</span><span class="hljs-attr">authProvider</span><span>:  </span><span style="color:#cb7832">new</span><span> StaticAuthProvider(</span><span style="color:#6a8759">&quot;clientId&quot;</span><span>, </span><span style="color:#6a8759">&quot;accessToken&quot;</span><span>),
+</span></span><span><span>	</span><span class="hljs-attr">channel</span><span>: </span><span style="color:#6a8759">&#x27;satisfiedpear&#x27;</span><span>,
 </span></span><span><span>	</span><span class="hljs-attr">commands</span><span>: [
-</span></span><span><span>		createBotCommand(</span><span style="color:#6a8759">&#x27;d20&#x27;</span><span>, </span><span style="color:#cb7832">async</span><span> (params, { user, say, timeout }) =&gt; {
+</span></span><span><span>		createBotCommand(</span><span style="color:#6a8759">&#x27;d20&#x27;</span><span>, </span><span style="color:#cb7832">async</span><span> (params, { userName, say, timeout }) =&gt; {
 </span></span><span><span>			</span><span style="color:#cb7832">const</span><span> diceRoll = </span><span style="color:#e0c46c">Math</span><span>.floor(</span><span style="color:#e0c46c">Math</span><span>.random() * </span><span style="color:#6896ba">20</span><span>) + </span><span style="color:#6896ba">1</span><span>;
 </span></span><span><span>			</span><span style="color:#cb7832">if</span><span> (diceRoll === </span><span style="color:#6896ba">1</span><span>) {
-</span></span><span><span>				</span><span style="color:#cb7832">await</span><span> say(</span><span style="color:#6a8759">`@</span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759"> rolled a critical failure and must be punished!`</span><span>);
+</span></span><span><span>				</span><span style="color:#cb7832">await</span><span> say(</span><span style="color:#6a8759">`@</span><span style="color:#e0c46c">${userName}</span><span style="color:#6a8759"> rolled a critical failure and must be punished!`</span><span>);
 </span></span><span><span>				</span><span style="color:#cb7832">await</span><span> timeout(</span><span style="color:#6896ba">30</span><span>, </span><span style="color:#6a8759">&#x27;critical failure&#x27;</span><span>);
 </span></span><span><span>			} </span><span style="color:#cb7832">else</span><span> </span><span style="color:#cb7832">if</span><span> (diceRoll === </span><span style="color:#6896ba">20</span><span>) {
-</span></span><span><span>				</span><span style="color:#cb7832">await</span><span> say(</span><span style="color:#6a8759">`Woah, critical success! @</span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759"> deserves all the praise!`</span><span>);
+</span></span><span><span>				</span><span style="color:#cb7832">await</span><span> say(</span><span style="color:#6a8759">`Woah, critical success! @</span><span style="color:#e0c46c">${userName}</span><span style="color:#6a8759"> deserves all the praise!`</span><span>);
 </span></span><span><span>			} </span><span style="color:#cb7832">else</span><span> {
-</span></span><span><span>				</span><span style="color:#cb7832">await</span><span> say(</span><span style="color:#6a8759">`@</span><span style="color:#e0c46c">${user}</span><span style="color:#6a8759"> rolled a </span><span style="color:#e0c46c">${diceRoll}</span><span style="color:#6a8759">!`</span><span>);
+</span></span><span><span>				</span><span style="color:#cb7832">await</span><span> say(</span><span style="color:#6a8759">`@</span><span style="color:#e0c46c">${userName}</span><span style="color:#6a8759"> rolled a </span><span style="color:#e0c46c">${diceRoll}</span><span style="color:#6a8759">!`</span><span>);
 </span></span><span>			}
 </span><span>		})
 </span><span>	]
