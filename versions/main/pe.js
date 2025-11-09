@@ -51809,7 +51809,7 @@ declare class HelixPaginatedRequest<D, T> {
     /**
      * The last fetched page of data associated to the requested resource.
      *
-     * Only works with {@link HelixPaginatedRequest#getNext}} and not with any other methods of data fetching.
+     * Only works with {@link HelixPaginatedRequest#getNext} and not with any other methods of data fetching.
      */
     get current(): D[] | undefined;
     /**
@@ -64227,8 +64227,16 @@ declare class EventSubChannelChatAnnouncementNotificationEvent extends EventSubC
     readonly type = "announcement";
     /**
      * The color of the announcement.
+     *
+     * @deprecated Use \`announcementColor\` instead.
+     * In the next major release, this property will not override the base \`color\` property anymore.
+     * As such, you will be able to use \`color\` to get the chat color of the user again.
      */
     get color(): EventSubChannelChatAnnouncementColor;
+    /**
+     * The color of the announcement.
+     */
+    get announcementColor(): EventSubChannelChatAnnouncementColor;
 }
 
 /**
