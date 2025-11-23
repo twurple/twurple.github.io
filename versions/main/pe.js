@@ -51408,7 +51408,8 @@ interface WebGLRenderingContextOverloads {
     /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniformMatrix) */
     uniformMatrix4fv(location: WebGLUniformLocation | null, transpose: GLboolean, value: Iterable<GLfloat>): void;
 }
-`],["/node_modules/@types/twurple__api/index.d.ts",`import { Logger, LoggerOptions } from '@d-fischer/logger';
+`],["/node_modules/@types/twurple__api/index.d.ts",`/// <reference types="node" />
+import { Logger, LoggerOptions } from '@d-fischer/logger';
 import { HelixResponse, HelixPaginatedResponse, TwitchApiCallOptions, TwitchApiCallFetchOptions } from '@twurple/api-call';
 export { HelixPaginatedResponse, HelixPaginatedResponseWithTotal, HelixResponse } from '@twurple/api-call';
 import { TokenInfo, AuthProvider } from '@twurple/auth';
@@ -51416,7 +51417,6 @@ import { HelixUserType, DataObject, UserIdResolvableType, UserNameResolveableTyp
 export { CommercialLength, HelixExtension, HelixExtensionConfigurationLocation, HelixExtensionIconSize, HelixExtensionState, HelixExtensionSubscriptionsSupportLevel, HelixUserType, HellFreezesOverError, UserIdResolvable, UserNameResolvable, extractUserId, extractUserName } from '@twurple/common';
 import * as _d_fischer_typed_event_emitter from '@d-fischer/typed-event-emitter';
 import { EventEmitter } from '@d-fischer/typed-event-emitter';
-import { Response } from '@d-fischer/cross-fetch';
 import { RateLimiter, RateLimiterStats } from '@d-fischer/rate-limiter';
 
 /**
@@ -53717,38 +53717,6 @@ declare class HelixChatSettings extends DataObject<HelixChatSettingsData> {
 }
 
 /**
- * A Twitch user emote.
- */
-declare class HelixUserEmote extends HelixEmoteBase {
-    constructor(data: HelixUserEmoteData, client: BaseApiClient);
-    /**
-     * The type of the emote.
-     *
-     * There are many types of emotes that Twitch seems to arbitrarily assign.
-     * Check the relevant values in the official documentation.
-     *
-     * @see https://dev.twitch.tv/docs/api/reference/#get-user-emotes
-     */
-    get type(): string;
-    /**
-     * The ID that identifies the emote set that the emote belongs to, or \`null\` if the emote is not from any set.
-     */
-    get emoteSetId(): string | null;
-    /**
-     * The ID of the broadcaster who owns the emote, or \`null\` if the emote has no owner, e.g. it's a global emote.
-     */
-    get ownerId(): string | null;
-    /**
-     * Gets all emotes from the emotes set, or \`null\` if emote is not from any set.
-     */
-    getAllEmotesFromSet(): Promise<HelixEmoteFromSet[] | null>;
-    /**
-     * Gets more information about the user that owns the emote, or \`null\` if the emote is not owned by a user.
-     */
-    getOwner(): Promise<HelixUser | null>;
-}
-
-/**
  * The settings of a broadcaster's chat, with additional privileged data.
  */
 declare class HelixPrivilegedChatSettings extends HelixChatSettings {
@@ -53841,6 +53809,38 @@ declare class HelixSharedChatSession extends DataObject<HelixSharedChatSessionDa
      * The date for when the session was updated.
      */
     get updatedDate(): Date;
+}
+
+/**
+ * A Twitch user emote.
+ */
+declare class HelixUserEmote extends HelixEmoteBase {
+    constructor(data: HelixUserEmoteData, client: BaseApiClient);
+    /**
+     * The type of the emote.
+     *
+     * There are many types of emotes that Twitch seems to arbitrarily assign.
+     * Check the relevant values in the official documentation.
+     *
+     * @see https://dev.twitch.tv/docs/api/reference/#get-user-emotes
+     */
+    get type(): string;
+    /**
+     * The ID that identifies the emote set that the emote belongs to, or \`null\` if the emote is not from any set.
+     */
+    get emoteSetId(): string | null;
+    /**
+     * The ID of the broadcaster who owns the emote, or \`null\` if the emote has no owner, e.g. it's a global emote.
+     */
+    get ownerId(): string | null;
+    /**
+     * Gets all emotes from the emotes set, or \`null\` if emote is not from any set.
+     */
+    getAllEmotesFromSet(): Promise<HelixEmoteFromSet[] | null>;
+    /**
+     * Gets more information about the user that owns the emote, or \`null\` if the emote is not owned by a user.
+     */
+    getOwner(): Promise<HelixUser | null>;
 }
 
 /**
@@ -54046,6 +54046,7 @@ declare class HelixChatApi extends BaseApi {
      */
     getSharedChatSession(broadcaster: UserIdResolvable): Promise<HelixSharedChatSession | null>;
     private _createModeratorActionQuery;
+    private _handleUnsentChatMessage;
 }
 
 /** @private */
@@ -58990,8 +58991,6 @@ declare class BaseApiClient extends EventEmitter {
     get rateLimiterStats(): RateLimiterStats | null;
     /** @private */
     get _authProvider(): AuthProvider;
-    /** @private */
-    get _mockServerPort(): number | undefined;
     private _callApiUsingInitialToken;
     private _callApiInternal;
 }
@@ -59020,12 +59019,6 @@ interface ApiConfig {
      * Defaults to 0 (executes immediately after all synchronous tasks are finished).
      */
     batchDelay?: number;
-    /**
-     * The port your local mock server (from the Twitch CLI) runs on.
-     *
-     * Do not set this if you want to use the real production Twitch API.
-     */
-    mockServerPort?: number;
 }
 /** @private */
 interface TwitchApiCallOptionsInternal {
@@ -59035,7 +59028,6 @@ interface TwitchApiCallOptionsInternal {
     accessToken?: string;
     authorizationType?: string;
     fetchOptions?: TwitchApiCallFetchOptions;
-    mockServerPort?: number;
 }
 /**
  * An API client for the Twitch Helix API and other miscellaneous endpoints.
@@ -59138,6 +59130,15 @@ declare class HelixFollow extends DataObject<HelixFollowData> {
 }
 
 /**
+ * Thrown when a chat message is dropped and not delivered to the target channel.
+ */
+declare class ChatMessageDroppedError extends CustomError {
+    private readonly _code;
+    constructor(broadcasterId: string, message: string | undefined, code: string | undefined);
+    get code(): string | undefined;
+}
+
+/**
  * Thrown whenever you try using invalid values in the client configuration.
  */
 declare class ConfigError extends CustomError {
@@ -59151,8 +59152,8 @@ declare class StreamNotLiveError extends CustomError {
     constructor(options?: ErrorOptions);
 }
 
-export { ApiClient, ApiConfig, ApiReportedRequest, BaseApi, BaseApiClient, CheermoteDisplayInfo, ConfigError, HelixAdSchedule, HelixBan, HelixBanFilter, HelixBanUser, HelixBanUserRequest, HelixBaseExtension, HelixBitsApi, HelixBitsLeaderboard, HelixBitsLeaderboardEntry, HelixBitsLeaderboardPeriod, HelixBitsLeaderboardQuery, HelixBlockedTerm, HelixBroadcasterType, HelixChannel, HelixChannelApi, HelixChannelEditor, HelixChannelEmote, HelixChannelEmoteSubscriptionTier, HelixChannelFollower, HelixChannelPointsApi, HelixChannelReference, HelixChannelSearchFilter, HelixChannelSearchResult, HelixChannelUpdate, HelixCharityApi, HelixCharityCampaign, HelixCharityCampaignAmount, HelixCharityCampaignDonation, HelixChatAnnouncementColor, HelixChatApi, HelixChatBadgeScale, HelixChatBadgeSet, HelixChatBadgeVersion, HelixChatChatter, HelixChatSettings, HelixChatUserColor, HelixCheermoteList, HelixClip, HelixClipApi, HelixClipCreateParams, HelixClipFilter, HelixContentClassificationLabel, HelixContentClassificationLabelApi, HelixCreateCustomRewardData, HelixCreatePollData, HelixCreatePredictionData, HelixCreateScheduleSegmentData, HelixCustomReward, HelixCustomRewardRedemption, HelixCustomRewardRedemptionFilter, HelixCustomRewardRedemptionStatus, HelixCustomRewardRedemptionTargetStatus, HelixDropsEntitlement, HelixDropsEntitlementFilter, HelixDropsEntitlementFulfillmentStatus, HelixDropsEntitlementPaginatedFilter, HelixDropsEntitlementUpdateStatus, HelixEmote, HelixEmoteFormat, HelixEmoteFromSet, HelixEmoteImageScale, HelixEmoteScale, HelixEmoteThemeMode, HelixEntitlementApi, HelixEventSubApi, HelixEventSubConduit, HelixEventSubConduitShard, HelixEventSubConduitShardsOptions, HelixEventSubConduitShardsTransportOptions, HelixEventSubConduitTransportOptions, HelixEventSubDropEntitlementGrantFilter, HelixEventSubSubscription, HelixEventSubSubscriptionStatus, HelixEventSubTransportData, HelixEventSubTransportOptions, HelixEventSubWebHookTransportOptions, HelixEventSubWebSocketTransportOptions, HelixExtensionBitsProduct, HelixExtensionBitsProductUpdatePayload, HelixExtensionSlotType, HelixExtensionTransaction, HelixExtensionTransactionsFilter, HelixExtensionTransactionsPaginatedFilter, HelixExtensionsApi, HelixFollow, HelixFollowedChannel, HelixForwardPagination, HelixGame, HelixGameApi, HelixGoal, HelixGoalApi, HelixGoalType, HelixHypeTrainApi, HelixHypeTrainContribution, HelixHypeTrainContributionType, HelixHypeTrainEvent, HelixHypeTrainEventType, HelixInstalledExtension, HelixInstalledExtensionList, HelixModeratedChannel, HelixModerationApi, HelixModerator, HelixModeratorFilter, HelixPaginatedChannelSearchFilter, HelixPaginatedClipFilter, HelixPaginatedCustomRewardRedemptionFilter, HelixPaginatedEventSubSubscriptionsRequest, HelixPaginatedEventSubSubscriptionsResult, HelixPaginatedRequest, HelixPaginatedRequestWithTotal, HelixPaginatedResult, HelixPaginatedResultWithTotal, HelixPaginatedScheduleFilter, HelixPaginatedScheduleSegmentRequest, HelixPaginatedStreamFilter, HelixPaginatedSubscriptionsRequest, HelixPaginatedSubscriptionsResult, HelixPaginatedVideoFilter, HelixPagination, HelixPoll, HelixPollApi, HelixPollChoice, HelixPollStatus, HelixPrediction, HelixPredictionApi, HelixPredictionOutcome, HelixPredictionOutcomeColor, HelixPredictionStatus, HelixPredictor, HelixPrivilegedChatSettings, HelixPrivilegedUser, HelixRaid, HelixRaidApi, HelixSchedule, HelixScheduleApi, HelixScheduleFilter, HelixScheduleSegment, HelixScheduleSettingsUpdate, HelixSearchApi, HelixSendChatAnnouncementParams, HelixSendChatMessageParams, HelixSentChatMessage, HelixSharedChatSession, HelixSharedChatSessionParticipant, HelixShieldModeStatus, HelixStream, HelixStreamApi, HelixStreamFilter, HelixStreamMarker, HelixStreamMarkerWithVideo, HelixStreamType, HelixSubscription, HelixSubscriptionApi, HelixTeam, HelixTeamApi, HelixTeamWithUsers, HelixUnbanRequest, HelixUnbanRequestStatus, HelixUpdateChatSettingsParams, HelixUpdateCustomRewardData, HelixUpdateScheduleSegmentData, HelixUser, HelixUserApi, HelixUserBlock, HelixUserBlockAdditionalInfo, HelixUserEmote, HelixUserEmotesFilter, HelixUserExtension, HelixUserExtensionUpdatePayload, HelixUserExtensionUpdatePayloadActiveSlot, HelixUserExtensionUpdatePayloadInactiveSlot, HelixUserExtensionUpdatePayloadSlot, HelixUserRelation, HelixUserSubscription, HelixUserUpdate, HelixVideo, HelixVideoApi, HelixVideoFilter, HelixVideoType, HelixWarning, HelixWhisperApi, StreamNotLiveError };
-`],["/node_modules/@types/twurple__api-call/index.d.ts",`import { Response } from '@d-fischer/cross-fetch';
+export { ApiClient, ApiConfig, ApiReportedRequest, BaseApi, BaseApiClient, ChatMessageDroppedError, CheermoteDisplayInfo, ConfigError, HelixAdSchedule, HelixBan, HelixBanFilter, HelixBanUser, HelixBanUserRequest, HelixBaseExtension, HelixBitsApi, HelixBitsLeaderboard, HelixBitsLeaderboardEntry, HelixBitsLeaderboardPeriod, HelixBitsLeaderboardQuery, HelixBlockedTerm, HelixBroadcasterType, HelixChannel, HelixChannelApi, HelixChannelEditor, HelixChannelEmote, HelixChannelEmoteSubscriptionTier, HelixChannelFollower, HelixChannelPointsApi, HelixChannelReference, HelixChannelSearchFilter, HelixChannelSearchResult, HelixChannelUpdate, HelixCharityApi, HelixCharityCampaign, HelixCharityCampaignAmount, HelixCharityCampaignDonation, HelixChatAnnouncementColor, HelixChatApi, HelixChatBadgeScale, HelixChatBadgeSet, HelixChatBadgeVersion, HelixChatChatter, HelixChatSettings, HelixChatUserColor, HelixCheermoteList, HelixClip, HelixClipApi, HelixClipCreateParams, HelixClipFilter, HelixContentClassificationLabel, HelixContentClassificationLabelApi, HelixCreateCustomRewardData, HelixCreatePollData, HelixCreatePredictionData, HelixCreateScheduleSegmentData, HelixCustomReward, HelixCustomRewardRedemption, HelixCustomRewardRedemptionFilter, HelixCustomRewardRedemptionStatus, HelixCustomRewardRedemptionTargetStatus, HelixDropsEntitlement, HelixDropsEntitlementFilter, HelixDropsEntitlementFulfillmentStatus, HelixDropsEntitlementPaginatedFilter, HelixDropsEntitlementUpdateStatus, HelixEmote, HelixEmoteFormat, HelixEmoteFromSet, HelixEmoteImageScale, HelixEmoteScale, HelixEmoteThemeMode, HelixEntitlementApi, HelixEventSubApi, HelixEventSubConduit, HelixEventSubConduitShard, HelixEventSubConduitShardsOptions, HelixEventSubConduitShardsTransportOptions, HelixEventSubConduitTransportOptions, HelixEventSubDropEntitlementGrantFilter, HelixEventSubSubscription, HelixEventSubSubscriptionStatus, HelixEventSubTransportData, HelixEventSubTransportOptions, HelixEventSubWebHookTransportOptions, HelixEventSubWebSocketTransportOptions, HelixExtensionBitsProduct, HelixExtensionBitsProductUpdatePayload, HelixExtensionSlotType, HelixExtensionTransaction, HelixExtensionTransactionsFilter, HelixExtensionTransactionsPaginatedFilter, HelixExtensionsApi, HelixFollow, HelixFollowedChannel, HelixForwardPagination, HelixGame, HelixGameApi, HelixGoal, HelixGoalApi, HelixGoalType, HelixHypeTrainApi, HelixHypeTrainContribution, HelixHypeTrainContributionType, HelixHypeTrainEvent, HelixHypeTrainEventType, HelixInstalledExtension, HelixInstalledExtensionList, HelixModeratedChannel, HelixModerationApi, HelixModerator, HelixModeratorFilter, HelixPaginatedChannelSearchFilter, HelixPaginatedClipFilter, HelixPaginatedCustomRewardRedemptionFilter, HelixPaginatedEventSubSubscriptionsRequest, HelixPaginatedEventSubSubscriptionsResult, HelixPaginatedRequest, HelixPaginatedRequestWithTotal, HelixPaginatedResult, HelixPaginatedResultWithTotal, HelixPaginatedScheduleFilter, HelixPaginatedScheduleSegmentRequest, HelixPaginatedStreamFilter, HelixPaginatedSubscriptionsRequest, HelixPaginatedSubscriptionsResult, HelixPaginatedVideoFilter, HelixPagination, HelixPoll, HelixPollApi, HelixPollChoice, HelixPollStatus, HelixPrediction, HelixPredictionApi, HelixPredictionOutcome, HelixPredictionOutcomeColor, HelixPredictionStatus, HelixPredictor, HelixPrivilegedChatSettings, HelixPrivilegedUser, HelixRaid, HelixRaidApi, HelixSchedule, HelixScheduleApi, HelixScheduleFilter, HelixScheduleSegment, HelixScheduleSettingsUpdate, HelixSearchApi, HelixSendChatAnnouncementParams, HelixSendChatMessageParams, HelixSentChatMessage, HelixSharedChatSession, HelixSharedChatSessionParticipant, HelixShieldModeStatus, HelixStream, HelixStreamApi, HelixStreamFilter, HelixStreamMarker, HelixStreamMarkerWithVideo, HelixStreamType, HelixSubscription, HelixSubscriptionApi, HelixTeam, HelixTeamApi, HelixTeamWithUsers, HelixUnbanRequest, HelixUnbanRequestStatus, HelixUpdateChatSettingsParams, HelixUpdateCustomRewardData, HelixUpdateScheduleSegmentData, HelixUser, HelixUserApi, HelixUserBlock, HelixUserBlockAdditionalInfo, HelixUserEmote, HelixUserEmotesFilter, HelixUserExtension, HelixUserExtensionUpdatePayload, HelixUserExtensionUpdatePayloadActiveSlot, HelixUserExtensionUpdatePayloadInactiveSlot, HelixUserExtensionUpdatePayloadSlot, HelixUserRelation, HelixUserSubscription, HelixUserUpdate, HelixVideo, HelixVideoApi, HelixVideoFilter, HelixVideoType, HelixWarning, HelixWhisperApi, StreamNotLiveError };
+`],["/node_modules/@types/twurple__api-call/index.d.ts",`/// <reference types="node" />
 import { UserIdResolvable, CustomError } from '@twurple/common';
 
 /**
@@ -59241,9 +59242,8 @@ interface TwitchApiCallFetchOptions {
  *
  * Defaults to "Bearer" for Helix and "OAuth" for everything else.
  * @param fetchOptions Additional options to be passed to the \`fetch\` function.
- * @param mockServerPort
  */
-declare function callTwitchApiRaw(options: TwitchApiCallOptions, clientId?: string, accessToken?: string, authorizationType?: string, fetchOptions?: TwitchApiCallFetchOptions, mockServerPort?: number): Promise<Response>;
+declare function callTwitchApiRaw(options: TwitchApiCallOptions, clientId?: string, accessToken?: string, authorizationType?: string, fetchOptions?: TwitchApiCallFetchOptions): Promise<Response>;
 /**
  * Makes a call to the Twitch API using given credentials.
  *
@@ -61409,6 +61409,9 @@ declare abstract class DataObject<DataType> {
 }
 
 /** @private */
+declare function getMockApiPort(): string | null;
+
+/** @private */
 declare function checkRelationAssertion<T>(value: T | null): T;
 
 /** @private */
@@ -61803,7 +61806,7 @@ declare function extractUserId(user: UserIdResolvable): string;
  */
 declare function extractUserName(user: UserNameResolvable): string;
 
-export { CommercialLength, CustomError, DataObject, HelixExtension, HelixExtensionConfigurationLocation, HelixExtensionData, HelixExtensionIconSize, HelixExtensionState, HelixExtensionSubscriptionsSupportLevel, HelixUserType, HellFreezesOverError, RelationAssertionError, UserIdResolvable, UserIdResolvableType, UserNameResolvable, UserNameResolveableType, checkRelationAssertion, extractUserId, extractUserName, getRawData, rawDataSymbol, rtfm };
+export { CommercialLength, CustomError, DataObject, HelixExtension, HelixExtensionConfigurationLocation, HelixExtensionData, HelixExtensionIconSize, HelixExtensionState, HelixExtensionSubscriptionsSupportLevel, HelixUserType, HellFreezesOverError, RelationAssertionError, UserIdResolvable, UserIdResolvableType, UserNameResolvable, UserNameResolveableType, checkRelationAssertion, extractUserId, extractUserName, getMockApiPort, getRawData, rawDataSymbol, rtfm };
 `],["/node_modules/@types/twurple__easy-bot/index.d.ts",`import * as _d_fischer_typed_event_emitter from '@d-fischer/typed-event-emitter';
 import { EventEmitter } from '@d-fischer/typed-event-emitter';
 import { ResolvableValue } from '@d-fischer/shared-utils';
@@ -64224,15 +64227,7 @@ declare abstract class EventSubChannelChatBaseNotificationEvent extends DataObje
  * An EventSub event representing a notification for an announcement in a channel's chat.
  */
 declare class EventSubChannelChatAnnouncementNotificationEvent extends EventSubChannelChatBaseNotificationEvent {
-    readonly type = "announcement";
-    /**
-     * The color of the announcement.
-     *
-     * @deprecated Use \`announcementColor\` instead.
-     * In the next major release, this property will not override the base \`color\` property anymore.
-     * As such, you will be able to use \`color\` to get the chat color of the user again.
-     */
-    get color(): EventSubChannelChatAnnouncementColor;
+    readonly type: "announcement";
     /**
      * The color of the announcement.
      */
@@ -64243,7 +64238,7 @@ declare class EventSubChannelChatAnnouncementNotificationEvent extends EventSubC
  * An EventSub event representing a notification for a new bits badge tier being reached in a channel's chat.
  */
 declare class EventSubChannelChatBitsBadgeTierNotificationEvent extends EventSubChannelChatBaseNotificationEvent {
-    readonly type = "bits_badge_tier";
+    readonly type: "bits_badge_tier";
     /**
      * The new bits badge tier that was just reached.
      */
@@ -64281,7 +64276,7 @@ declare class EventSubChannelCharityAmount extends DataObject<EventSubChannelCha
  * An EventSub event representing a notification for a charity donation in a channel's chat.
  */
 declare class EventSubChannelChatCharityDonationNotificationEvent extends EventSubChannelChatBaseNotificationEvent {
-    readonly type = "charity_donation";
+    readonly type: "charity_donation";
     /**
      * The name of the charity that was donated to.
      */
@@ -64296,7 +64291,7 @@ declare class EventSubChannelChatCharityDonationNotificationEvent extends EventS
  * An EventSub event representing a community sub gift notification in a channel's chat.
  */
 declare class EventSubChannelChatCommunitySubGiftNotificationEvent extends EventSubChannelChatBaseNotificationEvent {
-    readonly type = "community_sub_gift";
+    readonly type: "community_sub_gift";
     /**
      * The ID of the community sub gift.
      */
@@ -64319,7 +64314,7 @@ declare class EventSubChannelChatCommunitySubGiftNotificationEvent extends Event
  * An EventSub event representing a notification of a user upgrading their gifted sub to a paid one in a channel's chat.
  */
 declare class EventSubChannelChatGiftPaidUpgradeNotificationEvent extends EventSubChannelChatBaseNotificationEvent {
-    readonly type = "gift_paid_upgrade";
+    readonly type: "gift_paid_upgrade";
     /**
      * Whether the original gifter is anonymous.
      */
@@ -64346,7 +64341,7 @@ declare class EventSubChannelChatGiftPaidUpgradeNotificationEvent extends EventS
  * An EventSub event representing a notification of a user "paying it forward" in a channel's chat.
  */
 declare class EventSubChannelChatPayItForwardNotificationEvent extends EventSubChannelChatBaseNotificationEvent {
-    readonly type = "pay_it_forward";
+    readonly type: "pay_it_forward";
     /**
      * Whether the original gifter is anonymous.
      */
@@ -64373,7 +64368,7 @@ declare class EventSubChannelChatPayItForwardNotificationEvent extends EventSubC
  * An EventSub event representing a notification of a user upgrading their gifted sub to a paid one in a channel's chat.
  */
 declare class EventSubChannelChatPrimePaidUpgradeNotificationEvent extends EventSubChannelChatBaseNotificationEvent {
-    readonly type = "prime_paid_upgrade";
+    readonly type: "prime_paid_upgrade";
     get tier(): EventSubChannelChatNotificationSubTier;
 }
 
@@ -64381,7 +64376,7 @@ declare class EventSubChannelChatPrimePaidUpgradeNotificationEvent extends Event
  * An EventSub event representing an incoming raid notification in a channel's chat.
  */
 declare class EventSubChannelChatRaidNotificationEvent extends EventSubChannelChatBaseNotificationEvent {
-    readonly type = "raid";
+    readonly type: "raid";
     /**
      * The ID of the user that raided the channel.
      */
@@ -64412,7 +64407,7 @@ declare class EventSubChannelChatRaidNotificationEvent extends EventSubChannelCh
  * An EventSub event representing a resub notification in a channel's chat.
  */
 declare class EventSubChannelChatResubNotificationEvent extends EventSubChannelChatBaseNotificationEvent {
-    readonly type = "resub";
+    readonly type: "resub";
     /**
      * The tier of the subscription.
      */
@@ -64463,7 +64458,7 @@ declare class EventSubChannelChatResubNotificationEvent extends EventSubChannelC
  * An EventSub event representing a sub gift notification in a channel's chat.
  */
 declare class EventSubChannelChatSubGiftNotificationEvent extends EventSubChannelChatBaseNotificationEvent {
-    readonly type = "sub_gift";
+    readonly type: "sub_gift";
     /**
      * The tier of the subscription.
      */
@@ -64502,7 +64497,7 @@ declare class EventSubChannelChatSubGiftNotificationEvent extends EventSubChanne
  * An EventSub event representing a sub notification in a channel's chat.
  */
 declare class EventSubChannelChatSubNotificationEvent extends EventSubChannelChatBaseNotificationEvent {
-    readonly type = "sub";
+    readonly type: "sub";
     /**
      * The tier of the subscription.
      */
@@ -64521,7 +64516,7 @@ declare class EventSubChannelChatSubNotificationEvent extends EventSubChannelCha
  * An EventSub event representing a notification for cancelling an outgoing raid in a channel's chat.
  */
 declare class EventSubChannelChatUnraidNotificationEvent extends EventSubChannelChatBaseNotificationEvent {
-    readonly type = "unraid";
+    readonly type: "unraid";
 }
 
 /**
@@ -64529,7 +64524,7 @@ declare class EventSubChannelChatUnraidNotificationEvent extends EventSubChannel
  * chat session.
  */
 declare class EventSubChannelChatSharedChatPayItForwardNotificationEvent extends EventSubChannelChatBaseNotificationEvent {
-    readonly type = "shared_chat_pay_it_forward";
+    readonly type: "shared_chat_pay_it_forward";
     /**
      * Whether the original gifter is anonymous.
      */
@@ -64556,7 +64551,7 @@ declare class EventSubChannelChatSharedChatPayItForwardNotificationEvent extends
  * An EventSub event representing a sub notification in another channel's chat during a shared chat session.
  */
 declare class EventSubChannelChatSharedChatSubNotificationEvent extends EventSubChannelChatBaseNotificationEvent {
-    readonly type = "shared_chat_sub";
+    readonly type: "shared_chat_sub";
     /**
      * The tier of the subscription.
      */
@@ -64575,7 +64570,7 @@ declare class EventSubChannelChatSharedChatSubNotificationEvent extends EventSub
  * An EventSub event representing a resub notification in another channel's chat during a shared chat session.
  */
 declare class EventSubChannelChatSharedChatResubNotificationEvent extends EventSubChannelChatBaseNotificationEvent {
-    readonly type = "shared_chat_resub";
+    readonly type: "shared_chat_resub";
     /**
      * The tier of the subscription.
      */
@@ -64626,7 +64621,7 @@ declare class EventSubChannelChatSharedChatResubNotificationEvent extends EventS
  * An EventSub event representing a sub gift notification in another channel's chat during a shared chat session.
  */
 declare class EventSubChannelChatSharedChatSubGiftNotificationEvent extends EventSubChannelChatBaseNotificationEvent {
-    readonly type = "shared_chat_sub_gift";
+    readonly type: "shared_chat_sub_gift";
     /**
      * The tier of the subscription.
      */
@@ -64666,7 +64661,7 @@ declare class EventSubChannelChatSharedChatSubGiftNotificationEvent extends Even
  * session.
  */
 declare class EventSubChannelChatSharedChatCommunitySubGiftNotificationEvent extends EventSubChannelChatBaseNotificationEvent {
-    readonly type = "shared_chat_community_sub_gift";
+    readonly type: "shared_chat_community_sub_gift";
     /**
      * The ID of the community sub gift.
      */
@@ -64690,7 +64685,7 @@ declare class EventSubChannelChatSharedChatCommunitySubGiftNotificationEvent ext
  * chat during a shared chat session.
  */
 declare class EventSubChannelChatSharedChatGiftPaidUpgradeNotificationEvent extends EventSubChannelChatBaseNotificationEvent {
-    readonly type = "shared_chat_gift_paid_upgrade";
+    readonly type: "shared_chat_gift_paid_upgrade";
     /**
      * Whether the original gifter is anonymous.
      */
@@ -64718,7 +64713,7 @@ declare class EventSubChannelChatSharedChatGiftPaidUpgradeNotificationEvent exte
  * chat during a shared chat session.
  */
 declare class EventSubChannelChatSharedChatPrimePaidUpgradeNotificationEvent extends EventSubChannelChatBaseNotificationEvent {
-    readonly type = "shared_chat_prime_paid_upgrade";
+    readonly type: "shared_chat_prime_paid_upgrade";
     get tier(): EventSubChannelChatNotificationSubTier;
 }
 
@@ -64726,7 +64721,7 @@ declare class EventSubChannelChatSharedChatPrimePaidUpgradeNotificationEvent ext
  * An EventSub event representing an incoming raid notification in another channel's chat during a shared chat session.
  */
 declare class EventSubChannelChatSharedChatRaidNotificationEvent extends EventSubChannelChatBaseNotificationEvent {
-    readonly type = "shared_chat_raid";
+    readonly type: "shared_chat_raid";
     /**
      * The ID of the user that raided the channel.
      */
@@ -64758,7 +64753,7 @@ declare class EventSubChannelChatSharedChatRaidNotificationEvent extends EventSu
  * session.
  */
 declare class EventSubChannelChatSharedChatAnnouncementNotificationEvent extends EventSubChannelChatBaseNotificationEvent {
-    readonly type = "shared_chat_announcement";
+    readonly type: "shared_chat_announcement";
     /**
      * The color of the announcement.
      */
@@ -67494,7 +67489,7 @@ declare class EventSubChannelAutoModTermsModerationEvent extends EventSubChannel
  * An EventSub event representing a moderator banning a user on a channel.
  */
 declare class EventSubChannelBanModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "ban";
+    readonly moderationAction: "ban";
     /**
      * The ID of the user being banned.
      */
@@ -67521,14 +67516,14 @@ declare class EventSubChannelBanModerationEvent extends EventSubChannelBaseModer
  * An EventSub event representing a moderator clearing the chat on a channel.
  */
 declare class EventSubChannelClearModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "clear";
+    readonly moderationAction: "clear";
 }
 
 /**
  * An EventSub event representing a moderator deleting a message on a channel.
  */
 declare class EventSubChannelDeleteModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "delete";
+    readonly moderationAction: "delete";
     /**
      * The ID of the user whose message is being deleted.
      */
@@ -67559,21 +67554,21 @@ declare class EventSubChannelDeleteModerationEvent extends EventSubChannelBaseMo
  * An EventSub event representing a moderator enabling emote-only mode on a channel.
  */
 declare class EventSubChannelEmoteOnlyModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "emoteonly";
+    readonly moderationAction: "emoteonly";
 }
 
 /**
  * An EventSub event representing a moderator disabling emote-only mode on a channel.
  */
 declare class EventSubChannelEmoteOnlyOffModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "emoteonlyoff";
+    readonly moderationAction: "emoteonlyoff";
 }
 
 /**
  * An EventSub event representing a moderator enabling followers-only mode on a channel.
  */
 declare class EventSubChannelFollowersModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "followers";
+    readonly moderationAction: "followers";
     /**
      * The length of time, in minutes, that the followers must have followed the broadcaster to participate in
      * the chat room.
@@ -67585,14 +67580,14 @@ declare class EventSubChannelFollowersModerationEvent extends EventSubChannelBas
  * An EventSub event representing a moderator disabling followers-only mode on a channel.
  */
 declare class EventSubChannelFollowersOffModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "followersoff";
+    readonly moderationAction: "followersoff";
 }
 
 /**
  * An EventSub event representing a user having gained moderator status on a channel.
  */
 declare class EventSubChannelModModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "mod";
+    readonly moderationAction: "mod";
     /**
      * The ID of the user gaining mod status.
      */
@@ -67611,7 +67606,7 @@ declare class EventSubChannelModModerationEvent extends EventSubChannelBaseModer
  * An EventSub event representing a moderator starting a raid on a channel.
  */
 declare class EventSubChannelRaidModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "raid";
+    readonly moderationAction: "raid";
     /**
      * The ID of the user being raided.
      */
@@ -67638,7 +67633,7 @@ declare class EventSubChannelRaidModerationEvent extends EventSubChannelBaseMode
  * An EventSub event representing a moderator enabling slow mode on a channel.
  */
 declare class EventSubChannelSlowModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "slow";
+    readonly moderationAction: "slow";
     /**
      * The amount of time, in seconds, that users need to wait between sending messages.
      */
@@ -67649,28 +67644,28 @@ declare class EventSubChannelSlowModerationEvent extends EventSubChannelBaseMode
  * An EventSub event representing a moderator disabling slow mode on a channel.
  */
 declare class EventSubChannelSlowOffModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "slowoff";
+    readonly moderationAction: "slowoff";
 }
 
 /**
  * An EventSub event representing a moderator enabling subscribers-only mode on a channel.
  */
 declare class EventSubChannelSubscribersModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "subscribers";
+    readonly moderationAction: "subscribers";
 }
 
 /**
  * An EventSub event representing a moderator disabling subscribers-only mode on a channel.
  */
 declare class EventSubChannelSubscribersOffModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "subscribersoff";
+    readonly moderationAction: "subscribersoff";
 }
 
 /**
  * An EventSub event representing a moderator timing out a user on a channel.
  */
 declare class EventSubChannelTimeoutModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "timeout";
+    readonly moderationAction: "timeout";
     /**
      * The ID of the user being timed out.
      */
@@ -67701,7 +67696,7 @@ declare class EventSubChannelTimeoutModerationEvent extends EventSubChannelBaseM
  * An EventSub event representing a moderator unbanning a user on a channel.
  */
 declare class EventSubChannelUnbanModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "unban";
+    readonly moderationAction: "unban";
     /**
      * The ID of the user being unbanned.
      */
@@ -67755,21 +67750,21 @@ declare class EventSubChannelUnbanRequestModerationEvent extends EventSubChannel
  * An EventSub event representing a moderator enabling unique chat mode on a channel.
  */
 declare class EventSubChannelUniqueChatModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "uniquechat";
+    readonly moderationAction: "uniquechat";
 }
 
 /**
  * An EventSub event representing a moderator disabling unique chat mode on a channel.
  */
 declare class EventSubChannelUniqueChatOffModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "uniquechatoff";
+    readonly moderationAction: "uniquechatoff";
 }
 
 /**
  * An EventSub event representing a user having lost moderator status on a channel.
  */
 declare class EventSubChannelUnmodModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "unmod";
+    readonly moderationAction: "unmod";
     /**
      * The ID of the user losing mod status.
      */
@@ -67792,7 +67787,7 @@ declare class EventSubChannelUnmodModerationEvent extends EventSubChannelBaseMod
  * An EventSub event representing a moderator canceling the raid on a channel.
  */
 declare class EventSubChannelUnraidModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "unraid";
+    readonly moderationAction: "unraid";
     /**
      * The ID of the user no longer being raided.
      */
@@ -67812,10 +67807,10 @@ declare class EventSubChannelUnraidModerationEvent extends EventSubChannelBaseMo
 }
 
 /**
- * An EventSub event representing a moderator untimming out a user on a channel.
+ * An EventSub event representing a moderator removing a timeout from a user on a channel.
  */
 declare class EventSubChannelUntimeoutModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "untimeout";
+    readonly moderationAction: "untimeout";
     /**
      * The ID of the user being untimed out.
      */
@@ -67838,7 +67833,7 @@ declare class EventSubChannelUntimeoutModerationEvent extends EventSubChannelBas
  * An EventSub event representing a user having lost VIP status on a channel.
  */
 declare class EventSubChannelUnvipModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "unvip";
+    readonly moderationAction: "unvip";
     /**
      * The ID of the user losing VIP status.
      */
@@ -67861,7 +67856,7 @@ declare class EventSubChannelUnvipModerationEvent extends EventSubChannelBaseMod
  * An EventSub event representing a user having gained VIP status on a channel.
  */
 declare class EventSubChannelVipModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "vip";
+    readonly moderationAction: "vip";
     /**
      * The ID of the user gaining VIP status.
      */
@@ -67884,7 +67879,7 @@ declare class EventSubChannelVipModerationEvent extends EventSubChannelBaseModer
  * An EventSub event representing a moderator warning a user in a channel.
  */
 declare class EventSubChannelWarnModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "warn";
+    readonly moderationAction: "warn";
     /**
      * The ID of the user being warned.
      */
@@ -67915,7 +67910,7 @@ declare class EventSubChannelWarnModerationEvent extends EventSubChannelBaseMode
  * An EventSub event representing a moderator banning a user in another channel during a shared chat session.
  */
 declare class EventSubChannelSharedChatBanModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "shared_chat_ban";
+    readonly moderationAction: "shared_chat_ban";
     /**
      * The ID of the user being banned.
      */
@@ -67942,7 +67937,7 @@ declare class EventSubChannelSharedChatBanModerationEvent extends EventSubChanne
  * An EventSub event representing a moderator timing out a user in another channel during a shared chat session.
  */
 declare class EventSubChannelSharedChatTimeoutModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "shared_chat_timeout";
+    readonly moderationAction: "shared_chat_timeout";
     /**
      * The ID of the user being timed out.
      */
@@ -67973,7 +67968,7 @@ declare class EventSubChannelSharedChatTimeoutModerationEvent extends EventSubCh
  * An EventSub event representing a moderator unbanning a user in another channel during a shared chat session.
  */
 declare class EventSubChannelSharedChatUnbanModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "shared_chat_unban";
+    readonly moderationAction: "shared_chat_unban";
     /**
      * The ID of the user being unbanned.
      */
@@ -67996,7 +67991,7 @@ declare class EventSubChannelSharedChatUnbanModerationEvent extends EventSubChan
  * An EventSub event representing a moderator untimming out a user in another channel during a shared chat session.
  */
 declare class EventSubChannelSharedChatUntimeoutModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "shared_chat_untimeout";
+    readonly moderationAction: "shared_chat_untimeout";
     /**
      * The ID of the user being untimed out.
      */
@@ -68019,7 +68014,7 @@ declare class EventSubChannelSharedChatUntimeoutModerationEvent extends EventSub
  * An EventSub event representing a moderator deleting a message in another channel during a shared chat session.
  */
 declare class EventSubChannelSharedChatDeleteModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction = "shared_chat_delete";
+    readonly moderationAction: "shared_chat_delete";
     /**
      * The ID of the user whose message is being deleted.
      */
@@ -69894,9 +69889,9 @@ declare class EventSubChannelSubscriptionEvent extends DataObject<EventSubChanne
 type EventSubChannelSubscriptionGiftEventTier = '1000' | '2000' | '3000';
 /** @private */
 interface EventSubChannelSubscriptionGiftEventData {
-    user_id: string;
-    user_login: string;
-    user_name: string;
+    user_id: string | null;
+    user_login: string | null;
+    user_name: string | null;
     broadcaster_user_id: string;
     broadcaster_user_login: string;
     broadcaster_user_name: string;
@@ -69911,21 +69906,21 @@ interface EventSubChannelSubscriptionGiftEventData {
  */
 declare class EventSubChannelSubscriptionGiftEvent extends DataObject<EventSubChannelSubscriptionGiftEventData> {
     /**
-     * The ID of the gifting user.
+     * The ID of the gifting user, or \`null\` if the gifter was anonymous.
      */
-    get gifterId(): string;
+    get gifterId(): string | null;
     /**
-     * The name of the gifting user.
+     * The name of the gifting user, or \`null\` if the gifter was anonymous.
      */
-    get gifterName(): string;
+    get gifterName(): string | null;
     /**
-     * The display name of the gifting user.
+     * The display name of the gifting user, or \`null\` if the gifter was anonymous.
      */
-    get gifterDisplayName(): string;
+    get gifterDisplayName(): string | null;
     /**
-     * Gets more information about the gifting user.
+     * Gets more information about the gifting user. Returns \`null\` if the gifter was anonymous.
      */
-    getGifter(): Promise<HelixUser>;
+    getGifter(): Promise<HelixUser | null>;
     /**
      * The ID of the broadcaster.
      */
@@ -73031,6 +73026,7 @@ declare class EventSubWsListener extends EventSubBase implements EventSubListene
     private readonly _initialUrl;
     private _accepting;
     private readonly _loggerOptions?;
+    private readonly _mockApiPort;
     /**
      * Fires when a user socket has established a connection with the EventSub server.
      *
