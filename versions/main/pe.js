@@ -56275,7 +56275,7 @@ declare class HelixHypeTrainStatus extends DataObject<HelixHypeTrainStatusData> 
  * ## Example
  * \`\`\`ts
  * const api = new ApiClient({ authProvider });
- * const { data: events } = await api.hypeTrain.getHypeTrainEventsForBroadcaster('125328655');
+ * const hypeTrainStatus = await api.hypeTrain.getHypeTrainStatusForBroadcaster('125328655');
  * \`\`\`
  *
  * @meta category helix
