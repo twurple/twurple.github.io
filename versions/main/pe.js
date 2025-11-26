@@ -61484,6 +61484,8 @@ declare abstract class DataObject<DataType> {
 /** @private */
 declare function getMockApiPort(): string | null;
 
+declare function qsStringify(obj: Record<string, string | number | null | undefined | Array<string | number>> | undefined): string;
+
 /** @private */
 declare function checkRelationAssertion<T>(value: T | null): T;
 
@@ -61879,7 +61881,7 @@ declare function extractUserId(user: UserIdResolvable): string;
  */
 declare function extractUserName(user: UserNameResolvable): string;
 
-export { CommercialLength, CustomError, DataObject, HelixExtension, HelixExtensionConfigurationLocation, HelixExtensionData, HelixExtensionIconSize, HelixExtensionState, HelixExtensionSubscriptionsSupportLevel, HelixUserType, HellFreezesOverError, RelationAssertionError, UserIdResolvable, UserIdResolvableType, UserNameResolvable, UserNameResolveableType, checkRelationAssertion, extractUserId, extractUserName, getMockApiPort, getRawData, rawDataSymbol, rtfm };
+export { CommercialLength, CustomError, DataObject, HelixExtension, HelixExtensionConfigurationLocation, HelixExtensionData, HelixExtensionIconSize, HelixExtensionState, HelixExtensionSubscriptionsSupportLevel, HelixUserType, HellFreezesOverError, RelationAssertionError, UserIdResolvable, UserIdResolvableType, UserNameResolvable, UserNameResolveableType, checkRelationAssertion, extractUserId, extractUserName, getMockApiPort, getRawData, qsStringify, rawDataSymbol, rtfm };
 `],["/node_modules/@types/twurple__easy-bot/index.d.ts",`import * as _d_fischer_typed_event_emitter from '@d-fischer/typed-event-emitter';
 import { EventEmitter } from '@d-fischer/typed-event-emitter';
 import { ResolvableValue } from '@d-fischer/shared-utils';
