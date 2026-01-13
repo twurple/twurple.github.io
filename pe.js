@@ -60134,6 +60134,10 @@ declare class ChatUser {
      */
     get isMod(): boolean;
     /**
+     * Whether the user is a lead moderator of the channel.
+     */
+    get isLeadMod(): boolean;
+    /**
      * Whether the user is a VIP in the channel.
      */
     get isVip(): boolean;
