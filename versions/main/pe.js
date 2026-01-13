@@ -54086,18 +54086,49 @@ interface HelixClipFilter {
  */
 interface HelixPaginatedClipFilter extends HelixClipFilter, HelixPagination {
 }
-/**
- * Parameters for creating a clip.
- */
-interface HelixClipCreateParams {
+/** @private */
+interface HelixBaseClipCreateParams {
     /**
      * The broadcaster of which you want to create a clip.
      */
     channel: UserIdResolvable;
     /**
+     * The title of the clip. If not given, the title of the clip will be the same as the title of the stream.
+     */
+    title?: string;
+    /**
+     * The duration of the clip, in seconds. The valid range is 5-60, with a precision of 0.1.
+     *
+     * If not given, the duration of the clip will be 30 seconds.
+     */
+    duration?: number;
+}
+/**
+ * Parameters for creating a clip from a live stream.
+ *
+ * @inheritDoc
+ */
+interface HelixClipCreateParams extends HelixBaseClipCreateParams {
+    /**
      * Add a delay before the clip creation that accounts for the usual delay in the viewing experience.
      */
     createAfterDelay?: boolean;
+}
+/**
+ * Parameters for creating a clip from a VOD.
+ *
+ * @beta
+ * @inheritDoc
+ */
+interface HelixClipCreateFromVodParams extends HelixBaseClipCreateParams {
+    /**
+     * The ID of the VOD to create a clip from.
+     */
+    vodId: string;
+    /**
+     * The offset of the VOD to **end** the clip on. Must be higher than \`duration\`.
+     */
+    vodOffset: number;
 }
 
 type HelixVideoViewableStatus = 'public' | 'private';
@@ -54411,6 +54442,16 @@ declare class HelixClipApi extends BaseApi {
      * @expandParams
      */
     createClip(params: HelixClipCreateParams): Promise<string>;
+    /**
+     * Creates a clip of a VOD.
+     *
+     * Returns the ID of the clip.
+     *
+     * @param params
+     * @expandParams
+     * @beta
+     */
+    createClipFromVod(params: HelixClipCreateFromVodParams): Promise<string>;
     private _getClips;
     private _getClipsPaginated;
 }
@@ -60133,6 +60174,10 @@ declare class ChatUser {
      * Whether the user is a moderator of the channel.
      */
     get isMod(): boolean;
+    /**
+     * Whether the user is a lead moderator of the channel.
+     */
+    get isLeadMod(): boolean;
     /**
      * Whether the user is a VIP in the channel.
      */
@@ -73090,7 +73135,6 @@ interface EventSubWsConfig extends EventSubBaseConfig {
 /**
  * A WebSocket listener for the Twitch EventSub event distribution mechanism.
  *
- * @beta
  * @hideProtected
  * @inheritDoc
  *
@@ -73154,4 +73198,4 @@ export { EventSubWsConfig, EventSubWsListener };
 	Copyright (c) 2018 Jed Watson.
 	Licensed under the MIT License (MIT), see
 	http://jedwatson.github.io/classnames
-*/(function(u){(function(){var _={}.hasOwnProperty;function E(){for(var $="",oe=0;oe<arguments.length;oe++){var ve=arguments[oe];ve&&($=w($,R(ve)))}return $}function R($){if(typeof $=="string"||typeof $=="number")return $;if(typeof $!="object")return"";if(Array.isArray($))return E.apply(null,$);if($.toString!==Object.prototype.toString&&!$.toString.toString().includes("[native code]"))return $.toString();var oe="";for(var ve in $)_.call($,ve)&&$[ve]&&(oe=w(oe,ve));return oe}function w($,oe){return oe?$?$+" "+oe:$+oe:$}u.exports?(E.default=E,u.exports=E):window.classNames=E})()})(gRe);var mYe=gRe.exports;const $se=tN(mYe),{projectBase:XPn,rootUrl:hYe}={projectBase:"/home/runner/work/twurple/twurple",rootUrl:""},_Ye=iu.createContext({dev:!1,prettier:!1,configDir:"/home/runner/work/twurple/twurple/docs",routerMode:"htmlSuffix",outputDir:"docRepo/versions/main",baseUrl:"versions/main",baseDir:"/home/runner/work/twurple/twurple",packageScope:"twurple",monorepoRoot:"packages",packageDirNames:["api","api-call","auth","auth-ext","auth-tmi","chat","common","easy-bot","ebs-helper","eventsub-base","eventsub-http","eventsub-ngrok","eventsub-ws"],mainPackage:"api",mainBranchName:"main",versionBranchPrefix:"versions/",versionFolder:"versions",version:"main",defaultVersion:"7.4",ignoredPackages:["auth-ext","eventsub-ngrok"],title:"Twurple",repoUser:"twurple",repoName:"twurple",repoBaseFolder:null,repoBranch:"main",indexTitle:"Welcome",indexFile:"/home/runner/work/twurple/twurple/docs/index.md",categories:[{name:"auth",title:"Authentication",indexTitle:"Authentication",indexFile:"auth/index.md",groups:[{name:"providers",title:"Providers",articles:[{name:"static",title:"Using a static token",file:"auth/providers/static.md"},{name:"refreshing",title:"Auto-refreshing tokens",file:"auth/providers/refreshing.md"},{name:"app-tokens",title:"Using app tokens",file:"auth/providers/app-tokens.md"},{name:"extensions",title:"For Extension frontends",file:"auth/providers/extensions.md"}]},{name:"concepts",title:"Concepts",articles:[{name:"context-switching",title:"Context switching",file:"auth/concepts/context-switching.md"},{name:"intents",title:"Intents",file:"auth/concepts/intents.md"}]}]},{name:"getting-data",title:"Getting data",indexTitle:"Data overview",indexFile:"getting-data/index.md",groups:[{name:"api",title:"API",articles:[{name:"calling-api",title:"Calling the Twitch API",file:"getting-data/api/calling-api.md"},{name:"choosing-user",title:"Choosing the correct user",file:"getting-data/api/choosing-user.md"}]},{name:"chat",title:"Chat",articles:[{name:"connecting-to-chat",title:"Connecting to Chat",file:"getting-data/chat/connecting-to-chat.md"},{name:"listening-to-events",title:"Listening to chat events",file:"getting-data/chat/listening-to-events.md"}]},{name:"eventsub",title:"EventSub",articles:[{name:"listener-setup",title:"Setting up an EventSub listener",file:"getting-data/eventsub/listener-setup.md"},{name:"reverse-proxy",title:"Serving through a reverse proxy",file:"getting-data/eventsub/reverse-proxy.md"},{name:"ngrok",title:"Testing locally using ngrok",file:"getting-data/eventsub/ngrok.md"},{name:"express",title:"Using with an Express app",file:"getting-data/eventsub/express.md"}]},{name:"logging",title:"Logging",articles:[{name:"configuration",title:"Log level configuration",file:"getting-data/logging/configuration.md"},{name:"custom",title:"Custom logger",file:"getting-data/logging/custom.md"}]}]},{name:"examples",title:"Examples",indexTitle:"Examples",indexFile:"examples/index.md",groups:[{name:"chat",title:"Chat",articles:[{name:"basic-bot",title:"Basic bot",file:"examples/chat/basic-bot.md"},{name:"sub-gift-spam",title:"Preventing sub gift spam",file:"examples/chat/sub-gift-spam.md"}]}]},{name:"faq",title:"FAQ",indexTitle:"Frequently asked questions (FAQ)",indexFile:"faq/index.md"},{name:"migration",title:"Migration",indexTitle:"Migration from v7 to v8",indexFile:"migration/v7-to-v8.md",groups:[{name:"previous-versions",title:"Previous versions",articles:[{name:"v6-to-v7",title:"Migration from v6 to v7",file:"migration/v6-to-v7.md"},{name:"v5-to-v6",title:"Migration from v5 to v6",file:"migration/v5-to-v6.md"},{name:"twitchjs-to-v5",title:"Migration from Twitch.js to v5",file:"migration/twitchjs-to-v5.md"}]}]}],referenceConfig:{api:{categories:[{name:"main",title:"Main classes"},{name:"helix",title:"Helix APIs"},{name:"misc",title:"Misc. APIs"}]},"easy-bot":{categories:[{name:"main",title:"Core functionality"},{name:"events",title:"Events"}]},"eventsub-http":{categories:[{name:"main",title:"Main classes"},{name:"adapters",title:"Adapters"}]},"eventsub-ws":{categories:[{name:"main",title:"Main classes"}]}},shouldEnhance:!0}),gYe=null;if(typeof window<"u"){const u=window;u.__paths={projectBase:"/home/runner/work/twurple/twurple",rootUrl:""},u.__mockFs=gYe}function vYe(u,_){iu.useEffect(()=>{u()},_)}const yYe=Rxe(u=>({entry:{borderRight:`1px solid ${u.colors.border}`,padding:u.spacing.unit,cursor:"pointer",userSelect:"none",textDecoration:"none",color:u.colors.text,transition:"background-color .3s ease-in-out, border-color .3s ease-in-out",borderBottom:"3px solid transparent",lineHeight:"1.3em","&:hover":{backgroundColor:u.colors.background.hover}},wrapper:{position:"relative"},warning:{color:u.colors.warning},activator:{borderRight:"0 none",borderLeft:`1px solid ${u.colors.border}`},menu:{position:"absolute",right:0,top:"100%",zIndex:4,backgroundColor:u.colors.background.default,border:`1px solid ${u.colors.border}`},menuEntry:{display:"block",borderRight:"0 none",borderTop:`1px solid ${u.colors.border}`,"&:first-child":{borderTop:"0 none"}}}),{name:"VersionMenu"}),bYe=()=>{var Fn;const u=yYe(),_=iu.useContext(_Ye),E=iu.useMemo(()=>_.version,[_]),[R,w]=iu.useState(_.__devManifest),[$,oe]=iu.useState(!1);vYe(async()=>{!R&&_.versionBranchPrefix&&(oe(!0),w(await fetch(`${hYe}/manifest.json`).then(async Qe=>await Qe.json())),oe(!1))},[R,$,_]);const[ve,Fe]=iu.useState(!1),an=iu.useCallback(()=>Fe(Qe=>!Qe),[]);return(Fn=R==null?void 0:R.versions)!=null&&Fn.filter(Qe=>Qe!==R.defaultVersion).length?h9("div",{className:u.wrapper,children:[C_("div",{className:$se(u.entry,u.activator),onClick:an,children:E}),ve&&h9("div",{className:u.menu,children:[C_("a",{className:$se(u.entry,u.menuEntry),href:`${R.rootUrl}/`,children:R.defaultVersion},R.defaultVersion),R.versions.filter(Qe=>Qe!==R.defaultVersion).map(Qe=>C_("a",{className:$se(u.entry,u.menuEntry),href:`${R.rootUrl}/${_.versionFolder}/${Qe}/`,children:Qe},Qe))]})]}):null},EYe={colors:{background:{default:"#141414",hover:"#333333",active:"#242424"},text:"#b9b9b9",link:"#949494",warning:"#ab9120",border:"#444",accent:{default:"#647d0f",focus:"#88ab14"},badges:{async:"#cccc70",deprecated:"#cc7070",beta:"#ab9120"}},fonts:{default:'"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',code:'Monaco, Menlo, "Lucida Console", monospace'},spacing:{unit:8}},SYe={CodeBlock:fYe,VersionMenu:bYe},TYe=JIe({productionPrefix:"dyn"});for(const u of document.querySelectorAll("[data-dynamic-component]")){const _=SYe[u.dataset.dynamicComponent];if(_){const E=JSON.parse(u.dataset.componentProps??"{}");qKe.render(C_(zqe,{generateClassName:TYe,children:C_(Xje,{theme:EYe,children:C_(_,{...E})})}),u)}}});
+*/(function(u){(function(){var _={}.hasOwnProperty;function E(){for(var $="",oe=0;oe<arguments.length;oe++){var ve=arguments[oe];ve&&($=w($,R(ve)))}return $}function R($){if(typeof $=="string"||typeof $=="number")return $;if(typeof $!="object")return"";if(Array.isArray($))return E.apply(null,$);if($.toString!==Object.prototype.toString&&!$.toString.toString().includes("[native code]"))return $.toString();var oe="";for(var ve in $)_.call($,ve)&&$[ve]&&(oe=w(oe,ve));return oe}function w($,oe){return oe?$?$+" "+oe:$+oe:$}u.exports?(E.default=E,u.exports=E):window.classNames=E})()})(gRe);var mYe=gRe.exports;const $se=tN(mYe),{projectBase:XPn,rootUrl:hYe}={projectBase:"/home/runner/work/twurple/twurple",rootUrl:""},_Ye=iu.createContext({dev:!1,prettier:!1,configDir:"/home/runner/work/twurple/twurple/docs",routerMode:"htmlSuffix",outputDir:"docRepo/versions/main",baseUrl:"versions/main",baseDir:"/home/runner/work/twurple/twurple",packageScope:"twurple",monorepoRoot:"packages",packageDirNames:["api","api-call","auth","auth-ext","auth-tmi","chat","common","easy-bot","ebs-helper","eventsub-base","eventsub-http","eventsub-ngrok","eventsub-ws"],mainPackage:"api",mainBranchName:"main",versionBranchPrefix:"versions/",versionFolder:"versions",version:"main",defaultVersion:"8.0",ignoredPackages:["auth-ext","eventsub-ngrok"],title:"Twurple",repoUser:"twurple",repoName:"twurple",repoBaseFolder:null,repoBranch:"main",indexTitle:"Welcome",indexFile:"/home/runner/work/twurple/twurple/docs/index.md",categories:[{name:"auth",title:"Authentication",indexTitle:"Authentication",indexFile:"auth/index.md",groups:[{name:"providers",title:"Providers",articles:[{name:"static",title:"Using a static token",file:"auth/providers/static.md"},{name:"refreshing",title:"Auto-refreshing tokens",file:"auth/providers/refreshing.md"},{name:"app-tokens",title:"Using app tokens",file:"auth/providers/app-tokens.md"},{name:"extensions",title:"For Extension frontends",file:"auth/providers/extensions.md"}]},{name:"concepts",title:"Concepts",articles:[{name:"context-switching",title:"Context switching",file:"auth/concepts/context-switching.md"},{name:"intents",title:"Intents",file:"auth/concepts/intents.md"}]}]},{name:"getting-data",title:"Getting data",indexTitle:"Data overview",indexFile:"getting-data/index.md",groups:[{name:"api",title:"API",articles:[{name:"calling-api",title:"Calling the Twitch API",file:"getting-data/api/calling-api.md"},{name:"choosing-user",title:"Choosing the correct user",file:"getting-data/api/choosing-user.md"}]},{name:"chat",title:"Chat",articles:[{name:"connecting-to-chat",title:"Connecting to Chat",file:"getting-data/chat/connecting-to-chat.md"},{name:"listening-to-events",title:"Listening to chat events",file:"getting-data/chat/listening-to-events.md"}]},{name:"eventsub",title:"EventSub",articles:[{name:"listener-setup",title:"Setting up an EventSub listener",file:"getting-data/eventsub/listener-setup.md"},{name:"reverse-proxy",title:"Serving through a reverse proxy",file:"getting-data/eventsub/reverse-proxy.md"},{name:"ngrok",title:"Testing locally using ngrok",file:"getting-data/eventsub/ngrok.md"},{name:"express",title:"Using with an Express app",file:"getting-data/eventsub/express.md"}]},{name:"logging",title:"Logging",articles:[{name:"configuration",title:"Log level configuration",file:"getting-data/logging/configuration.md"},{name:"custom",title:"Custom logger",file:"getting-data/logging/custom.md"}]}]},{name:"examples",title:"Examples",indexTitle:"Examples",indexFile:"examples/index.md",groups:[{name:"chat",title:"Chat",articles:[{name:"basic-bot",title:"Basic bot",file:"examples/chat/basic-bot.md"},{name:"sub-gift-spam",title:"Preventing sub gift spam",file:"examples/chat/sub-gift-spam.md"}]}]},{name:"faq",title:"FAQ",indexTitle:"Frequently asked questions (FAQ)",indexFile:"faq/index.md"},{name:"migration",title:"Migration",indexTitle:"Migration from v7 to v8",indexFile:"migration/v7-to-v8.md",groups:[{name:"previous-versions",title:"Previous versions",articles:[{name:"v6-to-v7",title:"Migration from v6 to v7",file:"migration/v6-to-v7.md"},{name:"v5-to-v6",title:"Migration from v5 to v6",file:"migration/v5-to-v6.md"},{name:"twitchjs-to-v5",title:"Migration from Twitch.js to v5",file:"migration/twitchjs-to-v5.md"}]}]}],referenceConfig:{api:{categories:[{name:"main",title:"Main classes"},{name:"helix",title:"Helix APIs"},{name:"misc",title:"Misc. APIs"}]},"easy-bot":{categories:[{name:"main",title:"Core functionality"},{name:"events",title:"Events"}]},"eventsub-http":{categories:[{name:"main",title:"Main classes"},{name:"adapters",title:"Adapters"}]},"eventsub-ws":{categories:[{name:"main",title:"Main classes"}]}},shouldEnhance:!0}),gYe=null;if(typeof window<"u"){const u=window;u.__paths={projectBase:"/home/runner/work/twurple/twurple",rootUrl:""},u.__mockFs=gYe}function vYe(u,_){iu.useEffect(()=>{u()},_)}const yYe=Rxe(u=>({entry:{borderRight:`1px solid ${u.colors.border}`,padding:u.spacing.unit,cursor:"pointer",userSelect:"none",textDecoration:"none",color:u.colors.text,transition:"background-color .3s ease-in-out, border-color .3s ease-in-out",borderBottom:"3px solid transparent",lineHeight:"1.3em","&:hover":{backgroundColor:u.colors.background.hover}},wrapper:{position:"relative"},warning:{color:u.colors.warning},activator:{borderRight:"0 none",borderLeft:`1px solid ${u.colors.border}`},menu:{position:"absolute",right:0,top:"100%",zIndex:4,backgroundColor:u.colors.background.default,border:`1px solid ${u.colors.border}`},menuEntry:{display:"block",borderRight:"0 none",borderTop:`1px solid ${u.colors.border}`,"&:first-child":{borderTop:"0 none"}}}),{name:"VersionMenu"}),bYe=()=>{var Fn;const u=yYe(),_=iu.useContext(_Ye),E=iu.useMemo(()=>_.version,[_]),[R,w]=iu.useState(_.__devManifest),[$,oe]=iu.useState(!1);vYe(async()=>{!R&&_.versionBranchPrefix&&(oe(!0),w(await fetch(`${hYe}/manifest.json`).then(async Qe=>await Qe.json())),oe(!1))},[R,$,_]);const[ve,Fe]=iu.useState(!1),an=iu.useCallback(()=>Fe(Qe=>!Qe),[]);return(Fn=R==null?void 0:R.versions)!=null&&Fn.filter(Qe=>Qe!==R.defaultVersion).length?h9("div",{className:u.wrapper,children:[C_("div",{className:$se(u.entry,u.activator),onClick:an,children:E}),ve&&h9("div",{className:u.menu,children:[C_("a",{className:$se(u.entry,u.menuEntry),href:`${R.rootUrl}/`,children:R.defaultVersion},R.defaultVersion),R.versions.filter(Qe=>Qe!==R.defaultVersion).map(Qe=>C_("a",{className:$se(u.entry,u.menuEntry),href:`${R.rootUrl}/${_.versionFolder}/${Qe}/`,children:Qe},Qe))]})]}):null},EYe={colors:{background:{default:"#141414",hover:"#333333",active:"#242424"},text:"#b9b9b9",link:"#949494",warning:"#ab9120",border:"#444",accent:{default:"#647d0f",focus:"#88ab14"},badges:{async:"#cccc70",deprecated:"#cc7070",beta:"#ab9120"}},fonts:{default:'"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',code:'Monaco, Menlo, "Lucida Console", monospace'},spacing:{unit:8}},SYe={CodeBlock:fYe,VersionMenu:bYe},TYe=JIe({productionPrefix:"dyn"});for(const u of document.querySelectorAll("[data-dynamic-component]")){const _=SYe[u.dataset.dynamicComponent];if(_){const E=JSON.parse(u.dataset.componentProps??"{}");qKe.render(C_(zqe,{generateClassName:TYe,children:C_(Xje,{theme:EYe,children:C_(_,{...E})})}),u)}}});
