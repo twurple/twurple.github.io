@@ -54086,18 +54086,48 @@ interface HelixClipFilter {
  */
 interface HelixPaginatedClipFilter extends HelixClipFilter, HelixPagination {
 }
-/**
- * Parameters for creating a clip.
- */
-interface HelixClipCreateParams {
+/** @private */
+interface HelixBaseClipCreateParams {
     /**
      * The broadcaster of which you want to create a clip.
      */
     channel: UserIdResolvable;
     /**
+     * The title of the clip. If not given, the title of the clip will be the same as the title of the stream.
+     */
+    title?: string;
+    /**
+     * The duration of the clip, in seconds. The valid range is 5-60, with a precision of 0.1.
+     *
+     * If not given, the duration of the clip will be 30 seconds.
+     */
+    duration?: number;
+}
+/**
+ * Parameters for creating a clip from a live stream.
+ *
+ * @inheritDoc
+ */
+interface HelixClipCreateParams extends HelixBaseClipCreateParams {
+    /**
      * Add a delay before the clip creation that accounts for the usual delay in the viewing experience.
      */
     createAfterDelay?: boolean;
+}
+/**
+ * Parameters for creating a clip from a VOD.
+ *
+ * @inheritDoc
+ */
+interface HelixClipCreateFromVodParams extends HelixBaseClipCreateParams {
+    /**
+     * The ID of the VOD to create a clip from.
+     */
+    vodId: string;
+    /**
+     * The offset of the VOD to **end** the clip on. Must be higher than \`duration\`.
+     */
+    vodOffset: number;
 }
 
 type HelixVideoViewableStatus = 'public' | 'private';
@@ -54411,6 +54441,15 @@ declare class HelixClipApi extends BaseApi {
      * @expandParams
      */
     createClip(params: HelixClipCreateParams): Promise<string>;
+    /**
+     * Creates a clip of a VOD.
+     *
+     * Returns the ID of the clip.
+     *
+     * @param params
+     * @expandParams
+     */
+    createClipFromVod(params: HelixClipCreateFromVodParams): Promise<string>;
     private _getClips;
     private _getClipsPaginated;
 }
