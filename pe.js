@@ -54117,6 +54117,7 @@ interface HelixClipCreateParams extends HelixBaseClipCreateParams {
 /**
  * Parameters for creating a clip from a VOD.
  *
+ * @beta
  * @inheritDoc
  */
 interface HelixClipCreateFromVodParams extends HelixBaseClipCreateParams {
@@ -54448,6 +54449,7 @@ declare class HelixClipApi extends BaseApi {
      *
      * @param params
      * @expandParams
+     * @beta
      */
     createClipFromVod(params: HelixClipCreateFromVodParams): Promise<string>;
     private _getClips;
@@ -73133,7 +73135,6 @@ interface EventSubWsConfig extends EventSubBaseConfig {
 /**
  * A WebSocket listener for the Twitch EventSub event distribution mechanism.
  *
- * @beta
  * @hideProtected
  * @inheritDoc
  *
