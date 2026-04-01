@@ -75594,7 +75594,7 @@ declare class StreamNotLiveError extends CustomError {
     constructor(options?: ErrorOptions);
 }
 
-export { ApiClient, ApiConfig, ApiReportedRequest, BaseApi, BaseApiClient, ChatMessageDroppedError, CheermoteDisplayInfo, ConfigError, HelixAdSchedule, HelixBan, HelixBanFilter, HelixBanUser, HelixBanUserRequest, HelixBaseExtension, HelixBitsApi, HelixBitsLeaderboard, HelixBitsLeaderboardEntry, HelixBitsLeaderboardPeriod, HelixBitsLeaderboardQuery, HelixBlockedTerm, HelixBroadcasterType, HelixChannel, HelixChannelApi, HelixChannelEditor, HelixChannelEmote, HelixChannelEmoteSubscriptionTier, HelixChannelFollower, HelixChannelPointsApi, HelixChannelReference, HelixChannelSearchFilter, HelixChannelSearchResult, HelixChannelUpdate, HelixCharityApi, HelixCharityCampaign, HelixCharityCampaignAmount, HelixCharityCampaignDonation, HelixChatAnnouncementColor, HelixChatApi, HelixChatBadgeScale, HelixChatBadgeSet, HelixChatBadgeVersion, HelixChatChatter, HelixChatSettings, HelixChatUserColor, HelixCheermoteList, HelixClip, HelixClipApi, HelixClipCreateParams, HelixClipFilter, HelixContentClassificationLabel, HelixContentClassificationLabelApi, HelixCreateCustomRewardData, HelixCreatePollData, HelixCreatePredictionData, HelixCreateScheduleSegmentData, HelixCustomReward, HelixCustomRewardRedemption, HelixCustomRewardRedemptionFilter, HelixCustomRewardRedemptionStatus, HelixCustomRewardRedemptionTargetStatus, HelixDropsEntitlement, HelixDropsEntitlementFilter, HelixDropsEntitlementFulfillmentStatus, HelixDropsEntitlementPaginatedFilter, HelixDropsEntitlementUpdateStatus, HelixEmote, HelixEmoteFormat, HelixEmoteFromSet, HelixEmoteImageScale, HelixEmoteScale, HelixEmoteThemeMode, HelixEntitlementApi, HelixEventSubApi, HelixEventSubConduit, HelixEventSubConduitShard, HelixEventSubConduitShardsOptions, HelixEventSubConduitShardsTransportOptions, HelixEventSubConduitTransportOptions, HelixEventSubDropEntitlementGrantFilter, HelixEventSubSubscription, HelixEventSubSubscriptionStatus, HelixEventSubTransportData, HelixEventSubTransportOptions, HelixEventSubWebHookTransportOptions, HelixEventSubWebSocketTransportOptions, HelixExtensionBitsProduct, HelixExtensionBitsProductUpdatePayload, HelixExtensionSlotType, HelixExtensionTransaction, HelixExtensionTransactionsFilter, HelixExtensionTransactionsPaginatedFilter, HelixExtensionsApi, HelixFollow, HelixFollowedChannel, HelixForwardPagination, HelixGame, HelixGameApi, HelixGoal, HelixGoalApi, HelixGoalType, HelixHypeTrain, HelixHypeTrainAllTimeHigh, HelixHypeTrainApi, HelixHypeTrainContribution, HelixHypeTrainContributionType, HelixHypeTrainSharedParticipant, HelixHypeTrainStatus, HelixHypeTrainType, HelixInstalledExtension, HelixInstalledExtensionList, HelixModeratedChannel, HelixModerationApi, HelixModerator, HelixModeratorFilter, HelixPaginatedChannelSearchFilter, HelixPaginatedClipFilter, HelixPaginatedCustomRewardRedemptionFilter, HelixPaginatedEventSubSubscriptionsRequest, HelixPaginatedEventSubSubscriptionsResult, HelixPaginatedRequest, HelixPaginatedRequestWithTotal, HelixPaginatedResult, HelixPaginatedResultWithTotal, HelixPaginatedScheduleFilter, HelixPaginatedScheduleSegmentRequest, HelixPaginatedStreamFilter, HelixPaginatedSubscriptionsRequest, HelixPaginatedSubscriptionsResult, HelixPaginatedVideoFilter, HelixPagination, HelixPoll, HelixPollApi, HelixPollChoice, HelixPollStatus, HelixPrediction, HelixPredictionApi, HelixPredictionOutcome, HelixPredictionOutcomeColor, HelixPredictionStatus, HelixPredictor, HelixPrivilegedChatSettings, HelixPrivilegedUser, HelixRaid, HelixRaidApi, HelixSchedule, HelixScheduleApi, HelixScheduleFilter, HelixScheduleSegment, HelixScheduleSettingsUpdate, HelixSearchApi, HelixSendChatAnnouncementParams, HelixSendChatMessageAsAppParams, HelixSendChatMessageParams, HelixSentChatMessage, HelixSharedChatSession, HelixSharedChatSessionParticipant, HelixShieldModeStatus, HelixStream, HelixStreamApi, HelixStreamFilter, HelixStreamMarker, HelixStreamMarkerWithVideo, HelixStreamType, HelixSubscription, HelixSubscriptionApi, HelixTeam, HelixTeamApi, HelixTeamWithUsers, HelixUnbanRequest, HelixUnbanRequestStatus, HelixUpdateChatSettingsParams, HelixUpdateCustomRewardData, HelixUpdateScheduleSegmentData, HelixUser, HelixUserApi, HelixUserBlock, HelixUserBlockAdditionalInfo, HelixUserEmote, HelixUserEmotesFilter, HelixUserExtension, HelixUserExtensionUpdatePayload, HelixUserExtensionUpdatePayloadActiveSlot, HelixUserExtensionUpdatePayloadInactiveSlot, HelixUserExtensionUpdatePayloadSlot, HelixUserRelation, HelixUserSubscription, HelixUserUpdate, HelixVideo, HelixVideoApi, HelixVideoFilter, HelixVideoType, HelixWarning, HelixWhisperApi, StreamNotLiveError };
+export { ApiClient, ApiConfig, ApiReportedRequest, BaseApi, BaseApiClient, ChatMessageDroppedError, CheermoteDisplayInfo, ConfigError, HelixAdSchedule, HelixBan, HelixBanFilter, HelixBanUser, HelixBanUserRequest, HelixBaseExtension, HelixBitsApi, HelixBitsLeaderboard, HelixBitsLeaderboardEntry, HelixBitsLeaderboardPeriod, HelixBitsLeaderboardQuery, HelixBlockedTerm, HelixBroadcasterType, HelixChannel, HelixChannelApi, HelixChannelEditor, HelixChannelEmote, HelixChannelEmoteSubscriptionTier, HelixChannelFollower, HelixChannelPointsApi, HelixChannelReference, HelixChannelSearchFilter, HelixChannelSearchResult, HelixChannelUpdate, HelixCharityApi, HelixCharityCampaign, HelixCharityCampaignAmount, HelixCharityCampaignDonation, HelixChatAnnouncementColor, HelixChatApi, HelixChatBadgeScale, HelixChatBadgeSet, HelixChatBadgeVersion, HelixChatChatter, HelixChatSettings, HelixChatUserColor, HelixCheermoteList, HelixClip, HelixClipApi, HelixClipCreateParams, HelixClipFilter, HelixContentClassificationLabel, HelixContentClassificationLabelApi, HelixCreateCustomRewardData, HelixCreatePollData, HelixCreatePredictionData, HelixCreateScheduleSegmentData, HelixCustomReward, HelixCustomRewardRedemption, HelixCustomRewardRedemptionFilter, HelixCustomRewardRedemptionStatus, HelixCustomRewardRedemptionTargetStatus, HelixDropsEntitlement, HelixDropsEntitlementFilter, HelixDropsEntitlementFulfillmentStatus, HelixDropsEntitlementPaginatedFilter, HelixDropsEntitlementUpdateStatus, HelixEmote, HelixEmoteFormat, HelixEmoteFromSet, HelixEmoteImageScale, HelixEmoteScale, HelixEmoteThemeMode, HelixEntitlementApi, HelixEventSubApi, HelixEventSubConduit, HelixEventSubConduitShard, HelixEventSubConduitShardsOptions, HelixEventSubConduitShardsTransportOptions, HelixEventSubConduitTransportOptions, HelixEventSubDropEntitlementGrantFilter, HelixEventSubSubscription, HelixEventSubSubscriptionData, HelixEventSubSubscriptionStatus, HelixEventSubTransportData, HelixEventSubTransportOptions, HelixEventSubWebHookTransportOptions, HelixEventSubWebSocketTransportOptions, HelixExtensionBitsProduct, HelixExtensionBitsProductUpdatePayload, HelixExtensionSlotType, HelixExtensionTransaction, HelixExtensionTransactionsFilter, HelixExtensionTransactionsPaginatedFilter, HelixExtensionsApi, HelixFollow, HelixFollowedChannel, HelixForwardPagination, HelixGame, HelixGameApi, HelixGoal, HelixGoalApi, HelixGoalType, HelixHypeTrain, HelixHypeTrainAllTimeHigh, HelixHypeTrainApi, HelixHypeTrainContribution, HelixHypeTrainContributionType, HelixHypeTrainSharedParticipant, HelixHypeTrainStatus, HelixHypeTrainType, HelixInstalledExtension, HelixInstalledExtensionList, HelixModeratedChannel, HelixModerationApi, HelixModerator, HelixModeratorFilter, HelixPaginatedChannelSearchFilter, HelixPaginatedClipFilter, HelixPaginatedCustomRewardRedemptionFilter, HelixPaginatedEventSubSubscriptionsRequest, HelixPaginatedEventSubSubscriptionsResult, HelixPaginatedRequest, HelixPaginatedRequestWithTotal, HelixPaginatedResult, HelixPaginatedResultWithTotal, HelixPaginatedScheduleFilter, HelixPaginatedScheduleSegmentRequest, HelixPaginatedStreamFilter, HelixPaginatedSubscriptionsRequest, HelixPaginatedSubscriptionsResult, HelixPaginatedVideoFilter, HelixPagination, HelixPoll, HelixPollApi, HelixPollChoice, HelixPollStatus, HelixPrediction, HelixPredictionApi, HelixPredictionOutcome, HelixPredictionOutcomeColor, HelixPredictionStatus, HelixPredictor, HelixPrivilegedChatSettings, HelixPrivilegedUser, HelixRaid, HelixRaidApi, HelixSchedule, HelixScheduleApi, HelixScheduleFilter, HelixScheduleSegment, HelixScheduleSettingsUpdate, HelixSearchApi, HelixSendChatAnnouncementParams, HelixSendChatMessageAsAppParams, HelixSendChatMessageParams, HelixSentChatMessage, HelixSharedChatSession, HelixSharedChatSessionParticipant, HelixShieldModeStatus, HelixStream, HelixStreamApi, HelixStreamFilter, HelixStreamMarker, HelixStreamMarkerWithVideo, HelixStreamType, HelixSubscription, HelixSubscriptionApi, HelixTeam, HelixTeamApi, HelixTeamWithUsers, HelixUnbanRequest, HelixUnbanRequestStatus, HelixUpdateChatSettingsParams, HelixUpdateCustomRewardData, HelixUpdateScheduleSegmentData, HelixUser, HelixUserApi, HelixUserBlock, HelixUserBlockAdditionalInfo, HelixUserEmote, HelixUserEmotesFilter, HelixUserExtension, HelixUserExtensionUpdatePayload, HelixUserExtensionUpdatePayloadActiveSlot, HelixUserExtensionUpdatePayloadInactiveSlot, HelixUserExtensionUpdatePayloadSlot, HelixUserRelation, HelixUserSubscription, HelixUserUpdate, HelixVideo, HelixVideoApi, HelixVideoFilter, HelixVideoType, HelixWarning, HelixWhisperApi, StreamNotLiveError };
 `],["/node_modules/@types/twurple__api-call/index.d.ts",`import { UserIdResolvable, CustomError } from '@twurple/common';
 
 /**
@@ -80534,8 +80534,8 @@ declare function sendExtensionPubSubWhisperMessage(config: EbsCallConfig, broadc
 export { EbsCallConfig, ExternalJwtConfig, createExtensionSecret, createExternalJwt, getExtension, getExtensionBroadcasterConfiguration, getExtensionDeveloperConfiguration, getExtensionGlobalConfiguration, getExtensionSecrets, sendExtensionChatMessage, sendExtensionPubSubBroadcastMessage, sendExtensionPubSubGlobalMessage, sendExtensionPubSubWhisperMessage, setExtensionBroadcasterConfiguration, setExtensionDeveloperConfiguration, setExtensionGlobalConfiguration, setExtensionRequiredConfiguration };
 `],["/node_modules/@types/twurple__eventsub-base/index.d.ts",`import * as _d_fischer_typed_event_emitter from '@d-fischer/typed-event-emitter';
 import { EventEmitter } from '@d-fischer/typed-event-emitter';
-import { LoggerOptions, Logger } from '@d-fischer/logger';
-import { HelixUser, ApiClient, HelixCustomReward, HelixCustomRewardRedemptionTargetStatus, HelixCustomRewardRedemption, HelixGame, HelixStream, HelixEventSubSubscription, HelixEventSubTransportOptions, HelixEventSubSubscriptionStatus, UserIdResolvable, HelixEventSubDropEntitlementGrantFilter, HelixEventSubTransportData } from '@twurple/api';
+import { Logger, LoggerOptions } from '@d-fischer/logger';
+import { HelixUser, HelixCustomReward, HelixCustomRewardRedemptionTargetStatus, HelixCustomRewardRedemption, HelixGame, HelixStream, HelixEventSubSubscription, HelixEventSubTransportOptions, HelixEventSubSubscriptionStatus, HelixEventSubSubscriptionData, UserIdResolvable, HelixEventSubDropEntitlementGrantFilter, ApiClient, HelixEventSubTransportData } from '@twurple/api';
 import { DataObject, UserIdResolvable as UserIdResolvable$1 } from '@twurple/common';
 
 /** @private */
@@ -81398,6 +81398,197 @@ declare class EventSubAutoModMessageHoldEvent extends DataObject<EventSubAutoMod
     get holdDate(): Date;
 }
 
+/** @private */
+interface EventSubAutoModMessageAutoModBoundaryData {
+    start_pos: number;
+    end_pos: number;
+}
+
+/** @private */
+interface EventSubAutoModMessageAutoModData {
+    category: string;
+    level: EventSubAutoModLevel;
+    boundaries: EventSubAutoModMessageAutoModBoundaryData[];
+}
+
+/**
+ * The bounds of the text that caused the message to be caught.
+ */
+declare class EventSubAutoModMessageAutoModBoundary extends DataObject<EventSubAutoModMessageAutoModBoundaryData> {
+    private readonly _messageText;
+    /**
+     * The start index (inclusive) of the problematic text in the message.
+     */
+    get start(): number;
+    /**
+     * The end index (inclusive) of the problematic text in the message.
+     */
+    get end(): number;
+    /**
+     * The problematic text that caused message to be caught.
+     */
+    get text(): string;
+}
+
+/**
+ * An object representing an AutoMod violation data if the massage caught by AutoMod.
+ */
+declare class EventSubAutoModMessageAutoMod extends DataObject<EventSubAutoModMessageAutoModData> {
+    private readonly _messageText;
+    /**
+     * The category of the caught message.
+     */
+    get category(): string;
+    /**
+     * The level of severity.
+     */
+    get level(): EventSubAutoModLevel;
+    /**
+     * The bounds of the text that caused the message to be caught.
+     */
+    get boundaries(): EventSubAutoModMessageAutoModBoundary[];
+}
+
+/** @private */
+interface EventSubAutoModMessageBlockedTermData {
+    terms_found: EventSubAutoModMessageFoundBlockedTermData[];
+}
+/** @private */
+interface EventSubAutoModMessageFoundBlockedTermData {
+    term_id: string;
+    owner_broadcaster_user_id: string;
+    owner_broadcaster_user_login: string;
+    owner_broadcaster_user_name: string;
+    boundary: EventSubAutoModMessageAutoModBoundaryData;
+}
+
+/**
+ * An object representing an AutoMod blocked term that caused the message to be caught.
+ */
+declare class EventSubAutoModMessageBlockedTerm extends DataObject<EventSubAutoModMessageFoundBlockedTermData> {
+    private readonly _messageText;
+    /**
+     * The ID of the blocked term.
+     */
+    get id(): string;
+    /**
+     * The start index (inclusive) of the blocked term in the message.
+     */
+    get start(): number;
+    /**
+     * The end index (inclusive) of the blocked term in the message.
+     */
+    get end(): number;
+    /**
+     * The text of the blocked term.
+     */
+    get text(): string;
+    /**
+     * The ID of the broadcaster that owns the blocked term.
+     */
+    get ownerBroadcasterId(): string;
+    /**
+     * The name of the broadcaster that owns the blocked term.
+     */
+    get ownerBroadcasterName(): string;
+    /**
+     * The display name of the broadcaster that owns the blocked term.
+     */
+    get ownerBroadcasterDisplayName(): string;
+}
+
+/**
+ * The reason why the message was caught.
+ */
+type EventSubAutoModMessageHoldReason = 'automod' | 'blocked_term';
+
+/** @private */
+interface EventSubAutoModMessageHoldV2EventData {
+    broadcaster_user_id: string;
+    broadcaster_user_login: string;
+    broadcaster_user_name: string;
+    user_id: string;
+    user_login: string;
+    user_name: string;
+    message_id: string;
+    message: EventSubAutoModMessageData;
+    reason: EventSubAutoModMessageHoldReason;
+    automod: EventSubAutoModMessageAutoModData | null;
+    blocked_term: EventSubAutoModMessageBlockedTermData | null;
+    held_at: string;
+}
+
+/**
+ * An EventSub event representing chat message being held by AutoMod in a channel.
+ */
+declare class EventSubAutoModMessageHoldV2Event extends DataObject<EventSubAutoModMessageHoldV2EventData> {
+    /**
+     * The ID of the broadcaster in whose channel the message has been held by AutoMod.
+     */
+    get broadcasterId(): string;
+    /**
+     * The name of the broadcaster in whose channel the message has been held by AutoMod.
+     */
+    get broadcasterName(): string;
+    /**
+     * The display name of the broadcaster in whose channel the message has been held by AutoMod.
+     */
+    get broadcasterDisplayName(): string;
+    /**
+     * Gets more information about the broadcaster.
+     */
+    getBroadcaster(): Promise<HelixUser>;
+    /**
+     * The ID of the user whose message has been held by AutoMod.
+     */
+    get userId(): string;
+    /**
+     * The name of the user whose message has been held by AutoMod.
+     */
+    get userName(): string;
+    /**
+     * The display name of the user whose message has been held by AutoMod.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the user.
+     */
+    getUser(): Promise<HelixUser>;
+    /**
+     * The ID of the chat message held by AutoMod.
+     */
+    get messageId(): string;
+    /**
+     * The plain text of the message.
+     */
+    get messageText(): string;
+    /**
+     * The pre-parsed message parts.
+     */
+    get messageParts(): EventSubAutoModMessagePart[];
+    /**
+     * The reason why the message was caught.
+     */
+    get reason(): EventSubAutoModMessageHoldReason;
+    /**
+     * The AutoMod violation data if the message was caught by AutoMod.
+     *
+     * This is only relevant if {@link EventSubAutoModMessageHoldEvent#reason} is \`automod\`, otherwise it is \`null\`.
+     */
+    get autoMod(): EventSubAutoModMessageAutoMod | null;
+    /**
+     * The list of blocked terms caused the message to be caught.
+     *
+     * This is only relevant if {@link EventSubAutoModMessageHoldEvent#reason} is \`blocked_term\`, otherwise it is
+     * \`null\`.
+     */
+    get blockedTerms(): EventSubAutoModMessageBlockedTerm[] | null;
+    /**
+     * The date of when AutoMod held the message.
+     */
+    get holdDate(): Date;
+}
+
 /**
  * The status of the resolved AutoMod message.
  */
@@ -81498,197 +81689,6 @@ declare class EventSubAutoModMessageUpdateEvent extends DataObject<EventSubAutoM
      * The status of the resolved message.
      */
     get status(): EventSubAutoModResolutionStatus;
-    /**
-     * The date of when AutoMod held the message.
-     */
-    get holdDate(): Date;
-}
-
-/**
- * The reason why the message was caught.
- */
-type EventSubAutoModMessageHoldReason = 'automod' | 'blocked_term';
-
-/** @private */
-interface EventSubAutoModMessageAutoModBoundaryData {
-    start_pos: number;
-    end_pos: number;
-}
-
-/** @private */
-interface EventSubAutoModMessageAutoModData {
-    category: string;
-    level: EventSubAutoModLevel;
-    boundaries: EventSubAutoModMessageAutoModBoundaryData[];
-}
-
-/**
- * The bounds of the text that caused the message to be caught.
- */
-declare class EventSubAutoModMessageAutoModBoundary extends DataObject<EventSubAutoModMessageAutoModBoundaryData> {
-    private readonly _messageText;
-    /**
-     * The start index (inclusive) of the problematic text in the message.
-     */
-    get start(): number;
-    /**
-     * The end index (inclusive) of the problematic text in the message.
-     */
-    get end(): number;
-    /**
-     * The problematic text that caused message to be caught.
-     */
-    get text(): string;
-}
-
-/**
- * An object representing an AutoMod violation data if the massage caught by AutoMod.
- */
-declare class EventSubAutoModMessageAutoMod extends DataObject<EventSubAutoModMessageAutoModData> {
-    private readonly _messageText;
-    /**
-     * The category of the caught message.
-     */
-    get category(): string;
-    /**
-     * The level of severity.
-     */
-    get level(): EventSubAutoModLevel;
-    /**
-     * The bounds of the text that caused the message to be caught.
-     */
-    get boundaries(): EventSubAutoModMessageAutoModBoundary[];
-}
-
-/** @private */
-interface EventSubAutoModMessageBlockedTermData {
-    terms_found: EventSubAutoModMessageFoundBlockedTermData[];
-}
-/** @private */
-interface EventSubAutoModMessageFoundBlockedTermData {
-    term_id: string;
-    owner_broadcaster_user_id: string;
-    owner_broadcaster_user_login: string;
-    owner_broadcaster_user_name: string;
-    boundary: EventSubAutoModMessageAutoModBoundaryData;
-}
-
-/**
- * An object representing an AutoMod blocked term that caused the message to be caught.
- */
-declare class EventSubAutoModMessageBlockedTerm extends DataObject<EventSubAutoModMessageFoundBlockedTermData> {
-    private readonly _messageText;
-    /**
-     * The ID of the blocked term.
-     */
-    get id(): string;
-    /**
-     * The start index (inclusive) of the blocked term in the message.
-     */
-    get start(): number;
-    /**
-     * The end index (inclusive) of the blocked term in the message.
-     */
-    get end(): number;
-    /**
-     * The text of the blocked term.
-     */
-    get text(): string;
-    /**
-     * The ID of the broadcaster that owns the blocked term.
-     */
-    get ownerBroadcasterId(): string;
-    /**
-     * The name of the broadcaster that owns the blocked term.
-     */
-    get ownerBroadcasterName(): string;
-    /**
-     * The display name of the broadcaster that owns the blocked term.
-     */
-    get ownerBroadcasterDisplayName(): string;
-}
-
-/** @private */
-interface EventSubAutoModMessageHoldV2EventData {
-    broadcaster_user_id: string;
-    broadcaster_user_login: string;
-    broadcaster_user_name: string;
-    user_id: string;
-    user_login: string;
-    user_name: string;
-    message_id: string;
-    message: EventSubAutoModMessageData;
-    reason: EventSubAutoModMessageHoldReason;
-    automod: EventSubAutoModMessageAutoModData | null;
-    blocked_term: EventSubAutoModMessageBlockedTermData | null;
-    held_at: string;
-}
-
-/**
- * An EventSub event representing chat message being held by AutoMod in a channel.
- */
-declare class EventSubAutoModMessageHoldV2Event extends DataObject<EventSubAutoModMessageHoldV2EventData> {
-    /**
-     * The ID of the broadcaster in whose channel the message has been held by AutoMod.
-     */
-    get broadcasterId(): string;
-    /**
-     * The name of the broadcaster in whose channel the message has been held by AutoMod.
-     */
-    get broadcasterName(): string;
-    /**
-     * The display name of the broadcaster in whose channel the message has been held by AutoMod.
-     */
-    get broadcasterDisplayName(): string;
-    /**
-     * Gets more information about the broadcaster.
-     */
-    getBroadcaster(): Promise<HelixUser>;
-    /**
-     * The ID of the user whose message has been held by AutoMod.
-     */
-    get userId(): string;
-    /**
-     * The name of the user whose message has been held by AutoMod.
-     */
-    get userName(): string;
-    /**
-     * The display name of the user whose message has been held by AutoMod.
-     */
-    get userDisplayName(): string;
-    /**
-     * Gets more information about the user.
-     */
-    getUser(): Promise<HelixUser>;
-    /**
-     * The ID of the chat message held by AutoMod.
-     */
-    get messageId(): string;
-    /**
-     * The plain text of the message.
-     */
-    get messageText(): string;
-    /**
-     * The pre-parsed message parts.
-     */
-    get messageParts(): EventSubAutoModMessagePart[];
-    /**
-     * The reason why the message was caught.
-     */
-    get reason(): EventSubAutoModMessageHoldReason;
-    /**
-     * The AutoMod violation data if the message was caught by AutoMod.
-     *
-     * This is only relevant if {@link EventSubAutoModMessageHoldEvent#reason} is \`automod\`, otherwise it is \`null\`.
-     */
-    get autoMod(): EventSubAutoModMessageAutoMod | null;
-    /**
-     * The list of blocked terms caused the message to be caught.
-     *
-     * This is only relevant if {@link EventSubAutoModMessageHoldEvent#reason} is \`blocked_term\`, otherwise it is
-     * \`null\`.
-     */
-    get blockedTerms(): EventSubAutoModMessageBlockedTerm[] | null;
     /**
      * The date of when AutoMod held the message.
      */
@@ -81957,135 +81957,6 @@ declare class EventSubAutoModTermsUpdateEvent extends DataObject<EventSubAutoMod
 }
 
 /** @private */
-interface EventSubChannelChatUserMessageHoldEventData {
-    broadcaster_user_id: string;
-    broadcaster_user_name: string;
-    broadcaster_user_login: string;
-    user_id: string;
-    user_name: string;
-    user_login: string;
-    message_id: string;
-    message: EventSubAutoModMessageData;
-}
-
-/**
- * An EventSub event representing a user's notification about their chat message is being held by AutoMod.
- */
-declare class EventSubChannelChatUserMessageHoldEvent extends DataObject<EventSubChannelChatUserMessageHoldEventData> {
-    /**
-     * The ID of the broadcaster in whose chat AutoMod held the message.
-     */
-    get broadcasterId(): string;
-    /**
-     * The name of the broadcaster in whose chat AutoMod held the message.
-     */
-    get broadcasterName(): string;
-    /**
-     * The display name of the broadcaster in whose chat AutoMod held the message.
-     */
-    get broadcasterDisplayName(): string;
-    /**
-     * Gets more information about the broadcaster.
-     */
-    getBroadcaster(): Promise<HelixUser>;
-    /**
-     * The ID of the user whose message is being held by AutoMod.
-     */
-    get userId(): string;
-    /**
-     * The name of the user whose message is being held by AutoMod.
-     */
-    get userName(): string;
-    /**
-     * The display name of the user whose message is being held by AutoMod.
-     */
-    get userDisplayName(): string;
-    /**
-     * Gets more information about the user.
-     */
-    getUser(): Promise<HelixUser>;
-    /**
-     * The ID of the message held by AutoMod.
-     */
-    get messageId(): string;
-    /**
-     * The plain text of the message.
-     */
-    get messageText(): string;
-    /**
-     * The pre-parsed message parts.
-     */
-    get messageParts(): EventSubAutoModMessagePart[];
-}
-
-/** @private */
-interface EventSubChannelChatUserMessageUpdateEventData {
-    broadcaster_user_id: string;
-    broadcaster_user_login: string;
-    broadcaster_user_name: string;
-    user_id: string;
-    user_login: string;
-    user_name: string;
-    message_id: string;
-    message: EventSubAutoModMessageData;
-    status: EventSubAutoModResolutionStatus;
-}
-
-/**
- * An EventSub event representing a user's notification about the resolution of their held chat message by AutoMod.
- */
-declare class EventSubChannelChatUserMessageUpdateEvent extends DataObject<EventSubChannelChatUserMessageUpdateEventData> {
-    /**
-     * The ID of the broadcaster in whose chat the held message was resolved.
-     */
-    get broadcasterId(): string;
-    /**
-     * The name of the broadcaster in whose chat the held message was resolved.
-     */
-    get broadcasterName(): string;
-    /**
-     * The display name of the broadcaster in whose chat the held message was resolved.
-     */
-    get broadcasterDisplayName(): string;
-    /**
-     * Gets more information about the broadcaster.
-     */
-    getBroadcaster(): Promise<HelixUser>;
-    /**
-     * The ID of the user whose message is being held by AutoMod.
-     */
-    get userId(): string;
-    /**
-     * The name of the user whose message is being held by AutoMod.
-     */
-    get userName(): string;
-    /**
-     * The display name of the user whose message is being held by AutoMod.
-     */
-    get userDisplayName(): string;
-    /**
-     * Gets more information about the user.
-     */
-    getUser(): Promise<HelixUser>;
-    /**
-     * The ID of the message held by AutoMod.
-     */
-    get messageId(): string;
-    /**
-     * The plain text of the message.
-     */
-    get messageText(): string;
-    /**
-     * The pre-parsed message parts.
-     */
-    get messageParts(): EventSubAutoModMessagePart[];
-    /**
-     * The status of the resolved message.
-     */
-    get status(): EventSubAutoModResolutionStatus;
-}
-
-/** @private */
 interface EventSubChannelAdBreakBeginEventData {
     broadcaster_user_id: string;
     broadcaster_user_login: string;
@@ -82146,6 +82017,249 @@ declare class EventSubChannelAdBreakBeginEvent extends DataObject<EventSubChanne
      * Indicates if the ad was automatically scheduled via Ads Manager.
      */
     get isAutomatic(): boolean;
+}
+
+/**
+ * The type of the reward.
+ */
+type EventSubAutomaticRewardType = 'single_message_bypass_sub_mode' | 'send_highlighted_message' | 'random_sub_emote_unlock' | 'chosen_sub_emote_unlock' | 'chosen_modified_sub_emote_unlock' | 'message_effect' | 'gigantify_an_emote' | 'celebration';
+/** @private */
+interface EventSubAutomaticRewardRedemptionRewardUnlockedEmoteData {
+    id: string;
+    name: string;
+}
+/** @private */
+interface EventSubAutomaticRewardRedemptionRewardData {
+    type: EventSubAutomaticRewardType;
+    cost: number;
+    unlocked_emote: null;
+}
+/** @private */
+interface EventSubAutomaticRewardRedemptionMessageEmoteData {
+    id: string;
+    begin: number;
+    end: number;
+}
+/** @private */
+interface EventSubAutomaticRewardRedemptionMessageData {
+    text: string;
+    emotes: EventSubAutomaticRewardRedemptionMessageEmoteData[];
+}
+/** @private */
+interface EventSubChannelAutomaticRewardRedemptionAddEventData {
+    broadcaster_user_id: string;
+    broadcaster_user_name: string;
+    broadcaster_user_login: string;
+    user_id: string;
+    user_name: string;
+    user_login: string;
+    id: string;
+    reward: EventSubAutomaticRewardRedemptionRewardData;
+    message: EventSubAutomaticRewardRedemptionMessageData | null;
+    user_input: string;
+    redeemed_at: string;
+}
+
+/**
+ * An EventSub event representing an automatic reward being redeemed by a user in a channel.
+ */
+declare class EventSubChannelAutomaticRewardRedemptionAddEvent extends DataObject<EventSubChannelAutomaticRewardRedemptionAddEventData> {
+    /**
+     * The ID of the redemption.
+     */
+    get id(): string;
+    /**
+     * The ID of the broadcaster in whose channel the reward was redeemed.
+     */
+    get broadcasterId(): string;
+    /**
+     * The name of the broadcaster in whose channel the reward was redeemed.
+     */
+    get broadcasterName(): string;
+    /**
+     * The display name of the broadcaster in whose channel the reward was redeemed.
+     */
+    get broadcasterDisplayName(): string;
+    /**
+     * Gets more information about the broadcaster.
+     */
+    getBroadcaster(): Promise<HelixUser>;
+    /**
+     * The ID of the redeeming user.
+     */
+    get userId(): string;
+    /**
+     * The name of the redeeming user.
+     */
+    get userName(): string;
+    /**
+     * The display name of the redeeming user.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the redeeming user.
+     */
+    getUser(): Promise<HelixUser>;
+    /**
+     * The type of the reward.
+     */
+    get rewardType(): EventSubAutomaticRewardType;
+    /**
+     * The cost of the reward.
+     */
+    get rewardCost(): number;
+    /**
+     * The emote that was unlocked by the corresponding rewards, or \`null\` if this field is not relevant.
+     */
+    get unlockedEmote(): EventSubAutomaticRewardRedemptionRewardUnlockedEmoteData | null;
+    /**
+     * The input text given by the user.
+     *
+     * If there is no input to be given, this is an empty string.
+     */
+    get input(): string | null;
+    /**
+     * The text of the message, or \`null\` if there is no message.
+     */
+    get messageText(): string | null;
+    /**
+     * The offsets of emote usages in the message, or \`null\` if there is no message.
+     */
+    get emoteOffsets(): Map<string, string[]> | null;
+    /**
+     * The date when the user redeemed the reward.
+     */
+    get redemptionDate(): Date | null;
+}
+
+/**
+ * The type of the reward.
+ */
+type EventSubChannelAutomaticRewardType = 'single_message_bypass_sub_mode' | 'send_highlighted_message' | 'random_sub_emote_unlock' | 'chosen_sub_emote_unlock' | 'chosen_modified_sub_emote_unlock';
+/**
+ * Emote associated with the reward.
+ */
+interface EventSubChannelAutomaticRewardEmoteData {
+    id: string;
+    name: string;
+}
+/** @private*/
+interface EventSubChannelAutomaticRewardData {
+    type: EventSubChannelAutomaticRewardType;
+    channel_points: number;
+    emote: EventSubChannelAutomaticRewardEmoteData | null;
+}
+
+/**
+ * An object that contains the reward information.
+ */
+declare class EventSubChannelAutomaticReward extends DataObject<EventSubChannelAutomaticRewardData> {
+    /**
+     * The type of reward.
+     */
+    get type(): EventSubChannelAutomaticRewardType;
+    /**
+     * Number of channel points used.
+     */
+    get channelPoints(): number;
+    /**
+     * Emote associated with the reward, or \`null\` if the reward is not related to emotes.
+     */
+    get emote(): EventSubChannelAutomaticRewardEmoteData | null;
+}
+
+/** @private */
+interface EventSubChatAutomaticRewardRedemptionMessageTextPart {
+    type: 'text';
+    text: string;
+}
+/** @private */
+interface EventSubChatAutomaticRewardRedemptionMessageEmoteData {
+    id: string;
+}
+/** @private */
+interface EventSubChatAutomaticRewardRedemptionMessageEmotePart {
+    type: 'emote';
+    text: string;
+    emote: EventSubChatAutomaticRewardRedemptionMessageEmoteData;
+}
+/** @private */
+type EventSubAutomaticRewardRedemptionMessagePart = EventSubChatAutomaticRewardRedemptionMessageTextPart | EventSubChatAutomaticRewardRedemptionMessageEmotePart;
+/** @private */
+interface EventSubChatAutomaticRewardRedemptionMessageData {
+    text: string;
+    fragments: EventSubAutomaticRewardRedemptionMessagePart[];
+}
+/** @private */
+interface EventSubChannelAutomaticRewardRedemptionAddV2EventData {
+    broadcaster_user_id: string;
+    broadcaster_user_name: string;
+    broadcaster_user_login: string;
+    user_id: string;
+    user_name: string;
+    user_login: string;
+    id: string;
+    reward: EventSubChannelAutomaticRewardData;
+    message: EventSubChatAutomaticRewardRedemptionMessageData | null;
+    redeemed_at: string;
+}
+
+/**
+ * An EventSub event representing an automatic reward being redeemed by a user in a channel.
+ */
+declare class EventSubChannelAutomaticRewardRedemptionAddV2Event extends DataObject<EventSubChannelAutomaticRewardRedemptionAddV2EventData> {
+    /**
+     * The ID of the redemption.
+     */
+    get id(): string;
+    /**
+     * The ID of the broadcaster in whose channel the reward was redeemed.
+     */
+    get broadcasterId(): string;
+    /**
+     * The name of the broadcaster in whose channel the reward was redeemed.
+     */
+    get broadcasterName(): string;
+    /**
+     * The display name of the broadcaster in whose channel the reward was redeemed.
+     */
+    get broadcasterDisplayName(): string;
+    /**
+     * Gets more information about the broadcaster.
+     */
+    getBroadcaster(): Promise<HelixUser>;
+    /**
+     * The ID of the redeeming user.
+     */
+    get userId(): string;
+    /**
+     * The name of the redeeming user.
+     */
+    get userName(): string;
+    /**
+     * The display name of the redeeming user.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the redeeming user.
+     */
+    getUser(): Promise<HelixUser>;
+    /**
+     * An object that contains the reward information.
+     */
+    get reward(): EventSubChannelAutomaticReward;
+    /**
+     * The text of the message, or \`null\` if there is no message.
+     */
+    get messageText(): string | null;
+    /**
+     * The pre-parsed message parts.
+     */
+    get messageParts(): EventSubAutomaticRewardRedemptionMessagePart[];
+    /**
+     * The date when the user redeemed the reward.
+     */
+    get redemptionDate(): Date | null;
 }
 
 /** @private */
@@ -82252,6 +82366,24 @@ interface EventSubChannelBitsUsePowerUpData {
 }
 
 /**
+ * Represents a bits usage Power-up.
+ */
+declare class EventSubChannelBitsUsePowerUp extends DataObject<EventSubChannelBitsUsePowerUpData> {
+    /**
+     * The type of the Power-up.
+     */
+    get type(): EventSubChannelBitsUsePowerUpType;
+    /**
+     * Emote associated with the reward.
+     */
+    get emote(): EventSubChannelBitsUsePowerUpEmoteData | null;
+    /**
+     * The ID of the message effect.
+     */
+    get messageEffectId(): string | null;
+}
+
+/**
  * The type of bits usage.
  */
 type EventSubChannelBitsUseType = 'cheer' | 'power_up' | 'combo';
@@ -82274,24 +82406,6 @@ interface EventSubChannelBitsUseEventData {
     type: EventSubChannelBitsUseType;
     power_up: EventSubChannelBitsUsePowerUpData | null;
     message: EventSubChannelBitsUseMessageData | null;
-}
-
-/**
- * Represents a bits usage Power-up.
- */
-declare class EventSubChannelBitsUsePowerUp extends DataObject<EventSubChannelBitsUsePowerUpData> {
-    /**
-     * The type of the Power-up.
-     */
-    get type(): EventSubChannelBitsUsePowerUpType;
-    /**
-     * Emote associated with the reward.
-     */
-    get emote(): EventSubChannelBitsUsePowerUpEmoteData | null;
-    /**
-     * The ID of the message effect.
-     */
-    get messageEffectId(): string | null;
 }
 
 /**
@@ -83064,6 +83178,135 @@ declare class EventSubChannelChatSettingsUpdateEvent extends DataObject<EventSub
 }
 
 /** @private */
+interface EventSubChannelChatUserMessageHoldEventData {
+    broadcaster_user_id: string;
+    broadcaster_user_name: string;
+    broadcaster_user_login: string;
+    user_id: string;
+    user_name: string;
+    user_login: string;
+    message_id: string;
+    message: EventSubAutoModMessageData;
+}
+
+/**
+ * An EventSub event representing a user's notification about their chat message is being held by AutoMod.
+ */
+declare class EventSubChannelChatUserMessageHoldEvent extends DataObject<EventSubChannelChatUserMessageHoldEventData> {
+    /**
+     * The ID of the broadcaster in whose chat AutoMod held the message.
+     */
+    get broadcasterId(): string;
+    /**
+     * The name of the broadcaster in whose chat AutoMod held the message.
+     */
+    get broadcasterName(): string;
+    /**
+     * The display name of the broadcaster in whose chat AutoMod held the message.
+     */
+    get broadcasterDisplayName(): string;
+    /**
+     * Gets more information about the broadcaster.
+     */
+    getBroadcaster(): Promise<HelixUser>;
+    /**
+     * The ID of the user whose message is being held by AutoMod.
+     */
+    get userId(): string;
+    /**
+     * The name of the user whose message is being held by AutoMod.
+     */
+    get userName(): string;
+    /**
+     * The display name of the user whose message is being held by AutoMod.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the user.
+     */
+    getUser(): Promise<HelixUser>;
+    /**
+     * The ID of the message held by AutoMod.
+     */
+    get messageId(): string;
+    /**
+     * The plain text of the message.
+     */
+    get messageText(): string;
+    /**
+     * The pre-parsed message parts.
+     */
+    get messageParts(): EventSubAutoModMessagePart[];
+}
+
+/** @private */
+interface EventSubChannelChatUserMessageUpdateEventData {
+    broadcaster_user_id: string;
+    broadcaster_user_login: string;
+    broadcaster_user_name: string;
+    user_id: string;
+    user_login: string;
+    user_name: string;
+    message_id: string;
+    message: EventSubAutoModMessageData;
+    status: EventSubAutoModResolutionStatus;
+}
+
+/**
+ * An EventSub event representing a user's notification about the resolution of their held chat message by AutoMod.
+ */
+declare class EventSubChannelChatUserMessageUpdateEvent extends DataObject<EventSubChannelChatUserMessageUpdateEventData> {
+    /**
+     * The ID of the broadcaster in whose chat the held message was resolved.
+     */
+    get broadcasterId(): string;
+    /**
+     * The name of the broadcaster in whose chat the held message was resolved.
+     */
+    get broadcasterName(): string;
+    /**
+     * The display name of the broadcaster in whose chat the held message was resolved.
+     */
+    get broadcasterDisplayName(): string;
+    /**
+     * Gets more information about the broadcaster.
+     */
+    getBroadcaster(): Promise<HelixUser>;
+    /**
+     * The ID of the user whose message is being held by AutoMod.
+     */
+    get userId(): string;
+    /**
+     * The name of the user whose message is being held by AutoMod.
+     */
+    get userName(): string;
+    /**
+     * The display name of the user whose message is being held by AutoMod.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the user.
+     */
+    getUser(): Promise<HelixUser>;
+    /**
+     * The ID of the message held by AutoMod.
+     */
+    get messageId(): string;
+    /**
+     * The plain text of the message.
+     */
+    get messageText(): string;
+    /**
+     * The pre-parsed message parts.
+     */
+    get messageParts(): EventSubAutoModMessagePart[];
+    /**
+     * The status of the resolved message.
+     */
+    get status(): EventSubAutoModResolutionStatus;
+}
+
+/** @private */
 interface EventSubChannelCheerEventData {
     is_anonymous: boolean;
     user_id: string | null;
@@ -83491,164 +83734,38 @@ declare class EventSubChannelHypeTrainBeginEvent extends DataObject<EventSubChan
 }
 
 /** @private */
-interface EventSubChannelHypeTrainEndEventData {
-    id: string;
+interface EventSubChannelHypeTrainSharedParticipantData {
     broadcaster_user_id: string;
     broadcaster_user_login: string;
     broadcaster_user_name: string;
-    level: number;
-    total: number;
-    top_contributions: EventSubChannelHypeTrainContributionData[] | null;
-    started_at: string;
-    ended_at: string;
-    cooldown_ends_at: string;
-    is_golden_kappa_train: boolean;
 }
 
 /**
- * An EventSub event representing the end of a Hype train event.
+ * The broadcaster participating in the shared Hype Train.
  */
-declare class EventSubChannelHypeTrainEndEvent extends DataObject<EventSubChannelHypeTrainEndEventData> {
+declare class EventSubChannelHypeTrainSharedParticipant extends DataObject<EventSubChannelHypeTrainSharedParticipantData> {
     /**
-     * The ID of the Hype Train.
-     */
-    get id(): string;
-    /**
-     * The ID of the broadcaster.
+     * The ID of the broadcaster participating in the shared Hype Train.
      */
     get broadcasterId(): string;
     /**
-     * The name of the broadcaster.
+     * The name of the broadcaster participating in the shared Hype Train.
      */
     get broadcasterName(): string;
     /**
-     * The display name of the broadcaster.
+     * The display name of the broadcaster participating in the shared Hype Train.
      */
     get broadcasterDisplayName(): string;
     /**
      * Gets more information about the broadcaster.
      */
     getBroadcaster(): Promise<HelixUser>;
-    /**
-     * The level the Hype Train ended on.
-     */
-    get level(): number;
-    /**
-     * The total points contributed to the Hype Train.
-     */
-    get total(): number;
-    /**
-     * The contributors with the most points, for both bits and subscriptions.
-     */
-    get topContributors(): EventSubChannelHypeTrainContribution[];
-    /**
-     * The time when the Hype Train started.
-     */
-    get startDate(): Date;
-    /**
-     * The time when the Hype Train ended.
-     */
-    get endDate(): Date;
-    /**
-     * The time when the Hype Train cooldown ends.
-     */
-    get cooldownEndDate(): Date;
-    /**
-     * Indicates if the Hype Train is a Golden Kappa Train.
-     */
-    get isGoldenKappaTrain(): boolean;
-}
-
-/** @private */
-interface EventSubChannelHypeTrainProgressEventData {
-    id: string;
-    broadcaster_user_id: string;
-    broadcaster_user_login: string;
-    broadcaster_user_name: string;
-    level: number;
-    total: number;
-    progress: number;
-    goal: number;
-    top_contributions: EventSubChannelHypeTrainContributionData[] | null;
-    last_contribution: EventSubChannelHypeTrainContributionData;
-    started_at: string;
-    expires_at: string;
-    is_golden_kappa_train: boolean;
-}
-
-/**
- * An EventSub event representing progress towards the Hype Train goal.
- */
-declare class EventSubChannelHypeTrainProgressEvent extends DataObject<EventSubChannelHypeTrainProgressEventData> {
-    /**
-     * The ID of the Hype Train.
-     */
-    get id(): string;
-    /**
-     * The ID of the broadcaster.
-     */
-    get broadcasterId(): string;
-    /**
-     * The name of the broadcaster.
-     */
-    get broadcasterName(): string;
-    /**
-     * The display name of the broadcaster.
-     */
-    get broadcasterDisplayName(): string;
-    /**
-     * Gets more information about the broadcaster.
-     */
-    getBroadcaster(): Promise<HelixUser>;
-    /**
-     * The current level of the Hype Train.
-     */
-    get level(): number;
-    /**
-     * The total points contributed to the Hype Train.
-     */
-    get total(): number;
-    /**
-     * The number of points contributed to the Hype Train at the current level.
-     */
-    get progress(): number;
-    /**
-     * The number of points required to reach the next level.
-     */
-    get goal(): number;
-    /**
-     * The contributors with the most points, for both bits and subscriptions.
-     */
-    get topContributors(): EventSubChannelHypeTrainContribution[];
-    /**
-     * The most recent contribution.
-     */
-    get lastContribution(): EventSubChannelHypeTrainContribution;
-    /**
-     * The time when the Hype Train started.
-     */
-    get startDate(): Date;
-    /**
-     * The time when the Hype Train is expected to end, unless extended by reaching the goal.
-     */
-    get expiryDate(): Date;
-    /**
-     * Indicates if the Hype Train is a Golden Kappa Train.
-     */
-    get isGoldenKappaTrain(): boolean;
 }
 
 /**
  * The type of the Hype Train.
  */
 type EventSubChannelHypeTrainType = 'regular' | 'treasure' | 'golden_kappa';
-
-/** @private */
-interface EventSubChannelHypeTrainSharedParticipantData {
-    broadcaster_user_id: string;
-    broadcaster_user_login: string;
-    broadcaster_user_name: string;
-}
 
 /** @private */
 interface EventSubChannelHypeTrainBeginV2EventData {
@@ -83668,30 +83785,6 @@ interface EventSubChannelHypeTrainBeginV2EventData {
     all_time_high_total: number;
     started_at: string;
     expires_at: string;
-}
-
-/**
- * The broadcaster participating in the shared Hype Train.
- */
-declare class EventSubChannelHypeTrainSharedParticipant extends DataObject<EventSubChannelHypeTrainSharedParticipantData> {
-    private readonly _client;
-    constructor(data: EventSubChannelHypeTrainSharedParticipantData, _client: ApiClient);
-    /**
-     * The ID of the broadcaster participating in the shared Hype Train.
-     */
-    get broadcasterId(): string;
-    /**
-     * The name of the broadcaster participating in the shared Hype Train.
-     */
-    get broadcasterName(): string;
-    /**
-     * The display name of the broadcaster participating in the shared Hype Train.
-     */
-    get broadcasterDisplayName(): string;
-    /**
-     * Gets more information about the broadcaster.
-     */
-    getBroadcaster(): Promise<HelixUser>;
 }
 
 /**
@@ -83771,6 +83864,238 @@ declare class EventSubChannelHypeTrainBeginV2Event extends DataObject<EventSubCh
      * The time when the Hype Train is expected to expire, unless a change of level occurs to extend the expiration.
      */
     get expiryDate(): Date;
+}
+
+/** @private */
+interface EventSubChannelHypeTrainEndEventData {
+    id: string;
+    broadcaster_user_id: string;
+    broadcaster_user_login: string;
+    broadcaster_user_name: string;
+    level: number;
+    total: number;
+    top_contributions: EventSubChannelHypeTrainContributionData[] | null;
+    started_at: string;
+    ended_at: string;
+    cooldown_ends_at: string;
+    is_golden_kappa_train: boolean;
+}
+
+/**
+ * An EventSub event representing the end of a Hype train event.
+ */
+declare class EventSubChannelHypeTrainEndEvent extends DataObject<EventSubChannelHypeTrainEndEventData> {
+    /**
+     * The ID of the Hype Train.
+     */
+    get id(): string;
+    /**
+     * The ID of the broadcaster.
+     */
+    get broadcasterId(): string;
+    /**
+     * The name of the broadcaster.
+     */
+    get broadcasterName(): string;
+    /**
+     * The display name of the broadcaster.
+     */
+    get broadcasterDisplayName(): string;
+    /**
+     * Gets more information about the broadcaster.
+     */
+    getBroadcaster(): Promise<HelixUser>;
+    /**
+     * The level the Hype Train ended on.
+     */
+    get level(): number;
+    /**
+     * The total points contributed to the Hype Train.
+     */
+    get total(): number;
+    /**
+     * The contributors with the most points, for both bits and subscriptions.
+     */
+    get topContributors(): EventSubChannelHypeTrainContribution[];
+    /**
+     * The time when the Hype Train started.
+     */
+    get startDate(): Date;
+    /**
+     * The time when the Hype Train ended.
+     */
+    get endDate(): Date;
+    /**
+     * The time when the Hype Train cooldown ends.
+     */
+    get cooldownEndDate(): Date;
+    /**
+     * Indicates if the Hype Train is a Golden Kappa Train.
+     */
+    get isGoldenKappaTrain(): boolean;
+}
+
+/** @private */
+interface EventSubChannelHypeTrainEndV2EventData {
+    id: string;
+    broadcaster_user_id: string;
+    broadcaster_user_login: string;
+    broadcaster_user_name: string;
+    type: EventSubChannelHypeTrainType;
+    level: number;
+    total: number;
+    top_contributions: EventSubChannelHypeTrainContributionData[];
+    is_shared_train: boolean;
+    shared_train_participants: EventSubChannelHypeTrainSharedParticipantData[];
+    started_at: string;
+    ended_at: string;
+    cooldown_ends_at: string;
+}
+
+/**
+ * An EventSub event representing the end of a Hype train event.
+ */
+declare class EventSubChannelHypeTrainEndV2Event extends DataObject<EventSubChannelHypeTrainEndV2EventData> {
+    /**
+     * The ID of the Hype Train.
+     */
+    get id(): string;
+    /**
+     * The ID of the broadcaster.
+     */
+    get broadcasterId(): string;
+    /**
+     * The name of the broadcaster.
+     */
+    get broadcasterName(): string;
+    /**
+     * The display name of the broadcaster.
+     */
+    get broadcasterDisplayName(): string;
+    /**
+     * Gets more information about the broadcaster.
+     */
+    getBroadcaster(): Promise<HelixUser>;
+    /**
+     * The type of the Hype Train.
+     */
+    get type(): EventSubChannelHypeTrainType;
+    /**
+     * The level the Hype Train started on.
+     */
+    get level(): number;
+    /**
+     * The total points already contributed to the Hype Train.
+     */
+    get total(): number;
+    /**
+     * The contributors with the most points contributed.
+     */
+    get topContributors(): EventSubChannelHypeTrainContribution[];
+    /**
+     * Indicates if the Hype Train is shared.
+     *
+     * When \`true\`, {@link EventSubChannelHypeTrainEndV2Event#sharedTrainParticipants} will contain the list of
+     * broadcasters the train is shared with.
+     */
+    get isSharedTrain(): boolean;
+    /**
+     * The list of broadcasters in the shared Hype Train.
+     *
+     * Empty if {@link EventSubChannelHypeTrainEndV2Event#isSharedTrain} is \`false\`.
+     */
+    get sharedTrainParticipants(): EventSubChannelHypeTrainSharedParticipant[];
+    /**
+     * The time when the Hype Train started.
+     */
+    get startDate(): Date;
+    /**
+     * The time when the Hype Train ended.
+     */
+    get endDate(): Date;
+    /**
+     * The time when the Hype Train cooldown ends.
+     */
+    get cooldownEndDate(): Date;
+}
+
+/** @private */
+interface EventSubChannelHypeTrainProgressEventData {
+    id: string;
+    broadcaster_user_id: string;
+    broadcaster_user_login: string;
+    broadcaster_user_name: string;
+    level: number;
+    total: number;
+    progress: number;
+    goal: number;
+    top_contributions: EventSubChannelHypeTrainContributionData[] | null;
+    last_contribution: EventSubChannelHypeTrainContributionData;
+    started_at: string;
+    expires_at: string;
+    is_golden_kappa_train: boolean;
+}
+
+/**
+ * An EventSub event representing progress towards the Hype Train goal.
+ */
+declare class EventSubChannelHypeTrainProgressEvent extends DataObject<EventSubChannelHypeTrainProgressEventData> {
+    /**
+     * The ID of the Hype Train.
+     */
+    get id(): string;
+    /**
+     * The ID of the broadcaster.
+     */
+    get broadcasterId(): string;
+    /**
+     * The name of the broadcaster.
+     */
+    get broadcasterName(): string;
+    /**
+     * The display name of the broadcaster.
+     */
+    get broadcasterDisplayName(): string;
+    /**
+     * Gets more information about the broadcaster.
+     */
+    getBroadcaster(): Promise<HelixUser>;
+    /**
+     * The current level of the Hype Train.
+     */
+    get level(): number;
+    /**
+     * The total points contributed to the Hype Train.
+     */
+    get total(): number;
+    /**
+     * The number of points contributed to the Hype Train at the current level.
+     */
+    get progress(): number;
+    /**
+     * The number of points required to reach the next level.
+     */
+    get goal(): number;
+    /**
+     * The contributors with the most points, for both bits and subscriptions.
+     */
+    get topContributors(): EventSubChannelHypeTrainContribution[];
+    /**
+     * The most recent contribution.
+     */
+    get lastContribution(): EventSubChannelHypeTrainContribution;
+    /**
+     * The time when the Hype Train started.
+     */
+    get startDate(): Date;
+    /**
+     * The time when the Hype Train is expected to end, unless extended by reaching the goal.
+     */
+    get expiryDate(): Date;
+    /**
+     * Indicates if the Hype Train is a Golden Kappa Train.
+     */
+    get isGoldenKappaTrain(): boolean;
 }
 
 /** @private */
@@ -83861,733 +84186,6 @@ declare class EventSubChannelHypeTrainProgressV2Event extends DataObject<EventSu
      */
     get expiryDate(): Date;
 }
-
-/** @private */
-interface EventSubChannelHypeTrainEndV2EventData {
-    id: string;
-    broadcaster_user_id: string;
-    broadcaster_user_login: string;
-    broadcaster_user_name: string;
-    type: EventSubChannelHypeTrainType;
-    level: number;
-    total: number;
-    top_contributions: EventSubChannelHypeTrainContributionData[];
-    is_shared_train: boolean;
-    shared_train_participants: EventSubChannelHypeTrainSharedParticipantData[];
-    started_at: string;
-    ended_at: string;
-    cooldown_ends_at: string;
-}
-
-/**
- * An EventSub event representing the end of a Hype train event.
- */
-declare class EventSubChannelHypeTrainEndV2Event extends DataObject<EventSubChannelHypeTrainEndV2EventData> {
-    /**
-     * The ID of the Hype Train.
-     */
-    get id(): string;
-    /**
-     * The ID of the broadcaster.
-     */
-    get broadcasterId(): string;
-    /**
-     * The name of the broadcaster.
-     */
-    get broadcasterName(): string;
-    /**
-     * The display name of the broadcaster.
-     */
-    get broadcasterDisplayName(): string;
-    /**
-     * Gets more information about the broadcaster.
-     */
-    getBroadcaster(): Promise<HelixUser>;
-    /**
-     * The type of the Hype Train.
-     */
-    get type(): EventSubChannelHypeTrainType;
-    /**
-     * The level the Hype Train started on.
-     */
-    get level(): number;
-    /**
-     * The total points already contributed to the Hype Train.
-     */
-    get total(): number;
-    /**
-     * The contributors with the most points contributed.
-     */
-    get topContributors(): EventSubChannelHypeTrainContribution[];
-    /**
-     * Indicates if the Hype Train is shared.
-     *
-     * When \`true\`, {@link EventSubChannelHypeTrainEndV2Event#sharedTrainParticipants} will contain the list of
-     * broadcasters the train is shared with.
-     */
-    get isSharedTrain(): boolean;
-    /**
-     * The list of broadcasters in the shared Hype Train.
-     *
-     * Empty if {@link EventSubChannelHypeTrainEndV2Event#isSharedTrain} is \`false\`.
-     */
-    get sharedTrainParticipants(): EventSubChannelHypeTrainSharedParticipant[];
-    /**
-     * The time when the Hype Train started.
-     */
-    get startDate(): Date;
-    /**
-     * The time when the Hype Train ended.
-     */
-    get endDate(): Date;
-    /**
-     * The time when the Hype Train cooldown ends.
-     */
-    get cooldownEndDate(): Date;
-}
-
-/**
- * The action performed by a moderator.
- */
-type EventSubChannelModerationAction = 'ban' | 'timeout' | 'unban' | 'untimeout' | 'clear' | 'delete' | 'emoteonly' | 'emoteonlyoff' | 'followers' | 'followersoff' | 'uniquechat' | 'uniquechatoff' | 'slow' | 'slowoff' | 'subscribers' | 'subscribersoff' | 'raid' | 'unraid' | 'mod' | 'unmod' | 'vip' | 'unvip' | 'add_blocked_term' | 'add_permitted_term' | 'remove_blocked_term' | 'remove_permitted_term' | 'approve_unban_request' | 'deny_unban_request' | 'warn' | 'shared_chat_ban' | 'shared_chat_unban' | 'shared_chat_timeout' | 'shared_chat_untimeout' | 'shared_chat_delete';
-/**
- * The type of AutoMod terms action.
- */
-type EventSubChannelAutomodTermsModerationEventAction = 'add' | 'remove';
-/**
- * The list of AutoMod terms action.
- */
-type EventSubChannelAutomodTermsModerationEventList = 'blocked' | 'permitted';
-/** @private */
-interface EventSubChannelBaseModerationEventData {
-    broadcaster_user_id: string;
-    broadcaster_user_login: string;
-    broadcaster_user_name: string;
-    moderator_user_id: string;
-    moderator_user_login: string;
-    moderator_user_name: string;
-    action: EventSubChannelModerationAction;
-}
-
-declare abstract class EventSubChannelBaseModerationEvent extends DataObject<EventSubChannelBaseModerationEventData> {
-    /**
-     * The moderation action performed in the channel's chat.
-     */
-    abstract readonly moderationAction: EventSubChannelModerationAction;
-    /**
-     * The ID of the broadcaster.
-     */
-    get broadcasterId(): string;
-    /**
-     * The name of the broadcaster.
-     */
-    get broadcasterName(): string;
-    /**
-     * The display name of the broadcaster.
-     */
-    get broadcasterDisplayName(): string;
-    /**
-     * Gets more information about the broadcaster.
-     */
-    getBroadcaster(): Promise<HelixUser | null>;
-    /**
-     * The ID of the moderator who performed the action.
-     */
-    get moderatorId(): string;
-    /**
-     * The name of the moderator who performed the action.
-     */
-    get moderatorName(): string;
-    /**
-     * The display name of the moderator who performed the action.
-     */
-    get moderatorDisplayName(): string;
-    /**
-     * Gets more information about the broadcaster.
-     */
-    getModerator(): Promise<HelixUser | null>;
-}
-
-/**
- * An EventSub event representing a moderator managing AutoMod terms on a channel.
- */
-declare class EventSubChannelAutoModTermsModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: Extract<EventSubChannelModerationAction, 'add_blocked_term' | 'add_permitted_term' | 'remove_blocked_term' | 'remove_permitted_term'>;
-    /**
-     * Whether the terms were added or removed.
-     */
-    get action(): EventSubChannelAutomodTermsModerationEventAction;
-    /**
-     * Whether the terms are blocked or permitted.
-     */
-    get list(): EventSubChannelAutomodTermsModerationEventList;
-    /**
-     * The list of terms being added or removed.
-     */
-    get terms(): string[];
-    /**
-     * Whether the terms were added/removed due to an Automod resolution action.
-     */
-    get fromAutoMod(): boolean;
-}
-
-/**
- * An EventSub event representing a moderator banning a user on a channel.
- */
-declare class EventSubChannelBanModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "ban";
-    /**
-     * The ID of the user being banned.
-     */
-    get userId(): string;
-    /**
-     * The name of the user being banned.
-     */
-    get userName(): string;
-    /**
-     * The display name of the user being banned.
-     */
-    get userDisplayName(): string;
-    /**
-     * Gets more information about the user.
-     */
-    getUser(): Promise<HelixUser | null>;
-    /**
-     * The reason given for the ban.
-     */
-    get reason(): string;
-}
-
-/**
- * An EventSub event representing a moderator clearing the chat on a channel.
- */
-declare class EventSubChannelClearModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "clear";
-}
-
-/**
- * An EventSub event representing a moderator deleting a message on a channel.
- */
-declare class EventSubChannelDeleteModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "delete";
-    /**
-     * The ID of the user whose message is being deleted.
-     */
-    get userId(): string;
-    /**
-     * The name of the user whose message is being deleted.
-     */
-    get userName(): string;
-    /**
-     * The display name of the user whose message is being deleted.
-     */
-    get userDisplayName(): string;
-    /**
-     * Gets more information about the user.
-     */
-    getUser(): Promise<HelixUser | null>;
-    /**
-     * The ID of the message being deleted.
-     */
-    get messageId(): string;
-    /**
-     * The message text of the message being deleted.
-     */
-    get messageText(): string;
-}
-
-/**
- * An EventSub event representing a moderator enabling emote-only mode on a channel.
- */
-declare class EventSubChannelEmoteOnlyModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "emoteonly";
-}
-
-/**
- * An EventSub event representing a moderator disabling emote-only mode on a channel.
- */
-declare class EventSubChannelEmoteOnlyOffModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "emoteonlyoff";
-}
-
-/**
- * An EventSub event representing a moderator enabling followers-only mode on a channel.
- */
-declare class EventSubChannelFollowersModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "followers";
-    /**
-     * The length of time, in minutes, that the followers must have followed the broadcaster to participate in
-     * the chat room.
-     */
-    get followDurationMinutes(): number;
-}
-
-/**
- * An EventSub event representing a moderator disabling followers-only mode on a channel.
- */
-declare class EventSubChannelFollowersOffModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "followersoff";
-}
-
-/**
- * An EventSub event representing a user having gained moderator status on a channel.
- */
-declare class EventSubChannelModModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "mod";
-    /**
-     * The ID of the user gaining mod status.
-     */
-    get userId(): string;
-    /**
-     * The name of the user gaining mod status.
-     */
-    get userName(): string;
-    /**
-     * The display name of the user gaining mod status.
-     */
-    get userDisplayName(): string;
-}
-
-/**
- * An EventSub event representing a moderator starting a raid on a channel.
- */
-declare class EventSubChannelRaidModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "raid";
-    /**
-     * The ID of the user being raided.
-     */
-    get userId(): string;
-    /**
-     * The name of the user being raided.
-     */
-    get userName(): string;
-    /**
-     * The display name of the user being raided.
-     */
-    get userDisplayName(): string;
-    /**
-     * Gets more information about the user.
-     */
-    getUser(): Promise<HelixUser | null>;
-    /**
-     * The number of viewers who came with the raid.
-     */
-    get viewerCount(): number;
-}
-
-/**
- * An EventSub event representing a moderator enabling slow mode on a channel.
- */
-declare class EventSubChannelSlowModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "slow";
-    /**
-     * The amount of time, in seconds, that users need to wait between sending messages.
-     */
-    get waitTimeSeconds(): number;
-}
-
-/**
- * An EventSub event representing a moderator disabling slow mode on a channel.
- */
-declare class EventSubChannelSlowOffModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "slowoff";
-}
-
-/**
- * An EventSub event representing a moderator enabling subscribers-only mode on a channel.
- */
-declare class EventSubChannelSubscribersModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "subscribers";
-}
-
-/**
- * An EventSub event representing a moderator disabling subscribers-only mode on a channel.
- */
-declare class EventSubChannelSubscribersOffModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "subscribersoff";
-}
-
-/**
- * An EventSub event representing a moderator timing out a user on a channel.
- */
-declare class EventSubChannelTimeoutModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "timeout";
-    /**
-     * The ID of the user being timed out.
-     */
-    get userId(): string;
-    /**
-     * The name of the user being timed out.
-     */
-    get userName(): string;
-    /**
-     * The display name of the user being timed out.
-     */
-    get userDisplayName(): string;
-    /**
-     * Gets more information about the user.
-     */
-    getUser(): Promise<HelixUser | null>;
-    /**
-     * The reason given for the timeout.
-     */
-    get reason(): string;
-    /**
-     * The time at which the timeout ends.
-     */
-    get expiryDate(): Date;
-}
-
-/**
- * An EventSub event representing a moderator unbanning a user on a channel.
- */
-declare class EventSubChannelUnbanModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "unban";
-    /**
-     * The ID of the user being unbanned.
-     */
-    get userId(): string;
-    /**
-     * The name of the user being unbanned.
-     */
-    get userName(): string;
-    /**
-     * The display name of the user being unbanned.
-     */
-    get userDisplayName(): string;
-    /**
-     * Gets more information about the user.
-     */
-    getUser(): Promise<HelixUser | null>;
-}
-
-/**
- * An EventSub event representing a moderator resolving an unban request on a channel.
- */
-declare class EventSubChannelUnbanRequestModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: Extract<EventSubChannelModerationAction, 'approve_unban_request' | 'deny_unban_request'>;
-    /**
-     * Whether the unban request was approved or denied.
-     */
-    get isApproved(): boolean;
-    /**
-     * The ID of the banned user.
-     */
-    get userId(): string;
-    /**
-     * The name of the banned user.
-     */
-    get userName(): string;
-    /**
-     * The display name of the banned user.
-     */
-    get userDisplayName(): string;
-    /**
-     * Gets more information about the user.
-     */
-    getUser(): Promise<HelixUser | null>;
-    /**
-     * The message included by the moderator explaining their approval or denial.
-     */
-    get moderatorMessage(): string;
-}
-
-/**
- * An EventSub event representing a moderator enabling unique chat mode on a channel.
- */
-declare class EventSubChannelUniqueChatModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "uniquechat";
-}
-
-/**
- * An EventSub event representing a moderator disabling unique chat mode on a channel.
- */
-declare class EventSubChannelUniqueChatOffModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "uniquechatoff";
-}
-
-/**
- * An EventSub event representing a user having lost moderator status on a channel.
- */
-declare class EventSubChannelUnmodModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "unmod";
-    /**
-     * The ID of the user losing mod status.
-     */
-    get userId(): string;
-    /**
-     * The name of the user losing mod status.
-     */
-    get userName(): string;
-    /**
-     * The display name of the user losing mod status.
-     */
-    get userDisplayName(): string;
-    /**
-     * Gets more information about the user.
-     */
-    getUser(): Promise<HelixUser | null>;
-}
-
-/**
- * An EventSub event representing a moderator canceling the raid on a channel.
- */
-declare class EventSubChannelUnraidModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "unraid";
-    /**
-     * The ID of the user no longer being raided.
-     */
-    get userId(): string;
-    /**
-     * The name of the user no longer being raided.
-     */
-    get userName(): string;
-    /**
-     * The display name of the user no longer being raided.
-     */
-    get userDisplayName(): string;
-    /**
-     * Gets more information about the user.
-     */
-    getUser(): Promise<HelixUser | null>;
-}
-
-/**
- * An EventSub event representing a moderator removing a timeout from a user on a channel.
- */
-declare class EventSubChannelUntimeoutModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "untimeout";
-    /**
-     * The ID of the user being untimed out.
-     */
-    get userId(): string;
-    /**
-     * The name of the user being untimed out.
-     */
-    get userName(): string;
-    /**
-     * The display name of the user being untimed out.
-     */
-    get userDisplayName(): string;
-    /**
-     * Gets more information about the user.
-     */
-    getUser(): Promise<HelixUser | null>;
-}
-
-/**
- * An EventSub event representing a user having lost VIP status on a channel.
- */
-declare class EventSubChannelUnvipModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "unvip";
-    /**
-     * The ID of the user losing VIP status.
-     */
-    get userId(): string;
-    /**
-     * The name of the user losing VIP status.
-     */
-    get userName(): string;
-    /**
-     * The display name of the user losing VIP status.
-     */
-    get userDisplayName(): string;
-    /**
-     * Gets more information about the user.
-     */
-    getUser(): Promise<HelixUser | null>;
-}
-
-/**
- * An EventSub event representing a user having gained VIP status on a channel.
- */
-declare class EventSubChannelVipModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "vip";
-    /**
-     * The ID of the user gaining VIP status.
-     */
-    get userId(): string;
-    /**
-     * The name of the user gaining VIP status.
-     */
-    get userName(): string;
-    /**
-     * The display name of the user gaining VIP status.
-     */
-    get userDisplayName(): string;
-    /**
-     * Gets more information about the user.
-     */
-    getUser(): Promise<HelixUser | null>;
-}
-
-/**
- * An EventSub event representing a moderator warning a user in a channel.
- */
-declare class EventSubChannelWarnModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "warn";
-    /**
-     * The ID of the user being warned.
-     */
-    get userId(): string;
-    /**
-     * The name of the user being warned.
-     */
-    get userName(): string;
-    /**
-     * The display name of the user being warned.
-     */
-    get userDisplayName(): string;
-    /**
-     * Gets more information about the user.
-     */
-    getUser(): Promise<HelixUser | null>;
-    /**
-     * The reason given for the warning, or \`null\` if no reason was specified.
-     */
-    get reason(): string | null;
-    /**
-     * The chat rules cited for the warning. This will be an empty array if no rules are cited.
-     */
-    get chatRulesCited(): string[];
-}
-
-/**
- * An EventSub event representing a moderator banning a user in another channel during a shared chat session.
- */
-declare class EventSubChannelSharedChatBanModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "shared_chat_ban";
-    /**
-     * The ID of the user being banned.
-     */
-    get userId(): string;
-    /**
-     * The name of the user being banned.
-     */
-    get userName(): string;
-    /**
-     * The display name of the user being banned.
-     */
-    get userDisplayName(): string;
-    /**
-     * Gets more information about the user.
-     */
-    getUser(): Promise<HelixUser | null>;
-    /**
-     * The reason given for the ban.
-     */
-    get reason(): string;
-}
-
-/**
- * An EventSub event representing a moderator timing out a user in another channel during a shared chat session.
- */
-declare class EventSubChannelSharedChatTimeoutModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "shared_chat_timeout";
-    /**
-     * The ID of the user being timed out.
-     */
-    get userId(): string;
-    /**
-     * The name of the user being timed out.
-     */
-    get userName(): string;
-    /**
-     * The display name of the user being timed out.
-     */
-    get userDisplayName(): string;
-    /**
-     * Gets more information about the user.
-     */
-    getUser(): Promise<HelixUser | null>;
-    /**
-     * The reason given for the timeout.
-     */
-    get reason(): string;
-    /**
-     * The time at which the timeout ends.
-     */
-    get expiryDate(): Date;
-}
-
-/**
- * An EventSub event representing a moderator unbanning a user in another channel during a shared chat session.
- */
-declare class EventSubChannelSharedChatUnbanModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "shared_chat_unban";
-    /**
-     * The ID of the user being unbanned.
-     */
-    get userId(): string;
-    /**
-     * The name of the user being unbanned.
-     */
-    get userName(): string;
-    /**
-     * The display name of the user being unbanned.
-     */
-    get userDisplayName(): string;
-    /**
-     * Gets more information about the user.
-     */
-    getUser(): Promise<HelixUser | null>;
-}
-
-/**
- * An EventSub event representing a moderator untimming out a user in another channel during a shared chat session.
- */
-declare class EventSubChannelSharedChatUntimeoutModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "shared_chat_untimeout";
-    /**
-     * The ID of the user being untimed out.
-     */
-    get userId(): string;
-    /**
-     * The name of the user being untimed out.
-     */
-    get userName(): string;
-    /**
-     * The display name of the user being untimed out.
-     */
-    get userDisplayName(): string;
-    /**
-     * Gets more information about the user.
-     */
-    getUser(): Promise<HelixUser | null>;
-}
-
-/**
- * An EventSub event representing a moderator deleting a message in another channel during a shared chat session.
- */
-declare class EventSubChannelSharedChatDeleteModerationEvent extends EventSubChannelBaseModerationEvent {
-    readonly moderationAction: "shared_chat_delete";
-    /**
-     * The ID of the user whose message is being deleted.
-     */
-    get userId(): string;
-    /**
-     * The name of the user whose message is being deleted.
-     */
-    get userName(): string;
-    /**
-     * The display name of the user whose message is being deleted.
-     */
-    get userDisplayName(): string;
-    /**
-     * Gets more information about the user.
-     */
-    getUser(): Promise<HelixUser | null>;
-    /**
-     * The ID of the message being deleted.
-     */
-    get messageId(): string;
-    /**
-     * The message text of the message being deleted.
-     */
-    get messageText(): string;
-}
-
-type EventSubChannelModerationEvent = EventSubChannelAutoModTermsModerationEvent | EventSubChannelBanModerationEvent | EventSubChannelClearModerationEvent | EventSubChannelDeleteModerationEvent | EventSubChannelEmoteOnlyModerationEvent | EventSubChannelEmoteOnlyOffModerationEvent | EventSubChannelFollowersModerationEvent | EventSubChannelFollowersOffModerationEvent | EventSubChannelModModerationEvent | EventSubChannelRaidModerationEvent | EventSubChannelSlowModerationEvent | EventSubChannelSlowOffModerationEvent | EventSubChannelSubscribersModerationEvent | EventSubChannelSubscribersOffModerationEvent | EventSubChannelTimeoutModerationEvent | EventSubChannelUnbanModerationEvent | EventSubChannelUnbanRequestModerationEvent | EventSubChannelUniqueChatModerationEvent | EventSubChannelUniqueChatOffModerationEvent | EventSubChannelUnmodModerationEvent | EventSubChannelUnraidModerationEvent | EventSubChannelUntimeoutModerationEvent | EventSubChannelUnvipModerationEvent | EventSubChannelVipModerationEvent | EventSubChannelWarnModerationEvent | EventSubChannelSharedChatBanModerationEvent | EventSubChannelSharedChatUnbanModerationEvent | EventSubChannelSharedChatTimeoutModerationEvent | EventSubChannelSharedChatUntimeoutModerationEvent | EventSubChannelSharedChatDeleteModerationEvent;
 
 /** @private */
 interface EventSubChannelModeratorEventData {
@@ -85615,266 +85213,11 @@ declare class EventSubChannelRewardEvent extends DataObject<EventSubChannelRewar
     getImageUrl(scale: EventSubChannelRewardImageScale): string;
 }
 
-/**
- * The type of the reward.
- */
-type EventSubAutomaticRewardType = 'single_message_bypass_sub_mode' | 'send_highlighted_message' | 'random_sub_emote_unlock' | 'chosen_sub_emote_unlock' | 'chosen_modified_sub_emote_unlock' | 'message_effect' | 'gigantify_an_emote' | 'celebration';
-/** @private */
-interface EventSubAutomaticRewardRedemptionRewardUnlockedEmoteData {
-    id: string;
-    name: string;
-}
-/** @private */
-interface EventSubAutomaticRewardRedemptionRewardData {
-    type: EventSubAutomaticRewardType;
-    cost: number;
-    unlocked_emote: null;
-}
-/** @private */
-interface EventSubAutomaticRewardRedemptionMessageEmoteData {
-    id: string;
-    begin: number;
-    end: number;
-}
-/** @private */
-interface EventSubAutomaticRewardRedemptionMessageData {
-    text: string;
-    emotes: EventSubAutomaticRewardRedemptionMessageEmoteData[];
-}
-/** @private */
-interface EventSubChannelAutomaticRewardRedemptionAddEventData {
-    broadcaster_user_id: string;
-    broadcaster_user_name: string;
-    broadcaster_user_login: string;
-    user_id: string;
-    user_name: string;
-    user_login: string;
-    id: string;
-    reward: EventSubAutomaticRewardRedemptionRewardData;
-    message: EventSubAutomaticRewardRedemptionMessageData | null;
-    user_input: string;
-    redeemed_at: string;
-}
-
-/**
- * An EventSub event representing an automatic reward being redeemed by a user in a channel.
- */
-declare class EventSubChannelAutomaticRewardRedemptionAddEvent extends DataObject<EventSubChannelAutomaticRewardRedemptionAddEventData> {
-    /**
-     * The ID of the redemption.
-     */
-    get id(): string;
-    /**
-     * The ID of the broadcaster in whose channel the reward was redeemed.
-     */
-    get broadcasterId(): string;
-    /**
-     * The name of the broadcaster in whose channel the reward was redeemed.
-     */
-    get broadcasterName(): string;
-    /**
-     * The display name of the broadcaster in whose channel the reward was redeemed.
-     */
-    get broadcasterDisplayName(): string;
-    /**
-     * Gets more information about the broadcaster.
-     */
-    getBroadcaster(): Promise<HelixUser>;
-    /**
-     * The ID of the redeeming user.
-     */
-    get userId(): string;
-    /**
-     * The name of the redeeming user.
-     */
-    get userName(): string;
-    /**
-     * The display name of the redeeming user.
-     */
-    get userDisplayName(): string;
-    /**
-     * Gets more information about the redeeming user.
-     */
-    getUser(): Promise<HelixUser>;
-    /**
-     * The type of the reward.
-     */
-    get rewardType(): EventSubAutomaticRewardType;
-    /**
-     * The cost of the reward.
-     */
-    get rewardCost(): number;
-    /**
-     * The emote that was unlocked by the corresponding rewards, or \`null\` if this field is not relevant.
-     */
-    get unlockedEmote(): EventSubAutomaticRewardRedemptionRewardUnlockedEmoteData | null;
-    /**
-     * The input text given by the user.
-     *
-     * If there is no input to be given, this is an empty string.
-     */
-    get input(): string | null;
-    /**
-     * The text of the message, or \`null\` if there is no message.
-     */
-    get messageText(): string | null;
-    /**
-     * The offsets of emote usages in the message, or \`null\` if there is no message.
-     */
-    get emoteOffsets(): Map<string, string[]> | null;
-    /**
-     * The date when the user redeemed the reward.
-     */
-    get redemptionDate(): Date | null;
-}
-
-/**
- * The type of the reward.
- */
-type EventSubChannelAutomaticRewardType = 'single_message_bypass_sub_mode' | 'send_highlighted_message' | 'random_sub_emote_unlock' | 'chosen_sub_emote_unlock' | 'chosen_modified_sub_emote_unlock';
-/**
- * Emote associated with the reward.
- */
-interface EventSubChannelAutomaticRewardEmoteData {
-    id: string;
-    name: string;
-}
-/** @private*/
-interface EventSubChannelAutomaticRewardData {
-    type: EventSubChannelAutomaticRewardType;
-    channel_points: number;
-    emote: EventSubChannelAutomaticRewardEmoteData | null;
-}
-
-/** @private */
-interface EventSubChatAutomaticRewardRedemptionMessageTextPart {
-    type: 'text';
-    text: string;
-}
-/** @private */
-interface EventSubChatAutomaticRewardRedemptionMessageEmoteData {
-    id: string;
-}
-/** @private */
-interface EventSubChatAutomaticRewardRedemptionMessageEmotePart {
-    type: 'emote';
-    text: string;
-    emote: EventSubChatAutomaticRewardRedemptionMessageEmoteData;
-}
-/** @private */
-type EventSubAutomaticRewardRedemptionMessagePart = EventSubChatAutomaticRewardRedemptionMessageTextPart | EventSubChatAutomaticRewardRedemptionMessageEmotePart;
-/** @private */
-interface EventSubChatAutomaticRewardRedemptionMessageData {
-    text: string;
-    fragments: EventSubAutomaticRewardRedemptionMessagePart[];
-}
-/** @private */
-interface EventSubChannelAutomaticRewardRedemptionAddV2EventData {
-    broadcaster_user_id: string;
-    broadcaster_user_name: string;
-    broadcaster_user_login: string;
-    user_id: string;
-    user_name: string;
-    user_login: string;
-    id: string;
-    reward: EventSubChannelAutomaticRewardData;
-    message: EventSubChatAutomaticRewardRedemptionMessageData | null;
-    redeemed_at: string;
-}
-
-/**
- * An object that contains the reward information.
- */
-declare class EventSubChannelAutomaticReward extends DataObject<EventSubChannelAutomaticRewardData> {
-    /**
-     * The type of reward.
-     */
-    get type(): EventSubChannelAutomaticRewardType;
-    /**
-     * Number of channel points used.
-     */
-    get channelPoints(): number;
-    /**
-     * Emote associated with the reward, or \`null\` if the reward is not related to emotes.
-     */
-    get emote(): EventSubChannelAutomaticRewardEmoteData | null;
-}
-
-/**
- * An EventSub event representing an automatic reward being redeemed by a user in a channel.
- */
-declare class EventSubChannelAutomaticRewardRedemptionAddV2Event extends DataObject<EventSubChannelAutomaticRewardRedemptionAddV2EventData> {
-    /**
-     * The ID of the redemption.
-     */
-    get id(): string;
-    /**
-     * The ID of the broadcaster in whose channel the reward was redeemed.
-     */
-    get broadcasterId(): string;
-    /**
-     * The name of the broadcaster in whose channel the reward was redeemed.
-     */
-    get broadcasterName(): string;
-    /**
-     * The display name of the broadcaster in whose channel the reward was redeemed.
-     */
-    get broadcasterDisplayName(): string;
-    /**
-     * Gets more information about the broadcaster.
-     */
-    getBroadcaster(): Promise<HelixUser>;
-    /**
-     * The ID of the redeeming user.
-     */
-    get userId(): string;
-    /**
-     * The name of the redeeming user.
-     */
-    get userName(): string;
-    /**
-     * The display name of the redeeming user.
-     */
-    get userDisplayName(): string;
-    /**
-     * Gets more information about the redeeming user.
-     */
-    getUser(): Promise<HelixUser>;
-    /**
-     * An object that contains the reward information.
-     */
-    get reward(): EventSubChannelAutomaticReward;
-    /**
-     * The text of the message, or \`null\` if there is no message.
-     */
-    get messageText(): string | null;
-    /**
-     * The pre-parsed message parts.
-     */
-    get messageParts(): EventSubAutomaticRewardRedemptionMessagePart[];
-    /**
-     * The date when the user redeemed the reward.
-     */
-    get redemptionDate(): Date | null;
-}
-
 /** @private */
 interface EventSubChannelSharedChatSessionParticipantData {
     broadcaster_user_id: string;
     broadcaster_user_name: string;
     broadcaster_user_login: string;
-}
-
-/** @private */
-interface EventSubChannelSharedChatSessionBeginEventData {
-    session_id: string;
-    broadcaster_user_id: string;
-    broadcaster_user_login: string;
-    broadcaster_user_name: string;
-    host_broadcaster_user_id: string;
-    host_broadcaster_user_login: string;
-    host_broadcaster_user_name: string;
-    participants: EventSubChannelSharedChatSessionParticipantData[];
 }
 
 /**
@@ -85897,6 +85240,18 @@ declare class EventSubChannelSharedChatSessionParticipant extends DataObject<Eve
      * Gets information about the participant broadcaster.
      */
     getBroadcaster(): Promise<HelixUser>;
+}
+
+/** @private */
+interface EventSubChannelSharedChatSessionBeginEventData {
+    session_id: string;
+    broadcaster_user_id: string;
+    broadcaster_user_login: string;
+    broadcaster_user_name: string;
+    host_broadcaster_user_id: string;
+    host_broadcaster_user_login: string;
+    host_broadcaster_user_name: string;
+    participants: EventSubChannelSharedChatSessionParticipantData[];
 }
 
 /**
@@ -85943,6 +85298,59 @@ declare class EventSubChannelSharedChatSessionBeginEvent extends DataObject<Even
      * The list of all participants currently in the shared chat session.
      */
     get participants(): EventSubChannelSharedChatSessionParticipant[];
+}
+
+/** @private */
+interface EventSubChannelSharedChatSessionEndEventData {
+    session_id: string;
+    broadcaster_user_id: string;
+    broadcaster_user_login: string;
+    broadcaster_user_name: string;
+    host_broadcaster_user_id: string;
+    host_broadcaster_user_login: string;
+    host_broadcaster_user_name: string;
+}
+
+/**
+ * An EventSub event representing the end of a shared chat session in a channel.
+ */
+declare class EventSubChannelSharedChatSessionEndEvent extends DataObject<EventSubChannelSharedChatSessionEndEventData> {
+    /**
+     * The unique identifier for the shared chat session.
+     */
+    get sessionId(): string;
+    /**
+     * The ID of the broadcaster in the subscription condition which is now active in the shared chat session.
+     */
+    get broadcasterId(): string;
+    /**
+     * The name of the broadcaster in the subscription condition which is now active in the shared chat session.
+     */
+    get broadcasterName(): string;
+    /**
+     * The display name of the broadcaster in the subscription condition which is now active in the shared chat session.
+     */
+    get broadcasterDisplayName(): string;
+    /**
+     * Gets information about the broadcaster.
+     */
+    getBroadcaster(): Promise<HelixUser>;
+    /**
+     * The ID of the host broadcaster.
+     */
+    get hostBroadcasterId(): string;
+    /**
+     * The name of the host broadcaster.
+     */
+    get hostBroadcasterName(): string;
+    /**
+     * The display name of the host broadcaster.
+     */
+    get hostBroadcasterDisplayName(): string;
+    /**
+     * Gets information about the broadcaster.
+     */
+    getHostBroadcaster(): Promise<HelixUser>;
 }
 
 /** @private */
@@ -86001,59 +85409,6 @@ declare class EventSubChannelSharedChatSessionUpdateEvent extends DataObject<Eve
      * The list of participants in the session.
      */
     get participants(): EventSubChannelSharedChatSessionParticipant[];
-}
-
-/** @private */
-interface EventSubChannelSharedChatSessionEndEventData {
-    session_id: string;
-    broadcaster_user_id: string;
-    broadcaster_user_login: string;
-    broadcaster_user_name: string;
-    host_broadcaster_user_id: string;
-    host_broadcaster_user_login: string;
-    host_broadcaster_user_name: string;
-}
-
-/**
- * An EventSub event representing the end of a shared chat session in a channel.
- */
-declare class EventSubChannelSharedChatSessionEndEvent extends DataObject<EventSubChannelSharedChatSessionEndEventData> {
-    /**
-     * The unique identifier for the shared chat session.
-     */
-    get sessionId(): string;
-    /**
-     * The ID of the broadcaster in the subscription condition which is now active in the shared chat session.
-     */
-    get broadcasterId(): string;
-    /**
-     * The name of the broadcaster in the subscription condition which is now active in the shared chat session.
-     */
-    get broadcasterName(): string;
-    /**
-     * The display name of the broadcaster in the subscription condition which is now active in the shared chat session.
-     */
-    get broadcasterDisplayName(): string;
-    /**
-     * Gets information about the broadcaster.
-     */
-    getBroadcaster(): Promise<HelixUser>;
-    /**
-     * The ID of the host broadcaster.
-     */
-    get hostBroadcasterId(): string;
-    /**
-     * The name of the host broadcaster.
-     */
-    get hostBroadcasterName(): string;
-    /**
-     * The display name of the host broadcaster.
-     */
-    get hostBroadcasterDisplayName(): string;
-    /**
-     * Gets information about the broadcaster.
-     */
-    getHostBroadcaster(): Promise<HelixUser>;
 }
 
 /** @private */
@@ -86598,78 +85953,6 @@ declare class EventSubChannelSubscriptionMessageEvent extends DataObject<EventSu
  */
 type EventSubChannelSuspiciousUserLowTrustStatus = 'no_treatment' | 'active_monitoring' | 'restricted';
 
-/** @private */
-interface EventSubChannelSuspiciousUserUpdateEventData {
-    broadcaster_user_id: string;
-    broadcaster_user_name: string;
-    broadcaster_user_login: string;
-    moderator_user_id: string;
-    moderator_user_name: string;
-    moderator_user_login: string;
-    user_id: string;
-    user_name: string;
-    user_login: string;
-    low_trust_status: EventSubChannelSuspiciousUserLowTrustStatus;
-}
-
-/**
- * An EventSub event representing a suspicious user being updated in a channel.
- */
-declare class EventSubChannelSuspiciousUserUpdateEvent extends DataObject<EventSubChannelSuspiciousUserUpdateEventData> {
-    /**
-     * The ID of the channel where the treatment for a suspicious user was updated.
-     */
-    get broadcasterId(): string;
-    /**
-     * The name of the channel where the treatment for a suspicious user was updated.
-     */
-    get broadcasterName(): string;
-    /**
-     * The display name of the channel where the treatment for a suspicious user was updated.
-     */
-    get broadcasterDisplayName(): string;
-    /**
-     * Gets more information about the broadcaster.
-     */
-    getBroadcaster(): Promise<HelixUser>;
-    /**
-     * The ID of the moderator that updated the treatment for a suspicious user.
-     */
-    get moderatorId(): string;
-    /**
-     * The name of the moderator that updated the treatment for a suspicious user.
-     */
-    get moderatorName(): string;
-    /**
-     * The display name of the moderator that updated the treatment for a suspicious user.
-     */
-    get moderatorDisplayName(): string;
-    /**
-     * Gets more information about the moderator.
-     */
-    getModerator(): Promise<HelixUser>;
-    /**
-     * The ID of the suspicious user whose treatment was updated.
-     */
-    get userId(): string;
-    /**
-     * The name of the suspicious user whose treatment was updated.
-     */
-    get userName(): string;
-    /**
-     * The display name of the suspicious user whose treatment was updated.
-     */
-    get userDisplayName(): string;
-    /**
-     * Gets more information about the user whose treatment was updated.
-     */
-    getUser(): Promise<HelixUser>;
-    /**
-     * The status set for the suspicious user.
-     */
-    get lowTrustStatus(): EventSubChannelSuspiciousUserLowTrustStatus;
-}
-
 /**
  * User types (if any) that apply to the suspicious user.
  */
@@ -86793,6 +86076,78 @@ declare class EventSubChannelSuspiciousUserMessageEvent extends DataObject<Event
      * Ordered list of chat message fragments.
      */
     get messageParts(): EventSubChannelSuspiciousUserMessagePart[];
+}
+
+/** @private */
+interface EventSubChannelSuspiciousUserUpdateEventData {
+    broadcaster_user_id: string;
+    broadcaster_user_name: string;
+    broadcaster_user_login: string;
+    moderator_user_id: string;
+    moderator_user_name: string;
+    moderator_user_login: string;
+    user_id: string;
+    user_name: string;
+    user_login: string;
+    low_trust_status: EventSubChannelSuspiciousUserLowTrustStatus;
+}
+
+/**
+ * An EventSub event representing a suspicious user being updated in a channel.
+ */
+declare class EventSubChannelSuspiciousUserUpdateEvent extends DataObject<EventSubChannelSuspiciousUserUpdateEventData> {
+    /**
+     * The ID of the channel where the treatment for a suspicious user was updated.
+     */
+    get broadcasterId(): string;
+    /**
+     * The name of the channel where the treatment for a suspicious user was updated.
+     */
+    get broadcasterName(): string;
+    /**
+     * The display name of the channel where the treatment for a suspicious user was updated.
+     */
+    get broadcasterDisplayName(): string;
+    /**
+     * Gets more information about the broadcaster.
+     */
+    getBroadcaster(): Promise<HelixUser>;
+    /**
+     * The ID of the moderator that updated the treatment for a suspicious user.
+     */
+    get moderatorId(): string;
+    /**
+     * The name of the moderator that updated the treatment for a suspicious user.
+     */
+    get moderatorName(): string;
+    /**
+     * The display name of the moderator that updated the treatment for a suspicious user.
+     */
+    get moderatorDisplayName(): string;
+    /**
+     * Gets more information about the moderator.
+     */
+    getModerator(): Promise<HelixUser>;
+    /**
+     * The ID of the suspicious user whose treatment was updated.
+     */
+    get userId(): string;
+    /**
+     * The name of the suspicious user whose treatment was updated.
+     */
+    get userName(): string;
+    /**
+     * The display name of the suspicious user whose treatment was updated.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the user whose treatment was updated.
+     */
+    getUser(): Promise<HelixUser>;
+    /**
+     * The status set for the suspicious user.
+     */
+    get lowTrustStatus(): EventSubChannelSuspiciousUserLowTrustStatus;
 }
 
 /** @private */
@@ -87671,6 +87026,649 @@ declare class EventSubUserWhisperMessageEvent extends DataObject<EventSubUserWhi
 }
 
 /**
+ * The action performed by a moderator.
+ */
+type EventSubChannelModerationAction = 'ban' | 'timeout' | 'unban' | 'untimeout' | 'clear' | 'delete' | 'emoteonly' | 'emoteonlyoff' | 'followers' | 'followersoff' | 'uniquechat' | 'uniquechatoff' | 'slow' | 'slowoff' | 'subscribers' | 'subscribersoff' | 'raid' | 'unraid' | 'mod' | 'unmod' | 'vip' | 'unvip' | 'add_blocked_term' | 'add_permitted_term' | 'remove_blocked_term' | 'remove_permitted_term' | 'approve_unban_request' | 'deny_unban_request' | 'warn' | 'shared_chat_ban' | 'shared_chat_unban' | 'shared_chat_timeout' | 'shared_chat_untimeout' | 'shared_chat_delete';
+/**
+ * The type of AutoMod terms action.
+ */
+type EventSubChannelAutomodTermsModerationEventAction = 'add' | 'remove';
+/**
+ * The list of AutoMod terms action.
+ */
+type EventSubChannelAutomodTermsModerationEventList = 'blocked' | 'permitted';
+/** @private */
+interface EventSubChannelBaseModerationEventData {
+    broadcaster_user_id: string;
+    broadcaster_user_login: string;
+    broadcaster_user_name: string;
+    moderator_user_id: string;
+    moderator_user_login: string;
+    moderator_user_name: string;
+    action: EventSubChannelModerationAction;
+}
+
+declare abstract class EventSubChannelBaseModerationEvent extends DataObject<EventSubChannelBaseModerationEventData> {
+    /**
+     * The moderation action performed in the channel's chat.
+     */
+    abstract readonly moderationAction: EventSubChannelModerationAction;
+    /**
+     * The ID of the broadcaster.
+     */
+    get broadcasterId(): string;
+    /**
+     * The name of the broadcaster.
+     */
+    get broadcasterName(): string;
+    /**
+     * The display name of the broadcaster.
+     */
+    get broadcasterDisplayName(): string;
+    /**
+     * Gets more information about the broadcaster.
+     */
+    getBroadcaster(): Promise<HelixUser | null>;
+    /**
+     * The ID of the moderator who performed the action.
+     */
+    get moderatorId(): string;
+    /**
+     * The name of the moderator who performed the action.
+     */
+    get moderatorName(): string;
+    /**
+     * The display name of the moderator who performed the action.
+     */
+    get moderatorDisplayName(): string;
+    /**
+     * Gets more information about the broadcaster.
+     */
+    getModerator(): Promise<HelixUser | null>;
+}
+
+/**
+ * An EventSub event representing a moderator managing AutoMod terms on a channel.
+ */
+declare class EventSubChannelAutoModTermsModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: Extract<EventSubChannelModerationAction, 'add_blocked_term' | 'add_permitted_term' | 'remove_blocked_term' | 'remove_permitted_term'>;
+    /**
+     * Whether the terms were added or removed.
+     */
+    get action(): EventSubChannelAutomodTermsModerationEventAction;
+    /**
+     * Whether the terms are blocked or permitted.
+     */
+    get list(): EventSubChannelAutomodTermsModerationEventList;
+    /**
+     * The list of terms being added or removed.
+     */
+    get terms(): string[];
+    /**
+     * Whether the terms were added/removed due to an Automod resolution action.
+     */
+    get fromAutoMod(): boolean;
+}
+
+/**
+ * An EventSub event representing a moderator banning a user on a channel.
+ */
+declare class EventSubChannelBanModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "ban";
+    /**
+     * The ID of the user being banned.
+     */
+    get userId(): string;
+    /**
+     * The name of the user being banned.
+     */
+    get userName(): string;
+    /**
+     * The display name of the user being banned.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the user.
+     */
+    getUser(): Promise<HelixUser | null>;
+    /**
+     * The reason given for the ban.
+     */
+    get reason(): string;
+}
+
+/**
+ * An EventSub event representing a moderator clearing the chat on a channel.
+ */
+declare class EventSubChannelClearModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "clear";
+}
+
+/**
+ * An EventSub event representing a moderator deleting a message on a channel.
+ */
+declare class EventSubChannelDeleteModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "delete";
+    /**
+     * The ID of the user whose message is being deleted.
+     */
+    get userId(): string;
+    /**
+     * The name of the user whose message is being deleted.
+     */
+    get userName(): string;
+    /**
+     * The display name of the user whose message is being deleted.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the user.
+     */
+    getUser(): Promise<HelixUser | null>;
+    /**
+     * The ID of the message being deleted.
+     */
+    get messageId(): string;
+    /**
+     * The message text of the message being deleted.
+     */
+    get messageText(): string;
+}
+
+/**
+ * An EventSub event representing a moderator enabling emote-only mode on a channel.
+ */
+declare class EventSubChannelEmoteOnlyModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "emoteonly";
+}
+
+/**
+ * An EventSub event representing a moderator disabling emote-only mode on a channel.
+ */
+declare class EventSubChannelEmoteOnlyOffModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "emoteonlyoff";
+}
+
+/**
+ * An EventSub event representing a moderator enabling followers-only mode on a channel.
+ */
+declare class EventSubChannelFollowersModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "followers";
+    /**
+     * The length of time, in minutes, that the followers must have followed the broadcaster to participate in
+     * the chat room.
+     */
+    get followDurationMinutes(): number;
+}
+
+/**
+ * An EventSub event representing a moderator disabling followers-only mode on a channel.
+ */
+declare class EventSubChannelFollowersOffModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "followersoff";
+}
+
+/**
+ * An EventSub event representing a user having gained moderator status on a channel.
+ */
+declare class EventSubChannelModModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "mod";
+    /**
+     * The ID of the user gaining mod status.
+     */
+    get userId(): string;
+    /**
+     * The name of the user gaining mod status.
+     */
+    get userName(): string;
+    /**
+     * The display name of the user gaining mod status.
+     */
+    get userDisplayName(): string;
+}
+
+/**
+ * An EventSub event representing a moderator starting a raid on a channel.
+ */
+declare class EventSubChannelRaidModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "raid";
+    /**
+     * The ID of the user being raided.
+     */
+    get userId(): string;
+    /**
+     * The name of the user being raided.
+     */
+    get userName(): string;
+    /**
+     * The display name of the user being raided.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the user.
+     */
+    getUser(): Promise<HelixUser | null>;
+    /**
+     * The number of viewers who came with the raid.
+     */
+    get viewerCount(): number;
+}
+
+/**
+ * An EventSub event representing a moderator enabling slow mode on a channel.
+ */
+declare class EventSubChannelSlowModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "slow";
+    /**
+     * The amount of time, in seconds, that users need to wait between sending messages.
+     */
+    get waitTimeSeconds(): number;
+}
+
+/**
+ * An EventSub event representing a moderator disabling slow mode on a channel.
+ */
+declare class EventSubChannelSlowOffModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "slowoff";
+}
+
+/**
+ * An EventSub event representing a moderator enabling subscribers-only mode on a channel.
+ */
+declare class EventSubChannelSubscribersModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "subscribers";
+}
+
+/**
+ * An EventSub event representing a moderator disabling subscribers-only mode on a channel.
+ */
+declare class EventSubChannelSubscribersOffModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "subscribersoff";
+}
+
+/**
+ * An EventSub event representing a moderator timing out a user on a channel.
+ */
+declare class EventSubChannelTimeoutModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "timeout";
+    /**
+     * The ID of the user being timed out.
+     */
+    get userId(): string;
+    /**
+     * The name of the user being timed out.
+     */
+    get userName(): string;
+    /**
+     * The display name of the user being timed out.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the user.
+     */
+    getUser(): Promise<HelixUser | null>;
+    /**
+     * The reason given for the timeout.
+     */
+    get reason(): string;
+    /**
+     * The time at which the timeout ends.
+     */
+    get expiryDate(): Date;
+}
+
+/**
+ * An EventSub event representing a moderator unbanning a user on a channel.
+ */
+declare class EventSubChannelUnbanModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "unban";
+    /**
+     * The ID of the user being unbanned.
+     */
+    get userId(): string;
+    /**
+     * The name of the user being unbanned.
+     */
+    get userName(): string;
+    /**
+     * The display name of the user being unbanned.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the user.
+     */
+    getUser(): Promise<HelixUser | null>;
+}
+
+/**
+ * An EventSub event representing a moderator resolving an unban request on a channel.
+ */
+declare class EventSubChannelUnbanRequestModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: Extract<EventSubChannelModerationAction, 'approve_unban_request' | 'deny_unban_request'>;
+    /**
+     * Whether the unban request was approved or denied.
+     */
+    get isApproved(): boolean;
+    /**
+     * The ID of the banned user.
+     */
+    get userId(): string;
+    /**
+     * The name of the banned user.
+     */
+    get userName(): string;
+    /**
+     * The display name of the banned user.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the user.
+     */
+    getUser(): Promise<HelixUser | null>;
+    /**
+     * The message included by the moderator explaining their approval or denial.
+     */
+    get moderatorMessage(): string;
+}
+
+/**
+ * An EventSub event representing a moderator enabling unique chat mode on a channel.
+ */
+declare class EventSubChannelUniqueChatModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "uniquechat";
+}
+
+/**
+ * An EventSub event representing a moderator disabling unique chat mode on a channel.
+ */
+declare class EventSubChannelUniqueChatOffModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "uniquechatoff";
+}
+
+/**
+ * An EventSub event representing a user having lost moderator status on a channel.
+ */
+declare class EventSubChannelUnmodModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "unmod";
+    /**
+     * The ID of the user losing mod status.
+     */
+    get userId(): string;
+    /**
+     * The name of the user losing mod status.
+     */
+    get userName(): string;
+    /**
+     * The display name of the user losing mod status.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the user.
+     */
+    getUser(): Promise<HelixUser | null>;
+}
+
+/**
+ * An EventSub event representing a moderator canceling the raid on a channel.
+ */
+declare class EventSubChannelUnraidModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "unraid";
+    /**
+     * The ID of the user no longer being raided.
+     */
+    get userId(): string;
+    /**
+     * The name of the user no longer being raided.
+     */
+    get userName(): string;
+    /**
+     * The display name of the user no longer being raided.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the user.
+     */
+    getUser(): Promise<HelixUser | null>;
+}
+
+/**
+ * An EventSub event representing a moderator removing a timeout from a user on a channel.
+ */
+declare class EventSubChannelUntimeoutModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "untimeout";
+    /**
+     * The ID of the user being untimed out.
+     */
+    get userId(): string;
+    /**
+     * The name of the user being untimed out.
+     */
+    get userName(): string;
+    /**
+     * The display name of the user being untimed out.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the user.
+     */
+    getUser(): Promise<HelixUser | null>;
+}
+
+/**
+ * An EventSub event representing a user having lost VIP status on a channel.
+ */
+declare class EventSubChannelUnvipModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "unvip";
+    /**
+     * The ID of the user losing VIP status.
+     */
+    get userId(): string;
+    /**
+     * The name of the user losing VIP status.
+     */
+    get userName(): string;
+    /**
+     * The display name of the user losing VIP status.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the user.
+     */
+    getUser(): Promise<HelixUser | null>;
+}
+
+/**
+ * An EventSub event representing a user having gained VIP status on a channel.
+ */
+declare class EventSubChannelVipModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "vip";
+    /**
+     * The ID of the user gaining VIP status.
+     */
+    get userId(): string;
+    /**
+     * The name of the user gaining VIP status.
+     */
+    get userName(): string;
+    /**
+     * The display name of the user gaining VIP status.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the user.
+     */
+    getUser(): Promise<HelixUser | null>;
+}
+
+/**
+ * An EventSub event representing a moderator warning a user in a channel.
+ */
+declare class EventSubChannelWarnModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "warn";
+    /**
+     * The ID of the user being warned.
+     */
+    get userId(): string;
+    /**
+     * The name of the user being warned.
+     */
+    get userName(): string;
+    /**
+     * The display name of the user being warned.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the user.
+     */
+    getUser(): Promise<HelixUser | null>;
+    /**
+     * The reason given for the warning, or \`null\` if no reason was specified.
+     */
+    get reason(): string | null;
+    /**
+     * The chat rules cited for the warning. This will be an empty array if no rules are cited.
+     */
+    get chatRulesCited(): string[];
+}
+
+/**
+ * An EventSub event representing a moderator banning a user in another channel during a shared chat session.
+ */
+declare class EventSubChannelSharedChatBanModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "shared_chat_ban";
+    /**
+     * The ID of the user being banned.
+     */
+    get userId(): string;
+    /**
+     * The name of the user being banned.
+     */
+    get userName(): string;
+    /**
+     * The display name of the user being banned.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the user.
+     */
+    getUser(): Promise<HelixUser | null>;
+    /**
+     * The reason given for the ban.
+     */
+    get reason(): string;
+}
+
+/**
+ * An EventSub event representing a moderator timing out a user in another channel during a shared chat session.
+ */
+declare class EventSubChannelSharedChatTimeoutModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "shared_chat_timeout";
+    /**
+     * The ID of the user being timed out.
+     */
+    get userId(): string;
+    /**
+     * The name of the user being timed out.
+     */
+    get userName(): string;
+    /**
+     * The display name of the user being timed out.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the user.
+     */
+    getUser(): Promise<HelixUser | null>;
+    /**
+     * The reason given for the timeout.
+     */
+    get reason(): string;
+    /**
+     * The time at which the timeout ends.
+     */
+    get expiryDate(): Date;
+}
+
+/**
+ * An EventSub event representing a moderator unbanning a user in another channel during a shared chat session.
+ */
+declare class EventSubChannelSharedChatUnbanModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "shared_chat_unban";
+    /**
+     * The ID of the user being unbanned.
+     */
+    get userId(): string;
+    /**
+     * The name of the user being unbanned.
+     */
+    get userName(): string;
+    /**
+     * The display name of the user being unbanned.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the user.
+     */
+    getUser(): Promise<HelixUser | null>;
+}
+
+/**
+ * An EventSub event representing a moderator untimming out a user in another channel during a shared chat session.
+ */
+declare class EventSubChannelSharedChatUntimeoutModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "shared_chat_untimeout";
+    /**
+     * The ID of the user being untimed out.
+     */
+    get userId(): string;
+    /**
+     * The name of the user being untimed out.
+     */
+    get userName(): string;
+    /**
+     * The display name of the user being untimed out.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the user.
+     */
+    getUser(): Promise<HelixUser | null>;
+}
+
+/**
+ * An EventSub event representing a moderator deleting a message in another channel during a shared chat session.
+ */
+declare class EventSubChannelSharedChatDeleteModerationEvent extends EventSubChannelBaseModerationEvent {
+    readonly moderationAction: "shared_chat_delete";
+    /**
+     * The ID of the user whose message is being deleted.
+     */
+    get userId(): string;
+    /**
+     * The name of the user whose message is being deleted.
+     */
+    get userName(): string;
+    /**
+     * The display name of the user whose message is being deleted.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the user.
+     */
+    getUser(): Promise<HelixUser | null>;
+    /**
+     * The ID of the message being deleted.
+     */
+    get messageId(): string;
+    /**
+     * The message text of the message being deleted.
+     */
+    get messageText(): string;
+}
+
+type EventSubChannelModerationEvent = EventSubChannelAutoModTermsModerationEvent | EventSubChannelBanModerationEvent | EventSubChannelClearModerationEvent | EventSubChannelDeleteModerationEvent | EventSubChannelEmoteOnlyModerationEvent | EventSubChannelEmoteOnlyOffModerationEvent | EventSubChannelFollowersModerationEvent | EventSubChannelFollowersOffModerationEvent | EventSubChannelModModerationEvent | EventSubChannelRaidModerationEvent | EventSubChannelSlowModerationEvent | EventSubChannelSlowOffModerationEvent | EventSubChannelSubscribersModerationEvent | EventSubChannelSubscribersOffModerationEvent | EventSubChannelTimeoutModerationEvent | EventSubChannelUnbanModerationEvent | EventSubChannelUnbanRequestModerationEvent | EventSubChannelUniqueChatModerationEvent | EventSubChannelUniqueChatOffModerationEvent | EventSubChannelUnmodModerationEvent | EventSubChannelUnraidModerationEvent | EventSubChannelUntimeoutModerationEvent | EventSubChannelUnvipModerationEvent | EventSubChannelVipModerationEvent | EventSubChannelWarnModerationEvent | EventSubChannelSharedChatBanModerationEvent | EventSubChannelSharedChatUnbanModerationEvent | EventSubChannelSharedChatTimeoutModerationEvent | EventSubChannelSharedChatUntimeoutModerationEvent | EventSubChannelSharedChatDeleteModerationEvent;
+
+/**
  * A subscription to an EventSub event.
  *
  * @hideProtected
@@ -87725,25 +87723,74 @@ declare abstract class EventSubSubscription</** @private */ T = unknown> {
     protected _getTransportOptions(): Promise<HelixEventSubTransportOptions>;
     /** @private */
     abstract get id(): string;
-    protected abstract _subscribe(): Promise<HelixEventSubSubscription>;
+    protected abstract _subscribe(): Promise<HelixEventSubSubscription | undefined>;
     protected abstract transformData(response: unknown): T;
     private _subscribeAndSave;
     private _unsubscribe;
 }
 
-/**
- * The base EventSub configuration.
- */
-interface EventSubBaseConfig {
-    /**
-     * The API client that will be used to subscribe to events.
-     */
-    apiClient: ApiClient;
+/** @private */
+interface EventSubBaseConfigBase {
     /**
      * Options to pass to the logger.
      */
     logger?: Partial<LoggerOptions>;
 }
+/**
+ * The base EventSub configuration for managed servers.
+ *
+ * @inheritDoc
+ */
+interface EventSubBaseManagedConfig extends EventSubBaseConfigBase {
+    /**
+     * Whether to automatically send a subscription request to Twitch
+     * when a subscription is created or needs to be restarted. Defaults to \`true\`.
+     *
+     * You can listen to the \`onSubscriptionActivate\` and \`onSubscriptionDeactivate\` events to offload the management
+     * of subscriptions to an external server
+     * (for example, if this runs client side without access to the Twitch access tokens).
+     * In that case, you should set this to \`false\`.
+     *
+     * As of now, unmanaged mode has only been tested with EventSub via WebSockets.
+     *
+     * @beta
+     */
+    managed?: true;
+    /**
+     * The API client that will be used to subscribe to events.
+     */
+    apiClient: ApiClient;
+}
+/**
+ * The base EventSub configuration for unmanaged servers.
+ */
+interface EventSubBaseUnmanagedConfig extends EventSubBaseConfigBase {
+    /**
+     * Whether to automatically send a subscription request to Twitch
+     * when a subscription is created or needs to be restarted. Defaults to \`true\`.
+     *
+     * You can listen to the \`onSubscriptionActivate\` and \`onSubscriptionDeactivate\` events to offload the management
+     * of subscriptions to an external server
+     * (for example, if this runs client side without access to the Twitch access tokens).
+     * In that case, you should set this to \`false\`.
+     *
+     * As of now, unmanaged mode has only been tested with EventSub via WebSockets.
+     *
+     * @beta
+     */
+    managed: false;
+    /**
+     * The client ID of your Twitch application.
+     *
+     * Is only required if you want to subscribe to topics that refer directly to your application,
+     * e.g. authorization or extension related topics.
+     */
+    clientId?: string;
+}
+/**
+ * The base EventSub configuration.
+ */
+type EventSubBaseConfig = EventSubBaseManagedConfig | EventSubBaseUnmanagedConfig;
 /**
  * @private
  * @hideProtected
@@ -87753,7 +87800,7 @@ declare abstract class EventSubBase extends EventEmitter {
     protected readonly _subscriptionsByTwitchId: Map<string, EventSubSubscription<unknown>>;
     protected _twitchSubscriptions: Map<string, HelixEventSubSubscription>;
     private readonly _seenEventIds;
-    /** @private */ readonly _apiClient: ApiClient;
+    /** @private */ readonly _config: EventSubBaseConfig;
     /** @private */ readonly _logger: Logger;
     /**
      * Fires when a subscription is revoked.
@@ -87764,7 +87811,27 @@ declare abstract class EventSubBase extends EventEmitter {
      */
     readonly onRevoke: _d_fischer_typed_event_emitter.EventBinder<[subscription: EventSubSubscription<unknown>, status: HelixEventSubSubscriptionStatus]>;
     /**
+     * Fires when a subscription is activated, i.e. before a subscription is created on Twitch.
+     *
+     * Can be used in unmanaged mode to create the subscription externally.
+     *
+     * @param subscription The subscription that was activated.
+     * @param setData A callback to set the subscription data returned from Twitch.
+     */
+    readonly onSubscriptionActivate: _d_fischer_typed_event_emitter.EventBinder<[subscription: EventSubSubscription<unknown>, setData: (data: HelixEventSubSubscription | HelixEventSubSubscriptionData) => void]>;
+    /**
+     * Fires when a subscription is deactivated, i.e. before a subscription is deleted on Twiitch.
+     *
+     * Can be used in unmanaged mode to delete the subscription externally.
+     *
+     * @param subscription The subscription that was activated.
+     * @param clearData A callback to clear the Twitch subscription data.
+     */
+    readonly onSubscriptionDeactivate: _d_fischer_typed_event_emitter.EventBinder<[subscription: EventSubSubscription<unknown>, clearData: () => void]>;
+    /**
      * Fires when the client successfully created a subscription.
+     *
+     * Only available in managed mode.
      *
      * @eventListener
      *
@@ -87775,6 +87842,8 @@ declare abstract class EventSubBase extends EventEmitter {
     /**
      * Fires when the client fails to create a subscription.
      *
+     * Only available in managed mode.
+     *
      * @eventListener
      *
      * @param subscription The subscription that was not successfully created.
@@ -87784,6 +87853,8 @@ declare abstract class EventSubBase extends EventEmitter {
     /**
      * Fires when the client successfully deleted a subscription.
      *
+     * Only available in managed mode.
+     *
      * @eventListener
      *
      * @param subscription The subscription that was successfully deleted.
@@ -87791,6 +87862,8 @@ declare abstract class EventSubBase extends EventEmitter {
     readonly onSubscriptionDeleteSuccess: _d_fischer_typed_event_emitter.EventBinder<[subscription: EventSubSubscription<unknown>]>;
     /**
      * Fires when the client fails to delete a subscription.
+     *
+     * Only available in managed mode.
      *
      * @eventListener
      *
@@ -87804,9 +87877,13 @@ declare abstract class EventSubBase extends EventEmitter {
     /** @private */
     _dropTwitchSubscription(id: string): void;
     /** @private */
-    _registerTwitchSubscription(subscription: EventSubSubscription, data: HelixEventSubSubscription): void;
+    _registerTwitchSubscription(subscription: EventSubSubscription, data: HelixEventSubSubscription, notify?: boolean): void;
     /** @private */
     _notifySubscriptionCreateError(subscription: EventSubSubscription, error: Error): void;
+    /** @private */
+    _notifySubscriptionActivate(subscription: EventSubSubscription, setSubscriptionData: (data: HelixEventSubSubscription) => void): void;
+    /** @private */
+    _notifySubscriptionDeactivate(subscription: EventSubSubscription): void;
     /** @private */
     _notifySubscriptionDeleteSuccess(subscription: EventSubSubscription): void;
     /** @private */
@@ -88451,6 +88528,7 @@ declare abstract class EventSubBase extends EventEmitter {
     protected abstract _findTwitchSubscriptionToContinue(subscription: EventSubSubscription): HelixEventSubSubscription | undefined;
     protected _genericSubscribe<T, Args extends unknown[]>(clazz: new (handler: (obj: T) => void | Promise<void>, client: EventSubBase, ...args: Args) => EventSubSubscription<T>, handler: (obj: T) => void, client: EventSubBase, ...params: Args): EventSubSubscription;
     private _extractUserIdWithNumericWarning;
+    private _ensureClientId;
 }
 
 /**
@@ -89139,7 +89217,7 @@ import { IRouter } from 'express-serve-static-core';
  *
  * @inheritDoc
  */
-interface EventSubHttpBaseConfig extends EventSubBaseConfig {
+type EventSubHttpBaseConfig = EventSubBaseConfig & {
     /**
      * Your EventSub secret.
      *
@@ -89160,7 +89238,7 @@ interface EventSubHttpBaseConfig extends EventSubBaseConfig {
      * Enabled by default. Set this to \`false\` to disable it.
      */
     helperRoutes?: boolean;
-}
+};
 /**
  * @private
  * @hideProtected
@@ -89264,12 +89342,12 @@ interface EventSubHttpListenerCertificateConfig {
  *
  * @inheritDoc
  */
-interface EventSubHttpListenerConfig extends EventSubHttpBaseConfig {
+type EventSubHttpListenerConfig = EventSubHttpBaseConfig & {
     /**
      * The connection adapter responsible for the configuration of the connection method.
      */
     adapter: ConnectionAdapter;
-}
+};
 /**
  * An HTTP listener for the Twitch EventSub event distribution mechanism.
  *
@@ -89304,7 +89382,7 @@ declare class EventSubHttpListener extends EventSubHttpBase implements EventSubL
  *
  * @inheritDoc
  */
-interface EventSubMiddlewareConfig extends EventSubHttpBaseConfig {
+type EventSubMiddlewareConfig = EventSubHttpBaseConfig & {
     /**
      * The host name the root application is available under.
      */
@@ -89319,7 +89397,7 @@ interface EventSubMiddlewareConfig extends EventSubHttpBaseConfig {
      * Must be \`false\` if you use this with subrouters.
      */
     usePathPrefixInHandlers?: boolean;
-}
+};
 /**
  * An Express middleware for the Twitch EventSub event distribution mechanism.
  *
@@ -89549,14 +89627,14 @@ import { EventSubBaseConfig, EventSubBase, EventSubListener, EventSubSubscriptio
  *
  * @inheritDoc
  */
-interface EventSubWsConfig extends EventSubBaseConfig {
+type EventSubWsConfig = EventSubBaseConfig & {
     /**
      * The URL to connect to initially.
      *
      * Can be used to connect to a test server, for example one created by the Twitch CLI.
      */
     url?: string;
-}
+};
 /**
  * A WebSocket listener for the Twitch EventSub event distribution mechanism.
  *
@@ -89577,6 +89655,13 @@ declare class EventSubWsListener extends EventSubBase implements EventSubListene
      * @param userId The ID of the user.
      */
     readonly onUserSocketConnect: _d_fischer_typed_event_emitter.EventBinder<[userId: string]>;
+    /**
+     * Fires when a user socket is ready to accept subscriptions.
+     *
+     * @param userId The ID of the user.
+     * @param sessionId The session ID of the socket.
+     */
+    readonly onUserSocketReady: _d_fischer_typed_event_emitter.EventBinder<[userId: string, sessionId: string]>;
     /**
      * Fires when a user socket has disconnected from the EventSub server.
      *
