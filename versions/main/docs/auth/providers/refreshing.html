@@ -861,14 +861,40 @@ This is done to prevent having to calculate the initial expiry timestamp manuall
 </span><span><span></span><span style="color:#cb7832">await</span><span> authProvider.addUserForToken(tokenData);</span></span></code></pre></div></pre>
 <p>If you already know the ID of the user you&#x27;re adding, you can save a few internal requests by doing:</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span>authProvider.addUser(</span><span style="color:#6a8759">&#x27;125328655&#x27;</span><span>, tokenData);</span></span></code></pre></pre>
-<h2>Getting the initial token using an OAuth code</h2>
-<p>If you received an OAuth authorization code from Twitch&#x27;s Authorization Code Flow,
-you can use that to directly get a suitable <a class="jss22" href="/versions/main/reference/auth/interfaces/AccessToken.html" data-discover="true">AccessToken</a> object using the <code>exchangeToken</code> function:</p>
+<h2>Getting the initial token using the Authorization Code Grant Flow</h2>
+<p>If you received an OAuth authorization code from Twitch&#x27;s Authorization Code Grant Flow,
+you can use the <code>exchangeCode</code> function to get a suitable <a class="jss22" href="/versions/main/reference/auth/interfaces/AccessToken.html" data-discover="true">AccessToken</a> object:</p>
 <pre><div data-dynamic-component="CodeBlock" data-component-props="{&quot;lang&quot;:&quot;ts&quot;,&quot;langMeta&quot;:[&quot;twoslash&quot;],&quot;text&quot;:&quot;// @module: esnext\n// @target: ES2017\ndeclare const req: { query: Record&lt;string, string&gt; };\ndeclare const clientId: string;\ndeclare const clientSecret: string;\n// ---cut---\nimport { exchangeCode } from &#x27;@twurple/auth&#x27;;\n\nconst code = req.query.code; // get it from wherever\nconst redirectUri = &#x27;http://localhost&#x27;; // must match one of the URLs in the dev console exactly\nconst tokenData = await exchangeCode(clientId, clientSecret, code, redirectUri);&quot;}"><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">import</span><span> { exchangeCode } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/auth&#x27;</span><span>;
 </span></span><span>
 </span><span><span></span><span style="color:#cb7832">const</span><span> code = req.query.code; </span><span style="color:#7f7f7f">// get it from wherever</span><span>
 </span></span><span><span></span><span style="color:#cb7832">const</span><span> redirectUri = </span><span style="color:#6a8759">&#x27;http://localhost&#x27;</span><span>; </span><span style="color:#7f7f7f">// must match one of the URLs in the dev console exactly</span><span>
-</span></span><span><span></span><span style="color:#cb7832">const</span><span> tokenData = </span><span style="color:#cb7832">await</span><span> exchangeCode(clientId, clientSecret, code, redirectUri);</span></span></code></pre></div></pre></div></div></div></div></div>
+</span></span><span><span></span><span style="color:#cb7832">const</span><span> tokenData = </span><span style="color:#cb7832">await</span><span> exchangeCode(clientId, clientSecret, code, redirectUri);</span></span></code></pre></div></pre>
+<p>You can then add it to the provider:</p>
+<pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span style="color:#cb7832">await</span><span> authProvider.addUserForToken(tokenData);</span></span></code></pre></pre>
+<h2>Getting the initial token using Device Code Flow</h2>
+<p>Device Code Flow is useful for apps where opening a redirect server is inconvenient, such as desktop apps,
+TV apps or command line tools.</p>
+<p>For apps running on open platforms like Windows, macOS or Linux, you should generally use Device Code Flow as a public
+client and avoid embedding a client secret in your application.</p>
+<p>Unlike the Authorization Code Grant Flow, Device Code Flow sends the requested scopes to Twitch&#x27;s device endpoints
+instead of putting them in an authorization URL.
+Use the same scopes when starting the flow and when exchanging the device code.</p>
+<pre><div data-dynamic-component="CodeBlock" data-component-props="{&quot;lang&quot;:&quot;ts&quot;,&quot;langMeta&quot;:[&quot;twoslash&quot;],&quot;text&quot;:&quot;// @module: esnext\n// @target: ES2017\ndeclare const clientId: string;\n// ---cut---\nimport { startDeviceCodeFlow } from &#x27;@twurple/auth&#x27;;\n\nconst scopes = [&#x27;chat:read&#x27;, &#x27;chat:edit&#x27;];\nconst deviceInfo = await startDeviceCodeFlow(clientId, scopes);\n\nconsole.log(`Go to ${deviceInfo.verificationUri} and enter ${deviceInfo.userCode}`);&quot;}"><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">import</span><span> { startDeviceCodeFlow } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/auth&#x27;</span><span>;
+</span></span><span>
+</span><span><span></span><span style="color:#cb7832">const</span><span> scopes = [</span><span style="color:#6a8759">&#x27;chat:read&#x27;</span><span>, </span><span style="color:#6a8759">&#x27;chat:edit&#x27;</span><span>];
+</span></span><span><span></span><span style="color:#cb7832">const</span><span> deviceInfo = </span><span style="color:#cb7832">await</span><span> startDeviceCodeFlow(clientId, scopes);
+</span></span><span>
+</span><span><span></span><span style="color:#e0c46c">console</span><span>.log(</span><span style="color:#6a8759">`Go to </span><span style="color:#e0c46c">${deviceInfo.verificationUri}</span><span style="color:#6a8759"> and enter </span><span style="color:#e0c46c">${deviceInfo.userCode}</span><span style="color:#6a8759">`</span><span>);</span></span></code></pre></div></pre>
+<p>After the user authorized your application, you can exchange the device code and add the resulting token to the provider:</p>
+<pre><div data-dynamic-component="CodeBlock" data-component-props="{&quot;lang&quot;:&quot;ts&quot;,&quot;langMeta&quot;:[&quot;twoslash&quot;],&quot;text&quot;:&quot;// @module: esnext\n// @target: ES2017\ndeclare const clientId: string;\ndeclare const deviceInfo: { deviceCode: string };\n// ---cut---\nimport { exchangeDeviceCode, RefreshingAuthProvider } from &#x27;@twurple/auth&#x27;;\n\nconst scopes = [&#x27;chat:read&#x27;, &#x27;chat:edit&#x27;];\nconst authProvider = new RefreshingAuthProvider({ clientId });\n\nconst tokenData = await exchangeDeviceCode(clientId, deviceInfo.deviceCode, scopes);\nawait authProvider.addUserForToken(tokenData, [&#x27;chat&#x27;]);&quot;}"><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span style="color:#cb7832">import</span><span> { exchangeDeviceCode, RefreshingAuthProvider } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;@twurple/auth&#x27;</span><span>;
+</span></span><span>
+</span><span><span></span><span style="color:#cb7832">const</span><span> scopes = [</span><span style="color:#6a8759">&#x27;chat:read&#x27;</span><span>, </span><span style="color:#6a8759">&#x27;chat:edit&#x27;</span><span>];
+</span></span><span><span></span><span style="color:#cb7832">const</span><span> authProvider = </span><span style="color:#cb7832">new</span><span> RefreshingAuthProvider({ clientId });
+</span></span><span>
+</span><span><span></span><span style="color:#cb7832">const</span><span> tokenData = </span><span style="color:#cb7832">await</span><span> exchangeDeviceCode(clientId, deviceInfo.deviceCode, scopes);
+</span></span><span><span></span><span style="color:#cb7832">await</span><span> authProvider.addUserForToken(tokenData, [</span><span style="color:#6a8759">&#x27;chat&#x27;</span><span>]);</span></span></code></pre></div></pre>
+<p>Public-client refresh tokens returned by Device Code Flow are one-time-use and expire after 30 days of inactivity.
+Always persist the newest token data from <code>onRefresh</code>, just like with other refreshing setups.</p></div></div></div></div></div>
 <script src="/versions/main/pe.js"></script>
 </body>
 </html>

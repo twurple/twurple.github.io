@@ -76007,6 +76007,32 @@ declare function getExpiryDateOfAccessToken(token: ExpireableAccessToken): Date 
 declare function accessTokenIsExpired(token: ExpireableAccessToken): boolean;
 
 /**
+ * The information necessary for a user to authorize an application using Device Code Flow.
+ */
+interface DeviceCodeInfo {
+    /**
+     * The device code, used to exchange for an access token once the user authorized.
+     */
+    deviceCode: string;
+    /**
+     * The code the user needs to enter on the verification page.
+     */
+    userCode: string;
+    /**
+     * The URI returned by Twitch where the user needs to authorize your application.
+     */
+    verificationUri: string;
+    /**
+     * The time, in seconds from obtainment, when the device code expires.
+     */
+    expiresIn: number;
+    /**
+     * The minimum time, in seconds, to wait between polling attempts.
+     */
+    interval: number;
+}
+
+/**
  * Describes a class that manages and supplies access tokens.
  *
  * Ideally, it should be able to request a new access token via user input
@@ -76023,6 +76049,12 @@ interface AuthProvider {
      * The client ID.
      */
     readonly clientId: string;
+    /**
+     * Whether the provider has access to a client secret.
+     *
+     * This is optional for providers that can not determine this.
+     */
+    readonly hasClientSecret?: boolean;
     /**
      * The type of Authorization header to send. Defaults to "Bearer".
      */
@@ -76158,6 +76190,21 @@ declare class TokenInfo extends DataObject<TokenInfoData> {
  */
 declare function exchangeCode(clientId: string, clientSecret: string, code: string, redirectUri: string): Promise<AccessToken>;
 /**
+ * Starts the Device Code Flow.
+ *
+ * @param clientId The client ID of your application.
+ * @param scopes The scopes to request.
+ */
+declare function startDeviceCodeFlow(clientId: string, scopes: string[]): Promise<DeviceCodeInfo>;
+/**
+ * Exchanges a device code for an access token.
+ *
+ * @param clientId The client ID of your application.
+ * @param deviceCode The device code returned by {@link startDeviceCodeFlow}.
+ * @param scopes The scopes requested when starting the Device Code Flow.
+ */
+declare function exchangeDeviceCode(clientId: string, deviceCode: string, scopes: string[]): Promise<AccessToken>;
+/**
  * Gets an app access token with your client credentials.
  *
  * @param clientId The client ID of your application.
@@ -76165,13 +76212,15 @@ declare function exchangeCode(clientId: string, clientSecret: string, code: stri
  */
 declare function getAppToken(clientId: string, clientSecret: string): Promise<AccessToken>;
 /**
- * Refreshes an expired access token with your client credentials and the refresh token that was given by the initial authentication.
+ * Refreshes an expired access token using a refresh token.
+ *
+ * Public clients using Device Code Flow do not need a client secret.
  *
  * @param clientId The client ID of your application.
- * @param clientSecret The client secret of your application.
+ * @param clientSecret The client secret, or \`undefined\` for public clients.
  * @param refreshToken The refresh token.
  */
-declare function refreshUserToken(clientId: string, clientSecret: string, refreshToken: string): Promise<AccessToken>;
+declare function refreshUserToken(clientId: string, clientSecret: string | undefined, refreshToken: string): Promise<AccessToken>;
 /**
  * Revokes an access token.
  *
@@ -76216,6 +76265,10 @@ declare class TokenFetcher<T extends AccessToken = AccessToken> {
 declare class AppTokenAuthProvider implements AuthProvider {
     private readonly _clientId;
     private readonly _impliedScopes;
+    /**
+     * Whether the provider has access to a client secret.
+     */
+    readonly hasClientSecret = true;
     /**
      * Creates a new auth provider to receive an application token with using the client ID and secret.
      *
@@ -76269,8 +76322,10 @@ interface RefreshingAuthProviderConfig {
     clientId: string;
     /**
      * The client secret of your application.
+     *
+     * Only required if you use \`addUserForCode\` or app access tokens.
      */
-    clientSecret: string;
+    clientSecret?: string;
     /**
      * A valid redirect URI for your application.
      *
@@ -76348,6 +76403,24 @@ declare class RefreshingAuthProvider extends EventEmitter implements AuthProvide
      */
     addUserForCode(code: string, intents?: string[]): Promise<string>;
     /**
+     * Starts the Device Code Flow.
+     *
+     * @param scopes The scopes to request.
+     */
+    startDeviceCodeFlow(scopes: string[]): Promise<DeviceCodeInfo>;
+    /**
+     * Gets an OAuth token from the given device code and adds the user to the provider.
+     *
+     * A device code can be obtained using the Device Code Flow.
+     *
+     * @param deviceCode The device code.
+     * @param scopes The scopes requested when starting the Device Code Flow.
+     * @param intents The intents to add to the user.
+     *
+     * Any intents that were already set before will be overwritten to point to the associated user instead.
+     */
+    addUserForDeviceCode(deviceCode: string, scopes: string[], intents?: string[]): Promise<string>;
+    /**
      * Checks whether a user was added to the provider.
      *
      * @param user The user to check.
@@ -76400,6 +76473,10 @@ declare class RefreshingAuthProvider extends EventEmitter implements AuthProvide
      * The client ID.
      */
     get clientId(): string;
+    /**
+     * Whether the provider has access to a client secret.
+     */
+    get hasClientSecret(): boolean;
     /**
      * Gets the scopes that are currently available using the access token.
      *
@@ -76543,7 +76620,7 @@ declare class UnknownIntentError extends CustomError {
     constructor(intent: string);
 }
 
-export { AccessToken, AccessTokenMaybeWithUserId, AccessTokenWithUserId, AppTokenAuthProvider, AuthProvider, CachedRefreshFailureError, ExpireableAccessToken, IntermediateUserRemovalError, InvalidTokenError, InvalidTokenTypeError, RefreshingAuthProvider, RefreshingAuthProviderConfig, StaticAuthProvider, TokenFetcher, TokenInfo, TokenInfoData, UnknownIntentError, accessTokenIsExpired, exchangeCode, getAppToken, getExpiryDateOfAccessToken, getTokenInfo, getValidTokenFromProviderForIntent, getValidTokenFromProviderForUser, refreshUserToken, revokeToken };
+export { AccessToken, AccessTokenMaybeWithUserId, AccessTokenWithUserId, AppTokenAuthProvider, AuthProvider, CachedRefreshFailureError, DeviceCodeInfo, ExpireableAccessToken, IntermediateUserRemovalError, InvalidTokenError, InvalidTokenTypeError, RefreshingAuthProvider, RefreshingAuthProviderConfig, StaticAuthProvider, TokenFetcher, TokenInfo, TokenInfoData, UnknownIntentError, accessTokenIsExpired, exchangeCode, exchangeDeviceCode, getAppToken, getExpiryDateOfAccessToken, getTokenInfo, getValidTokenFromProviderForIntent, getValidTokenFromProviderForUser, refreshUserToken, revokeToken, startDeviceCodeFlow };
 `],["/node_modules/@types/twurple__auth-ext/index.d.ts",`import { AuthProvider, AccessTokenWithUserId, AccessTokenMaybeWithUserId } from '@twurple/auth';
 import { UserIdResolvable } from '@twurple/common';
 
