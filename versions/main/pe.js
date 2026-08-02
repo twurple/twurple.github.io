@@ -68605,6 +68605,213 @@ declare class HelixCheermoteList extends DataObject<Record<string, HelixCheermot
 }
 
 /**
+ * Data to create a new custom reward.
+ */
+interface HelixCreateCustomRewardData {
+    /**
+     * The title of the reward.
+     */
+    title: string;
+    /**
+     * The channel points cost of the reward.
+     */
+    cost: number;
+    /**
+     * The prompt shown to users when redeeming the reward.
+     */
+    prompt?: string;
+    /**
+     * Whether the reward is enabled (shown to users).
+     */
+    isEnabled?: boolean;
+    /**
+     * The hex code of the background color of the reward.
+     */
+    backgroundColor?: string;
+    /**
+     * Whether the reward requires user input to be redeemed.
+     */
+    userInputRequired?: boolean;
+    /**
+     * The maximum number of redemptions of the reward per stream. 0 or \`null\` means no limit.
+     */
+    maxRedemptionsPerStream?: number | null;
+    /**
+     * The maximum number of redemptions of the reward per stream for each user. 0 or \`null\` means no limit.
+     */
+    maxRedemptionsPerUserPerStream?: number | null;
+    /**
+     * The cooldown between two redemptions of the reward, in seconds. 0 or \`null\` means no cooldown.
+     */
+    globalCooldown?: number | null;
+    /**
+     * Whether the redemption should automatically set its status to fulfilled.
+     */
+    autoFulfill?: boolean;
+}
+/**
+ * Data to update an existing custom reward.
+ *
+ * @inheritDoc
+ */
+interface HelixUpdateCustomRewardData extends Partial<HelixCreateCustomRewardData> {
+    /**
+     * Whether the reward is paused. If true, users can't redeem it.
+     */
+    isPaused?: boolean;
+}
+/**
+ * Filters for the custom reward redemptions request.
+ */
+interface HelixCustomRewardRedemptionFilter {
+    /**
+     * Whether to put the newest redemptions first.
+     *
+     * Oldest redemptions are shown first by default.
+     */
+    newestFirst?: boolean;
+}
+/**
+ * @inheritDoc
+ */
+interface HelixPaginatedCustomRewardRedemptionFilter extends HelixCustomRewardRedemptionFilter, HelixForwardPagination {
+}
+/**
+ * The scale multiplier for a custom reward image.
+ */
+type HelixCustomRewardImageScale = 1 | 2 | 4;
+
+/** @private */
+interface HelixCustomPowerUpImageData {
+    url_1x: string;
+    url_2x: string;
+    url_4x: string;
+}
+/** @private */
+interface HelixCustomPowerUpMaxPerStreamSettingData {
+    is_enabled: boolean;
+    max_per_stream: number;
+}
+/** @private */
+interface HelixCustomPowerUpMaxPerUserPerStreamSettingData {
+    is_enabled: boolean;
+    max_per_user_per_stream: number;
+}
+/** @private */
+interface HelixCustomPowerUpGlobalCooldownSettingData {
+    is_enabled: boolean;
+    global_cooldown_seconds: number;
+}
+/** @private */
+interface HelixCustomPowerUpData {
+    broadcaster_id: string;
+    broadcaster_login: string;
+    broadcaster_name: string;
+    id: string;
+    image: HelixCustomPowerUpImageData | null;
+    background_color: string;
+    is_enabled: boolean;
+    bits: number;
+    title: string;
+    prompt: string;
+    is_user_input_required: boolean;
+    max_per_stream_setting: HelixCustomPowerUpMaxPerStreamSettingData;
+    max_per_user_per_stream_setting: HelixCustomPowerUpMaxPerUserPerStreamSettingData;
+    global_cooldown_setting: HelixCustomPowerUpGlobalCooldownSettingData;
+    is_paused: boolean;
+    is_in_stock: boolean;
+    default_image: HelixCustomPowerUpImageData;
+    redemptions_redeemed_current_stream: number | null;
+    cooldown_expires_at: string;
+}
+
+/**
+ * A custom power up.
+ */
+declare class HelixCustomPowerUp extends DataObject<HelixCustomPowerUpData> {
+    /**
+     * The ID of the power up.
+     */
+    get id(): string;
+    /**
+     * The ID of the broadcaster the power up belongs to.
+     */
+    get broadcasterId(): string;
+    /**
+     * The name of the broadcaster the power up belongs to.
+     */
+    get broadcasterName(): string;
+    /**
+     * The display name of the broadcaster the power up belongs to.
+     */
+    get broadcasterDisplayName(): string;
+    /**
+     * Gets more information about the power up's broadcaster.
+     */
+    getBroadcaster(): Promise<HelixUser>;
+    /**
+     * Gets the URL of the image of the power up in the given scale.
+     *
+     * @param scale The scale of the image.
+     */
+    getImageUrl(scale: HelixCustomRewardImageScale): string;
+    /**
+     * The background color of the power up.
+     */
+    get backgroundColor(): string;
+    /**
+     * Whether the power up is enabled (shown to users).
+     */
+    get isEnabled(): boolean;
+    /**
+     * The bits cost of the power up.
+     */
+    get cost(): number;
+    /**
+     * The title of the power up.
+     */
+    get title(): string;
+    /**
+     * The prompt shown to users when redeeming the power up.
+     */
+    get prompt(): string;
+    /**
+     * Whether the power up requires user input to be redeemed.
+     */
+    get userInputRequired(): boolean;
+    /**
+     * The maximum number of redemptions of the power up per stream. \`null\` means no limit.
+     */
+    get maxRedemptionsPerStream(): number | null;
+    /**
+     * The maximum number of redemptions of the power up per stream for each user. \`null\` means no limit.
+     */
+    get maxRedemptionsPerUserPerStream(): number | null;
+    /**
+     * The cooldown between two redemptions of the power up, in seconds. \`null\` means no cooldown.
+     */
+    get globalCooldown(): number | null;
+    /**
+     * Whether the power up is paused. If true, users can't redeem it.
+     */
+    get isPaused(): boolean;
+    /**
+     * Whether the power up is currently in stock.
+     */
+    get isInStock(): boolean;
+    /**
+     * How often the power up was already redeemed this stream.
+     *
+     * Only available when the stream is live and \`maxRedemptionsPerStream\` is set. Otherwise, this is \`null\`.
+     */
+    get redemptionsThisStream(): number | null;
+    /**
+     * The time when the cooldown ends. \`null\` means there is currently no cooldown.
+     */
+    get cooldownExpiryDate(): Date | null;
+}
+
+/**
  * The Helix API methods that deal with bits.
  *
  * Can be accessed using \`client.bits\` on an {@link ApiClient} instance.
@@ -68635,6 +68842,33 @@ declare class HelixBitsApi extends BaseApi {
      * If not given, only get global cheermotes.
      */
     getCheermotes(broadcaster?: UserIdResolvable): Promise<HelixCheermoteList>;
+    /**
+     * Gets all custom power ups for the given broadcaster.
+     *
+     * @param broadcaster The broadcaster to get the power ups for.
+     */
+    getCustomPowerUps(broadcaster: UserIdResolvable): Promise<HelixCustomPowerUp[]>;
+    /**
+     * Gets custom power ups by ID.
+     *
+     * @param broadcaster The broadcaster to get the power ups for.
+     * @param powerUpId The ID of the power up.
+     */
+    getCustomPowerUpsById(broadcaster: UserIdResolvable, powerUpId: string): Promise<HelixCustomPowerUp[]>;
+    /**
+     * Gets custom power ups by IDs.
+     *
+     * @param broadcaster The broadcaster to get the power ups for.
+     * @param powerUpIds The IDs of the power ups.
+     */
+    getCustomPowerUpsByIds(broadcaster: UserIdResolvable, powerUpIds: string[]): Promise<HelixCustomPowerUp[]>;
+    /**
+     * Gets a custom power up by ID.
+     *
+     * @param broadcaster The broadcaster to get the power up for.
+     * @param powerUpId The ID of the power up.
+     */
+    getCustomPowerUpById(broadcaster: UserIdResolvable, powerUpId: string): Promise<HelixCustomPowerUp | null>;
 }
 
 /**
@@ -69085,83 +69319,6 @@ interface HelixCustomRewardData {
     redemptions_redeemed_current_stream: number | null;
     cooldown_expires_at: string;
 }
-
-/**
- * Data to create a new custom reward.
- */
-interface HelixCreateCustomRewardData {
-    /**
-     * The title of the reward.
-     */
-    title: string;
-    /**
-     * The channel points cost of the reward.
-     */
-    cost: number;
-    /**
-     * The prompt shown to users when redeeming the reward.
-     */
-    prompt?: string;
-    /**
-     * Whether the reward is enabled (shown to users).
-     */
-    isEnabled?: boolean;
-    /**
-     * The hex code of the background color of the reward.
-     */
-    backgroundColor?: string;
-    /**
-     * Whether the reward requires user input to be redeemed.
-     */
-    userInputRequired?: boolean;
-    /**
-     * The maximum number of redemptions of the reward per stream. 0 or \`null\` means no limit.
-     */
-    maxRedemptionsPerStream?: number | null;
-    /**
-     * The maximum number of redemptions of the reward per stream for each user. 0 or \`null\` means no limit.
-     */
-    maxRedemptionsPerUserPerStream?: number | null;
-    /**
-     * The cooldown between two redemptions of the reward, in seconds. 0 or \`null\` means no cooldown.
-     */
-    globalCooldown?: number | null;
-    /**
-     * Whether the redemption should automatically set its status to fulfilled.
-     */
-    autoFulfill?: boolean;
-}
-/**
- * Data to update an existing custom reward.
- *
- * @inheritDoc
- */
-interface HelixUpdateCustomRewardData extends Partial<HelixCreateCustomRewardData> {
-    /**
-     * Whether the reward is paused. If true, users can't redeem it.
-     */
-    isPaused?: boolean;
-}
-/**
- * Filters for the custom reward redemptions request.
- */
-interface HelixCustomRewardRedemptionFilter {
-    /**
-     * Whether to put the newest redemptions first.
-     *
-     * Oldest redemptions are shown first by default.
-     */
-    newestFirst?: boolean;
-}
-/**
- * @inheritDoc
- */
-interface HelixPaginatedCustomRewardRedemptionFilter extends HelixCustomRewardRedemptionFilter, HelixForwardPagination {
-}
-/**
- * The scale multiplier for a custom reward image.
- */
-type HelixCustomRewardImageScale = 1 | 2 | 4;
 
 /**
  * A custom Channel Points reward.
@@ -71536,6 +71693,21 @@ declare class HelixEventSubApi extends BaseApi {
      * @param transport The transport options.
      */
     subscribeToChannelRedemptionAddEventsForReward(broadcaster: UserIdResolvable, rewardId: string, transport: HelixEventSubTransportOptions): Promise<HelixEventSubSubscription>;
+    /**
+     * Subscribe to events that represent a Power Up reward being redeemed.
+     *
+     * @param broadcaster The broadcaster you want to listen to Power Up events for.
+     * @param transport The transport options.
+     */
+    subscribeToChannelPowerUpAddEvents(broadcaster: UserIdResolvable, transport: HelixEventSubTransportOptions): Promise<HelixEventSubSubscription>;
+    /**
+     * Subscribe to events that represent a specific Power Up reward being redeemed.
+     *
+     * @param broadcaster The broadcaster you want to listen to Power Up events for.
+     * @param rewardId The ID of the reward you want to listen to Power Up events for.
+     * @param transport The transport options.
+     */
+    subscribeToChannelPowerUpAddEventsForReward(broadcaster: UserIdResolvable, rewardId: string, transport: HelixEventSubTransportOptions): Promise<HelixEventSubSubscription>;
     /**
      * Subscribe to events that represent a Channel Points redemption being updated.
      *
@@ -75594,7 +75766,7 @@ declare class StreamNotLiveError extends CustomError {
     constructor(options?: ErrorOptions);
 }
 
-export { ApiClient, ApiConfig, ApiReportedRequest, BaseApi, BaseApiClient, ChatMessageDroppedError, CheermoteDisplayInfo, ConfigError, HelixAdSchedule, HelixBan, HelixBanFilter, HelixBanUser, HelixBanUserRequest, HelixBaseExtension, HelixBitsApi, HelixBitsLeaderboard, HelixBitsLeaderboardEntry, HelixBitsLeaderboardPeriod, HelixBitsLeaderboardQuery, HelixBlockedTerm, HelixBroadcasterType, HelixChannel, HelixChannelApi, HelixChannelEditor, HelixChannelEmote, HelixChannelEmoteSubscriptionTier, HelixChannelFollower, HelixChannelPointsApi, HelixChannelReference, HelixChannelSearchFilter, HelixChannelSearchResult, HelixChannelUpdate, HelixCharityApi, HelixCharityCampaign, HelixCharityCampaignAmount, HelixCharityCampaignDonation, HelixChatAnnouncementColor, HelixChatApi, HelixChatBadgeScale, HelixChatBadgeSet, HelixChatBadgeVersion, HelixChatChatter, HelixChatSettings, HelixChatUserColor, HelixCheermoteList, HelixClip, HelixClipApi, HelixClipCreateParams, HelixClipFilter, HelixContentClassificationLabel, HelixContentClassificationLabelApi, HelixCreateCustomRewardData, HelixCreatePollData, HelixCreatePredictionData, HelixCreateScheduleSegmentData, HelixCustomReward, HelixCustomRewardRedemption, HelixCustomRewardRedemptionFilter, HelixCustomRewardRedemptionStatus, HelixCustomRewardRedemptionTargetStatus, HelixDropsEntitlement, HelixDropsEntitlementFilter, HelixDropsEntitlementFulfillmentStatus, HelixDropsEntitlementPaginatedFilter, HelixDropsEntitlementUpdateStatus, HelixEmote, HelixEmoteFormat, HelixEmoteFromSet, HelixEmoteImageScale, HelixEmoteScale, HelixEmoteThemeMode, HelixEntitlementApi, HelixEventSubApi, HelixEventSubConduit, HelixEventSubConduitShard, HelixEventSubConduitShardsOptions, HelixEventSubConduitShardsTransportOptions, HelixEventSubConduitTransportOptions, HelixEventSubDropEntitlementGrantFilter, HelixEventSubSubscription, HelixEventSubSubscriptionData, HelixEventSubSubscriptionStatus, HelixEventSubTransportData, HelixEventSubTransportOptions, HelixEventSubWebHookTransportOptions, HelixEventSubWebSocketTransportOptions, HelixExtensionBitsProduct, HelixExtensionBitsProductUpdatePayload, HelixExtensionSlotType, HelixExtensionTransaction, HelixExtensionTransactionsFilter, HelixExtensionTransactionsPaginatedFilter, HelixExtensionsApi, HelixFollow, HelixFollowedChannel, HelixForwardPagination, HelixGame, HelixGameApi, HelixGoal, HelixGoalApi, HelixGoalType, HelixHypeTrain, HelixHypeTrainAllTimeHigh, HelixHypeTrainApi, HelixHypeTrainContribution, HelixHypeTrainContributionType, HelixHypeTrainSharedParticipant, HelixHypeTrainStatus, HelixHypeTrainType, HelixInstalledExtension, HelixInstalledExtensionList, HelixModeratedChannel, HelixModerationApi, HelixModerator, HelixModeratorFilter, HelixPaginatedChannelSearchFilter, HelixPaginatedClipFilter, HelixPaginatedCustomRewardRedemptionFilter, HelixPaginatedEventSubSubscriptionsRequest, HelixPaginatedEventSubSubscriptionsResult, HelixPaginatedRequest, HelixPaginatedRequestWithTotal, HelixPaginatedResult, HelixPaginatedResultWithTotal, HelixPaginatedScheduleFilter, HelixPaginatedScheduleSegmentRequest, HelixPaginatedStreamFilter, HelixPaginatedSubscriptionsRequest, HelixPaginatedSubscriptionsResult, HelixPaginatedVideoFilter, HelixPagination, HelixPoll, HelixPollApi, HelixPollChoice, HelixPollStatus, HelixPrediction, HelixPredictionApi, HelixPredictionOutcome, HelixPredictionOutcomeColor, HelixPredictionStatus, HelixPredictor, HelixPrivilegedChatSettings, HelixPrivilegedUser, HelixRaid, HelixRaidApi, HelixSchedule, HelixScheduleApi, HelixScheduleFilter, HelixScheduleSegment, HelixScheduleSettingsUpdate, HelixSearchApi, HelixSendChatAnnouncementParams, HelixSendChatMessageAsAppParams, HelixSendChatMessageParams, HelixSentChatMessage, HelixSharedChatSession, HelixSharedChatSessionParticipant, HelixShieldModeStatus, HelixStream, HelixStreamApi, HelixStreamFilter, HelixStreamMarker, HelixStreamMarkerWithVideo, HelixStreamType, HelixSubscription, HelixSubscriptionApi, HelixTeam, HelixTeamApi, HelixTeamWithUsers, HelixUnbanRequest, HelixUnbanRequestStatus, HelixUpdateChatSettingsParams, HelixUpdateCustomRewardData, HelixUpdateScheduleSegmentData, HelixUser, HelixUserApi, HelixUserBlock, HelixUserBlockAdditionalInfo, HelixUserEmote, HelixUserEmotesFilter, HelixUserExtension, HelixUserExtensionUpdatePayload, HelixUserExtensionUpdatePayloadActiveSlot, HelixUserExtensionUpdatePayloadInactiveSlot, HelixUserExtensionUpdatePayloadSlot, HelixUserRelation, HelixUserSubscription, HelixUserUpdate, HelixVideo, HelixVideoApi, HelixVideoFilter, HelixVideoType, HelixWarning, HelixWhisperApi, StreamNotLiveError };
+export { ApiClient, ApiConfig, ApiReportedRequest, BaseApi, BaseApiClient, ChatMessageDroppedError, CheermoteDisplayInfo, ConfigError, HelixAdSchedule, HelixBan, HelixBanFilter, HelixBanUser, HelixBanUserRequest, HelixBaseExtension, HelixBitsApi, HelixBitsLeaderboard, HelixBitsLeaderboardEntry, HelixBitsLeaderboardPeriod, HelixBitsLeaderboardQuery, HelixBlockedTerm, HelixBroadcasterType, HelixChannel, HelixChannelApi, HelixChannelEditor, HelixChannelEmote, HelixChannelEmoteSubscriptionTier, HelixChannelFollower, HelixChannelPointsApi, HelixChannelReference, HelixChannelSearchFilter, HelixChannelSearchResult, HelixChannelUpdate, HelixCharityApi, HelixCharityCampaign, HelixCharityCampaignAmount, HelixCharityCampaignDonation, HelixChatAnnouncementColor, HelixChatApi, HelixChatBadgeScale, HelixChatBadgeSet, HelixChatBadgeVersion, HelixChatChatter, HelixChatSettings, HelixChatUserColor, HelixCheermoteList, HelixClip, HelixClipApi, HelixClipCreateParams, HelixClipFilter, HelixContentClassificationLabel, HelixContentClassificationLabelApi, HelixCreateCustomRewardData, HelixCreatePollData, HelixCreatePredictionData, HelixCreateScheduleSegmentData, HelixCustomPowerUp, HelixCustomReward, HelixCustomRewardRedemption, HelixCustomRewardRedemptionFilter, HelixCustomRewardRedemptionStatus, HelixCustomRewardRedemptionTargetStatus, HelixDropsEntitlement, HelixDropsEntitlementFilter, HelixDropsEntitlementFulfillmentStatus, HelixDropsEntitlementPaginatedFilter, HelixDropsEntitlementUpdateStatus, HelixEmote, HelixEmoteFormat, HelixEmoteFromSet, HelixEmoteImageScale, HelixEmoteScale, HelixEmoteThemeMode, HelixEntitlementApi, HelixEventSubApi, HelixEventSubConduit, HelixEventSubConduitShard, HelixEventSubConduitShardsOptions, HelixEventSubConduitShardsTransportOptions, HelixEventSubConduitTransportOptions, HelixEventSubDropEntitlementGrantFilter, HelixEventSubSubscription, HelixEventSubSubscriptionData, HelixEventSubSubscriptionStatus, HelixEventSubTransportData, HelixEventSubTransportOptions, HelixEventSubWebHookTransportOptions, HelixEventSubWebSocketTransportOptions, HelixExtensionBitsProduct, HelixExtensionBitsProductUpdatePayload, HelixExtensionSlotType, HelixExtensionTransaction, HelixExtensionTransactionsFilter, HelixExtensionTransactionsPaginatedFilter, HelixExtensionsApi, HelixFollow, HelixFollowedChannel, HelixForwardPagination, HelixGame, HelixGameApi, HelixGoal, HelixGoalApi, HelixGoalType, HelixHypeTrain, HelixHypeTrainAllTimeHigh, HelixHypeTrainApi, HelixHypeTrainContribution, HelixHypeTrainContributionType, HelixHypeTrainSharedParticipant, HelixHypeTrainStatus, HelixHypeTrainType, HelixInstalledExtension, HelixInstalledExtensionList, HelixModeratedChannel, HelixModerationApi, HelixModerator, HelixModeratorFilter, HelixPaginatedChannelSearchFilter, HelixPaginatedClipFilter, HelixPaginatedCustomRewardRedemptionFilter, HelixPaginatedEventSubSubscriptionsRequest, HelixPaginatedEventSubSubscriptionsResult, HelixPaginatedRequest, HelixPaginatedRequestWithTotal, HelixPaginatedResult, HelixPaginatedResultWithTotal, HelixPaginatedScheduleFilter, HelixPaginatedScheduleSegmentRequest, HelixPaginatedStreamFilter, HelixPaginatedSubscriptionsRequest, HelixPaginatedSubscriptionsResult, HelixPaginatedVideoFilter, HelixPagination, HelixPoll, HelixPollApi, HelixPollChoice, HelixPollStatus, HelixPrediction, HelixPredictionApi, HelixPredictionOutcome, HelixPredictionOutcomeColor, HelixPredictionStatus, HelixPredictor, HelixPrivilegedChatSettings, HelixPrivilegedUser, HelixRaid, HelixRaidApi, HelixSchedule, HelixScheduleApi, HelixScheduleFilter, HelixScheduleSegment, HelixScheduleSettingsUpdate, HelixSearchApi, HelixSendChatAnnouncementParams, HelixSendChatMessageAsAppParams, HelixSendChatMessageParams, HelixSentChatMessage, HelixSharedChatSession, HelixSharedChatSessionParticipant, HelixShieldModeStatus, HelixStream, HelixStreamApi, HelixStreamFilter, HelixStreamMarker, HelixStreamMarkerWithVideo, HelixStreamType, HelixSubscription, HelixSubscriptionApi, HelixTeam, HelixTeamApi, HelixTeamWithUsers, HelixUnbanRequest, HelixUnbanRequestStatus, HelixUpdateChatSettingsParams, HelixUpdateCustomRewardData, HelixUpdateScheduleSegmentData, HelixUser, HelixUserApi, HelixUserBlock, HelixUserBlockAdditionalInfo, HelixUserEmote, HelixUserEmotesFilter, HelixUserExtension, HelixUserExtensionUpdatePayload, HelixUserExtensionUpdatePayloadActiveSlot, HelixUserExtensionUpdatePayloadInactiveSlot, HelixUserExtensionUpdatePayloadSlot, HelixUserRelation, HelixUserSubscription, HelixUserUpdate, HelixVideo, HelixVideoApi, HelixVideoFilter, HelixVideoType, HelixWarning, HelixWhisperApi, StreamNotLiveError };
 `],["/node_modules/@types/twurple__api-call/index.d.ts",`import { UserIdResolvable, CustomError } from '@twurple/common';
 
 /**
@@ -80539,7 +80711,7 @@ export { EbsCallConfig, ExternalJwtConfig, createExtensionSecret, createExternal
 `],["/node_modules/@types/twurple__eventsub-base/index.d.ts",`import * as _d_fischer_typed_event_emitter from '@d-fischer/typed-event-emitter';
 import { EventEmitter } from '@d-fischer/typed-event-emitter';
 import { Logger, LoggerOptions } from '@d-fischer/logger';
-import { HelixUser, HelixCustomReward, HelixCustomRewardRedemptionTargetStatus, HelixCustomRewardRedemption, HelixGame, HelixStream, HelixEventSubSubscription, HelixEventSubTransportOptions, HelixEventSubSubscriptionStatus, HelixEventSubSubscriptionData, UserIdResolvable, HelixEventSubDropEntitlementGrantFilter, ApiClient, HelixEventSubTransportData } from '@twurple/api';
+import { HelixUser, HelixCustomReward, HelixCustomRewardRedemptionTargetStatus, HelixCustomRewardRedemption, HelixGame, HelixStream, HelixEventSubSubscription, HelixEventSubTransportOptions, HelixCustomPowerUp, HelixEventSubSubscriptionStatus, HelixEventSubSubscriptionData, UserIdResolvable, HelixEventSubDropEntitlementGrantFilter, ApiClient, HelixEventSubTransportData } from '@twurple/api';
 import { DataObject, UserIdResolvable as UserIdResolvable$1 } from '@twurple/common';
 
 /** @private */
@@ -87749,6 +87921,105 @@ declare abstract class EventSubSubscription</** @private */ T = unknown> {
 }
 
 /** @private */
+interface EventSubChannelCustomPowerUpData {
+    id: string;
+    title: string;
+    bits: number;
+    prompt: string;
+}
+
+/** @private */
+interface EventSubChannelCustomPowerUpAddEventData {
+    id: string;
+    broadcaster_user_id: string;
+    broadcaster_user_login: string;
+    broadcaster_user_name: string;
+    user_id: string;
+    user_login: string;
+    user_name: string;
+    user_input: string;
+    status: 'unfulfilled' | 'unknown' | 'fulfilled' | 'canceled';
+    custom_power_up: EventSubChannelCustomPowerUpData;
+    redeemed_at: string;
+}
+
+/**
+ * An EventSub event representing a Custom Power Up redemption.
+ */
+declare class EventSubChannelCustomPowerUpAddEvent extends DataObject<EventSubChannelCustomPowerUpAddEventData> {
+    /**
+     * The ID of the redemption.
+     */
+    get id(): string;
+    /**
+     * The ID of the broadcaster.
+     */
+    get broadcasterId(): string;
+    /**
+     * The name of the broadcaster.
+     */
+    get broadcasterName(): string;
+    /**
+     * The display name of the broadcaster.
+     */
+    get broadcasterDisplayName(): string;
+    /**
+     * Gets more information about the broadcaster.
+     */
+    getBroadcaster(): Promise<HelixUser>;
+    /**
+     * The ID of the user.
+     */
+    get userId(): string;
+    /**
+     * The name of the user.
+     */
+    get userName(): string;
+    /**
+     * The display name of the user.
+     */
+    get userDisplayName(): string;
+    /**
+     * Gets more information about the user.
+     */
+    getUser(): Promise<HelixUser>;
+    /**
+     * The input text given by the user.
+     *
+     * If there is no input to be given, this is an empty string.
+     */
+    get input(): string;
+    /**
+     * The status of the redemption.
+     */
+    get status(): string;
+    /**
+     * The ID of the power up that was redeemed.
+     */
+    get powerUpId(): string;
+    /**
+     * The title of the power up that was redeemed.
+     */
+    get powerUpTitle(): string;
+    /**
+     * The cost of the power up that was redeemed.
+     */
+    get powerUpCost(): number;
+    /**
+     * The description of the power up that was redeemed.
+     */
+    get powerUpPrompt(): string;
+    /**
+     * Gets more information about the power up that was redeemed.
+     */
+    getPowerUp(): Promise<HelixCustomPowerUp>;
+    /**
+     * The time when the user redeemed the power up.
+     */
+    get redemptionDate(): Date;
+}
+
+/** @private */
 interface EventSubBaseConfigBase {
     /**
      * Options to pass to the logger.
@@ -88158,6 +88429,21 @@ declare abstract class EventSubBase extends EventEmitter {
      * @param handler The function that will be called for any new notifications.
      */
     onChannelAutomaticRewardRedemptionAddV2(user: UserIdResolvable, handler: (data: EventSubChannelAutomaticRewardRedemptionAddV2Event) => void): EventSubSubscription;
+    /**
+     * Subscribes to events that represents a Custom Power Up being redeemed.
+     *
+     * @param user The user for which to get notifications for when their power ups are redeemed.
+     * @param handler The function that will be called for any new notifications.
+     */
+    onChannelPowerUpRedemptionAdd(user: UserIdResolvable, handler: (data: EventSubChannelCustomPowerUpAddEvent) => void): EventSubSubscription;
+    /**
+     * Subscribes to events that represent a specific Custom Power Up being redeemed.
+     *
+     * @param user The user for which to get notifications when their power up is redeemed.
+     * @param rewardId The ID of the power up for which to get notifications when it is redeemed.
+     * @param handler The function that will be called for any new notifications.
+     */
+    onChannelPowerUpRedemptionAddForReward(user: UserIdResolvable, rewardId: string, handler: (data: EventSubChannelCustomPowerUpAddEvent) => void): EventSubSubscription;
     /**
      * Subscribes to events that represent a poll starting in a channel.
      *
@@ -89223,7 +89509,7 @@ interface EventSubRevocationPayload {
     subscription: EventSubSubscriptionBody;
 }
 
-export { EventSubAutoModLevel, EventSubAutoModMessageAutoMod, EventSubAutoModMessageAutoModBoundary, EventSubAutoModMessageBlockedTerm, EventSubAutoModMessageHoldEvent, EventSubAutoModMessageHoldReason, EventSubAutoModMessageHoldV2Event, EventSubAutoModMessageUpdateEvent, EventSubAutoModMessageUpdateV2Event, EventSubAutoModResolutionStatus, EventSubAutoModSettingsUpdateEvent, EventSubAutoModTermsUpdateAction, EventSubAutoModTermsUpdateEvent, EventSubAutomaticRewardType, EventSubBase, EventSubBaseConfig, EventSubChannelAdBreakBeginEvent, EventSubChannelAutoModTermsModerationEvent, EventSubChannelAutomaticReward, EventSubChannelAutomaticRewardRedemptionAddEvent, EventSubChannelAutomaticRewardRedemptionAddV2Event, EventSubChannelAutomaticRewardType, EventSubChannelAutomodTermsModerationEventAction, EventSubChannelAutomodTermsModerationEventList, EventSubChannelBanEvasionEvaluation, EventSubChannelBanEvent, EventSubChannelBanModerationEvent, EventSubChannelBitsUseEvent, EventSubChannelBitsUsePowerUp, EventSubChannelBitsUsePowerUpType, EventSubChannelBitsUseType, EventSubChannelCharityAmount, EventSubChannelCharityCampaignProgressEvent, EventSubChannelCharityCampaignStartEvent, EventSubChannelCharityCampaignStopEvent, EventSubChannelCharityDonationEvent, EventSubChannelChatAnnouncementColor, EventSubChannelChatAnnouncementNotificationEvent, EventSubChannelChatBitsBadgeTierNotificationEvent, EventSubChannelChatCharityDonationNotificationEvent, EventSubChannelChatClearEvent, EventSubChannelChatClearUserMessagesEvent, EventSubChannelChatCommunitySubGiftNotificationEvent, EventSubChannelChatGiftPaidUpgradeNotificationEvent, EventSubChannelChatMessageDeleteEvent, EventSubChannelChatMessageEvent, EventSubChannelChatNotificationEvent, EventSubChannelChatNotificationSubTier, EventSubChannelChatNotificationType, EventSubChannelChatPayItForwardNotificationEvent, EventSubChannelChatPrimePaidUpgradeNotificationEvent, EventSubChannelChatRaidNotificationEvent, EventSubChannelChatResubNotificationEvent, EventSubChannelChatSettingsUpdateEvent, EventSubChannelChatSharedChatAnnouncementNotificationEvent, EventSubChannelChatSharedChatCommunitySubGiftNotificationEvent, EventSubChannelChatSharedChatGiftPaidUpgradeNotificationEvent, EventSubChannelChatSharedChatPayItForwardNotificationEvent, EventSubChannelChatSharedChatPrimePaidUpgradeNotificationEvent, EventSubChannelChatSharedChatRaidNotificationEvent, EventSubChannelChatSharedChatResubNotificationEvent, EventSubChannelChatSharedChatSubGiftNotificationEvent, EventSubChannelChatSharedChatSubNotificationEvent, EventSubChannelChatSubGiftNotificationEvent, EventSubChannelChatSubNotificationEvent, EventSubChannelChatUnraidNotificationEvent, EventSubChannelChatUserMessageHoldEvent, EventSubChannelChatUserMessageUpdateEvent, EventSubChannelChatWatchStreakNotificationEvent, EventSubChannelCheerEvent, EventSubChannelClearModerationEvent, EventSubChannelDeleteModerationEvent, EventSubChannelEmoteOnlyModerationEvent, EventSubChannelEmoteOnlyOffModerationEvent, EventSubChannelFollowEvent, EventSubChannelFollowersModerationEvent, EventSubChannelFollowersOffModerationEvent, EventSubChannelGoalBeginEvent, EventSubChannelGoalEndEvent, EventSubChannelGoalProgressEvent, EventSubChannelGoalType, EventSubChannelHypeTrainBeginEvent, EventSubChannelHypeTrainBeginV2Event, EventSubChannelHypeTrainContribution, EventSubChannelHypeTrainContributionType, EventSubChannelHypeTrainEndEvent, EventSubChannelHypeTrainEndV2Event, EventSubChannelHypeTrainProgressEvent, EventSubChannelHypeTrainProgressV2Event, EventSubChannelHypeTrainSharedParticipant, EventSubChannelHypeTrainType, EventSubChannelModModerationEvent, EventSubChannelModerationAction, EventSubChannelModerationEvent, EventSubChannelModeratorEvent, EventSubChannelPollBeginChoice, EventSubChannelPollBeginEvent, EventSubChannelPollChoice, EventSubChannelPollEndEvent, EventSubChannelPollEndStatus, EventSubChannelPollProgressEvent, EventSubChannelPredictionBeginEvent, EventSubChannelPredictionBeginOutcome, EventSubChannelPredictionColor, EventSubChannelPredictionEndEvent, EventSubChannelPredictionEndStatus, EventSubChannelPredictionLockEvent, EventSubChannelPredictionOutcome, EventSubChannelPredictionPredictor, EventSubChannelPredictionProgressEvent, EventSubChannelRaidEvent, EventSubChannelRaidModerationEvent, EventSubChannelRedemptionAddEvent, EventSubChannelRedemptionUpdateEvent, EventSubChannelRewardEvent, EventSubChannelSharedChatBanModerationEvent, EventSubChannelSharedChatDeleteModerationEvent, EventSubChannelSharedChatSessionBeginEvent, EventSubChannelSharedChatSessionEndEvent, EventSubChannelSharedChatSessionParticipant, EventSubChannelSharedChatSessionUpdateEvent, EventSubChannelSharedChatTimeoutModerationEvent, EventSubChannelSharedChatUnbanModerationEvent, EventSubChannelSharedChatUntimeoutModerationEvent, EventSubChannelShieldModeBeginEvent, EventSubChannelShieldModeEndEvent, EventSubChannelShoutoutCreateEvent, EventSubChannelShoutoutReceiveEvent, EventSubChannelSlowModerationEvent, EventSubChannelSlowOffModerationEvent, EventSubChannelSubscribersModerationEvent, EventSubChannelSubscribersOffModerationEvent, EventSubChannelSubscriptionEndEvent, EventSubChannelSubscriptionEndEventTier, EventSubChannelSubscriptionEvent, EventSubChannelSubscriptionEventTier, EventSubChannelSubscriptionGiftEvent, EventSubChannelSubscriptionGiftEventTier, EventSubChannelSubscriptionMessageEvent, EventSubChannelSubscriptionMessageEventTier, EventSubChannelSuspiciousUserLowTrustStatus, EventSubChannelSuspiciousUserMessageEvent, EventSubChannelSuspiciousUserType, EventSubChannelSuspiciousUserUpdateEvent, EventSubChannelTimeoutModerationEvent, EventSubChannelUnbanEvent, EventSubChannelUnbanModerationEvent, EventSubChannelUnbanRequestCreateEvent, EventSubChannelUnbanRequestModerationEvent, EventSubChannelUnbanRequestResolveEvent, EventSubChannelUnbanRequestStatus, EventSubChannelUniqueChatModerationEvent, EventSubChannelUniqueChatOffModerationEvent, EventSubChannelUnmodModerationEvent, EventSubChannelUnraidModerationEvent, EventSubChannelUntimeoutModerationEvent, EventSubChannelUnvipModerationEvent, EventSubChannelUpdateEvent, EventSubChannelVipEvent, EventSubChannelVipModerationEvent, EventSubChannelWarnModerationEvent, EventSubChannelWarningAcknowledgeEvent, EventSubChannelWarningSendEvent, EventSubDropEntitlementGrantEvent, EventSubExtensionBitsTransactionCreateEvent, EventSubListener, EventSubNotificationPayload, EventSubRevocationPayload, EventSubStreamOfflineEvent, EventSubStreamOnlineEvent, EventSubStreamOnlineEventStreamType, EventSubSubscription, EventSubSubscriptionBody, EventSubUserAuthorizationGrantEvent, EventSubUserAuthorizationRevokeEvent, EventSubUserUpdateEvent, EventSubUserWhisperMessageEvent };
+export { EventSubAutoModLevel, EventSubAutoModMessageAutoMod, EventSubAutoModMessageAutoModBoundary, EventSubAutoModMessageBlockedTerm, EventSubAutoModMessageHoldEvent, EventSubAutoModMessageHoldReason, EventSubAutoModMessageHoldV2Event, EventSubAutoModMessageUpdateEvent, EventSubAutoModMessageUpdateV2Event, EventSubAutoModResolutionStatus, EventSubAutoModSettingsUpdateEvent, EventSubAutoModTermsUpdateAction, EventSubAutoModTermsUpdateEvent, EventSubAutomaticRewardType, EventSubBase, EventSubBaseConfig, EventSubChannelAdBreakBeginEvent, EventSubChannelAutoModTermsModerationEvent, EventSubChannelAutomaticReward, EventSubChannelAutomaticRewardRedemptionAddEvent, EventSubChannelAutomaticRewardRedemptionAddV2Event, EventSubChannelAutomaticRewardType, EventSubChannelAutomodTermsModerationEventAction, EventSubChannelAutomodTermsModerationEventList, EventSubChannelBanEvasionEvaluation, EventSubChannelBanEvent, EventSubChannelBanModerationEvent, EventSubChannelBitsUseEvent, EventSubChannelBitsUsePowerUp, EventSubChannelBitsUsePowerUpType, EventSubChannelBitsUseType, EventSubChannelCharityAmount, EventSubChannelCharityCampaignProgressEvent, EventSubChannelCharityCampaignStartEvent, EventSubChannelCharityCampaignStopEvent, EventSubChannelCharityDonationEvent, EventSubChannelChatAnnouncementColor, EventSubChannelChatAnnouncementNotificationEvent, EventSubChannelChatBitsBadgeTierNotificationEvent, EventSubChannelChatCharityDonationNotificationEvent, EventSubChannelChatClearEvent, EventSubChannelChatClearUserMessagesEvent, EventSubChannelChatCommunitySubGiftNotificationEvent, EventSubChannelChatGiftPaidUpgradeNotificationEvent, EventSubChannelChatMessageDeleteEvent, EventSubChannelChatMessageEvent, EventSubChannelChatNotificationEvent, EventSubChannelChatNotificationSubTier, EventSubChannelChatNotificationType, EventSubChannelChatPayItForwardNotificationEvent, EventSubChannelChatPrimePaidUpgradeNotificationEvent, EventSubChannelChatRaidNotificationEvent, EventSubChannelChatResubNotificationEvent, EventSubChannelChatSettingsUpdateEvent, EventSubChannelChatSharedChatAnnouncementNotificationEvent, EventSubChannelChatSharedChatCommunitySubGiftNotificationEvent, EventSubChannelChatSharedChatGiftPaidUpgradeNotificationEvent, EventSubChannelChatSharedChatPayItForwardNotificationEvent, EventSubChannelChatSharedChatPrimePaidUpgradeNotificationEvent, EventSubChannelChatSharedChatRaidNotificationEvent, EventSubChannelChatSharedChatResubNotificationEvent, EventSubChannelChatSharedChatSubGiftNotificationEvent, EventSubChannelChatSharedChatSubNotificationEvent, EventSubChannelChatSubGiftNotificationEvent, EventSubChannelChatSubNotificationEvent, EventSubChannelChatUnraidNotificationEvent, EventSubChannelChatUserMessageHoldEvent, EventSubChannelChatUserMessageUpdateEvent, EventSubChannelChatWatchStreakNotificationEvent, EventSubChannelCheerEvent, EventSubChannelClearModerationEvent, EventSubChannelCustomPowerUpAddEvent, EventSubChannelDeleteModerationEvent, EventSubChannelEmoteOnlyModerationEvent, EventSubChannelEmoteOnlyOffModerationEvent, EventSubChannelFollowEvent, EventSubChannelFollowersModerationEvent, EventSubChannelFollowersOffModerationEvent, EventSubChannelGoalBeginEvent, EventSubChannelGoalEndEvent, EventSubChannelGoalProgressEvent, EventSubChannelGoalType, EventSubChannelHypeTrainBeginEvent, EventSubChannelHypeTrainBeginV2Event, EventSubChannelHypeTrainContribution, EventSubChannelHypeTrainContributionType, EventSubChannelHypeTrainEndEvent, EventSubChannelHypeTrainEndV2Event, EventSubChannelHypeTrainProgressEvent, EventSubChannelHypeTrainProgressV2Event, EventSubChannelHypeTrainSharedParticipant, EventSubChannelHypeTrainType, EventSubChannelModModerationEvent, EventSubChannelModerationAction, EventSubChannelModerationEvent, EventSubChannelModeratorEvent, EventSubChannelPollBeginChoice, EventSubChannelPollBeginEvent, EventSubChannelPollChoice, EventSubChannelPollEndEvent, EventSubChannelPollEndStatus, EventSubChannelPollProgressEvent, EventSubChannelPredictionBeginEvent, EventSubChannelPredictionBeginOutcome, EventSubChannelPredictionColor, EventSubChannelPredictionEndEvent, EventSubChannelPredictionEndStatus, EventSubChannelPredictionLockEvent, EventSubChannelPredictionOutcome, EventSubChannelPredictionPredictor, EventSubChannelPredictionProgressEvent, EventSubChannelRaidEvent, EventSubChannelRaidModerationEvent, EventSubChannelRedemptionAddEvent, EventSubChannelRedemptionUpdateEvent, EventSubChannelRewardEvent, EventSubChannelSharedChatBanModerationEvent, EventSubChannelSharedChatDeleteModerationEvent, EventSubChannelSharedChatSessionBeginEvent, EventSubChannelSharedChatSessionEndEvent, EventSubChannelSharedChatSessionParticipant, EventSubChannelSharedChatSessionUpdateEvent, EventSubChannelSharedChatTimeoutModerationEvent, EventSubChannelSharedChatUnbanModerationEvent, EventSubChannelSharedChatUntimeoutModerationEvent, EventSubChannelShieldModeBeginEvent, EventSubChannelShieldModeEndEvent, EventSubChannelShoutoutCreateEvent, EventSubChannelShoutoutReceiveEvent, EventSubChannelSlowModerationEvent, EventSubChannelSlowOffModerationEvent, EventSubChannelSubscribersModerationEvent, EventSubChannelSubscribersOffModerationEvent, EventSubChannelSubscriptionEndEvent, EventSubChannelSubscriptionEndEventTier, EventSubChannelSubscriptionEvent, EventSubChannelSubscriptionEventTier, EventSubChannelSubscriptionGiftEvent, EventSubChannelSubscriptionGiftEventTier, EventSubChannelSubscriptionMessageEvent, EventSubChannelSubscriptionMessageEventTier, EventSubChannelSuspiciousUserLowTrustStatus, EventSubChannelSuspiciousUserMessageEvent, EventSubChannelSuspiciousUserType, EventSubChannelSuspiciousUserUpdateEvent, EventSubChannelTimeoutModerationEvent, EventSubChannelUnbanEvent, EventSubChannelUnbanModerationEvent, EventSubChannelUnbanRequestCreateEvent, EventSubChannelUnbanRequestModerationEvent, EventSubChannelUnbanRequestResolveEvent, EventSubChannelUnbanRequestStatus, EventSubChannelUniqueChatModerationEvent, EventSubChannelUniqueChatOffModerationEvent, EventSubChannelUnmodModerationEvent, EventSubChannelUnraidModerationEvent, EventSubChannelUntimeoutModerationEvent, EventSubChannelUnvipModerationEvent, EventSubChannelUpdateEvent, EventSubChannelVipEvent, EventSubChannelVipModerationEvent, EventSubChannelWarnModerationEvent, EventSubChannelWarningAcknowledgeEvent, EventSubChannelWarningSendEvent, EventSubDropEntitlementGrantEvent, EventSubExtensionBitsTransactionCreateEvent, EventSubListener, EventSubNotificationPayload, EventSubRevocationPayload, EventSubStreamOfflineEvent, EventSubStreamOnlineEvent, EventSubStreamOnlineEventStreamType, EventSubSubscription, EventSubSubscriptionBody, EventSubUserAuthorizationGrantEvent, EventSubUserAuthorizationRevokeEvent, EventSubUserUpdateEvent, EventSubUserWhisperMessageEvent };
 `],["/node_modules/@types/twurple__eventsub-http/index.d.ts",`import * as _d_fischer_typed_event_emitter from '@d-fischer/typed-event-emitter';
 import { HelixEventSubWebHookTransportOptions, HelixEventSubSubscription } from '@twurple/api';
 import { EventSubBaseConfig, EventSubBase, EventSubSubscription, EventSubListener } from '@twurple/eventsub-base';
