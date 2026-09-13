@@ -854,8 +854,7 @@ input:checked + .jss28 {
 </span></span><span><span>	</span><span class="hljs-attr">&quot;expires_in&quot;</span><span>: </span><span style="color:#6896ba">3600</span><span>,
 </span></span><span><span>	</span><span class="hljs-attr">&quot;scope&quot;</span><span>: [</span><span style="color:#6a8759">&quot;chat:read&quot;</span><span>, </span><span style="color:#6a8759">&quot;chat:edit&quot;</span><span>],
 </span></span><span><span>	</span><span class="hljs-attr">&quot;token_type&quot;</span><span>: </span><span style="color:#6a8759">&quot;bearer&quot;</span><span>
-</span></span><span>}
-</span></code></pre></pre>
+</span></span><span>}</span></code></pre></pre>
 <p>Write down the <code>access_token</code> and <code>refresh_token</code> properties of the response body. These are important for all the other requests you&#x27;re sending to Twitch!</p>
 <h2>3. Create an <code>AuthProvider</code> instance</h2>
 <p>Now you can finally start writing code! First, import all the classes you&#x27;re going to need from <code>@twurple/auth</code> and <code>@twurple/easy-bot</code>.</p>
@@ -887,8 +886,7 @@ With the following change to the constructor, we can add two basic commands:</p>
 </span></span><span><span>			say(</span><span style="color:#6a8759">`</span><span style="color:#e0c46c">${userName}</span><span style="color:#6a8759"> slaps </span><span style="color:#e0c46c">${params.join(</span><span style="color:#e0c46c">&#x27; &#x27;</span><span style="color:#e0c46c">)}</span><span style="color:#6a8759"> around a bit with a large trout`</span><span>);
 </span></span><span>		})
 </span><span>	]
-</span><span>});
-</span></code></pre></pre>
+</span><span>});</span></code></pre></pre>
 <p>These commands can now be accessed using <code>!dice</code> and <code>!slap AnotherUser</code> in the joined channel(s).</p>
 <p>Handling subscriptions (and lots of other events) is also pretty easy.</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss29" style="white-space:pre-wrap"><span><span>bot.onSub(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">{ broadcasterName, userName }</span><span class="hljs-function">) =&gt;</span><span> {
@@ -901,8 +899,7 @@ With the following change to the constructor, we can add two basic commands:</p>
 </span><span>
 </span><span><span>bot.onSubGift(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">{ broadcasterName, gifterName, userName }</span><span class="hljs-function">) =&gt;</span><span> {
 </span></span><span><span>	bot.say(broadcasterName, </span><span style="color:#6a8759">`Thanks to @</span><span style="color:#e0c46c">${gifterName}</span><span style="color:#6a8759"> for gifting a subscription to @</span><span style="color:#e0c46c">${userName}</span><span style="color:#6a8759">!`</span><span>);
-</span></span><span>});
-</span></code></pre></pre>
+</span></span><span>});</span></code></pre></pre>
 <p>Now you have a working bot! Until you have to restart it a few hours later...</p>
 <h2>6. Setting up automatic token refreshing</h2>
 <p>Fortunately, with the access token in step 2, we also got a refresh token! <em>(You wrote that down, didn&#x27;t you?)</em></p>
@@ -939,8 +936,7 @@ The bot looks for the <code>chat</code> intent by default.</p>
 </span></span><span><span>	</span><span class="hljs-attr">&quot;refreshToken&quot;</span><span>: </span><span style="color:#6a8759">&quot;eyJfaWQmNzMtNGCJ9%6VFV5LNrZFUj8oU231/3Aj&quot;</span><span>,
 </span></span><span><span>	</span><span class="hljs-attr">&quot;expiresIn&quot;</span><span>: </span><span style="color:#6896ba">0</span><span>,
 </span></span><span><span>	</span><span class="hljs-attr">&quot;obtainmentTimestamp&quot;</span><span>: </span><span style="color:#6896ba">0</span><span>
-</span></span><span>}
-</span></code></pre></pre>
+</span></span><span>}</span></code></pre></pre>
 <p>I also added two new properties called <code>expiresIn</code> and <code>obtainmentTimestamp</code>. They will save the expiry time of the access token so the client can determine when to refresh the token without making a failing call first. If you didn&#x27;t get a current timetamp when sending the manual code request (you probably didn&#x27;t - I wouldn&#x27;t either), you can initialize them to zero to always make a refresh call in the beginning.</p>
 <p>Now, we can parse this JSON file on startup, load the tokens from it and when the tokens refresh,
 save them back into the same file. (We&#x27;re adding the user ID to the file name dynamically in the callback to make it easy to extend to multiple users later.)</p>
@@ -1004,8 +1000,7 @@ save them back into the same file. (We&#x27;re adding the user ID to the file na
 </span></span><span>});
 </span><span><span>bot.onSubGift(</span><span class="hljs-function">(</span><span class="hljs-function" style="color:#b9b9b9">{ broadcasterName, gifterName, userName }</span><span class="hljs-function">) =&gt;</span><span> {
 </span></span><span><span>	bot.say(broadcasterName, </span><span style="color:#6a8759">`Thanks to @</span><span style="color:#e0c46c">${gifterName}</span><span style="color:#6a8759"> for gifting a subscription to @</span><span style="color:#e0c46c">${userName}</span><span style="color:#6a8759">!`</span><span>);
-</span></span><span>});
-</span></code></pre></pre></div></div></div></div></div>
+</span></span><span>});</span></code></pre></pre></div></div></div></div></div>
 <script src="/versions/main/pe.js"></script>
 </body>
 </html>

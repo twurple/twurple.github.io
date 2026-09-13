@@ -840,8 +840,7 @@ as opposed to the default logger, the default level of <code>warning</code> does
 </span></span><span><span>			</span><span style="color:#7f7f7f">// ... send to whatever ...</span><span>
 </span></span><span>		}
 </span><span>	}
-</span><span>})
-</span></code></pre></pre>
+</span><span>})</span></code></pre></pre>
 <p>The <code>level</code> parameter is a member of the <a class="jss22" href="https://github.com/d-fischer/logger/blob/b021ee7ed84499a4d090c351487bda16c1dd617e/src/LogLevel.ts#L3-L10"><code>LogLevel</code> enum</a>
 which you should import from the <a class="jss22" href="https://www.npmjs.com/package/@d-fischer/logger"><code>@d-fischer/logger</code> package</a>
 to transform it back into a string rather than reversing the level manually with a <code>switch</code> or multiple <code>if</code> statements.</p>
@@ -859,8 +858,7 @@ to transform it back into a string rather than reversing the level manually with
 </span><span><span>			</span><span style="color:#7f7f7f">// ... more level specific handling ...</span><span>
 </span></span><span>		}
 </span><span>	}
-</span><span>})
-</span></code></pre></pre>
+</span><span>})</span></code></pre></pre>
 <p>In the object form, you have to supply a generic function named <code>log</code> which is similar to the function form above.</p>
 <p>But additionally, you can implement different functions that act differently for specific log levels.
 The log messages covered by these methods will <em>not</em> go through the <code>log</code> function.</p>

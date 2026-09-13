@@ -874,8 +874,7 @@ or use the <code>asUser</code> or <code>asIntent</code> methods on the <a class=
 </span></span><span class="jss30"><span></span><span style="color:#cb7832">await</span><span> apiClient.asUser(
 </span></span><span class="jss30">	moderator,
 </span><span class="jss30"><span>	</span><span style="color:#cb7832">async</span><span> ctx =&gt; </span><span style="color:#cb7832">await</span><span> ctx.moderation.deleteChatMessages(broadcaster, messageId)
-</span></span><span class="jss30">)
-</span></code></pre></pre>
+</span></span><span class="jss30">)</span></code></pre></pre>
 <p>This applies to the following methods:</p>
 <ul>
 <li><a class="jss22" href="/versions/main/reference/api/classes/HelixChannelApi.html#getChannelFollowers" data-discover="true">HelixChannelApi#getChannelFollowers</a>, <a class="jss22" href="/versions/main/reference/api/classes/HelixChannelApi.html#getChannelFollowersPaginated" data-discover="true">HelixChannelApi#getChannelFollowersPaginated</a></li>
@@ -920,8 +919,7 @@ The function <a class="jss22" href="/versions/main/reference/chat/functions/pars
 </span></span><span class="jss31"><span>	</span><span style="color:#cb7832">const</span><span> parts = msg.parseEmotes();
 </span></span><span class="jss30"><span>	</span><span style="color:#cb7832">const</span><span> parts = parseChatMessage(text, msg.emoteOffsets);
 </span></span><span><span>  </span><span style="color:#7f7f7f">// more code</span><span>
-</span></span><span>});
-</span></code></pre></pre>
+</span></span><span>});</span></code></pre></pre>
 <p>The function accepts a cheermote list as an optional third parameter,
 but rather than taking an array of full objects like <code>parseEmotesAndBits</code> took, it takes just an array of names.<br/>
 <!-- -->The format parameter was completely removed,
@@ -932,8 +930,7 @@ on the instance you have already fetched for getting the list of names.</p>
 </span></span><span class="jss31"><span>	</span><span style="color:#cb7832">const</span><span> parts = msg.parseEmotesAndBits(cheermotes, { background, state, scale });
 </span></span><span class="jss30"><span>	</span><span style="color:#cb7832">const</span><span> parts = parseChatMessage(text, msg.emoteOffsets, cheermotes.getPossibleNames());
 </span></span><span><span>	</span><span style="color:#7f7f7f">// more code</span><span>
-</span></span><span>});
-</span></code></pre></pre>
+</span></span><span>});</span></code></pre></pre>
 <h2>Update error handling</h2>
 <p>When authentication and token refreshing fails, <a class="jss22" href="/versions/main/reference/auth/classes/RefreshingAuthProvider.html" data-discover="true">RefreshingAuthProvider</a> will now cache that failure.
 This results means that attempts to use authentication for the users that failed

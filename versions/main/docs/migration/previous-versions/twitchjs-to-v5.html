@@ -901,8 +901,7 @@ have been renamed, and the old counterparts were deprecated. Please check your u
 </span></span><span class="jss30"><span>	</span><span class="hljs-attr">logger</span><span>: {
 </span></span><span class="jss30"><span>		</span><span class="hljs-attr">minLevel</span><span>: </span><span style="color:#6a8759">&#x27;debug&#x27;</span><span>
 </span></span><span class="jss30">	}
-</span><span>});
-</span></code></pre></pre>
+</span><span>});</span></code></pre></pre>
 <div class="jss23"><h3 class="jss24">Easier logger configuration</h3><p>You probably want to check out the new global <a class="jss22" href="/versions/main/docs/getting-data/logging/configuration.html" data-discover="true">logging configuration</a> via environment variables.</p><p>In most cases, it&#x27;s much easier to set up.</p></div>
 <h2>Replace <code>RefreshableAuthProvider</code> with <a class="jss22" href="/versions/main/reference/auth/classes/RefreshingAuthProvider.html" data-discover="true">RefreshingAuthProvider</a> &amp; make use of the new fully serializable <a class="jss22" href="/versions/main/reference/auth/interfaces/AccessToken.html" data-discover="true">AccessToken</a> interface</h2>
 <p>The old <code>RefreshableAuthProvider</code> was clunky to use. It was initially intended to make it easy to add refreshing
@@ -943,8 +942,7 @@ which doesn&#x27;t need to wrap another provider anymore. Its parameters are div
 </span><span class="jss30"><span>		</span><span class="hljs-attr">onRefresh</span><span>: </span><span style="color:#cb7832">async</span><span> newTokenData =&gt; </span><span style="color:#cb7832">await</span><span> fs.writeFile(</span><span style="color:#6a8759">&#x27;./tokens.json&#x27;</span><span>, </span><span style="color:#e0c46c">JSON</span><span>.stringify(newTokenData, </span><span style="color:#6896ba">null</span><span>, </span><span style="color:#6896ba">4</span><span>), </span><span style="color:#6a8759">&#x27;utf-8&#x27;</span><span>)
 </span></span><span class="jss30">	},
 </span><span class="jss30">	tokenData
-</span><span class="jss30">);
-</span></code></pre></pre>
+</span><span class="jss30">);</span></code></pre></pre>
 <h2>Use <code>AuthProvider</code>s directly</h2>
 <p>Previously, <a class="jss22" href="/versions/main/reference/api/classes/ApiClient.html" data-discover="true">ApiClient</a> exposed a few helper methods to instantiate it with an <a class="jss22" href="/versions/main/reference/auth/interfaces/AuthProvider.html" data-discover="true">AuthProvider</a> created internally.</p>
 <p>In order to decouple these components from each other, these helpers were removed.

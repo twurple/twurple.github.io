@@ -849,8 +849,7 @@ this can quickly lead to spam and rate limit violations.</p>
 </span></span><span><span>	} </span><span style="color:#cb7832">else</span><span> {
 </span></span><span><span>		chatClient.say(channel, </span><span style="color:#6a8759">`Thanks </span><span style="color:#e0c46c">${gifterName}</span><span style="color:#6a8759"> for gifting a sub to </span><span style="color:#e0c46c">${recipientName}</span><span style="color:#6a8759">!`</span><span>);
 </span></span><span>	}
-</span><span>});
-</span></code></pre></div></pre>
+</span><span>});</span></code></pre></div></pre>
 <p>If you use <code>@twurple/easy-bot</code>, the required information is included in the event object:</p>
 <pre><div data-dynamic-component="CodeBlock" data-component-props="{&quot;lang&quot;:&quot;ts&quot;,&quot;langMeta&quot;:[&quot;twoslash&quot;],&quot;text&quot;:&quot;// @module: esnext\n// @target: esnext\n// @lib: es2015\nimport { Bot } from &#x27;@twurple/easy-bot&#x27;;\ndeclare const bot: Bot;\n// ---cut---\nbot.onCommunitySub(e =&gt; {\n\tconst { channel, gifterName, count } = e;\n\t// ...\n});\n\nbot.onSubGift(e =&gt; {\n\tconst { broadcasterName: channel, userName: recipientName, gifterName } = e;\n\t// ...\n});&quot;}"><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="language-ts" style="white-space:pre-wrap"><span><span>bot.onCommunitySub(</span><span class="hljs-function" style="color:#b9b9b9">e</span><span class="hljs-function"> =&gt;</span><span> {
 </span></span><span><span>	</span><span style="color:#cb7832">const</span><span> { channel, gifterName, count } = e;
@@ -860,8 +859,7 @@ this can quickly lead to spam and rate limit violations.</p>
 </span><span><span>bot.onSubGift(</span><span class="hljs-function" style="color:#b9b9b9">e</span><span class="hljs-function"> =&gt;</span><span> {
 </span></span><span><span>	</span><span style="color:#cb7832">const</span><span> { </span><span class="hljs-attr">broadcasterName</span><span>: channel, </span><span class="hljs-attr">userName</span><span>: recipientName, gifterName } = e;
 </span></span><span><span>	</span><span style="color:#7f7f7f">// ...</span><span>
-</span></span><span>});
-</span></code></pre></div></pre></div></div></div></div></div>
+</span></span><span>});</span></code></pre></div></pre></div></div></div></div></div>
 <script src="/versions/main/pe.js"></script>
 </body>
 </html>

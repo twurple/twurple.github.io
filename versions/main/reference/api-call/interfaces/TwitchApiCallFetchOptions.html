@@ -867,15 +867,13 @@ in order to not conflict with the internally used properties.</p></div>
 (assuming that RequestInit is the global type from the dom lib):</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss31" style="white-space:pre-wrap"><span><span style="color:#cb7832">declare</span><span> </span><span style="color:#e0c46c">module</span><span> </span><span style="color:#6a8759">&#x27;@twurple/api-call&#x27;</span><span> {
 </span></span><span><span>    </span><span style="color:#cb7832">export</span><span> </span><span style="color:#cb7832">interface</span><span> TwitchApiCallFetchOptions </span><span style="color:#cb7832">extends</span><span> Omit&lt;RequestInit, &#x27;headers&#x27; | &#x27;method&#x27; | &#x27;body&#x27;&gt; {}
-</span></span><span>}
-</span></code></pre></pre>
+</span></span><span>}</span></code></pre></pre>
 <p>To make use of the node-fetch options, merge them into this like so:</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss31" style="white-space:pre-wrap"><span><span style="color:#cb7832">import</span><span> </span><span style="color:#cb7832">type</span><span> { RequestInit </span><span style="color:#cb7832">as</span><span> NodeRequestInit } </span><span style="color:#cb7832">from</span><span> </span><span style="color:#6a8759">&#x27;node-fetch&#x27;</span><span>;
 </span></span><span>
 </span><span><span></span><span style="color:#cb7832">declare</span><span> </span><span style="color:#e0c46c">module</span><span> </span><span style="color:#6a8759">&#x27;@twurple/api-call&#x27;</span><span> {
 </span></span><span><span>    </span><span style="color:#cb7832">export</span><span> </span><span style="color:#cb7832">interface</span><span> TwitchApiCallFetchOptions </span><span style="color:#cb7832">extends</span><span> Omit&lt;NodeRequestInit, &#x27;headers&#x27; | &#x27;method&#x27; | &#x27;body&#x27;&gt; {}
-</span></span><span>}
-</span></code></pre></pre></div><div class="jss34 jss19">{<!-- -->}</div></div></main></div></div></div>
+</span></span><span>}</span></code></pre></pre></div><div class="jss34 jss19">{<!-- -->}</div></div></main></div></div></div>
 <script src="/versions/main/pe.js"></script>
 </body>
 </html>

@@ -792,15 +792,13 @@ which in turn means that you can&#x27;t join channels or send messages yet.</p>
 <p>Instead, you should use the <code>onAuthenticationSuccess</code> event to send messages.</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss23" style="white-space:pre-wrap"><span><span>chatClient.onAuthenticationSuccess(</span><span class="hljs-function">() =&gt;</span><span> {
 </span></span><span><span>	chatClient.say(</span><span style="color:#6a8759">&#x27;someone&#x27;</span><span>, </span><span style="color:#6a8759">&#x27;Hello, I\&#x27;m now connected!&#x27;</span><span>);
-</span></span><span>})
-</span></code></pre></pre>
+</span></span><span>})</span></code></pre></pre>
 <p>For joining channels, the <code>channels</code> option exists in the constructor of the <code>ChatClient</code> class.
 You can even pass an async function to it to dynamically access a possibly changing set of channels:</p>
 <pre><pre style="display:block;overflow-x:auto;padding:0.5em;background:#2b2b2b;color:#bababa"><code class="jss23" style="white-space:pre-wrap"><span><span style="color:#cb7832">const</span><span> chatClient = </span><span style="color:#cb7832">new</span><span> ChatClient({
 </span></span><span>	authProvider,
 </span><span><span>	</span><span class="hljs-attr">channels</span><span>: </span><span style="color:#cb7832">async</span><span> () =&gt; </span><span style="color:#cb7832">await</span><span> someDatabase.select(</span><span style="color:#6a8759">&#x27;twitchUsername&#x27;</span><span>).from(</span><span style="color:#6a8759">&#x27;users&#x27;</span><span>).fetchAll().map(</span><span class="hljs-function" style="color:#b9b9b9">u</span><span class="hljs-function"> =&gt;</span><span> u.twitchUsername)
-</span></span><span>})
-</span></code></pre></pre>
+</span></span><span>})</span></code></pre></pre>
 <h2>Why does <code>EventSubMiddleware</code> show the error &quot;The request body was already consumed by something else&quot;, and how do I fix it?</h2>
 <p>This happens because you&#x27;re using conflicting middleware that parses the body, such as:</p>
 <ul>
